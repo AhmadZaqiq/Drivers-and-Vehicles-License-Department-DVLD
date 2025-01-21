@@ -1,0 +1,18 @@
+D:\C++ && C#\DVLD Business\obj\Debug\DVLD Business.csproj.AssemblyReference.cache
+D:\C++ && C#\DVLD Business\obj\Debug\DVLD Business.csproj.CoreCompileInputs.cache
+D:\C++ && C#\DVLD Business\bin\Debug\DVLD Business.dll
+D:\C++ && C#\DVLD Business\bin\Debug\DVLD Business.pdb
+D:\C++ && C#\DVLD Business\bin\Debug\DVLD Data Access.dll
+D:\C++ && C#\DVLD Business\bin\Debug\DVLD Data Access.pdb
+D:\C++ && C#\DVLD Business\obj\Debug\DVLD Business.csproj.CopyComplete
+D:\C++ && C#\DVLD Business\obj\Debug\DVLD Business.dll
+D:\C++ && C#\DVLD Business\obj\Debug\DVLD Business.pdb
+D:\C++ && C#\DVLD\DVLD Business\bin\Debug\DVLD Business.dll
+D:\C++ && C#\DVLD\DVLD Business\bin\Debug\DVLD Business.pdb
+D:\C++ && C#\DVLD\DVLD Business\bin\Debug\DVLD Data Access.dll
+D:\C++ && C#\DVLD\DVLD Business\bin\Debug\DVLD Data Access.pdb
+D:\C++ && C#\DVLD\DVLD Business\obj\Debug\DVLD Business.csproj.AssemblyReference.cache
+D:\C++ && C#\DVLD\DVLD Business\obj\Debug\DVLD Business.csproj.CoreCompileInputs.cache
+D:\C++ && C#\DVLD\DVLD Business\obj\Debug\DVLD Business.csproj.CopyComplete
+D:\C++ && C#\DVLD\DVLD Business\obj\Debug\DVLD Business.dll
+D:\C++ && C#\DVLD\DVLD Business\obj\Debug\DVLD Business.pdb
