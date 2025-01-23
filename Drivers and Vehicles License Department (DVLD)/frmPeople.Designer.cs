@@ -30,11 +30,14 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmPeople));
             this.dgvPeople = new System.Windows.Forms.DataGridView();
-            this.pbPeople = new System.Windows.Forms.PictureBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.cbFilter = new System.Windows.Forms.ComboBox();
-            this.txtFilter = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.lblRecordsCount = new System.Windows.Forms.Label();
+            this.btnCloseForm = new System.Windows.Forms.Button();
+            this.pbPeople = new System.Windows.Forms.PictureBox();
+            this.txtFilter = new System.Windows.Forms.MaskedTextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgvPeople)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbPeople)).BeginInit();
             this.SuspendLayout();
@@ -46,18 +49,9 @@
             this.dgvPeople.GridColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.dgvPeople.Location = new System.Drawing.Point(10, 263);
             this.dgvPeople.Name = "dgvPeople";
+            this.dgvPeople.ReadOnly = true;
             this.dgvPeople.Size = new System.Drawing.Size(1446, 327);
             this.dgvPeople.TabIndex = 1;
-            // 
-            // pbPeople
-            // 
-            this.pbPeople.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.pbPeople.Image = global::Drivers_and_Vehicles_License_Department__DVLD_.Properties.Resources.People__2_;
-            this.pbPeople.Location = new System.Drawing.Point(703, 12);
-            this.pbPeople.Name = "pbPeople";
-            this.pbPeople.Size = new System.Drawing.Size(78, 75);
-            this.pbPeople.TabIndex = 2;
-            this.pbPeople.TabStop = false;
             // 
             // label1
             // 
@@ -91,21 +85,67 @@
             this.cbFilter.TabIndex = 5;
             this.cbFilter.SelectedIndexChanged += new System.EventHandler(this.cbFilter_SelectedIndexChanged);
             // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(7, 606);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(72, 17);
+            this.label3.TabIndex = 7;
+            this.label3.Text = "# Records:";
+            // 
+            // lblRecordsCount
+            // 
+            this.lblRecordsCount.AutoSize = true;
+            this.lblRecordsCount.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblRecordsCount.Location = new System.Drawing.Point(85, 606);
+            this.lblRecordsCount.Name = "lblRecordsCount";
+            this.lblRecordsCount.Size = new System.Drawing.Size(72, 17);
+            this.lblRecordsCount.TabIndex = 8;
+            this.lblRecordsCount.Text = "# Records:";
+            // 
+            // btnCloseForm
+            // 
+            this.btnCloseForm.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCloseForm.Font = new System.Drawing.Font("Segoe UI Black", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCloseForm.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnCloseForm.Location = new System.Drawing.Point(1318, 606);
+            this.btnCloseForm.Name = "btnCloseForm";
+            this.btnCloseForm.Size = new System.Drawing.Size(138, 43);
+            this.btnCloseForm.TabIndex = 9;
+            this.btnCloseForm.Text = "Colse";
+            this.btnCloseForm.UseVisualStyleBackColor = true;
+            this.btnCloseForm.Click += new System.EventHandler(this.btnCloseForm_Click);
+            // 
+            // pbPeople
+            // 
+            this.pbPeople.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.pbPeople.Image = global::Drivers_and_Vehicles_License_Department__DVLD_.Properties.Resources.People__2_;
+            this.pbPeople.Location = new System.Drawing.Point(703, 12);
+            this.pbPeople.Name = "pbPeople";
+            this.pbPeople.Size = new System.Drawing.Size(78, 75);
+            this.pbPeople.TabIndex = 2;
+            this.pbPeople.TabStop = false;
+            // 
             // txtFilter
             // 
-            this.txtFilter.Location = new System.Drawing.Point(254, 227);
+            this.txtFilter.Location = new System.Drawing.Point(242, 227);
             this.txtFilter.Name = "txtFilter";
             this.txtFilter.Size = new System.Drawing.Size(273, 25);
-            this.txtFilter.TabIndex = 6;
-            this.txtFilter.Visible = false;
+            this.txtFilter.TabIndex = 12;
+            this.txtFilter.TextChanged += new System.EventHandler(this.txtFilter_TextChanged);
             // 
             // frmPeople
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(1468, 632);
+            this.ClientSize = new System.Drawing.Size(1468, 653);
             this.Controls.Add(this.txtFilter);
+            this.Controls.Add(this.btnCloseForm);
+            this.Controls.Add(this.lblRecordsCount);
+            this.Controls.Add(this.label3);
             this.Controls.Add(this.cbFilter);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
@@ -131,6 +171,9 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.ComboBox cbFilter;
-        private System.Windows.Forms.TextBox txtFilter;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label lblRecordsCount;
+        private System.Windows.Forms.Button btnCloseForm;
+        private System.Windows.Forms.MaskedTextBox txtFilter;
     }
 }

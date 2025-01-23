@@ -14,5 +14,10 @@ namespace DVLD_Business
         {
             return clsPeopleData.PeopleData();
         }
+
+        public static int GetPeopleCount()
+        {
+            return clsPeopleData.PeopleCount();
+        }
     }
 }

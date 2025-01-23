@@ -47,19 +47,57 @@ namespace Drivers_and_Vehicles_License_Department__DVLD_
 
             _FillComboBox();
 
+            lblRecordsCount.Text = clsPeople.GetPeopleCount().ToString();
+        }
+
+        private void txtFilter_TextChanged(object sender, EventArgs e)
+        {
+            string filterColumn = cbFilter.SelectedItem.ToString();
+            string SearchText = txtFilter.Text;
+
+            if (string.IsNullOrEmpty(SearchText))
+            {
+                dgvPeople.DataSource = clsPeople.GetAllPeople();
+            }
+            else
+            {
+                DataView dv = new DataView(clsPeople.GetAllPeople());
+                dv.RowFilter = $"CONVERT([{filterColumn}], System.String) LIKE '{SearchText}%'";
+                dgvPeople.DataSource = dv;
+            }
         }
 
         private void cbFilter_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (cbFilter.SelectedIndex==0)
+            if (cbFilter.SelectedItem.ToString() == "None")
             {
                 txtFilter.Visible = false;
             }
             else
             {
                 txtFilter.Visible = true;
+
             }
+
+            if (cbFilter.SelectedItem.ToString() == "PersonID" || cbFilter.SelectedItem.ToString() == "DateOfBirth" || cbFilter.SelectedItem.ToString() == "Phone")
+            {
+                txtFilter.Mask = "0000000000";
+                txtFilter.PromptChar = ' ';
+            }
+
+            else
+            {
+                txtFilter.Mask = "";
+            }
+
+            txtFilter.Focus();
         }
+
+        private void btnCloseForm_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
 
     }
 }

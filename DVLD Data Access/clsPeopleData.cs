@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace DVLD_Data_Access
 {
-     public class clsPeopleData
+    public class clsPeopleData
     {
         public static DataTable PeopleData()
         {
@@ -16,7 +16,7 @@ namespace DVLD_Data_Access
 
             SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString);
 
-            string query = "SELECT PersonID, NationalNo, FirstName, Secondname, ThirdName, LastName, DateOfBirth, Gendor, Address, Phone, Email, NationalityCountryID FROM People";
+            string query = "Select * From People_View";
 
             SqlCommand command = new SqlCommand(query, connection);
 
@@ -44,6 +44,42 @@ namespace DVLD_Data_Access
             }
 
             return dt;
+        }
+
+        public static int PeopleCount()
+        {
+            int CountofPeople = 0;
+
+            SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString);
+
+            string query = "SELECT Count(*) FROM People";
+
+            SqlCommand command = new SqlCommand(query, connection);
+
+            try
+            {
+                connection.Open();
+
+                object Result = command.ExecuteScalar();
+
+                if (Result != null)
+                {
+                    CountofPeople = Convert.ToInt32(Result);
+                }
+
+            }
+
+            catch (Exception ex)
+            {
+
+            }
+
+            finally
+            {
+                connection.Close();
+            }
+
+            return CountofPeople;
         }
 
     }
