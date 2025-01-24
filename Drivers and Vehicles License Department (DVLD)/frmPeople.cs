@@ -98,6 +98,10 @@ namespace Drivers_and_Vehicles_License_Department__DVLD_
             this.Close();
         }
 
-
+        private void btnAddNewPerson_Click(object sender, EventArgs e)
+        {
+            frmAddAndUpdatePeople frmAddAndUpdatePeople = new frmAddAndUpdatePeople();
+            frmAddAndUpdatePeople.ShowDialog();
+        }
     }
 }

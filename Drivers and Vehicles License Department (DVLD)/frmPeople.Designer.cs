@@ -36,8 +36,9 @@
             this.label3 = new System.Windows.Forms.Label();
             this.lblRecordsCount = new System.Windows.Forms.Label();
             this.btnCloseForm = new System.Windows.Forms.Button();
-            this.pbPeople = new System.Windows.Forms.PictureBox();
             this.txtFilter = new System.Windows.Forms.MaskedTextBox();
+            this.btnAddNewPerson = new System.Windows.Forms.Button();
+            this.pbPeople = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgvPeople)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbPeople)).BeginInit();
             this.SuspendLayout();
@@ -118,6 +119,25 @@
             this.btnCloseForm.UseVisualStyleBackColor = true;
             this.btnCloseForm.Click += new System.EventHandler(this.btnCloseForm_Click);
             // 
+            // txtFilter
+            // 
+            this.txtFilter.Location = new System.Drawing.Point(242, 227);
+            this.txtFilter.Name = "txtFilter";
+            this.txtFilter.Size = new System.Drawing.Size(273, 25);
+            this.txtFilter.TabIndex = 12;
+            this.txtFilter.TextChanged += new System.EventHandler(this.txtFilter_TextChanged);
+            // 
+            // btnAddNewPerson
+            // 
+            this.btnAddNewPerson.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAddNewPerson.Image = global::Drivers_and_Vehicles_License_Department__DVLD_.Properties.Resources.Add_Person;
+            this.btnAddNewPerson.Location = new System.Drawing.Point(1371, 177);
+            this.btnAddNewPerson.Name = "btnAddNewPerson";
+            this.btnAddNewPerson.Size = new System.Drawing.Size(85, 80);
+            this.btnAddNewPerson.TabIndex = 13;
+            this.btnAddNewPerson.UseVisualStyleBackColor = true;
+            this.btnAddNewPerson.Click += new System.EventHandler(this.btnAddNewPerson_Click);
+            // 
             // pbPeople
             // 
             this.pbPeople.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
@@ -128,20 +148,13 @@
             this.pbPeople.TabIndex = 2;
             this.pbPeople.TabStop = false;
             // 
-            // txtFilter
-            // 
-            this.txtFilter.Location = new System.Drawing.Point(242, 227);
-            this.txtFilter.Name = "txtFilter";
-            this.txtFilter.Size = new System.Drawing.Size(273, 25);
-            this.txtFilter.TabIndex = 12;
-            this.txtFilter.TextChanged += new System.EventHandler(this.txtFilter_TextChanged);
-            // 
             // frmPeople
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1468, 653);
+            this.Controls.Add(this.btnAddNewPerson);
             this.Controls.Add(this.txtFilter);
             this.Controls.Add(this.btnCloseForm);
             this.Controls.Add(this.lblRecordsCount);
@@ -175,5 +188,6 @@
         private System.Windows.Forms.Label lblRecordsCount;
         private System.Windows.Forms.Button btnCloseForm;
         private System.Windows.Forms.MaskedTextBox txtFilter;
+        private System.Windows.Forms.Button btnAddNewPerson;
     }
 }
