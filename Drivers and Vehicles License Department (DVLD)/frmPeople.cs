@@ -20,7 +20,7 @@ namespace Drivers_and_Vehicles_License_Department__DVLD_
 
         private void _FillComboBox()
         {
-            DataTable peopleTable = clsPeople.GetAllPeople();
+            DataTable peopleTable = clsPerson.GetAllPeople();
 
             dgvPeople.DataSource = peopleTable;
 
@@ -38,7 +38,7 @@ namespace Drivers_and_Vehicles_License_Department__DVLD_
 
         private void _FillDataGridOfPeople()
         {
-            dgvPeople.DataSource = clsPeople.GetAllPeople();
+            dgvPeople.DataSource = clsPerson.GetAllPeople();
         }
 
         private void frmPeople_Load(object sender, EventArgs e)
@@ -47,7 +47,7 @@ namespace Drivers_and_Vehicles_License_Department__DVLD_
 
             _FillComboBox();
 
-            lblRecordsCount.Text = clsPeople.GetPeopleCount().ToString();
+            lblRecordsCount.Text = clsPerson.GetPeopleCount().ToString();
         }
 
         private void txtFilter_TextChanged(object sender, EventArgs e)
@@ -57,11 +57,11 @@ namespace Drivers_and_Vehicles_License_Department__DVLD_
 
             if (string.IsNullOrEmpty(SearchText))
             {
-                dgvPeople.DataSource = clsPeople.GetAllPeople();
+                dgvPeople.DataSource = clsPerson.GetAllPeople();
             }
             else
             {
-                DataView dv = new DataView(clsPeople.GetAllPeople());
+                DataView dv = new DataView(clsPerson.GetAllPeople());
                 dv.RowFilter = $"CONVERT([{filterColumn}], System.String) LIKE '{SearchText}%'";
                 dgvPeople.DataSource = dv;
             }
@@ -102,6 +102,12 @@ namespace Drivers_and_Vehicles_License_Department__DVLD_
         {
             frmAddAndUpdatePeople frmAddAndUpdatePeople = new frmAddAndUpdatePeople();
             frmAddAndUpdatePeople.ShowDialog();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            FormTest formTest= new FormTest();
+            formTest.ShowDialog();
         }
     }
 }

@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
+using System.Linq.Expressions;
+using System.Runtime.Remoting.Messaging;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -80,6 +82,66 @@ namespace DVLD_Data_Access
             }
 
             return CountofPeople;
+        }
+
+        public static bool FindPersonByID(int PersonID, ref string NationalNo, ref string FirstName, ref string SecondName, ref string ThirdName, ref string LastName, ref DateTime DateOfBirth, ref int Gendor, ref string Address, ref string Phone, ref string Email, ref string ImagePath, ref string CountryName)
+        {
+            bool IsFound = false;
+
+            SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString);
+
+            string query = "SELECT PersonID, NationalNo, FirstName, SecondName, ThirdName, LastName, DateOfBirth, Gendor, Address, Phone, Email,ImagePath ,Countries.CountryName " +
+                           "FROM People " +
+                           "JOIN Countries ON People.NationalityCountryID = Countries.CountryID " +
+                           "WHERE People.PersonID = @PersonID;";
+
+            SqlCommand command = new SqlCommand(query, connection);
+
+            command.Parameters.AddWithValue("@PersonID", PersonID);
+
+            try
+            {
+                connection.Open();
+
+                SqlDataReader reader = command.ExecuteReader();
+
+                if (reader.Read())
+                {
+
+                    IsFound = true;
+
+                    NationalNo = (string)reader["NationalNo"];
+                    FirstName = (string)reader["FirstName"];
+                    SecondName = (string)reader["SecondName"];
+                    ThirdName = (string)reader["ThirdName"];
+                    LastName = (string)reader["LastName"];
+                    DateOfBirth = (DateTime)reader["DateOfBirth"];
+                    Gendor = (int)reader["Gendor"];
+                    Address = (string)reader["Address"];
+                    Phone = (string)reader["Phone"];
+                    Email = (string)reader["Email"];
+                    ImagePath = (string)reader["ImagePath"];
+                    CountryName = (string)reader["CountryName"];
+                }
+
+                else
+                {
+                    IsFound = false;
+                }
+
+                reader.Close();
+            }
+
+            catch (Exception ex) { }
+
+            finally
+            {
+
+                connection.Close();
+            }
+
+            return IsFound;
+
         }
     }
 }
