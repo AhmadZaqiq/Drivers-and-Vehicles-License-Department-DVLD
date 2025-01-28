@@ -7,7 +7,6 @@ namespace DVLD_Business
     public class clsPerson
     {
         public int PersonID { set; get; }
-        public int Gendor { set; get; }
         public string NationalNo { set; get; }
         public string FirstName { set; get; }
         public string SecondName { set; get; }
@@ -18,12 +17,13 @@ namespace DVLD_Business
         public string Email { set; get; }
         public string CountryName { set; get; }
         public DateTime DateOfBirth { set; get; }
+        public string Gendor { set; get; }
         public string ImagePath { set; get; }
 
         public clsPerson()
         {
             this.PersonID = -1;
-            this.Gendor = -1;
+            this.Gendor = "";
             this.NationalNo = "";
             this.FirstName = "";
             this.SecondName = "";
@@ -37,23 +37,23 @@ namespace DVLD_Business
             this.ImagePath = "";
         }
 
-        private clsPerson(int personID, int gendor, string nationalNo, string firstName, string secondName,
-                     string thirdName, string lastName, string address, string phone, string email,
-                     string countryName, DateTime dateOfBirth, string imagePath)
+        private clsPerson(int PersonID, string Gendor, string NationalNo, string FirstName, string SecondName,
+                     string ThirdName, string LastName, string Address, string Phone, string Email,
+                     string CountryName, DateTime DateOfBirth, string ImagePath)
         {
-            PersonID = personID;
-            Gendor = gendor;
-            NationalNo = nationalNo;
-            FirstName = firstName;
-            SecondName = secondName;
-            ThirdName = thirdName;
-            LastName = lastName;
-            Address = address;
-            Phone = phone;
-            Email = email;
-            CountryName = countryName;
-            DateOfBirth = dateOfBirth;
-            ImagePath = imagePath;
+            this.PersonID = PersonID;
+            this.Gendor = Gendor;
+            this.NationalNo = NationalNo;
+            this.FirstName = FirstName;
+            this.SecondName = SecondName;
+            this.ThirdName = ThirdName;
+            this.LastName = LastName;
+            this.Address = Address;
+            this.Phone = Phone;
+            this.Email = Email;
+            this.CountryName = CountryName;
+            this.DateOfBirth = DateOfBirth;
+            this.ImagePath = ImagePath;
         }
 
         public static DataTable GetAllPeople()
@@ -68,7 +68,7 @@ namespace DVLD_Business
 
         public static clsPerson GetPersonByID(int PersonID)
         {
-            int Gendor = 0;
+
             string NationalNo = "",
                    FirstName = "",
                    SecondName = "",
@@ -77,6 +77,7 @@ namespace DVLD_Business
                    Address = "",
                    Phone = "",
                    Email = "",
+                   Gendor = "",
                    ImagePath = "",
                    CountryName = "";
             DateTime DateOfBirth = DateTime.MinValue;

@@ -58,12 +58,6 @@
     <Compile Include="ctrlShowPersonDetails.Designer.cs">
       <DependentUpon>ctrlShowPersonDetails.cs</DependentUpon>
     </Compile>
-    <Compile Include="FormTest.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="FormTest.Designer.cs">
-      <DependentUpon>FormTest.cs</DependentUpon>
-    </Compile>
     <Compile Include="frmAddAndUpdatePeople.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -82,6 +76,12 @@
     <Compile Include="frmPeople.Designer.cs">
       <DependentUpon>frmPeople.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmShowPersonDetails.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmShowPersonDetails.Designer.cs">
+      <DependentUpon>frmShowPersonDetails.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="ctrlAddNewPerson.resx">
@@ -89,9 +89,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="ctrlShowPersonDetails.resx">
       <DependentUpon>ctrlShowPersonDetails.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="FormTest.resx">
-      <DependentUpon>FormTest.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmAddAndUpdatePeople.resx">
       <DependentUpon>frmAddAndUpdatePeople.cs</DependentUpon>
@@ -101,6 +98,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmPeople.resx">
       <DependentUpon>frmPeople.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmShowPersonDetails.resx">
+      <DependentUpon>frmShowPersonDetails.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -190,6 +190,24 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\person_boy.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\edit.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\notepad.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\edit1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\delete_row.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\email.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\phone %281%29.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

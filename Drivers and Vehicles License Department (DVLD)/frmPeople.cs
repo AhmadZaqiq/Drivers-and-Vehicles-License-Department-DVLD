@@ -104,10 +104,29 @@ namespace Drivers_and_Vehicles_License_Department__DVLD_
             frmAddAndUpdatePeople.ShowDialog();
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void showDetailsToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            FormTest formTest= new FormTest();
-            formTest.ShowDialog();
+            if (dgvPeople.SelectedRows.Count > 0)
+            {
+                DataGridViewRow selectedRow = dgvPeople.SelectedRows[0];
+
+                if (selectedRow.Cells["PersonID"].Value != DBNull.Value && selectedRow.Cells["PersonID"].Value != null)
+                {
+                    int PersonID = Convert.ToInt32(selectedRow.Cells["PersonID"].Value);
+ 
+                    frmShowPersonDetails frmShowPersonDetails = new frmShowPersonDetails(PersonID);
+                    frmShowPersonDetails.ShowDialog();
+                }
+                else
+                {
+                    MessageBox.Show("الصف المحدد لا يحتوي على قيمة PersonID.");
+                }
+            }
+            else
+            {
+                MessageBox.Show("يرجى تحديد صف أولاً!");
+            }
+
         }
     }
 }

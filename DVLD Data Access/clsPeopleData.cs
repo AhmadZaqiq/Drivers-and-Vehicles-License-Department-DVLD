@@ -84,16 +84,13 @@ namespace DVLD_Data_Access
             return CountofPeople;
         }
 
-        public static bool FindPersonByID(int PersonID, ref string NationalNo, ref string FirstName, ref string SecondName, ref string ThirdName, ref string LastName, ref DateTime DateOfBirth, ref int Gendor, ref string Address, ref string Phone, ref string Email, ref string ImagePath, ref string CountryName)
+        public static bool FindPersonByID(int PersonID, ref string NationalNo, ref string FirstName, ref string SecondName, ref string ThirdName, ref string LastName, ref DateTime DateOfBirth, ref string Gendor, ref string Address, ref string Phone, ref string Email, ref string ImagePath, ref string CountryName)
         {
             bool IsFound = false;
 
             SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString);
 
-            string query = "SELECT PersonID, NationalNo, FirstName, SecondName, ThirdName, LastName, DateOfBirth, Gendor, Address, Phone, Email,ImagePath ,Countries.CountryName " +
-                           "FROM People " +
-                           "JOIN Countries ON People.NationalityCountryID = Countries.CountryID " +
-                           "WHERE People.PersonID = @PersonID;";
+            string query = "SELECT * FROM PersonDetails_View WHERE PersonID = @PersonID;";
 
             SqlCommand command = new SqlCommand(query, connection);
 
@@ -116,7 +113,7 @@ namespace DVLD_Data_Access
                     ThirdName = (string)reader["ThirdName"];
                     LastName = (string)reader["LastName"];
                     DateOfBirth = (DateTime)reader["DateOfBirth"];
-                    Gendor = (int)reader["Gendor"];
+                    Gendor = (string)reader["Gender"];
                     Address = (string)reader["Address"];
                     Phone = (string)reader["Phone"];
                     Email = (string)reader["Email"];
