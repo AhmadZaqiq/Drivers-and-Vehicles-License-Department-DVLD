@@ -22,7 +22,7 @@ namespace Drivers_and_Vehicles_License_Department__DVLD_
 
         private void frmShowPersonDetails_Load(object sender, EventArgs e)
         {
-            ctrlShowPersonDetails1.PersonID= _PersonID;
+            ctrlShowPersonDetails1.PersonID = _PersonID;
         }
 
         private void btnClose_Click(object sender, EventArgs e)

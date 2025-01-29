@@ -39,18 +39,18 @@
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Segoe UI Black", 27.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.Red;
-            this.label1.Location = new System.Drawing.Point(401, 14);
+            this.label1.Location = new System.Drawing.Point(620, 44);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(303, 50);
+            this.label1.Size = new System.Drawing.Size(282, 50);
             this.label1.TabIndex = 4;
-            this.label1.Text = "Manage People";
+            this.label1.Text = "Pesron Details";
             // 
             // btnClose
             // 
             this.btnClose.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnClose.Font = new System.Drawing.Font("Segoe UI Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnClose.ForeColor = System.Drawing.Color.Red;
-            this.btnClose.Location = new System.Drawing.Point(967, 510);
+            this.btnClose.Location = new System.Drawing.Point(1349, 510);
             this.btnClose.Name = "btnClose";
             this.btnClose.Size = new System.Drawing.Size(103, 37);
             this.btnClose.TabIndex = 54;
@@ -61,17 +61,17 @@
             // ctrlShowPersonDetails1
             // 
             this.ctrlShowPersonDetails1.Font = new System.Drawing.Font("Segoe UI Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ctrlShowPersonDetails1.Location = new System.Drawing.Point(37, 80);
+            this.ctrlShowPersonDetails1.Location = new System.Drawing.Point(14, 99);
             this.ctrlShowPersonDetails1.Margin = new System.Windows.Forms.Padding(5);
             this.ctrlShowPersonDetails1.Name = "ctrlShowPersonDetails1";
-            this.ctrlShowPersonDetails1.Size = new System.Drawing.Size(1010, 403);
+            this.ctrlShowPersonDetails1.Size = new System.Drawing.Size(1454, 403);
             this.ctrlShowPersonDetails1.TabIndex = 55;
             // 
             // frmShowPersonDetails
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1082, 559);
+            this.ClientSize = new System.Drawing.Size(1476, 559);
             this.Controls.Add(this.ctrlShowPersonDetails1);
             this.Controls.Add(this.btnClose);
             this.Controls.Add(this.label1);
