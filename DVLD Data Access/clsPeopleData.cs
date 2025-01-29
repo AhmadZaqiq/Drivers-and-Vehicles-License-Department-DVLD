@@ -104,7 +104,6 @@ namespace DVLD_Data_Access
 
                 if (reader.Read())
                 {
-
                     IsFound = true;
 
                     NationalNo = (string)reader["NationalNo"];

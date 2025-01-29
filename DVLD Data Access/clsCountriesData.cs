@@ -12,13 +12,13 @@ namespace DVLD_Data_Access
     {
         public static DataTable CountriesData()
         {
-            DataTable dt= new DataTable();
+            DataTable dt = new DataTable();
 
             SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString);
 
             string query = "SELECT CountryName FROM Countries";
 
-            SqlCommand command = new SqlCommand(query,connection);
+            SqlCommand command = new SqlCommand(query, connection);
 
             try
             {
@@ -37,12 +37,51 @@ namespace DVLD_Data_Access
             catch (Exception ex) { }
 
             finally
-            { 
+            {
                 connection.Close();
             }
 
             return dt;
         }
 
-    }   
+        public static bool FindCountryByPersonID(int PersonID,ref int CountryID, ref string CountryName)
+        {
+            bool IsFound = false;
+
+            SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString);
+
+            string query = "SELECT Countries.CountryID, Countries.CountryName FROM Countries JOIN People ON Countries.CountryID=People.NationalityCountryID WHERE PersonID=@PersonID";
+
+            SqlCommand command = new SqlCommand(query, connection);
+
+            command.Parameters.AddWithValue("@PersonID", PersonID);
+
+            try
+            {
+                connection.Open();
+
+                SqlDataReader reader = command.ExecuteReader();
+
+                while (reader.Read())
+                {
+                    IsFound = true;
+
+                    CountryID = (int)reader["CountryID"];
+                    CountryName = (string)reader["CountryName"];
+                }
+            }
+
+            catch (Exception ex)
+            {
+
+            }
+
+            finally
+            {
+                connection.Close();
+            }
+
+            return IsFound;
+        }
+    }
 }

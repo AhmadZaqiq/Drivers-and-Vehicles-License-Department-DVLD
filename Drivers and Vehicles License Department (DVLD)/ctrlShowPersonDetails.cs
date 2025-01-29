@@ -19,6 +19,7 @@ namespace Drivers_and_Vehicles_License_Department__DVLD_
         }
 
         private clsPerson _Person;
+        private clsCountry _Country;
 
         private int _PersonID;
         public int PersonID
@@ -28,6 +29,7 @@ namespace Drivers_and_Vehicles_License_Department__DVLD_
                 _PersonID = value;
                 lblPersonID.Text = _PersonID.ToString();
                 _Person = clsPerson.GetPersonByID(_PersonID);
+                _Country=clsCountry.GetCountryByPersonID(_PersonID);
                 FillPersonData();
             }
             get
@@ -45,6 +47,7 @@ namespace Drivers_and_Vehicles_License_Department__DVLD_
             lblAddress.Text = _Person.Address;
             lblPhone.Text = _Person.Phone;
             lblDateOfBirth.Text = _Person.DateOfBirth.ToString("yyyy-MM-dd");
+            lblCountry.Text = _Country.CountryName;
         }
     }
 }

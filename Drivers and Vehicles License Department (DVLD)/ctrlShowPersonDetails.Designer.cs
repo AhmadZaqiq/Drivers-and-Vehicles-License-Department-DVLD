@@ -39,7 +39,16 @@
             this.lblNationalNO = new System.Windows.Forms.Label();
             this.lblName = new System.Windows.Forms.Label();
             this.lblPersonID = new System.Windows.Forms.Label();
+            this.pbPersonalImage = new System.Windows.Forms.PictureBox();
+            this.pictureBox7 = new System.Windows.Forms.PictureBox();
             this.label9 = new System.Windows.Forms.Label();
+            this.pictureBox9 = new System.Windows.Forms.PictureBox();
+            this.pictureBox8 = new System.Windows.Forms.PictureBox();
+            this.pictureBox6 = new System.Windows.Forms.PictureBox();
+            this.pictureBox4 = new System.Windows.Forms.PictureBox();
+            this.pictureBox3 = new System.Windows.Forms.PictureBox();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label8 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
@@ -48,15 +57,6 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.pbPersonalImage = new System.Windows.Forms.PictureBox();
-            this.pictureBox7 = new System.Windows.Forms.PictureBox();
-            this.pictureBox9 = new System.Windows.Forms.PictureBox();
-            this.pictureBox8 = new System.Windows.Forms.PictureBox();
-            this.pictureBox6 = new System.Windows.Forms.PictureBox();
-            this.pictureBox4 = new System.Windows.Forms.PictureBox();
-            this.pictureBox3 = new System.Windows.Forms.PictureBox();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbPersonalImage)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).BeginInit();
@@ -122,63 +122,63 @@
             this.lblCountry.AutoSize = true;
             this.lblCountry.Location = new System.Drawing.Point(854, 213);
             this.lblCountry.Name = "lblCountry";
-            this.lblCountry.Size = new System.Drawing.Size(66, 21);
+            this.lblCountry.Size = new System.Drawing.Size(41, 21);
             this.lblCountry.TabIndex = 52;
-            this.lblCountry.Text = "label10";
+            this.lblCountry.Text = "N\\A";
             // 
             // lblPhone
             // 
             this.lblPhone.AutoSize = true;
             this.lblPhone.Location = new System.Drawing.Point(854, 150);
             this.lblPhone.Name = "lblPhone";
-            this.lblPhone.Size = new System.Drawing.Size(66, 21);
+            this.lblPhone.Size = new System.Drawing.Size(41, 21);
             this.lblPhone.TabIndex = 51;
-            this.lblPhone.Text = "label10";
+            this.lblPhone.Text = "N\\A";
             // 
             // lblDateOfBirth
             // 
             this.lblDateOfBirth.AutoSize = true;
             this.lblDateOfBirth.Location = new System.Drawing.Point(854, 90);
             this.lblDateOfBirth.Name = "lblDateOfBirth";
-            this.lblDateOfBirth.Size = new System.Drawing.Size(66, 21);
+            this.lblDateOfBirth.Size = new System.Drawing.Size(41, 21);
             this.lblDateOfBirth.TabIndex = 50;
-            this.lblDateOfBirth.Text = "label10";
+            this.lblDateOfBirth.Text = "N\\A";
             // 
             // lblAddress
             // 
             this.lblAddress.AutoSize = true;
             this.lblAddress.Location = new System.Drawing.Point(156, 329);
             this.lblAddress.Name = "lblAddress";
-            this.lblAddress.Size = new System.Drawing.Size(66, 21);
+            this.lblAddress.Size = new System.Drawing.Size(41, 21);
             this.lblAddress.TabIndex = 49;
-            this.lblAddress.Text = "label10";
+            this.lblAddress.Text = "N\\A";
             // 
             // lblEmail
             // 
             this.lblEmail.AutoSize = true;
             this.lblEmail.Location = new System.Drawing.Point(156, 267);
             this.lblEmail.Name = "lblEmail";
-            this.lblEmail.Size = new System.Drawing.Size(66, 21);
+            this.lblEmail.Size = new System.Drawing.Size(41, 21);
             this.lblEmail.TabIndex = 48;
-            this.lblEmail.Text = "label10";
+            this.lblEmail.Text = "N\\A";
             // 
             // lblGender
             // 
             this.lblGender.AutoSize = true;
             this.lblGender.Location = new System.Drawing.Point(156, 213);
             this.lblGender.Name = "lblGender";
-            this.lblGender.Size = new System.Drawing.Size(66, 21);
+            this.lblGender.Size = new System.Drawing.Size(41, 21);
             this.lblGender.TabIndex = 47;
-            this.lblGender.Text = "label10";
+            this.lblGender.Text = "N\\A";
             // 
             // lblNationalNO
             // 
             this.lblNationalNO.AutoSize = true;
             this.lblNationalNO.Location = new System.Drawing.Point(156, 155);
             this.lblNationalNO.Name = "lblNationalNO";
-            this.lblNationalNO.Size = new System.Drawing.Size(66, 21);
+            this.lblNationalNO.Size = new System.Drawing.Size(41, 21);
             this.lblNationalNO.TabIndex = 46;
-            this.lblNationalNO.Text = "label10";
+            this.lblNationalNO.Text = "N\\A";
             // 
             // lblName
             // 
@@ -186,9 +186,9 @@
             this.lblName.ForeColor = System.Drawing.Color.Red;
             this.lblName.Location = new System.Drawing.Point(156, 97);
             this.lblName.Name = "lblName";
-            this.lblName.Size = new System.Drawing.Size(66, 21);
+            this.lblName.Size = new System.Drawing.Size(41, 21);
             this.lblName.TabIndex = 45;
-            this.lblName.Text = "label10";
+            this.lblName.Text = "N\\A";
             // 
             // lblPersonID
             // 
@@ -199,6 +199,24 @@
             this.lblPersonID.TabIndex = 44;
             this.lblPersonID.Text = "label10";
             // 
+            // pbPersonalImage
+            // 
+            this.pbPersonalImage.Location = new System.Drawing.Point(1157, 38);
+            this.pbPersonalImage.Name = "pbPersonalImage";
+            this.pbPersonalImage.Size = new System.Drawing.Size(250, 250);
+            this.pbPersonalImage.TabIndex = 43;
+            this.pbPersonalImage.TabStop = false;
+            // 
+            // pictureBox7
+            // 
+            this.pictureBox7.BackgroundImage = global::Drivers_and_Vehicles_License_Department__DVLD_.Properties.Resources.phone;
+            this.pictureBox7.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.pictureBox7.Location = new System.Drawing.Point(818, 144);
+            this.pictureBox7.Name = "pictureBox7";
+            this.pictureBox7.Size = new System.Drawing.Size(30, 25);
+            this.pictureBox7.TabIndex = 42;
+            this.pictureBox7.TabStop = false;
+            // 
             // label9
             // 
             this.label9.AutoSize = true;
@@ -208,6 +226,76 @@
             this.label9.Size = new System.Drawing.Size(58, 21);
             this.label9.TabIndex = 41;
             this.label9.Text = "Email:";
+            // 
+            // pictureBox9
+            // 
+            this.pictureBox9.BackgroundImage = global::Drivers_and_Vehicles_License_Department__DVLD_.Properties.Resources.location;
+            this.pictureBox9.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.pictureBox9.Location = new System.Drawing.Point(120, 325);
+            this.pictureBox9.Name = "pictureBox9";
+            this.pictureBox9.Size = new System.Drawing.Size(30, 25);
+            this.pictureBox9.TabIndex = 40;
+            this.pictureBox9.TabStop = false;
+            // 
+            // pictureBox8
+            // 
+            this.pictureBox8.BackgroundImage = global::Drivers_and_Vehicles_License_Department__DVLD_.Properties.Resources.world_north_america;
+            this.pictureBox8.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.pictureBox8.Location = new System.Drawing.Point(818, 209);
+            this.pictureBox8.Name = "pictureBox8";
+            this.pictureBox8.Size = new System.Drawing.Size(30, 25);
+            this.pictureBox8.TabIndex = 39;
+            this.pictureBox8.TabStop = false;
+            // 
+            // pictureBox6
+            // 
+            this.pictureBox6.BackgroundImage = global::Drivers_and_Vehicles_License_Department__DVLD_.Properties.Resources.mail;
+            this.pictureBox6.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.pictureBox6.Location = new System.Drawing.Point(120, 267);
+            this.pictureBox6.Name = "pictureBox6";
+            this.pictureBox6.Size = new System.Drawing.Size(30, 25);
+            this.pictureBox6.TabIndex = 38;
+            this.pictureBox6.TabStop = false;
+            // 
+            // pictureBox4
+            // 
+            this.pictureBox4.BackgroundImage = global::Drivers_and_Vehicles_License_Department__DVLD_.Properties.Resources.patient_boy;
+            this.pictureBox4.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.pictureBox4.Location = new System.Drawing.Point(120, 209);
+            this.pictureBox4.Name = "pictureBox4";
+            this.pictureBox4.Size = new System.Drawing.Size(30, 25);
+            this.pictureBox4.TabIndex = 37;
+            this.pictureBox4.TabStop = false;
+            // 
+            // pictureBox3
+            // 
+            this.pictureBox3.BackgroundImage = global::Drivers_and_Vehicles_License_Department__DVLD_.Properties.Resources.calendar;
+            this.pictureBox3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.pictureBox3.Location = new System.Drawing.Point(818, 86);
+            this.pictureBox3.Name = "pictureBox3";
+            this.pictureBox3.Size = new System.Drawing.Size(30, 25);
+            this.pictureBox3.TabIndex = 36;
+            this.pictureBox3.TabStop = false;
+            // 
+            // pictureBox2
+            // 
+            this.pictureBox2.BackgroundImage = global::Drivers_and_Vehicles_License_Department__DVLD_.Properties.Resources.NationalNO;
+            this.pictureBox2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.pictureBox2.Location = new System.Drawing.Point(120, 151);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(30, 25);
+            this.pictureBox2.TabIndex = 35;
+            this.pictureBox2.TabStop = false;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.BackgroundImage = global::Drivers_and_Vehicles_License_Department__DVLD_.Properties.Resources.user;
+            this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.pictureBox1.Location = new System.Drawing.Point(120, 93);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(30, 25);
+            this.pictureBox1.TabIndex = 34;
+            this.pictureBox1.TabStop = false;
             // 
             // label8
             // 
@@ -288,94 +376,6 @@
             this.label1.Size = new System.Drawing.Size(87, 21);
             this.label1.TabIndex = 0;
             this.label1.Text = "PersonID:";
-            // 
-            // pbPersonalImage
-            // 
-            this.pbPersonalImage.Location = new System.Drawing.Point(1157, 38);
-            this.pbPersonalImage.Name = "pbPersonalImage";
-            this.pbPersonalImage.Size = new System.Drawing.Size(250, 250);
-            this.pbPersonalImage.TabIndex = 43;
-            this.pbPersonalImage.TabStop = false;
-            // 
-            // pictureBox7
-            // 
-            this.pictureBox7.BackgroundImage = global::Drivers_and_Vehicles_License_Department__DVLD_.Properties.Resources.phone;
-            this.pictureBox7.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pictureBox7.Location = new System.Drawing.Point(818, 144);
-            this.pictureBox7.Name = "pictureBox7";
-            this.pictureBox7.Size = new System.Drawing.Size(30, 25);
-            this.pictureBox7.TabIndex = 42;
-            this.pictureBox7.TabStop = false;
-            // 
-            // pictureBox9
-            // 
-            this.pictureBox9.BackgroundImage = global::Drivers_and_Vehicles_License_Department__DVLD_.Properties.Resources.location;
-            this.pictureBox9.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pictureBox9.Location = new System.Drawing.Point(120, 325);
-            this.pictureBox9.Name = "pictureBox9";
-            this.pictureBox9.Size = new System.Drawing.Size(30, 25);
-            this.pictureBox9.TabIndex = 40;
-            this.pictureBox9.TabStop = false;
-            // 
-            // pictureBox8
-            // 
-            this.pictureBox8.BackgroundImage = global::Drivers_and_Vehicles_License_Department__DVLD_.Properties.Resources.world_north_america;
-            this.pictureBox8.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pictureBox8.Location = new System.Drawing.Point(818, 209);
-            this.pictureBox8.Name = "pictureBox8";
-            this.pictureBox8.Size = new System.Drawing.Size(30, 25);
-            this.pictureBox8.TabIndex = 39;
-            this.pictureBox8.TabStop = false;
-            // 
-            // pictureBox6
-            // 
-            this.pictureBox6.BackgroundImage = global::Drivers_and_Vehicles_License_Department__DVLD_.Properties.Resources.mail;
-            this.pictureBox6.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pictureBox6.Location = new System.Drawing.Point(120, 267);
-            this.pictureBox6.Name = "pictureBox6";
-            this.pictureBox6.Size = new System.Drawing.Size(30, 25);
-            this.pictureBox6.TabIndex = 38;
-            this.pictureBox6.TabStop = false;
-            // 
-            // pictureBox4
-            // 
-            this.pictureBox4.BackgroundImage = global::Drivers_and_Vehicles_License_Department__DVLD_.Properties.Resources.patient_boy;
-            this.pictureBox4.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pictureBox4.Location = new System.Drawing.Point(120, 209);
-            this.pictureBox4.Name = "pictureBox4";
-            this.pictureBox4.Size = new System.Drawing.Size(30, 25);
-            this.pictureBox4.TabIndex = 37;
-            this.pictureBox4.TabStop = false;
-            // 
-            // pictureBox3
-            // 
-            this.pictureBox3.BackgroundImage = global::Drivers_and_Vehicles_License_Department__DVLD_.Properties.Resources.calendar;
-            this.pictureBox3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pictureBox3.Location = new System.Drawing.Point(818, 86);
-            this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.Size = new System.Drawing.Size(30, 25);
-            this.pictureBox3.TabIndex = 36;
-            this.pictureBox3.TabStop = false;
-            // 
-            // pictureBox2
-            // 
-            this.pictureBox2.BackgroundImage = global::Drivers_and_Vehicles_License_Department__DVLD_.Properties.Resources.NationalNO;
-            this.pictureBox2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pictureBox2.Location = new System.Drawing.Point(120, 151);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(30, 25);
-            this.pictureBox2.TabIndex = 35;
-            this.pictureBox2.TabStop = false;
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.BackgroundImage = global::Drivers_and_Vehicles_License_Department__DVLD_.Properties.Resources.user;
-            this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pictureBox1.Location = new System.Drawing.Point(120, 93);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(30, 25);
-            this.pictureBox1.TabIndex = 34;
-            this.pictureBox1.TabStop = false;
             // 
             // ctrlShowPersonDetails
             // 

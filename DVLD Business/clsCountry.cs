@@ -10,8 +10,8 @@ namespace DVLD_Business
 {
     public class clsCountry
     {
-        int CountryID { get; set; }
-        string CountryName { get; set; }
+        public int CountryID { get; set; }
+        public string CountryName { get; set; }
 
         public clsCountry()
         {
@@ -28,6 +28,19 @@ namespace DVLD_Business
         public static DataTable GetAllCountries()
         {
             return clsCountriesData.CountriesData();
+        }
+
+        public static clsCountry GetCountryByPersonID(int PersonID)
+        {
+            int CountryID = 0;
+            string CountryName = "";
+
+            if (clsCountriesData.FindCountryByPersonID(PersonID, ref CountryID, ref CountryName))
+            {
+                return new clsCountry(CountryID, CountryName);
+            }
+
+            return null;
         }
 
     }
