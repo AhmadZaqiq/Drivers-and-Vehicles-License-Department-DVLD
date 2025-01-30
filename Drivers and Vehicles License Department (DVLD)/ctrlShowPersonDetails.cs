@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -22,6 +23,15 @@ namespace Drivers_and_Vehicles_License_Department__DVLD_
         private clsCountry _Country;
 
         private int _PersonID;
+
+        private string _SetDefaultImage()
+        {
+            string ResourcesPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Resources");
+            string FileName = (_Person.Gendor == "Male") ? "MaleAvatar.png" : "FemaleAvatar.png";
+
+            return Path.Combine(ResourcesPath, FileName);
+        }
+
         public int PersonID
         {
             set
@@ -29,7 +39,7 @@ namespace Drivers_and_Vehicles_License_Department__DVLD_
                 _PersonID = value;
                 lblPersonID.Text = _PersonID.ToString();
                 _Person = clsPerson.GetPersonByID(_PersonID);
-                _Country=clsCountry.GetCountryByPersonID(_PersonID);
+                _Country = clsCountry.GetCountryByPersonID(_PersonID);
                 FillPersonData();
             }
             get
@@ -48,6 +58,17 @@ namespace Drivers_and_Vehicles_License_Department__DVLD_
             lblPhone.Text = _Person.Phone;
             lblDateOfBirth.Text = _Person.DateOfBirth.ToString("yyyy-MM-dd");
             lblCountry.Text = _Country.CountryName;
+
+            if (_Person.ImagePath != null)
+            {
+                pbPersonalImage.BackgroundImage = Image.FromFile(_SetDefaultImage());
+                pbPersonalImage.BackgroundImageLayout = ImageLayout.Stretch;
+            }
+
+            else
+            {
+              //  pbPersonalImage.BackgroundImage = ;
+            }
         }
     }
 }

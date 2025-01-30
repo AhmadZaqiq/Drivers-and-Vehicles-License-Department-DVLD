@@ -84,7 +84,9 @@ namespace DVLD_Data_Access
             return CountofPeople;
         }
 
-        public static bool FindPersonByID(int PersonID, ref string NationalNo, ref string FirstName, ref string SecondName, ref string ThirdName, ref string LastName, ref DateTime DateOfBirth, ref string Gendor, ref string Address, ref string Phone, ref string Email, ref string ImagePath, ref string CountryName)
+        public static bool FindPersonByID(int PersonID, ref string NationalNo, ref string FirstName, ref string SecondName,
+            ref string ThirdName, ref string LastName, ref DateTime DateOfBirth, ref string Gendor, ref string Address,
+            ref string Phone, ref string Email, ref string ImagePath, ref string CountryName)
         {
             bool IsFound = false;
 
@@ -116,8 +118,18 @@ namespace DVLD_Data_Access
                     Address = (string)reader["Address"];
                     Phone = (string)reader["Phone"];
                     Email = (string)reader["Email"];
-                    ImagePath = (string)reader["ImagePath"];
                     CountryName = (string)reader["CountryName"];
+
+                    if (reader["ImagePath"] != null)
+                    {
+
+                        ImagePath = (string)reader["ImagePath"];
+                    }
+
+                    else
+                    {
+                        ImagePath = "";
+                    }
                 }
 
                 else

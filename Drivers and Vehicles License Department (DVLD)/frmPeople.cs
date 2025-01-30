@@ -52,7 +52,7 @@ namespace Drivers_and_Vehicles_License_Department__DVLD_
 
         private void txtFilter_TextChanged(object sender, EventArgs e)
         {
-            string filterColumn = cbFilter.SelectedItem.ToString();
+            string FilterColumn = cbFilter.SelectedItem.ToString();
             string SearchText = txtFilter.Text;
 
             if (string.IsNullOrEmpty(SearchText))
@@ -62,7 +62,7 @@ namespace Drivers_and_Vehicles_License_Department__DVLD_
             else
             {
                 DataView dv = new DataView(clsPerson.GetAllPeople());
-                dv.RowFilter = $"CONVERT([{filterColumn}], System.String) LIKE '{SearchText}%'";
+                dv.RowFilter = $"CONVERT([{FilterColumn}], System.String) LIKE '{SearchText}%'";
                 dgvPeople.DataSource = dv;
             }
         }
@@ -106,27 +106,32 @@ namespace Drivers_and_Vehicles_License_Department__DVLD_
 
         private void showDetailsToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if (dgvPeople.SelectedRows.Count > 0)
-            {
-                DataGridViewRow selectedRow = dgvPeople.SelectedRows[0];
+            DataGridViewRow selectedRow = dgvPeople.SelectedRows[0];
 
-                if (selectedRow.Cells["PersonID"].Value != DBNull.Value && selectedRow.Cells["PersonID"].Value != null)
-                {
-                    int PersonID = Convert.ToInt32(selectedRow.Cells["PersonID"].Value);
- 
-                    frmShowPersonDetails frmShowPersonDetails = new frmShowPersonDetails(PersonID);
-                    frmShowPersonDetails.ShowDialog();
-                }
-                else
-                {
-                    MessageBox.Show("الصف المحدد لا يحتوي على قيمة PersonID.");
-                }
+            if (selectedRow.Cells["PersonID"].Value != DBNull.Value && selectedRow.Cells["PersonID"].Value != null)
+            {
+                int PersonID = Convert.ToInt32(selectedRow.Cells["PersonID"].Value);
+
+                frmShowPersonDetails frmShowPersonDetails = new frmShowPersonDetails(PersonID);
+                frmShowPersonDetails.ShowDialog();
             }
+
             else
             {
-                MessageBox.Show("يرجى تحديد صف أولاً!");
+                MessageBox.Show("The specified row does not contain a value! ");
             }
+        }
 
+        private void addNewPersonToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            frmAddAndUpdatePeople frmAddAndUpdatePeople = new frmAddAndUpdatePeople();
+            frmAddAndUpdatePeople.ShowDialog();
+        }
+
+        private void editToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            frmAddAndUpdatePeople frmAddAndUpdatePeople = new frmAddAndUpdatePeople();
+            frmAddAndUpdatePeople.ShowDialog();
         }
     }
 }
