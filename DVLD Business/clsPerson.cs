@@ -1,11 +1,16 @@
 ﻿using System;
 using System.Data;
+using System.Runtime.CompilerServices;
 using DVLD_Data_Access;
 
 namespace DVLD_Business
 {
     public class clsPerson
     {
+        public enum enMode { AddNew = 0, Update = 1 };
+
+        public enMode Mode = enMode.AddNew;
+
         public int PersonID { set; get; }
         public string NationalNo { set; get; }
         public string FirstName { set; get; }
@@ -19,6 +24,8 @@ namespace DVLD_Business
         public DateTime DateOfBirth { set; get; }
         public string Gendor { set; get; }
         public string ImagePath { set; get; }
+
+        public int CountryID { set; get; }
 
         public clsPerson()
         {
@@ -82,12 +89,55 @@ namespace DVLD_Business
                    CountryName = "";
             DateTime DateOfBirth = DateTime.MinValue;
 
-            if (clsPeopleData.FindPersonByID(PersonID, ref NationalNo, ref FirstName, ref SecondName, ref ThirdName, ref LastName, ref DateOfBirth, ref Gendor, ref Address, ref Phone, ref Email, ref ImagePath, ref CountryName))
+            if (clsPeopleData.GetPersonByID(PersonID, ref NationalNo, ref FirstName, ref SecondName, ref ThirdName, ref LastName, ref DateOfBirth, ref Gendor, ref Address, ref Phone, ref Email, ref ImagePath, ref CountryName))
             {
                 return new clsPerson(PersonID, Gendor, NationalNo, FirstName, SecondName, ThirdName, LastName, Address, Phone, Email, CountryName, DateOfBirth, ImagePath);
             }
 
             return null;
+        }
+
+        private bool _UpdatePerson()
+        {
+            return clsPeopleData.UpdatePerson(this.PersonID, this.NationalNo, this.FirstName, this.SecondName, this.ThirdName, this.LastName,
+                this.DateOfBirth, Convert.ToInt32(this.Gendor), this.Address, this.Phone, this.Email, this.CountryID, this.ImagePath);
+        }
+
+        private bool _AddNewPerson()
+        {
+            this.PersonID = clsPeopleData.AddNewPerson(this.NationalNo, this.FirstName, this.SecondName, this.ThirdName, this.LastName,
+                this.DateOfBirth, Convert.ToInt32(this.Gendor), this.Address, this.Phone, this.Email, this.CountryID, this.ImagePath);
+
+            return (this.PersonID != -1);
+        }
+
+        public static bool IsPersonExists(int PersonID)
+        {
+            return clsPeopleData.IsPersonExists(PersonID);
+        }
+
+        public bool Save()
+        {
+            switch (Mode)
+            {
+                case enMode.AddNew:
+
+                    if (_AddNewPerson())
+                    {
+                        Mode = enMode.Update;
+                        return true;
+                    }
+                    else
+                    {
+                        return false;
+                    }
+
+                case enMode.Update:
+
+                    return _UpdatePerson();
+
+                default: return false;
+            }
         }
     }
 }

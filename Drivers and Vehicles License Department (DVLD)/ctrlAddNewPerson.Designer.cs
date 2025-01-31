@@ -54,7 +54,6 @@
             this.label12 = new System.Windows.Forms.Label();
             this.btnSetImage = new System.Windows.Forms.Button();
             this.btnSave = new System.Windows.Forms.Button();
-            this.btnClose = new System.Windows.Forms.Button();
             this.btnRemoveImage = new System.Windows.Forms.Button();
             this.pbPersonalImage = new System.Windows.Forms.PictureBox();
             this.pictureBox9 = new System.Windows.Forms.PictureBox();
@@ -320,20 +319,6 @@
             this.btnSave.Text = "Save";
             this.btnSave.UseVisualStyleBackColor = true;
             // 
-            // btnClose
-            // 
-            this.btnClose.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.btnClose.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnClose.Font = new System.Drawing.Font("Segoe UI Black", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnClose.ForeColor = System.Drawing.Color.Red;
-            this.btnClose.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnClose.Location = new System.Drawing.Point(370, 340);
-            this.btnClose.Name = "btnClose";
-            this.btnClose.Size = new System.Drawing.Size(124, 39);
-            this.btnClose.TabIndex = 38;
-            this.btnClose.Text = "Close";
-            this.btnClose.UseVisualStyleBackColor = true;
-            // 
             // btnRemoveImage
             // 
             this.btnRemoveImage.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -456,7 +441,6 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.btnRemoveImage);
-            this.Controls.Add(this.btnClose);
             this.Controls.Add(this.btnSave);
             this.Controls.Add(this.btnSetImage);
             this.Controls.Add(this.pbPersonalImage);
@@ -551,7 +535,6 @@
         private System.Windows.Forms.PictureBox pbPersonalImage;
         private System.Windows.Forms.Button btnSetImage;
         private System.Windows.Forms.Button btnSave;
-        private System.Windows.Forms.Button btnClose;
         private System.Windows.Forms.Button btnRemoveImage;
         private System.Windows.Forms.GroupBox groupBox1;
     }

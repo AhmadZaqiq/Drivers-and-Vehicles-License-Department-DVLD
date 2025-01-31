@@ -100,7 +100,7 @@ namespace Drivers_and_Vehicles_License_Department__DVLD_
 
         private void btnAddNewPerson_Click(object sender, EventArgs e)
         {
-            frmAddAndUpdatePeople frmAddAndUpdatePeople = new frmAddAndUpdatePeople();
+            frmAddAndUpdatePeople frmAddAndUpdatePeople = new frmAddAndUpdatePeople(-1);
             frmAddAndUpdatePeople.ShowDialog();
         }
 
@@ -124,14 +124,26 @@ namespace Drivers_and_Vehicles_License_Department__DVLD_
 
         private void addNewPersonToolStripMenuItem1_Click(object sender, EventArgs e)
         {
-            frmAddAndUpdatePeople frmAddAndUpdatePeople = new frmAddAndUpdatePeople();
+            frmAddAndUpdatePeople frmAddAndUpdatePeople = new frmAddAndUpdatePeople(-1);
             frmAddAndUpdatePeople.ShowDialog();
         }
 
         private void editToolStripMenuItem1_Click(object sender, EventArgs e)
         {
-            frmAddAndUpdatePeople frmAddAndUpdatePeople = new frmAddAndUpdatePeople();
-            frmAddAndUpdatePeople.ShowDialog();
+            DataGridViewRow selectedRow = dgvPeople.SelectedRows[0];
+
+            if (selectedRow.Cells["PersonID"].Value != DBNull.Value && selectedRow.Cells["PersonID"].Value != null)
+            {
+                int PersonID = Convert.ToInt32(selectedRow.Cells["PersonID"].Value);
+
+                frmAddAndUpdatePeople frmAddAndUpdatePeople = new frmAddAndUpdatePeople(PersonID);
+                frmAddAndUpdatePeople.ShowDialog();
+            }
+
+            else
+            {
+                MessageBox.Show("No Records Here...", "Error");
+            }
         }
     }
 }
