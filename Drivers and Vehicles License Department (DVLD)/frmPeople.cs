@@ -41,13 +41,20 @@ namespace Drivers_and_Vehicles_License_Department__DVLD_
             dgvPeople.DataSource = clsPerson.GetAllPeople();
         }
 
+        private void _UpdatePeopleCount()
+        {
+            //   lblRecordsCount.Text = clsPerson.GetPeopleCount().ToString();
+
+            lblRecordsCount.Text = (dgvPeople.RowCount - 1).ToString();
+        }
+
         private void frmPeople_Load(object sender, EventArgs e)
         {
             _FillDataGridOfPeople();
 
             _FillComboBox();
 
-            lblRecordsCount.Text = clsPerson.GetPeopleCount().ToString();
+            _UpdatePeopleCount();
         }
 
         private void txtFilter_TextChanged(object sender, EventArgs e)
@@ -57,13 +64,17 @@ namespace Drivers_and_Vehicles_License_Department__DVLD_
 
             if (string.IsNullOrEmpty(SearchText))
             {
-                dgvPeople.DataSource = clsPerson.GetAllPeople();
+                _FillDataGridOfPeople(); // Return the complete data in the table after clearing the search box.
+
+                _UpdatePeopleCount();
             }
             else
             {
                 DataView dv = new DataView(clsPerson.GetAllPeople());
                 dv.RowFilter = $"CONVERT([{FilterColumn}], System.String) LIKE '{SearchText}%'";
                 dgvPeople.DataSource = dv;
+
+                _UpdatePeopleCount();
             }
         }
 

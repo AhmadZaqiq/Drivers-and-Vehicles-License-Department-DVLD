@@ -16,7 +16,7 @@ namespace DVLD_Data_Access
 
             SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString);
 
-            string query = "SELECT CountryName FROM Countries";
+            string query = "SELECT CountryID,CountryName FROM Countries";
 
             SqlCommand command = new SqlCommand(query, connection);
 

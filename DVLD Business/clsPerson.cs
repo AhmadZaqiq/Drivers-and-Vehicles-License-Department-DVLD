@@ -17,50 +17,50 @@ namespace DVLD_Business
         public string SecondName { set; get; }
         public string ThirdName { set; get; }
         public string LastName { set; get; }
+        public DateTime DateOfBirth { set; get; }
+        public int Gender { set; get; }
         public string Address { set; get; }
         public string Phone { set; get; }
         public string Email { set; get; }
-        public string CountryName { set; get; }
-        public DateTime DateOfBirth { set; get; }
-        public string Gendor { set; get; }
+        public int NationalityCountryID { set; get; }
         public string ImagePath { set; get; }
-
-        public int CountryID { set; get; }
 
         public clsPerson()
         {
             this.PersonID = -1;
-            this.Gendor = "";
             this.NationalNo = "";
             this.FirstName = "";
             this.SecondName = "";
             this.ThirdName = "";
             this.LastName = "";
+            this.DateOfBirth = DateTime.Now;
+            this.Gender = 0;
             this.Address = "";
             this.Phone = "";
             this.Email = "";
-            this.CountryName = "";
-            this.DateOfBirth = DateTime.Now;
+            this.NationalityCountryID = -1;
             this.ImagePath = "";
         }
 
-        private clsPerson(int PersonID, string Gendor, string NationalNo, string FirstName, string SecondName,
-                     string ThirdName, string LastName, string Address, string Phone, string Email,
-                     string CountryName, DateTime DateOfBirth, string ImagePath)
+        private clsPerson(int PersonID, string NationalNo, string FirstName, string SecondName,
+                     string ThirdName, string LastName, DateTime DateOfBirth, int Gender, string Address, string Phone, string Email,
+                     int NationalityCountryID, string ImagePath)
         {
             this.PersonID = PersonID;
-            this.Gendor = Gendor;
             this.NationalNo = NationalNo;
             this.FirstName = FirstName;
             this.SecondName = SecondName;
             this.ThirdName = ThirdName;
             this.LastName = LastName;
+            this.DateOfBirth = DateOfBirth;
+            this.Gender = Gender;
             this.Address = Address;
             this.Phone = Phone;
             this.Email = Email;
-            this.CountryName = CountryName;
-            this.DateOfBirth = DateOfBirth;
+            this.NationalityCountryID = NationalityCountryID;
             this.ImagePath = ImagePath;
+
+            Mode = enMode.AddNew;
         }
 
         public static DataTable GetAllPeople()
@@ -80,18 +80,23 @@ namespace DVLD_Business
                    FirstName = "",
                    SecondName = "",
                    ThirdName = "",
-                   LastName = "",
-                   Address = "",
-                   Phone = "",
-                   Email = "",
-                   Gendor = "",
-                   ImagePath = "",
-                   CountryName = "";
-            DateTime DateOfBirth = DateTime.MinValue;
+                   LastName = "";
 
-            if (clsPeopleData.GetPersonByID(PersonID, ref NationalNo, ref FirstName, ref SecondName, ref ThirdName, ref LastName, ref DateOfBirth, ref Gendor, ref Address, ref Phone, ref Email, ref ImagePath, ref CountryName))
+            DateTime DateOfBirth = DateTime.Now;
+
+            int Gender = -1;
+
+            string Address = "",
+                   Phone = "",
+                   Email = "";
+
+            int NationalityCountryID = -1;
+
+            string ImagePath = "";
+
+            if (clsPeopleData.GetPersonByID(PersonID, ref NationalNo, ref FirstName, ref SecondName, ref ThirdName, ref LastName, ref DateOfBirth, ref Gender, ref Address, ref Phone, ref Email, ref NationalityCountryID, ref ImagePath))
             {
-                return new clsPerson(PersonID, Gendor, NationalNo, FirstName, SecondName, ThirdName, LastName, Address, Phone, Email, CountryName, DateOfBirth, ImagePath);
+                return new clsPerson(PersonID, NationalNo, FirstName, SecondName, ThirdName, LastName, DateOfBirth, Gender, Address, Phone, Email, NationalityCountryID, ImagePath);
             }
 
             return null;
@@ -100,13 +105,13 @@ namespace DVLD_Business
         private bool _UpdatePerson()
         {
             return clsPeopleData.UpdatePerson(this.PersonID, this.NationalNo, this.FirstName, this.SecondName, this.ThirdName, this.LastName,
-                this.DateOfBirth, Convert.ToInt32(this.Gendor), this.Address, this.Phone, this.Email, this.CountryID, this.ImagePath);
+                this.DateOfBirth, this.Gender, this.Address, this.Phone, this.Email, this.NationalityCountryID, this.ImagePath);
         }
 
         private bool _AddNewPerson()
         {
             this.PersonID = clsPeopleData.AddNewPerson(this.NationalNo, this.FirstName, this.SecondName, this.ThirdName, this.LastName,
-                this.DateOfBirth, Convert.ToInt32(this.Gendor), this.Address, this.Phone, this.Email, this.CountryID, this.ImagePath);
+                this.DateOfBirth, this.Gender, this.Address, this.Phone, this.Email, this.NationalityCountryID, this.ImagePath);
 
             return (this.PersonID != -1);
         }
@@ -116,6 +121,10 @@ namespace DVLD_Business
             return clsPeopleData.IsPersonExists(PersonID);
         }
 
+        public static bool IsPersonExists(string NationalNo)
+        {
+            return clsPeopleData.IsPersonExists(NationalNo);
+        }
         public bool Save()
         {
             switch (Mode)
@@ -139,5 +148,7 @@ namespace DVLD_Business
                 default: return false;
             }
         }
+
+
     }
 }

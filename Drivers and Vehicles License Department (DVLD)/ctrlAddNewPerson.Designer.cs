@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.label1 = new System.Windows.Forms.Label();
             this.txtFirstName = new System.Windows.Forms.TextBox();
             this.txtSecondName = new System.Windows.Forms.TextBox();
@@ -44,38 +45,41 @@
             this.rbMale = new System.Windows.Forms.RadioButton();
             this.rbFemale = new System.Windows.Forms.RadioButton();
             this.dtpDateOfBirth = new System.Windows.Forms.DateTimePicker();
-            this.label9 = new System.Windows.Forms.Label();
-            this.txtEmail = new System.Windows.Forms.TextBox();
             this.label10 = new System.Windows.Forms.Label();
             this.txtPhone = new System.Windows.Forms.TextBox();
-            this.cbCountry = new System.Windows.Forms.ComboBox();
             this.label11 = new System.Windows.Forms.Label();
             this.txtAddress = new System.Windows.Forms.TextBox();
-            this.label12 = new System.Windows.Forms.Label();
-            this.btnSetImage = new System.Windows.Forms.Button();
-            this.btnSave = new System.Windows.Forms.Button();
-            this.btnRemoveImage = new System.Windows.Forms.Button();
-            this.pbPersonalImage = new System.Windows.Forms.PictureBox();
-            this.pictureBox9 = new System.Windows.Forms.PictureBox();
-            this.pictureBox8 = new System.Windows.Forms.PictureBox();
             this.pictureBox7 = new System.Windows.Forms.PictureBox();
-            this.pictureBox6 = new System.Windows.Forms.PictureBox();
             this.pictureBox5 = new System.Windows.Forms.PictureBox();
             this.pictureBox4 = new System.Windows.Forms.PictureBox();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
+            this.pictureBox8 = new System.Windows.Forms.PictureBox();
+            this.label9 = new System.Windows.Forms.Label();
+            this.pictureBox6 = new System.Windows.Forms.PictureBox();
+            this.cbCountry = new System.Windows.Forms.ComboBox();
+            this.btnSetImage = new System.Windows.Forms.Button();
+            this.pbPersonalImage = new System.Windows.Forms.PictureBox();
+            this.btnRemoveImage = new System.Windows.Forms.Button();
+            this.btnSave = new System.Windows.Forms.Button();
+            this.label12 = new System.Windows.Forms.Label();
+            this.pictureBox9 = new System.Windows.Forms.PictureBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            ((System.ComponentModel.ISupportInitialize)(this.pbPersonalImage)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox9)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).BeginInit();
+            this.txtEmail = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbPersonalImage)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox9)).BeginInit();
+            this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // label1
@@ -94,6 +98,7 @@
             this.txtFirstName.Name = "txtFirstName";
             this.txtFirstName.Size = new System.Drawing.Size(143, 25);
             this.txtFirstName.TabIndex = 1;
+            this.txtFirstName.Validating += new System.ComponentModel.CancelEventHandler(this.txtFirstName_Validating);
             // 
             // txtSecondName
             // 
@@ -101,6 +106,7 @@
             this.txtSecondName.Name = "txtSecondName";
             this.txtSecondName.Size = new System.Drawing.Size(143, 25);
             this.txtSecondName.TabIndex = 3;
+            this.txtSecondName.Validating += new System.ComponentModel.CancelEventHandler(this.txtSecondName_Validating);
             // 
             // label2
             // 
@@ -135,6 +141,7 @@
             this.txtLastName.Name = "txtLastName";
             this.txtLastName.Size = new System.Drawing.Size(143, 25);
             this.txtLastName.TabIndex = 7;
+            this.txtLastName.Validating += new System.ComponentModel.CancelEventHandler(this.txtLastName_Validating);
             // 
             // label4
             // 
@@ -172,6 +179,7 @@
             this.txtNationalNO.Name = "txtNationalNO";
             this.txtNationalNO.Size = new System.Drawing.Size(143, 25);
             this.txtNationalNO.TabIndex = 10;
+            this.txtNationalNO.Validating += new System.ComponentModel.CancelEventHandler(this.txtNationalNO_Validating);
             // 
             // label7
             // 
@@ -204,6 +212,7 @@
             this.rbMale.TabStop = true;
             this.rbMale.Text = "Male";
             this.rbMale.UseVisualStyleBackColor = true;
+            this.rbMale.CheckedChanged += new System.EventHandler(this.rb_CheckedChanged);
             // 
             // rbFemale
             // 
@@ -216,6 +225,7 @@
             this.rbFemale.TabStop = true;
             this.rbFemale.Text = "Female";
             this.rbFemale.UseVisualStyleBackColor = true;
+            this.rbFemale.CheckedChanged += new System.EventHandler(this.rb_CheckedChanged);
             // 
             // dtpDateOfBirth
             // 
@@ -226,23 +236,6 @@
             this.dtpDateOfBirth.Size = new System.Drawing.Size(143, 25);
             this.dtpDateOfBirth.TabIndex = 21;
             this.dtpDateOfBirth.Value = new System.DateTime(2025, 1, 30, 0, 0, 0, 0);
-            // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(15, 199);
-            this.label9.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(46, 17);
-            this.label9.TabIndex = 23;
-            this.label9.Text = "Email:";
-            // 
-            // txtEmail
-            // 
-            this.txtEmail.Location = new System.Drawing.Point(183, 196);
-            this.txtEmail.Name = "txtEmail";
-            this.txtEmail.Size = new System.Drawing.Size(143, 25);
-            this.txtEmail.TabIndex = 22;
             // 
             // label10
             // 
@@ -260,14 +253,7 @@
             this.txtPhone.Name = "txtPhone";
             this.txtPhone.Size = new System.Drawing.Size(143, 25);
             this.txtPhone.TabIndex = 27;
-            // 
-            // cbCountry
-            // 
-            this.cbCountry.FormattingEnabled = true;
-            this.cbCountry.Location = new System.Drawing.Point(481, 199);
-            this.cbCountry.Name = "cbCountry";
-            this.cbCountry.Size = new System.Drawing.Size(143, 25);
-            this.cbCountry.TabIndex = 30;
+            this.txtPhone.Validating += new System.ComponentModel.CancelEventHandler(this.txtPhone_Validating);
             // 
             // label11
             // 
@@ -284,79 +270,9 @@
             this.txtAddress.Location = new System.Drawing.Point(185, 246);
             this.txtAddress.Multiline = true;
             this.txtAddress.Name = "txtAddress";
-            this.txtAddress.Size = new System.Drawing.Size(439, 74);
+            this.txtAddress.Size = new System.Drawing.Size(588, 74);
             this.txtAddress.TabIndex = 31;
-            // 
-            // label12
-            // 
-            this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(350, 202);
-            this.label12.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(62, 17);
-            this.label12.TabIndex = 34;
-            this.label12.Text = "Country:";
-            // 
-            // btnSetImage
-            // 
-            this.btnSetImage.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnSetImage.Location = new System.Drawing.Point(661, 249);
-            this.btnSetImage.Name = "btnSetImage";
-            this.btnSetImage.Size = new System.Drawing.Size(85, 28);
-            this.btnSetImage.TabIndex = 36;
-            this.btnSetImage.Text = "Set Image";
-            this.btnSetImage.UseVisualStyleBackColor = true;
-            // 
-            // btnSave
-            // 
-            this.btnSave.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnSave.Font = new System.Drawing.Font("Segoe UI Black", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSave.ForeColor = System.Drawing.Color.Red;
-            this.btnSave.Location = new System.Drawing.Point(500, 340);
-            this.btnSave.Name = "btnSave";
-            this.btnSave.Size = new System.Drawing.Size(124, 39);
-            this.btnSave.TabIndex = 37;
-            this.btnSave.Text = "Save";
-            this.btnSave.UseVisualStyleBackColor = true;
-            // 
-            // btnRemoveImage
-            // 
-            this.btnRemoveImage.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnRemoveImage.Location = new System.Drawing.Point(661, 292);
-            this.btnRemoveImage.Name = "btnRemoveImage";
-            this.btnRemoveImage.Size = new System.Drawing.Size(85, 28);
-            this.btnRemoveImage.TabIndex = 39;
-            this.btnRemoveImage.Text = "Remove";
-            this.btnRemoveImage.UseVisualStyleBackColor = true;
-            // 
-            // pbPersonalImage
-            // 
-            this.pbPersonalImage.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pbPersonalImage.Location = new System.Drawing.Point(630, 93);
-            this.pbPersonalImage.Name = "pbPersonalImage";
-            this.pbPersonalImage.Size = new System.Drawing.Size(143, 143);
-            this.pbPersonalImage.TabIndex = 35;
-            this.pbPersonalImage.TabStop = false;
-            // 
-            // pictureBox9
-            // 
-            this.pictureBox9.BackgroundImage = global::Drivers_and_Vehicles_License_Department__DVLD_.Properties.Resources.location;
-            this.pictureBox9.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pictureBox9.Location = new System.Drawing.Point(151, 246);
-            this.pictureBox9.Name = "pictureBox9";
-            this.pictureBox9.Size = new System.Drawing.Size(30, 25);
-            this.pictureBox9.TabIndex = 33;
-            this.pictureBox9.TabStop = false;
-            // 
-            // pictureBox8
-            // 
-            this.pictureBox8.BackgroundImage = global::Drivers_and_Vehicles_License_Department__DVLD_.Properties.Resources.world_north_america;
-            this.pictureBox8.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pictureBox8.Location = new System.Drawing.Point(445, 194);
-            this.pictureBox8.Name = "pictureBox8";
-            this.pictureBox8.Size = new System.Drawing.Size(30, 25);
-            this.pictureBox8.TabIndex = 28;
-            this.pictureBox8.TabStop = false;
+            this.txtAddress.Validating += new System.ComponentModel.CancelEventHandler(this.txtAddress_Validating);
             // 
             // pictureBox7
             // 
@@ -367,16 +283,6 @@
             this.pictureBox7.Size = new System.Drawing.Size(30, 25);
             this.pictureBox7.TabIndex = 26;
             this.pictureBox7.TabStop = false;
-            // 
-            // pictureBox6
-            // 
-            this.pictureBox6.BackgroundImage = global::Drivers_and_Vehicles_License_Department__DVLD_.Properties.Resources.mail;
-            this.pictureBox6.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pictureBox6.Location = new System.Drawing.Point(149, 196);
-            this.pictureBox6.Name = "pictureBox6";
-            this.pictureBox6.Size = new System.Drawing.Size(30, 25);
-            this.pictureBox6.TabIndex = 24;
-            this.pictureBox6.TabStop = false;
             // 
             // pictureBox5
             // 
@@ -428,34 +334,152 @@
             this.pictureBox1.TabIndex = 9;
             this.pictureBox1.TabStop = false;
             // 
+            // errorProvider1
+            // 
+            this.errorProvider1.ContainerControl = this;
+            // 
+            // pictureBox8
+            // 
+            this.pictureBox8.BackgroundImage = global::Drivers_and_Vehicles_License_Department__DVLD_.Properties.Resources.world_north_america;
+            this.pictureBox8.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.pictureBox8.Location = new System.Drawing.Point(146, 193);
+            this.pictureBox8.Name = "pictureBox8";
+            this.pictureBox8.Size = new System.Drawing.Size(30, 25);
+            this.pictureBox8.TabIndex = 28;
+            this.pictureBox8.TabStop = false;
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(347, 201);
+            this.label9.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(46, 17);
+            this.label9.TabIndex = 23;
+            this.label9.Text = "Email:";
+            // 
+            // pictureBox6
+            // 
+            this.pictureBox6.BackgroundImage = global::Drivers_and_Vehicles_License_Department__DVLD_.Properties.Resources.mail;
+            this.pictureBox6.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.pictureBox6.Location = new System.Drawing.Point(442, 198);
+            this.pictureBox6.Name = "pictureBox6";
+            this.pictureBox6.Size = new System.Drawing.Size(30, 25);
+            this.pictureBox6.TabIndex = 24;
+            this.pictureBox6.TabStop = false;
+            // 
+            // cbCountry
+            // 
+            this.cbCountry.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbCountry.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.cbCountry.FormattingEnabled = true;
+            this.cbCountry.Location = new System.Drawing.Point(180, 193);
+            this.cbCountry.Name = "cbCountry";
+            this.cbCountry.Size = new System.Drawing.Size(143, 25);
+            this.cbCountry.TabIndex = 30;
+            // 
+            // btnSetImage
+            // 
+            this.btnSetImage.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSetImage.Location = new System.Drawing.Point(938, 323);
+            this.btnSetImage.Name = "btnSetImage";
+            this.btnSetImage.Size = new System.Drawing.Size(85, 28);
+            this.btnSetImage.TabIndex = 36;
+            this.btnSetImage.Text = "Set Image";
+            this.btnSetImage.UseVisualStyleBackColor = true;
+            this.btnSetImage.Click += new System.EventHandler(this.btnSetImage_Click);
+            // 
+            // pbPersonalImage
+            // 
+            this.pbPersonalImage.BackgroundImage = global::Drivers_and_Vehicles_License_Department__DVLD_.Properties.Resources.MaleAvatar;
+            this.pbPersonalImage.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.pbPersonalImage.Location = new System.Drawing.Point(815, 48);
+            this.pbPersonalImage.Name = "pbPersonalImage";
+            this.pbPersonalImage.Size = new System.Drawing.Size(331, 269);
+            this.pbPersonalImage.TabIndex = 35;
+            this.pbPersonalImage.TabStop = false;
+            this.pbPersonalImage.Tag = "";
+            // 
+            // btnRemoveImage
+            // 
+            this.btnRemoveImage.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnRemoveImage.Location = new System.Drawing.Point(926, 357);
+            this.btnRemoveImage.Name = "btnRemoveImage";
+            this.btnRemoveImage.Size = new System.Drawing.Size(109, 28);
+            this.btnRemoveImage.TabIndex = 39;
+            this.btnRemoveImage.Text = "Remove Image";
+            this.btnRemoveImage.UseVisualStyleBackColor = true;
+            this.btnRemoveImage.Click += new System.EventHandler(this.btnRemoveImage_Click);
+            // 
+            // btnSave
+            // 
+            this.btnSave.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSave.Font = new System.Drawing.Font("Segoe UI Black", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSave.ForeColor = System.Drawing.Color.Red;
+            this.btnSave.Location = new System.Drawing.Point(1022, 400);
+            this.btnSave.Name = "btnSave";
+            this.btnSave.Size = new System.Drawing.Size(124, 39);
+            this.btnSave.TabIndex = 37;
+            this.btnSave.Text = "Save";
+            this.btnSave.UseVisualStyleBackColor = true;
+            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Location = new System.Drawing.Point(14, 201);
+            this.label12.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(62, 17);
+            this.label12.TabIndex = 34;
+            this.label12.Text = "Country:";
+            // 
+            // pictureBox9
+            // 
+            this.pictureBox9.BackgroundImage = global::Drivers_and_Vehicles_License_Department__DVLD_.Properties.Resources.location;
+            this.pictureBox9.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.pictureBox9.Location = new System.Drawing.Point(146, 238);
+            this.pictureBox9.Name = "pictureBox9";
+            this.pictureBox9.Size = new System.Drawing.Size(30, 25);
+            this.pictureBox9.TabIndex = 33;
+            this.pictureBox9.TabStop = false;
+            // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.pictureBox9);
+            this.groupBox1.Controls.Add(this.label12);
+            this.groupBox1.Controls.Add(this.btnSave);
+            this.groupBox1.Controls.Add(this.btnRemoveImage);
+            this.groupBox1.Controls.Add(this.pbPersonalImage);
+            this.groupBox1.Controls.Add(this.btnSetImage);
+            this.groupBox1.Controls.Add(this.cbCountry);
+            this.groupBox1.Controls.Add(this.pictureBox6);
+            this.groupBox1.Controls.Add(this.label9);
+            this.groupBox1.Controls.Add(this.pictureBox8);
+            this.groupBox1.Controls.Add(this.txtEmail);
             this.groupBox1.Location = new System.Drawing.Point(3, 3);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(782, 389);
+            this.groupBox1.Size = new System.Drawing.Size(1152, 446);
             this.groupBox1.TabIndex = 40;
             this.groupBox1.TabStop = false;
+            // 
+            // txtEmail
+            // 
+            this.txtEmail.Location = new System.Drawing.Point(478, 198);
+            this.txtEmail.Name = "txtEmail";
+            this.txtEmail.Size = new System.Drawing.Size(292, 25);
+            this.txtEmail.TabIndex = 22;
+            this.txtEmail.Validating += new System.ComponentModel.CancelEventHandler(this.txtEmail_Validating);
             // 
             // ctrlAddNewPerson
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.btnRemoveImage);
-            this.Controls.Add(this.btnSave);
-            this.Controls.Add(this.btnSetImage);
-            this.Controls.Add(this.pbPersonalImage);
-            this.Controls.Add(this.label12);
-            this.Controls.Add(this.pictureBox9);
             this.Controls.Add(this.label11);
             this.Controls.Add(this.txtAddress);
-            this.Controls.Add(this.cbCountry);
-            this.Controls.Add(this.pictureBox8);
             this.Controls.Add(this.txtPhone);
             this.Controls.Add(this.pictureBox7);
             this.Controls.Add(this.label10);
-            this.Controls.Add(this.pictureBox6);
-            this.Controls.Add(this.label9);
-            this.Controls.Add(this.txtEmail);
             this.Controls.Add(this.dtpDateOfBirth);
             this.Controls.Add(this.rbFemale);
             this.Controls.Add(this.pictureBox5);
@@ -481,18 +505,21 @@
             this.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "ctrlAddNewPerson";
-            this.Size = new System.Drawing.Size(788, 395);
+            this.Size = new System.Drawing.Size(1158, 459);
             this.Load += new System.EventHandler(this.ctrlAddNewPerson_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.pbPersonalImage)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox9)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbPersonalImage)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox9)).EndInit();
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -520,22 +547,23 @@
         private System.Windows.Forms.RadioButton rbFemale;
         private System.Windows.Forms.PictureBox pictureBox5;
         private System.Windows.Forms.DateTimePicker dtpDateOfBirth;
-        private System.Windows.Forms.PictureBox pictureBox6;
-        private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.TextBox txtEmail;
         private System.Windows.Forms.PictureBox pictureBox7;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.TextBox txtPhone;
-        private System.Windows.Forms.PictureBox pictureBox8;
-        private System.Windows.Forms.ComboBox cbCountry;
-        private System.Windows.Forms.PictureBox pictureBox9;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.TextBox txtAddress;
+        private System.Windows.Forms.ErrorProvider errorProvider1;
+        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.PictureBox pictureBox9;
         private System.Windows.Forms.Label label12;
-        private System.Windows.Forms.PictureBox pbPersonalImage;
-        private System.Windows.Forms.Button btnSetImage;
         private System.Windows.Forms.Button btnSave;
         private System.Windows.Forms.Button btnRemoveImage;
-        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.PictureBox pbPersonalImage;
+        private System.Windows.Forms.Button btnSetImage;
+        private System.Windows.Forms.ComboBox cbCountry;
+        private System.Windows.Forms.PictureBox pictureBox6;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.PictureBox pictureBox8;
+        private System.Windows.Forms.TextBox txtEmail;
     }
 }

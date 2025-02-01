@@ -85,13 +85,13 @@
             this.sendEmailToolStripMenuItem1,
             this.callToolStripMenuItem});
             this.cmPersonSettings.Name = "cmPersonSettings";
-            this.cmPersonSettings.Size = new System.Drawing.Size(197, 254);
+            this.cmPersonSettings.Size = new System.Drawing.Size(183, 232);
             // 
             // showDetailsToolStripMenuItem1
             // 
             this.showDetailsToolStripMenuItem1.Image = global::Drivers_and_Vehicles_License_Department__DVLD_.Properties.Resources.notepad;
             this.showDetailsToolStripMenuItem1.Name = "showDetailsToolStripMenuItem1";
-            this.showDetailsToolStripMenuItem1.Size = new System.Drawing.Size(196, 38);
+            this.showDetailsToolStripMenuItem1.Size = new System.Drawing.Size(182, 38);
             this.showDetailsToolStripMenuItem1.Text = "Show Details";
             this.showDetailsToolStripMenuItem1.Click += new System.EventHandler(this.showDetailsToolStripMenuItem_Click);
             // 
@@ -99,7 +99,7 @@
             // 
             this.addNewPersonToolStripMenuItem1.Image = global::Drivers_and_Vehicles_License_Department__DVLD_.Properties.Resources.Add_Person;
             this.addNewPersonToolStripMenuItem1.Name = "addNewPersonToolStripMenuItem1";
-            this.addNewPersonToolStripMenuItem1.Size = new System.Drawing.Size(196, 38);
+            this.addNewPersonToolStripMenuItem1.Size = new System.Drawing.Size(182, 38);
             this.addNewPersonToolStripMenuItem1.Text = "Add New Person";
             this.addNewPersonToolStripMenuItem1.Click += new System.EventHandler(this.addNewPersonToolStripMenuItem1_Click);
             // 
@@ -107,7 +107,7 @@
             // 
             this.editToolStripMenuItem1.Image = global::Drivers_and_Vehicles_License_Department__DVLD_.Properties.Resources.edit1;
             this.editToolStripMenuItem1.Name = "editToolStripMenuItem1";
-            this.editToolStripMenuItem1.Size = new System.Drawing.Size(196, 38);
+            this.editToolStripMenuItem1.Size = new System.Drawing.Size(182, 38);
             this.editToolStripMenuItem1.Text = "Edit";
             this.editToolStripMenuItem1.Click += new System.EventHandler(this.editToolStripMenuItem1_Click);
             // 
@@ -115,21 +115,21 @@
             // 
             this.deleteToolStripMenuItem1.Image = global::Drivers_and_Vehicles_License_Department__DVLD_.Properties.Resources.delete_row;
             this.deleteToolStripMenuItem1.Name = "deleteToolStripMenuItem1";
-            this.deleteToolStripMenuItem1.Size = new System.Drawing.Size(196, 38);
+            this.deleteToolStripMenuItem1.Size = new System.Drawing.Size(182, 38);
             this.deleteToolStripMenuItem1.Text = "Delete";
             // 
             // sendEmailToolStripMenuItem1
             // 
             this.sendEmailToolStripMenuItem1.Image = global::Drivers_and_Vehicles_License_Department__DVLD_.Properties.Resources.email;
             this.sendEmailToolStripMenuItem1.Name = "sendEmailToolStripMenuItem1";
-            this.sendEmailToolStripMenuItem1.Size = new System.Drawing.Size(196, 38);
+            this.sendEmailToolStripMenuItem1.Size = new System.Drawing.Size(182, 38);
             this.sendEmailToolStripMenuItem1.Text = "Send Email";
             // 
             // callToolStripMenuItem
             // 
             this.callToolStripMenuItem.Image = global::Drivers_and_Vehicles_License_Department__DVLD_.Properties.Resources.phone__1_;
             this.callToolStripMenuItem.Name = "callToolStripMenuItem";
-            this.callToolStripMenuItem.Size = new System.Drawing.Size(196, 38);
+            this.callToolStripMenuItem.Size = new System.Drawing.Size(182, 38);
             this.callToolStripMenuItem.Text = "Call";
             // 
             // toolStripSeparator1
@@ -166,6 +166,7 @@
             // cbFilter
             // 
             this.cbFilter.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.cbFilter.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbFilter.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.cbFilter.FormattingEnabled = true;
             this.cbFilter.Location = new System.Drawing.Point(76, 227);

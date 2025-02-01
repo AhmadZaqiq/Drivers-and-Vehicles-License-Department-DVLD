@@ -12,7 +12,7 @@ namespace Drivers_and_Vehicles_License_Department__DVLD_
 {
     public partial class frmAddAndUpdatePeople : Form
     {
-        public frmAddAndUpdatePeople(int PersonID=-1)
+        public frmAddAndUpdatePeople(int PersonID = -1)
         {
             InitializeComponent();
 

@@ -19,6 +19,7 @@ namespace Drivers_and_Vehicles_License_Department__DVLD_
             InitializeComponent();
         }
 
+
         private clsPerson _Person;
         private clsCountry _Country;
 
@@ -27,7 +28,7 @@ namespace Drivers_and_Vehicles_License_Department__DVLD_
         private string _SetDefaultImage()
         {
             string ResourcesPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Resources");
-            string FileName = (_Person.Gendor == "Male") ? "MaleAvatar.png" : "FemaleAvatar.png";
+            string FileName = (_Person.Gender == 0) ? "MaleAvatar.png" : "FemaleAvatar.png";
 
             return Path.Combine(ResourcesPath, FileName);
         }
@@ -37,9 +38,6 @@ namespace Drivers_and_Vehicles_License_Department__DVLD_
             set
             {
                 _PersonID = value;
-                lblPersonID.Text = _PersonID.ToString();
-                _Person = clsPerson.GetPersonByID(_PersonID);
-                _Country = clsCountry.GetCountryByPersonID(_PersonID);
                 FillPersonData();
             }
             get
@@ -48,11 +46,20 @@ namespace Drivers_and_Vehicles_License_Department__DVLD_
             }
         }
 
+        public string _ConvertGenderToText(int Gender)
+        {
+            return (Gender == 0) ? "Male" : "Female";
+        }
+
         public void FillPersonData()
         {
+            lblPersonID.Text = _PersonID.ToString();
+            _Person = clsPerson.GetPersonByID(_PersonID);
+            _Country = clsCountry.GetCountryByPersonID(_PersonID);
+
             lblName.Text = $"{_Person.FirstName} {_Person.SecondName} {_Person.ThirdName} {_Person.LastName}";
             lblNationalNO.Text = _Person.NationalNo;
-            lblGender.Text = _Person.Gendor;
+            lblGender.Text = _ConvertGenderToText(_Person.Gender);
             lblEmail.Text = _Person.Email;
             lblAddress.Text = _Person.Address;
             lblPhone.Text = _Person.Phone;
@@ -67,7 +74,7 @@ namespace Drivers_and_Vehicles_License_Department__DVLD_
 
             else
             {
-              //  pbPersonalImage.BackgroundImage = ;
+                //  pbPersonalImage.BackgroundImage = ;
             }
         }
     }
