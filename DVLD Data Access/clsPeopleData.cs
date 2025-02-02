@@ -21,7 +21,7 @@ namespace DVLD_Data_Access
             string query = "SELECT People.PersonID, People.NationalNo, People.FirstName," +
                 " People.SecondName, People.ThirdName, People.LastName," +
                 " CASE WHEN People.Gender = 0 THEN 'Male' WHEN People.Gender = 1 THEN 'Female' ELSE 'Unknown' END AS Gender," +
-                " People.DateOfBirth, People.NationalityCountryID, People.Phone, People.Email FROM People JOIN Countries" +
+                " People.DateOfBirth, Countries.CountryName, People.Phone, People.Email FROM People JOIN Countries" +
                 " ON People.NationalityCountryID = Countries.CountryID";
 
             SqlCommand command = new SqlCommand(query, connection);
@@ -344,6 +344,43 @@ namespace DVLD_Data_Access
 
             return IsFound;
         }
+
+        public static bool DeletePerson(int PersonID)
+        {
+            bool IsFound = false;
+
+            SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString);
+
+            string query = "DELETE FROM People WHERE PersonID = @PersonID;";
+
+            SqlCommand command = new SqlCommand(query, connection);
+
+            command.Parameters.AddWithValue("@PersonID", PersonID);
+
+            try
+            {
+                connection.Open();
+
+                int rowsAffected = command.ExecuteNonQuery();
+
+                IsFound = (rowsAffected > 0);
+
+            }
+            catch (Exception ex)
+            {
+
+            }
+
+            finally
+            {
+                connection.Close();
+            }
+
+            return IsFound;
+        }
+
+
+
 
     }
 }

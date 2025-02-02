@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -36,7 +37,7 @@ namespace Drivers_and_Vehicles_License_Department__DVLD_
             cbFilter.SelectedIndex = 0;
         }
 
-        private void _FillDataGridOfPeople()
+        private void _RefreshPeopleDataGrid()
         {
             dgvPeople.DataSource = clsPerson.GetAllPeople();
         }
@@ -45,12 +46,12 @@ namespace Drivers_and_Vehicles_License_Department__DVLD_
         {
             //   lblRecordsCount.Text = clsPerson.GetPeopleCount().ToString();
 
-            lblRecordsCount.Text = (dgvPeople.RowCount - 1).ToString();
+            lblRecordsCount.Text = (dgvPeople.RowCount).ToString();
         }
 
         private void frmPeople_Load(object sender, EventArgs e)
         {
-            _FillDataGridOfPeople();
+            _RefreshPeopleDataGrid();
 
             _FillComboBox();
 
@@ -64,7 +65,7 @@ namespace Drivers_and_Vehicles_License_Department__DVLD_
 
             if (string.IsNullOrEmpty(SearchText))
             {
-                _FillDataGridOfPeople(); // Return the complete data in the table after clearing the search box.
+                _RefreshPeopleDataGrid(); // Return the complete data in the table after clearing the search box.
 
                 _UpdatePeopleCount();
             }
@@ -156,5 +157,46 @@ namespace Drivers_and_Vehicles_License_Department__DVLD_
                 MessageBox.Show("No Records Here...", "Error");
             }
         }
+
+        private void deleteToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            DataGridViewRow selectedRow = dgvPeople.SelectedRows[0];
+
+            if (MessageBox.Show("Are You Sure you want to delete this Person?", "Alert", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
+            {
+                if (clsPerson.DeletePerson(Convert.ToInt32(selectedRow.Cells["PersonID"].Value)))
+                {
+                    MessageBox.Show("Person deleted successfully.", "Done");
+
+                    _RefreshPeopleDataGrid();
+
+                    _UpdatePeopleCount();
+                }
+
+                else
+                {
+                    MessageBox.Show("Person was not deleted because it is linked to other transactions in the system...", "Alert");
+                }
+            }
+        }
+
+        private void callToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("Coming Soon... (;", "Alert", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        }
+
+        private void sendEmailToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            DataGridViewRow selectedRow = dgvPeople.SelectedRows[0];
+
+            string emailAddress = selectedRow.Cells["Email"].Value.ToString();
+
+            string mailtoLink = $"https://mail.google.com/mail/?view=cm&fs=1&to={emailAddress}";
+
+            Process.Start(new ProcessStartInfo(mailtoLink) { UseShellExecute = true });
+        }
+
+
     }
 }
+

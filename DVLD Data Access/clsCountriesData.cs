@@ -44,7 +44,7 @@ namespace DVLD_Data_Access
             return dt;
         }
 
-        public static bool FindCountryByPersonID(int PersonID,ref int CountryID, ref string CountryName)
+        public static bool FindCountryByPersonID(int PersonID, ref int CountryID, ref string CountryName)
         {
             bool IsFound = false;
 
@@ -83,5 +83,80 @@ namespace DVLD_Data_Access
 
             return IsFound;
         }
+
+        public static string GetCountryNameByCountryID(int CountryID)
+        {
+            string CountryName = "";
+
+            SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString);
+
+            string query = "SELECT CountryName FROM Countries WHERE CountryID = @CountryID";
+
+            SqlCommand command = new SqlCommand(query, connection);
+
+            command.Parameters.AddWithValue("@CountryID", CountryID);
+
+            try
+            {
+                connection.Open();
+
+                object result = command.ExecuteScalar();
+
+                if (result != null)
+                {
+                    CountryName = result.ToString();
+                }
+            }
+            catch (Exception ex)
+            {
+
+            }
+
+            finally
+            {
+                connection.Close();
+            }
+
+
+            return CountryName;
+        }
+
+        public static int GetCountryIDByCountryName(string CountryName)
+        {
+            int CountryID = -1;
+
+            SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString);
+
+            string query = "SELECT CountryID FROM Countries WHERE CountryName = @CountryName";
+
+            SqlCommand command = new SqlCommand(query, connection);
+
+            command.Parameters.AddWithValue("@CountryName", CountryName);
+
+            try
+            {
+                connection.Open();
+
+                object result = command.ExecuteScalar();
+
+                if (result != null)
+                {
+                    CountryID = Convert.ToInt32(result);
+                }
+            }
+            catch (Exception ex)
+            {
+
+            }
+            finally
+            {
+                connection.Close();
+            }
+
+            return CountryID;
+        }
+
+
+
     }
 }

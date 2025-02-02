@@ -66,16 +66,29 @@ namespace Drivers_and_Vehicles_License_Department__DVLD_
             lblDateOfBirth.Text = _Person.DateOfBirth.ToString("yyyy-MM-dd");
             lblCountry.Text = _Country.CountryName;
 
-            if (_Person.ImagePath != null)
+            if (!string.IsNullOrEmpty(_Person.ImagePath))
             {
-                pbPersonalImage.BackgroundImage = Image.FromFile(_SetDefaultImage());
-                pbPersonalImage.BackgroundImageLayout = ImageLayout.Stretch;
+                string imagePath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "PeopleImages", _Person.ImagePath);
+                if (File.Exists(imagePath))
+                {
+                    pbPersonalImage.BackgroundImage = Image.FromFile(imagePath);
+                    pbPersonalImage.BackgroundImageLayout = ImageLayout.Stretch;
+                }
+                else
+                {
+                    pbPersonalImage.BackgroundImage = Image.FromFile(_SetDefaultImage());
+                }
             }
-
             else
             {
-                //  pbPersonalImage.BackgroundImage = ;
+                pbPersonalImage.BackgroundImage = Image.FromFile(_SetDefaultImage());
             }
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            frmAddAndUpdatePeople frmAddAndUpdatePeople = new frmAddAndUpdatePeople(_Person.PersonID);
+            frmAddAndUpdatePeople.ShowDialog();
         }
     }
 }

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Data;
+using System.Data.SqlClient;
 using System.Runtime.CompilerServices;
 using DVLD_Data_Access;
 
@@ -60,7 +61,7 @@ namespace DVLD_Business
             this.NationalityCountryID = NationalityCountryID;
             this.ImagePath = ImagePath;
 
-            Mode = enMode.AddNew;
+            Mode = enMode.Update;
         }
 
         public static DataTable GetAllPeople()
@@ -125,6 +126,7 @@ namespace DVLD_Business
         {
             return clsPeopleData.IsPersonExists(NationalNo);
         }
+
         public bool Save()
         {
             switch (Mode)
@@ -148,6 +150,12 @@ namespace DVLD_Business
                 default: return false;
             }
         }
+
+        public static bool DeletePerson(int PersonID)
+        {
+           return clsPeopleData.DeletePerson(PersonID);
+        }
+
 
 
     }

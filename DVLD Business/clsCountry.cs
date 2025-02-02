@@ -43,5 +43,15 @@ namespace DVLD_Business
             return null;
         }
 
+        public static string GetCountryName(int CountryID)
+        {
+            return clsCountriesData.GetCountryNameByCountryID(CountryID);
+        }
+
+        public static int GetCountryID(string CountryName)
+        {
+            return clsCountriesData.GetCountryIDByCountryName(CountryName);
+        }
+
     }
 }
