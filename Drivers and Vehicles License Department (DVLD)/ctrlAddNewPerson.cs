@@ -11,10 +11,11 @@ namespace Drivers_and_Vehicles_License_Department__DVLD_
 {
     public partial class ctrlAddNewPerson : UserControl
     {
+        public event Action DataAdded;
+
         private clsPerson _Person = new clsPerson();
         private clsCountry _Country = new clsCountry();
 
-        // متغيرات جديدة لتتبع حالة الصورة
         private string _TempImagePath = "";
         private bool _ShouldDeleteImage = false;
 
@@ -26,11 +27,6 @@ namespace Drivers_and_Vehicles_License_Department__DVLD_
         public ctrlAddNewPerson()
         {
             InitializeComponent();
-        }
-
-        private void _UpdateMode()
-        {
-            _Mode = (_PersonID == -1) ? enMode.AddNew : enMode.Update;
         }
 
         public string Mode
@@ -54,6 +50,35 @@ namespace Drivers_and_Vehicles_License_Department__DVLD_
             }
         }
 
+        private void ctrlAddNewPerson_Load(object sender, EventArgs e)
+        {
+            _FillCountriesComboBox();
+            _SetDefaultValues();
+            _FillPersonInformation();
+        }
+
+        private void _UpdateMode()
+        {
+            _Mode = (_PersonID == -1) ? enMode.AddNew : enMode.Update;
+        }
+
+        private void _RefreshPersonalImage()
+        {
+            if (pbPersonalImage.Tag?.ToString() != "ImageSet")
+            {
+                if (rbMale.Checked)
+                {
+                    pbPersonalImage.BackgroundImage = Resources.MaleAvatar;
+                    pbPersonalImage.Tag = "Male";
+                }
+                else if (rbFemale.Checked)
+                {
+                    pbPersonalImage.BackgroundImage = Resources.FemaleAvatar;
+                    pbPersonalImage.Tag = "Female";
+                }
+            }
+        }
+
         private void _FillCountriesComboBox()
         {
             DataTable Countries = clsCountry.GetAllCountries();
@@ -61,7 +86,7 @@ namespace Drivers_and_Vehicles_License_Department__DVLD_
             cbCountry.DisplayMember = "CountryName";
         }
 
-        private void UpdateGender()
+        private void _UpdateGender()
         {
             rbMale.Checked = _Person.Gender == 0 ? true : false;
             rbFemale.Checked = _Person.Gender == 1 ? true : false;
@@ -83,16 +108,16 @@ namespace Drivers_and_Vehicles_License_Department__DVLD_
                 }
                 else
                 {
-                    _UpdatePersonalImage();
+                    _RefreshPersonalImage();
                 }
             }
             else
             {
-                _UpdatePersonalImage();
+                _RefreshPersonalImage();
             }
         }
 
-        private void FillPersonInformation()
+        private void _FillPersonInformation()
         {
             if (_Mode == enMode.Update && _PersonID != -1)
             {
@@ -107,7 +132,7 @@ namespace Drivers_and_Vehicles_License_Department__DVLD_
                     txtLastName.Text = _Person.LastName;
                     txtNationalNO.Text = _Person.NationalNo;
                     dtpDateOfBirth.Value = _Person.DateOfBirth;
-                    UpdateGender();
+                    _UpdateGender();
                     cbCountry.Text = _Country.CountryName;
                     txtPhone.Text = _Person.Phone;
                     txtEmail.Text = _Person.Email;
@@ -136,20 +161,13 @@ namespace Drivers_and_Vehicles_License_Department__DVLD_
             pbPersonalImage.Tag = "Male";
         }
 
-        private void ctrlAddNewPerson_Load(object sender, EventArgs e)
-        {
-            _FillCountriesComboBox();
-            _SetDefaultValues();
-            FillPersonInformation();
-        }
-
-        private string CopyImageToFolder(string SourceFilePath)
+        private string _CopyImageToFolder(string SourceFilePath)
         {
             try
             {
                 string DirectoryPath = Path.Combine(Application.StartupPath, "PeopleImages");
 
-                EnsureDirectoryExists(DirectoryPath);
+                _EnsureDirectoryExists(DirectoryPath);
 
                 string NewImageName = Guid.NewGuid().ToString();
                 string NewFilePath = Path.Combine(DirectoryPath, NewImageName + Path.GetExtension(SourceFilePath));
@@ -164,11 +182,25 @@ namespace Drivers_and_Vehicles_License_Department__DVLD_
             }
         }
 
-        private void EnsureDirectoryExists(string DirectoryPath)
+        private void _EnsureDirectoryExists(string DirectoryPath)
         {
             if (!Directory.Exists(DirectoryPath))
             {
                 Directory.CreateDirectory(DirectoryPath);
+            }
+        }
+
+        private void _DeleteImageFromFolder(string imageGUID)
+        {
+            string directoryPath = Path.Combine(Application.StartupPath, "PeopleImages");
+            string[] files = Directory.GetFiles(directoryPath, imageGUID + ".*");
+
+            foreach (string filePath in files)
+            {
+                if (File.Exists(filePath))
+                {
+                    File.Delete(filePath);
+                }
             }
         }
 
@@ -183,9 +215,15 @@ namespace Drivers_and_Vehicles_License_Department__DVLD_
                 if (openFileDialog.ShowDialog() == DialogResult.OK)
                 {
                     _TempImagePath = openFileDialog.FileName;
-                    pbPersonalImage.Image = Image.FromFile(_TempImagePath);
+                    Image selectedImage = Image.FromFile(_TempImagePath);
+
+                    pbPersonalImage.Image = selectedImage;
                     pbPersonalImage.SizeMode = PictureBoxSizeMode.StretchImage;
                     pbPersonalImage.Tag = "ImageSet";
+
+                    pbPersonalImage.BackgroundImage = selectedImage;
+                    pbPersonalImage.BackgroundImageLayout = ImageLayout.Stretch;
+
                     _ShouldDeleteImage = false;
                 }
             }
@@ -195,10 +233,9 @@ namespace Drivers_and_Vehicles_License_Department__DVLD_
         {
             if (_VerifyAllInputs())
             {
-                // Handle image operations only when saving
                 if (!string.IsNullOrEmpty(_TempImagePath))
                 {
-                    string imageGUID = CopyImageToFolder(_TempImagePath);
+                    string imageGUID = _CopyImageToFolder(_TempImagePath);
                     if (!string.IsNullOrEmpty(imageGUID))
                     {
                         _Person.ImagePath = imageGUID;
@@ -209,7 +246,7 @@ namespace Drivers_and_Vehicles_License_Department__DVLD_
                 {
                     if (!string.IsNullOrEmpty(_Person.ImagePath))
                     {
-                        DeleteImageFromFolder(_Person.ImagePath);
+                        _DeleteImageFromFolder(_Person.ImagePath);
                         _Person.ImagePath = "";
                     }
                     _ShouldDeleteImage = false;
@@ -232,6 +269,7 @@ namespace Drivers_and_Vehicles_License_Department__DVLD_
                 if (_Person.Save())
                 {
                     MessageBox.Show("Data Saved Successfully", "Success");
+                    DataAdded?.Invoke();
                 }
                 else
                 {
@@ -244,28 +282,19 @@ namespace Drivers_and_Vehicles_License_Department__DVLD_
             }
         }
 
-        private void DeleteImageFromFolder(string imageGUID)
-        {
-            string directoryPath = Path.Combine(Application.StartupPath, "PeopleImages");
-            string[] files = Directory.GetFiles(directoryPath, imageGUID + ".*");
-
-            foreach (string filePath in files)
-            {
-                if (File.Exists(filePath))
-                {
-                    File.Delete(filePath);
-                }
-            }
-        }
-
         private void btnRemoveImage_Click(object sender, EventArgs e)
         {
             _ShouldDeleteImage = true;
             _TempImagePath = "";
             pbPersonalImage.Image = null;
             pbPersonalImage.BackgroundImage = null;
-            pbPersonalImage.Tag = "";
-            _UpdatePersonalImage();
+            pbPersonalImage.Tag = rbMale.Checked ? "Male" : "Female";
+            _RefreshPersonalImage();
+        }
+
+        private void rb_CheckedChanged(object sender, EventArgs e)
+        {
+            _RefreshPersonalImage();
         }
 
         private void txtFirstName_Validating(object sender, CancelEventArgs e)
@@ -332,28 +361,6 @@ namespace Drivers_and_Vehicles_License_Department__DVLD_
                 e.Cancel = false;
                 errorProvider1.SetError(txtNationalNO, "");
             }
-        }
-
-        private void _UpdatePersonalImage()
-        {
-            if (pbPersonalImage.Tag?.ToString() != "ImageSet")
-            {
-                if (rbMale.Checked)
-                {
-                    pbPersonalImage.BackgroundImage = Resources.MaleAvatar;
-                    pbPersonalImage.Tag = "Male";
-                }
-                else if (rbFemale.Checked)
-                {
-                    pbPersonalImage.BackgroundImage = Resources.FemaleAvatar;
-                    pbPersonalImage.Tag = "Female";
-                }
-            }
-        }
-
-        private void rb_CheckedChanged(object sender, EventArgs e)
-        {
-            _UpdatePersonalImage();
         }
 
         private void txtPhone_Validating(object sender, CancelEventArgs e)

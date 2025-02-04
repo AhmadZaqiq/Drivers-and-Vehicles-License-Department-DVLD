@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.button2 = new System.Windows.Forms.Button();
+            this.btnEditInfo = new System.Windows.Forms.Button();
             this.lblCountry = new System.Windows.Forms.Label();
             this.lblPhone = new System.Windows.Forms.Label();
             this.lblDateOfBirth = new System.Windows.Forms.Label();
@@ -71,7 +71,7 @@
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.button2);
+            this.groupBox1.Controls.Add(this.btnEditInfo);
             this.groupBox1.Controls.Add(this.lblCountry);
             this.groupBox1.Controls.Add(this.lblPhone);
             this.groupBox1.Controls.Add(this.lblDateOfBirth);
@@ -107,16 +107,16 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Person Information";
             // 
-            // button2
+            // btnEditInfo
             // 
-            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button2.Location = new System.Drawing.Point(1231, 325);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(103, 37);
-            this.button2.TabIndex = 54;
-            this.button2.Text = "Edit Info";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
+            this.btnEditInfo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnEditInfo.Location = new System.Drawing.Point(1231, 325);
+            this.btnEditInfo.Name = "btnEditInfo";
+            this.btnEditInfo.Size = new System.Drawing.Size(103, 37);
+            this.btnEditInfo.TabIndex = 54;
+            this.btnEditInfo.Text = "Edit Info";
+            this.btnEditInfo.UseVisualStyleBackColor = true;
+            this.btnEditInfo.Click += new System.EventHandler(this.btnEditInfoClick);
             // 
             // lblCountry
             // 
@@ -424,7 +424,7 @@
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button btnEditInfo;
         private System.Windows.Forms.Label lblCountry;
         private System.Windows.Forms.Label lblPhone;
         private System.Windows.Forms.Label lblDateOfBirth;

@@ -19,7 +19,7 @@ namespace Drivers_and_Vehicles_License_Department__DVLD_
             InitializeComponent();
         }
 
-
+        private frmPeople _frmPeople=new frmPeople();
         private clsPerson _Person;
         private clsCountry _Country;
 
@@ -68,26 +68,31 @@ namespace Drivers_and_Vehicles_License_Department__DVLD_
 
             if (!string.IsNullOrEmpty(_Person.ImagePath))
             {
-                string imagePath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "PeopleImages", _Person.ImagePath);
-                if (File.Exists(imagePath))
+                if (!string.IsNullOrEmpty(_Person.ImagePath))
                 {
-                    pbPersonalImage.BackgroundImage = Image.FromFile(imagePath);
-                    pbPersonalImage.BackgroundImageLayout = ImageLayout.Stretch;
+                    string directoryPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "PeopleImages");
+                    string[] files = Directory.GetFiles(directoryPath, _Person.ImagePath + ".*");
+
+                    if (files.Length > 0)
+                    {
+                        pbPersonalImage.BackgroundImage = Image.FromFile(files[0]);
+                        pbPersonalImage.BackgroundImageLayout = ImageLayout.Stretch;
+                    }
+                    else
+                    {
+                        pbPersonalImage.BackgroundImage = Image.FromFile(_SetDefaultImage());
+                    }
                 }
                 else
                 {
                     pbPersonalImage.BackgroundImage = Image.FromFile(_SetDefaultImage());
                 }
             }
-            else
-            {
-                pbPersonalImage.BackgroundImage = Image.FromFile(_SetDefaultImage());
-            }
         }
 
-        private void button2_Click(object sender, EventArgs e)
+        private void btnEditInfoClick(object sender, EventArgs e)
         {
-            frmAddAndUpdatePeople frmAddAndUpdatePeople = new frmAddAndUpdatePeople(_Person.PersonID);
+            frmAddAndUpdatePeople frmAddAndUpdatePeople = new frmAddAndUpdatePeople(_Person.PersonID, _frmPeople);
             frmAddAndUpdatePeople.ShowDialog();
         }
     }

@@ -5,6 +5,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Diagnostics;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -37,9 +38,11 @@ namespace Drivers_and_Vehicles_License_Department__DVLD_
             cbFilter.SelectedIndex = 0;
         }
 
-        private void _RefreshPeopleDataGrid()
+        public void RefreshPeopleDataGrid()
         {
             dgvPeople.DataSource = clsPerson.GetAllPeople();
+
+            _UpdatePeopleCount();
         }
 
         private void _UpdatePeopleCount()
@@ -51,11 +54,9 @@ namespace Drivers_and_Vehicles_License_Department__DVLD_
 
         private void frmPeople_Load(object sender, EventArgs e)
         {
-            _RefreshPeopleDataGrid();
+            RefreshPeopleDataGrid();
 
             _FillComboBox();
-
-            _UpdatePeopleCount();
         }
 
         private void txtFilter_TextChanged(object sender, EventArgs e)
@@ -65,9 +66,7 @@ namespace Drivers_and_Vehicles_License_Department__DVLD_
 
             if (string.IsNullOrEmpty(SearchText))
             {
-                _RefreshPeopleDataGrid(); // Return the complete data in the table after clearing the search box.
-
-                _UpdatePeopleCount();
+                RefreshPeopleDataGrid(); // Return the complete data in the table after clearing the search box.
             }
             else
             {
@@ -112,7 +111,7 @@ namespace Drivers_and_Vehicles_License_Department__DVLD_
 
         private void btnAddNewPerson_Click(object sender, EventArgs e)
         {
-            frmAddAndUpdatePeople frmAddAndUpdatePeople = new frmAddAndUpdatePeople(-1);
+            frmAddAndUpdatePeople frmAddAndUpdatePeople = new frmAddAndUpdatePeople(-1,this);
             frmAddAndUpdatePeople.ShowDialog();
         }
 
@@ -136,7 +135,7 @@ namespace Drivers_and_Vehicles_License_Department__DVLD_
 
         private void addNewPersonToolStripMenuItem1_Click(object sender, EventArgs e)
         {
-            frmAddAndUpdatePeople frmAddAndUpdatePeople = new frmAddAndUpdatePeople(-1);
+            frmAddAndUpdatePeople frmAddAndUpdatePeople = new frmAddAndUpdatePeople(-1, this);
             frmAddAndUpdatePeople.ShowDialog();
         }
 
@@ -148,7 +147,7 @@ namespace Drivers_and_Vehicles_License_Department__DVLD_
             {
                 int PersonID = Convert.ToInt32(selectedRow.Cells["PersonID"].Value);
 
-                frmAddAndUpdatePeople frmAddAndUpdatePeople = new frmAddAndUpdatePeople(PersonID);
+                frmAddAndUpdatePeople frmAddAndUpdatePeople = new frmAddAndUpdatePeople(PersonID,this);
                 frmAddAndUpdatePeople.ShowDialog();
             }
 
@@ -168,9 +167,7 @@ namespace Drivers_and_Vehicles_License_Department__DVLD_
                 {
                     MessageBox.Show("Person deleted successfully.", "Done");
 
-                    _RefreshPeopleDataGrid();
-
-                    _UpdatePeopleCount();
+                    RefreshPeopleDataGrid();
                 }
 
                 else
