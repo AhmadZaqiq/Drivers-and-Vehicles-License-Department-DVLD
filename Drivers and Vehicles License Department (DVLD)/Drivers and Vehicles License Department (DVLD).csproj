@@ -46,60 +46,60 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ctrlAddNewPerson.cs">
+    <Compile Include="People\Contorls\ctrlAddNewPerson.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="ctrlAddNewPerson.Designer.cs">
+    <Compile Include="People\Contorls\ctrlAddNewPerson.Designer.cs">
       <DependentUpon>ctrlAddNewPerson.cs</DependentUpon>
     </Compile>
-    <Compile Include="ctrlShowPersonDetails.cs">
+    <Compile Include="People\Contorls\ctrlShowPersonDetails.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="ctrlShowPersonDetails.Designer.cs">
+    <Compile Include="People\Contorls\ctrlShowPersonDetails.Designer.cs">
       <DependentUpon>ctrlShowPersonDetails.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmAddAndUpdatePeople.cs">
+    <Compile Include="People\Forms\frmAddAndUpdatePeople.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmAddAndUpdatePeople.Designer.cs">
+    <Compile Include="People\Forms\frmAddAndUpdatePeople.Designer.cs">
       <DependentUpon>frmAddAndUpdatePeople.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmMainMenu.cs">
+    <Compile Include="People\Forms\frmMainMenu.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmMainMenu.Designer.cs">
+    <Compile Include="People\Forms\frmMainMenu.Designer.cs">
       <DependentUpon>frmMainMenu.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmPeople.cs">
+    <Compile Include="People\Forms\frmPeople.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmPeople.Designer.cs">
+    <Compile Include="People\Forms\frmPeople.Designer.cs">
       <DependentUpon>frmPeople.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmShowPersonDetails.cs">
+    <Compile Include="People\Forms\frmShowPersonDetails.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmShowPersonDetails.Designer.cs">
+    <Compile Include="People\Forms\frmShowPersonDetails.Designer.cs">
       <DependentUpon>frmShowPersonDetails.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="ctrlAddNewPerson.resx">
+    <EmbeddedResource Include="People\Contorls\ctrlAddNewPerson.resx">
       <DependentUpon>ctrlAddNewPerson.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="ctrlShowPersonDetails.resx">
+    <EmbeddedResource Include="People\Contorls\ctrlShowPersonDetails.resx">
       <DependentUpon>ctrlShowPersonDetails.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmAddAndUpdatePeople.resx">
+    <EmbeddedResource Include="People\Forms\frmAddAndUpdatePeople.resx">
       <DependentUpon>frmAddAndUpdatePeople.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmMainMenu.resx">
+    <EmbeddedResource Include="People\Forms\frmMainMenu.resx">
       <DependentUpon>frmMainMenu.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmPeople.resx">
+    <EmbeddedResource Include="People\Forms\frmPeople.resx">
       <DependentUpon>frmPeople.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmShowPersonDetails.resx">
+    <EmbeddedResource Include="People\Forms\frmShowPersonDetails.resx">
       <DependentUpon>frmShowPersonDetails.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
@@ -221,6 +221,9 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Peopleimages\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Ahmad Logo1.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
