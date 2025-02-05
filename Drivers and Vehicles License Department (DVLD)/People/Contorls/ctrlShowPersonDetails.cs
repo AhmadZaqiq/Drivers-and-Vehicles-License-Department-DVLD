@@ -19,7 +19,7 @@ namespace Drivers_and_Vehicles_License_Department__DVLD_
             InitializeComponent();
         }
 
-        private frmPeople _frmPeople=new frmPeople();
+        private frmPeople _frmPeople = new frmPeople();
         private clsPerson _Person;
         private clsCountry _Country;
 

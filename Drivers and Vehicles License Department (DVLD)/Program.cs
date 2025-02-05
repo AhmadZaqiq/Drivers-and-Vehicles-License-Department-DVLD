@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Drivers_and_Vehicles_License_Department__DVLD_.Login;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -16,7 +17,9 @@ namespace Drivers_and_Vehicles_License_Department__DVLD_
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new frmMainMenu());
+            Application.Run(new frmLoginScreen());
+
+
         }
     }
 }

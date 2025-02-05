@@ -111,7 +111,7 @@ namespace Drivers_and_Vehicles_License_Department__DVLD_
 
         private void btnAddNewPerson_Click(object sender, EventArgs e)
         {
-            frmAddAndUpdatePeople frmAddAndUpdatePeople = new frmAddAndUpdatePeople(-1,this);
+            frmAddAndUpdatePeople frmAddAndUpdatePeople = new frmAddAndUpdatePeople(-1, this);
             frmAddAndUpdatePeople.ShowDialog();
         }
 
@@ -147,7 +147,7 @@ namespace Drivers_and_Vehicles_License_Department__DVLD_
             {
                 int PersonID = Convert.ToInt32(selectedRow.Cells["PersonID"].Value);
 
-                frmAddAndUpdatePeople frmAddAndUpdatePeople = new frmAddAndUpdatePeople(PersonID,this);
+                frmAddAndUpdatePeople frmAddAndUpdatePeople = new frmAddAndUpdatePeople(PersonID, this);
                 frmAddAndUpdatePeople.ShowDialog();
             }
 

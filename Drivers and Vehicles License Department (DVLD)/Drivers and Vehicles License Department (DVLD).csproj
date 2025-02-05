@@ -46,6 +46,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Login\frmLoginScreen.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Login\frmLoginScreen.Designer.cs">
+      <DependentUpon>frmLoginScreen.cs</DependentUpon>
+    </Compile>
     <Compile Include="People\Contorls\ctrlAddNewPerson.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -64,10 +70,10 @@
     <Compile Include="People\Forms\frmAddAndUpdatePeople.Designer.cs">
       <DependentUpon>frmAddAndUpdatePeople.cs</DependentUpon>
     </Compile>
-    <Compile Include="People\Forms\frmMainMenu.cs">
+    <Compile Include="Main\frmMainMenu.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="People\Forms\frmMainMenu.Designer.cs">
+    <Compile Include="Main\frmMainMenu.Designer.cs">
       <DependentUpon>frmMainMenu.cs</DependentUpon>
     </Compile>
     <Compile Include="People\Forms\frmPeople.cs">
@@ -84,6 +90,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Login\frmLoginScreen.resx">
+      <DependentUpon>frmLoginScreen.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="People\Contorls\ctrlAddNewPerson.resx">
       <DependentUpon>ctrlAddNewPerson.cs</DependentUpon>
     </EmbeddedResource>
@@ -93,7 +102,7 @@
     <EmbeddedResource Include="People\Forms\frmAddAndUpdatePeople.resx">
       <DependentUpon>frmAddAndUpdatePeople.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="People\Forms\frmMainMenu.resx">
+    <EmbeddedResource Include="Main\frmMainMenu.resx">
       <DependentUpon>frmMainMenu.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="People\Forms\frmPeople.resx">
@@ -221,9 +230,35 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Peopleimages\" />
+    <Folder Include="Users\Controls\" />
+    <Folder Include="Users\Forms\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\Ahmad Logo1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\direct_x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Ahmad Logo2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Ahmad Logo White.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\password.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\instagram_2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\facebook %281%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\linkedin %281%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\instagram_2 %281%29.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

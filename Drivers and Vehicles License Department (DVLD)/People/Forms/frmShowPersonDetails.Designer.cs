@@ -64,6 +64,7 @@
             this.ctrlShowPersonDetails1.Location = new System.Drawing.Point(14, 99);
             this.ctrlShowPersonDetails1.Margin = new System.Windows.Forms.Padding(5);
             this.ctrlShowPersonDetails1.Name = "ctrlShowPersonDetails1";
+            this.ctrlShowPersonDetails1.PersonID = 1;
             this.ctrlShowPersonDetails1.Size = new System.Drawing.Size(1454, 403);
             this.ctrlShowPersonDetails1.TabIndex = 55;
             // 
@@ -75,6 +76,7 @@
             this.Controls.Add(this.ctrlShowPersonDetails1);
             this.Controls.Add(this.btnClose);
             this.Controls.Add(this.label1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "frmShowPersonDetails";
             this.Text = "frmShowPersonDetails";
@@ -88,5 +90,6 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button btnClose;
         private ctrlShowPersonDetails ctrlShowPersonDetails1;
+
     }
 }

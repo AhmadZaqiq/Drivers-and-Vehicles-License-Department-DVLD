@@ -149,12 +149,10 @@ namespace DVLD_Data_Access
 
             finally
             {
-
                 connection.Close();
             }
 
             return IsFound;
-
         }
 
         public static int AddNewPerson(string NationalNo, string FirstName, string SecondName,
@@ -259,14 +257,8 @@ namespace DVLD_Data_Access
 
                 int RowAffected = command.ExecuteNonQuery();
 
-                if (RowAffected > 0)
-                {
-                    UpdatedSuccessfully = true;
-                }
-                else
-                {
+                UpdatedSuccessfully = (RowAffected > 0);
 
-                }
             }
 
             catch (Exception ex) { }
@@ -294,6 +286,7 @@ namespace DVLD_Data_Access
             try
             {
                 connection.Open();
+
                 SqlDataReader reader = command.ExecuteReader();
 
                 IsFound = reader.HasRows;

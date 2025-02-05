@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DVLD_Business;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,14 +13,18 @@ namespace Drivers_and_Vehicles_License_Department__DVLD_
 {
     public partial class frmMainMenu : Form
     {
-        public frmMainMenu()
+        private clsUser _CurrentUser = new clsUser();
+
+        public frmMainMenu(clsUser CurrentUser)
         {
             InitializeComponent();
+
+            _CurrentUser = CurrentUser;
         }
 
         private void peopleToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            frmPeople frmPeople= new frmPeople();
+            frmPeople frmPeople = new frmPeople();
             frmPeople.ShowDialog();
         }
     }
