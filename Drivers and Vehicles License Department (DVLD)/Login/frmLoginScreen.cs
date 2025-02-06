@@ -9,6 +9,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.IO;
 
 namespace Drivers_and_Vehicles_License_Department__DVLD_.Login
 {
@@ -23,7 +24,44 @@ namespace Drivers_and_Vehicles_License_Department__DVLD_.Login
 
         private void frmLoginScreen_Load(object sender, EventArgs e)
         {
+            _LoadValuesFromFile();
+        }
 
+        static string FileName = "UserSession.txt";
+
+        private void _SaveUserSession()
+        {
+            if (chkRememberMe.Checked)
+            {
+                _SaveValuesOnFile(txtUsername.Text, txtPassword.Text);
+            }
+
+            else
+            {
+                _SaveValuesOnFile("", "");
+            }
+        }
+
+        private void _SaveValuesOnFile(string Username, string Password)
+        {
+            string Data = Username + "#%%#" + Password;
+            File.WriteAllText(FileName, Data);
+        }
+
+        private void _LoadValuesFromFile()
+        {
+            if (File.Exists(FileName))
+            {
+                string Data = File.ReadAllText(FileName);
+
+                string[] Parts = Data.Split(new string[] { "#%%#" }, StringSplitOptions.None);
+
+                if (Parts.Length == 2)
+                {
+                    txtUsername.Text = Parts[0];
+                    txtPassword.Text = Parts[1];
+                }
+            }
         }
 
         private void btnClose_Click(object sender, MouseEventArgs e)
@@ -70,8 +108,6 @@ namespace Drivers_and_Vehicles_License_Department__DVLD_.Login
         {
             frmMainMenu MainMenuForm = new frmMainMenu(CurrentUser);
             MainMenuForm.ShowDialog();
-
-            this.Close();
         }
 
         private void CheckCredentials()
@@ -82,9 +118,15 @@ namespace Drivers_and_Vehicles_License_Department__DVLD_.Login
                 return;
             }
 
+            if (_User.IsActive == true)
+            {
+                _SaveUserSession();
+                LoginUser(_User);
+            }
+
             else
             {
-                LoginUser(_User);
+                MessageBox.Show("Your account is inactive please contact the admin", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -93,5 +135,33 @@ namespace Drivers_and_Vehicles_License_Department__DVLD_.Login
             CheckCredentials();
         }
 
+        private void txtPassword_TextChanged(object sender, EventArgs e)
+        {
+            if (String.IsNullOrEmpty(txtPassword.Text))
+            {
+                btnShowHidePassword.Visible = false;
+            }
+
+            else
+            {
+                btnShowHidePassword.Visible = true;
+            }
+
+        }
+
+        private void btnShowHidePassword_Click(object sender, EventArgs e)
+        {
+            if (txtPassword.PasswordChar == '*')
+            {
+                btnShowHidePassword.Text = "Hide Password";
+                txtPassword.PasswordChar = '\0';
+            }
+
+            else
+            {
+                btnShowHidePassword.Text = "Show Password";
+                txtPassword.PasswordChar = '*';
+            }
+        }
     }
 }

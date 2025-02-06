@@ -1,4 +1,5 @@
-﻿using DVLD_Business;
+﻿using Drivers_and_Vehicles_License_Department__DVLD_.Users.Forms;
+using DVLD_Business;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -27,5 +28,17 @@ namespace Drivers_and_Vehicles_License_Department__DVLD_
             frmPeople frmPeople = new frmPeople();
             frmPeople.ShowDialog();
         }
+
+        private void signoutToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void usersToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmManageUsers ManageUsersForm = new frmManageUsers();
+            ManageUsersForm.ShowDialog();
+        }
+
     }
 }

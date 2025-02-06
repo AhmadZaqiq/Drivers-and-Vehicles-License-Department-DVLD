@@ -66,6 +66,7 @@
             this.dgvPeople.AllowUserToDeleteRows = false;
             this.dgvPeople.AllowUserToResizeColumns = false;
             this.dgvPeople.AllowUserToResizeRows = false;
+            this.dgvPeople.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.dgvPeople.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
             this.dgvPeople.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvPeople.ContextMenuStrip = this.cmPersonSettings;
@@ -154,7 +155,7 @@
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Segoe UI Black", 27.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.Red;
-            this.label1.Location = new System.Drawing.Point(592, 130);
+            this.label1.Location = new System.Drawing.Point(582, 130);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(303, 50);
             this.label1.TabIndex = 3;
@@ -238,7 +239,7 @@
             // 
             this.pbPeople.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.pbPeople.Image = global::Drivers_and_Vehicles_License_Department__DVLD_.Properties.Resources.People__2_;
-            this.pbPeople.Location = new System.Drawing.Point(703, 12);
+            this.pbPeople.Location = new System.Drawing.Point(694, 12);
             this.pbPeople.Name = "pbPeople";
             this.pbPeople.Size = new System.Drawing.Size(78, 75);
             this.pbPeople.TabIndex = 2;

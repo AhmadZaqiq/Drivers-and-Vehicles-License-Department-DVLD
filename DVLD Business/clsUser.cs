@@ -20,7 +20,7 @@ namespace DVLD_Business
         public int PersonID { get; set; }
         public string Username { get; set; }
         public string Password { get; set; }
-        public byte IsActive { get; set; }
+        public bool IsActive { get; set; }
 
         public clsUser()
         {
@@ -28,10 +28,10 @@ namespace DVLD_Business
             this.PersonID = -1;
             this.Username = "";
             this.Password = "";
-            this.IsActive = 0;
+            this.IsActive = false;
         }
 
-        private clsUser(int UserID, int PersonID, string Username, string Password, byte IsActive)
+        private clsUser(int UserID, int PersonID, string Username, string Password, bool IsActive)
         {
             this.UserID = UserID;
             this.PersonID = PersonID;
@@ -52,7 +52,7 @@ namespace DVLD_Business
             int PersonID = -1;
             string Username = "",
                    Password = "";
-            byte IsActive = 0;
+            bool IsActive = false;
 
 
             if (clsUsersData.GetUserByID(UserID, ref PersonID, ref Username, ref Password, ref IsActive))
@@ -68,7 +68,7 @@ namespace DVLD_Business
             int UserID = -1,
             PersonID = -1;
             string Password = "";
-            byte IsActive = 0;
+            bool IsActive = false;
 
 
             if (clsUsersData.GetUserByUsername(Username, ref UserID, ref PersonID, ref Password, ref IsActive))

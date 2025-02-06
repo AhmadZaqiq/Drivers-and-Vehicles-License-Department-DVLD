@@ -1,14 +1,7 @@
 ﻿using DVLD_Business;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
 using System.Diagnostics;
-using System.Drawing;
-using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Drivers_and_Vehicles_License_Department__DVLD_
@@ -20,17 +13,24 @@ namespace Drivers_and_Vehicles_License_Department__DVLD_
             InitializeComponent();
         }
 
+        private void frmPeople_Load(object sender, EventArgs e)
+        {
+            RefreshPeopleDataGrid();
+
+            _FillComboBox();
+        }
+
         private void _FillComboBox()
         {
-            DataTable peopleTable = clsPerson.GetAllPeople();
+            DataTable PeopleTable = clsPerson.GetAllPeople();
 
-            dgvPeople.DataSource = peopleTable;
+            dgvPeople.DataSource = PeopleTable;
 
             cbFilter.Items.Clear();
 
             cbFilter.Items.Add("None");
 
-            foreach (DataColumn column in peopleTable.Columns)
+            foreach (DataColumn column in PeopleTable.Columns)
             {
                 cbFilter.Items.Add(column.ColumnName);
             }
@@ -50,13 +50,6 @@ namespace Drivers_and_Vehicles_License_Department__DVLD_
             //   lblRecordsCount.Text = clsPerson.GetPeopleCount().ToString();
 
             lblRecordsCount.Text = (dgvPeople.RowCount).ToString();
-        }
-
-        private void frmPeople_Load(object sender, EventArgs e)
-        {
-            RefreshPeopleDataGrid();
-
-            _FillComboBox();
         }
 
         private void txtFilter_TextChanged(object sender, EventArgs e)

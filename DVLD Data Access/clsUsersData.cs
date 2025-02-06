@@ -19,9 +19,11 @@ namespace DVLD_Data_Access
 
             SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString);
 
-            string query = "SELECT UserID,Users.PersonID,UserName,People.FirstName+' '+" +
-                "People.SecondName+' '+People.ThirdName+' '+People.LastName As FullName From" +
-                " Users JOIN People ON Users.PersonID=People.PersonID";
+            string query = "SELECT UserID, Users.PersonID, UserName, People.FirstName + ' ' + People.SecondName +" +
+                " ' ' + People.ThirdName + ' ' + People.LastName AS FullName, IsActive " +
+                           "FROM Users " +
+                           "JOIN People ON Users.PersonID = People.PersonID";
+
 
             SqlCommand command = new SqlCommand(query, connection);
 
@@ -47,7 +49,7 @@ namespace DVLD_Data_Access
             return dt;
         }
 
-        public static bool GetUserByID(int UserID, ref int PersonID, ref string UserName, ref string Password, ref byte IsActive)
+        public static bool GetUserByID(int UserID, ref int PersonID, ref string UserName, ref string Password, ref bool IsActive)
         {
             bool IsFound = false;
 
@@ -73,7 +75,7 @@ namespace DVLD_Data_Access
                     PersonID = (int)reader["PersonID"];
                     UserName = (string)reader["UserName"];
                     Password = (string)reader["Password"];
-                    IsActive = (byte)reader["IsActive"];
+                    IsActive = (bool)reader["IsActive"];
                 }
 
                 else
@@ -94,7 +96,7 @@ namespace DVLD_Data_Access
             return IsFound;
         }
 
-        public static bool GetUserByUsername(string Username, ref int UserID, ref int PersonID, ref string Password, ref byte IsActive)
+        public static bool GetUserByUsername(string Username, ref int UserID, ref int PersonID, ref string Password, ref bool IsActive)
         {
             bool IsFound = false;
 
@@ -120,7 +122,7 @@ namespace DVLD_Data_Access
                     UserID = (int)reader["UserID"];
                     PersonID = (int)reader["PersonID"];
                     Password = (string)reader["Password"];
-                    IsActive = (byte)reader["IsActive"];
+                    IsActive = (bool)reader["IsActive"];
                 }
 
                 else
@@ -141,7 +143,7 @@ namespace DVLD_Data_Access
             return IsFound;
         }
 
-        public static int AddNewUser(int PersonID, string UserName, string Password, byte IsActive)
+        public static int AddNewUser(int PersonID, string UserName, string Password, bool IsActive)
         {
             SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString);
 
@@ -187,7 +189,7 @@ namespace DVLD_Data_Access
             return UserID;
         }
 
-        public static bool UpdateUser(int PersonID, string UserName, string Password, byte IsActive)
+        public static bool UpdateUser(int PersonID, string UserName, string Password, bool IsActive)
         {
             SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString);
 
