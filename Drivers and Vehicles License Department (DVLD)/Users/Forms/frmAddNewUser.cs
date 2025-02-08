@@ -53,16 +53,18 @@ namespace Drivers_and_Vehicles_License_Department__DVLD_.Users.Forms
                 if (clsPerson.IsPersonExists(PersonID))
                 {
                     ctrlShowPersonDetails1.PersonID = PersonID;
+                    btnNext.Enabled = true;
                 }
 
                 else
                 {
                     MessageBox.Show($"There is No Person with ID: {PersonID}",
                                             "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+
                     ctrlShowPersonDetails1.PersonID = -1;
+                    btnNext.Enabled = false;
                 }
             }
-
         }
 
         private void _GetPersonDetailsByNationalNo()
@@ -73,9 +75,19 @@ namespace Drivers_and_Vehicles_License_Department__DVLD_.Users.Forms
 
                 if (clsPerson.IsPersonExists(NationalNo))
                 {
-      //              ctrlShowPersonDetails1.PersonID = clsPerson.;
+                    ctrlShowPersonDetails1.PersonID = clsPerson.GetPersonIDByNationalNO(NationalNo);
+                    btnNext.Enabled = true;
                 }
 
+
+                else
+                {
+                    MessageBox.Show($"There is No Person with NationalNo: {NationalNo}",
+                                            "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+
+                    ctrlShowPersonDetails1.PersonID = -1;
+                    btnNext.Enabled = false;
+                }
             }
         }
 
@@ -86,9 +98,9 @@ namespace Drivers_and_Vehicles_License_Department__DVLD_.Users.Forms
                 _GetPersonDetailsByID();
             }
 
-            if (cbFilter.SelectedItem.ToString() == "NationalNO")
+            if (cbFilter.SelectedItem.ToString() == "NationalNO.")
             {
-
+                _GetPersonDetailsByNationalNo();
             }
         }
 
@@ -103,11 +115,12 @@ namespace Drivers_and_Vehicles_License_Department__DVLD_.Users.Forms
             {
                 txtFilter.Visible = false;
             }
+
             else
             {
                 txtFilter.Visible = true;
-
             }
+
 
             if (cbFilter.SelectedItem.ToString() == "PersonID")
             {
@@ -125,7 +138,43 @@ namespace Drivers_and_Vehicles_License_Department__DVLD_.Users.Forms
 
         private void btnNext_Click(object sender, EventArgs e)
         {
+            tabControl1.SelectedTab = tabLoginInfo;
+        }
+
+        private void txtPassword_TextChanged(object sender, EventArgs e)
+        {
 
         }
+
+        private void txtUsername_Validating(object sender, CancelEventArgs e)
+        {
+            if (string.IsNullOrWhiteSpace(txtUsername.Text.Trim()))
+            {
+                e.Cancel = true;
+                txtUsername.Focus();
+                errorProvider1.SetError(txtUsername, "Error, Username connot be Blank");
+            }
+            else
+            {
+                e.Cancel = false;
+                errorProvider1.SetError(txtUsername, "");
+            }
+        }
+
+        private void txtPassword_Validating(object sender, CancelEventArgs e)
+        {
+            if (string.IsNullOrWhiteSpace(txtPassword.Text.Trim()))
+            {
+                e.Cancel = true;
+                txtPassword.Focus();
+                errorProvider1.SetError(txtPassword, "Error, Please enter Phone Number");
+            }
+            else
+            {
+                e.Cancel = false;
+                errorProvider1.SetError(txtPassword, "");
+            }
+        }
+
     }
 }

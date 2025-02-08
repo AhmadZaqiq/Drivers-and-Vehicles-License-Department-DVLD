@@ -18,8 +18,6 @@ namespace Drivers_and_Vehicles_License_Department__DVLD_
         private clsPerson _Person = new clsPerson();
         private clsCountry _Country = new clsCountry();
         private int _PersonID;
-        private string _NationalNO;
-
 
         public ctrlShowPersonDetails()
         {
@@ -39,26 +37,19 @@ namespace Drivers_and_Vehicles_License_Department__DVLD_
             }
         }
 
-        public string NationalNO
-        {
-            set
-            {
-                _NationalNO = value;
-                _FillPersonData();
-            }
-            get
-            {
-                return _NationalNO;
-            }
-        }
-
         private string _SetDefaultImage()
         {
             string ResourcesPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Resources");
-            string FileName = (_Person.Gender == 0) ? "MaleAvatar.png" : "FemaleAvatar.png";
 
+            if (_PersonID == -1)
+            {
+                return Path.Combine(ResourcesPath, "MaleAvatar.png");
+            }
+
+            string FileName = (_Person.Gender == 0) ? "MaleAvatar.png" : "FemaleAvatar.png";
             return Path.Combine(ResourcesPath, FileName);
         }
+
 
         public string _ConvertGenderToText(int Gender)
         {
@@ -141,6 +132,7 @@ namespace Drivers_and_Vehicles_License_Department__DVLD_
                 frmAddAndUpdatePeople.ShowDialog();
             }
         }
+
 
 
     }

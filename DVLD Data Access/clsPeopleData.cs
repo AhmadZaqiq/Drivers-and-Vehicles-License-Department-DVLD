@@ -372,7 +372,37 @@ namespace DVLD_Data_Access
             return IsFound;
         }
 
+        public static int GetPersonIDByNationalNO(string NationalNO)
+        {
+            int PersonID = -1;
 
+            SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString);
+
+            string query = "SELECT PersonID FROM People WHERE NationalNo=@NationalNo";
+
+            SqlCommand command = new SqlCommand(query, connection);
+
+            command.Parameters.AddWithValue("@NationalNo", NationalNO);
+
+            try
+            {
+                connection.Open();
+
+                object result = command.ExecuteScalar();
+
+                if (result != null)
+                {
+                    PersonID = Convert.ToInt32(result);
+                }
+            }
+
+            catch (Exception ex) { }
+
+            finally { connection.Close(); }
+
+            return PersonID;
+
+        }
 
 
     }

@@ -156,7 +156,10 @@ namespace DVLD_Business
            return clsPeopleData.DeletePerson(PersonID);
         }
 
-
+        public static int GetPersonIDByNationalNO(string NationalNo)
+        {
+            return clsPeopleData.GetPersonIDByNationalNO(NationalNo);
+        }
 
     }
 }

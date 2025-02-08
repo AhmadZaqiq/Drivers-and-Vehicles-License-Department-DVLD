@@ -350,12 +350,14 @@ namespace Drivers_and_Vehicles_License_Department__DVLD_
                 txtNationalNO.Focus();
                 errorProvider1.SetError(txtNationalNO, "Error, Please enter National Number");
             }
+
             else if (clsPerson.IsPersonExists(txtNationalNO.Text.Trim()))
             {
                 e.Cancel = true;
                 txtNationalNO.Focus();
                 errorProvider1.SetError(txtNationalNO, string.Format("Error, {0} Exists", txtNationalNO.Text));
             }
+
             else
             {
                 e.Cancel = false;
