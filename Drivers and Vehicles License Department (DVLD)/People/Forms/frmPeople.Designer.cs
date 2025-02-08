@@ -307,7 +307,7 @@
             this.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Margin = new System.Windows.Forms.Padding(4);
+           this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "frmPeople";
             this.Text = "Manage People";
             this.Load += new System.EventHandler(this.frmPeople_Load);

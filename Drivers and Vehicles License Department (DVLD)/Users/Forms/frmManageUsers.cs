@@ -148,9 +148,10 @@ namespace Drivers_and_Vehicles_License_Department__DVLD_.Users.Forms
             _UpdateUsersCount();
         }
 
-
-
-
-
+        private void btnAddNewPerson_Click(object sender, EventArgs e)
+        {
+            frmAddNewUser AddNewUserForm = new frmAddNewUser();
+            AddNewUserForm.ShowDialog();
+        }
     }
 }

@@ -196,9 +196,9 @@
             this.lblPersonID.AutoSize = true;
             this.lblPersonID.Location = new System.Drawing.Point(99, 39);
             this.lblPersonID.Name = "lblPersonID";
-            this.lblPersonID.Size = new System.Drawing.Size(66, 21);
+            this.lblPersonID.Size = new System.Drawing.Size(41, 21);
             this.lblPersonID.TabIndex = 44;
-            this.lblPersonID.Text = "label10";
+            this.lblPersonID.Text = "N\\A";
             // 
             // pbPersonalImage
             // 

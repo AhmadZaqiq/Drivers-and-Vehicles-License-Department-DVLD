@@ -14,16 +14,43 @@ namespace Drivers_and_Vehicles_License_Department__DVLD_
 {
     public partial class ctrlShowPersonDetails : UserControl
     {
+        private frmPeople _frmPeople = new frmPeople();
+        private clsPerson _Person = new clsPerson();
+        private clsCountry _Country = new clsCountry();
+        private int _PersonID;
+        private string _NationalNO;
+
+
         public ctrlShowPersonDetails()
         {
             InitializeComponent();
         }
 
-        private frmPeople _frmPeople = new frmPeople();
-        private clsPerson _Person;
-        private clsCountry _Country;
+        public int PersonID
+        {
+            set
+            {
+                _PersonID = value;
+                _FillPersonData();
+            }
+            get
+            {
+                return _PersonID;
+            }
+        }
 
-        private int _PersonID;
+        public string NationalNO
+        {
+            set
+            {
+                _NationalNO = value;
+                _FillPersonData();
+            }
+            get
+            {
+                return _NationalNO;
+            }
+        }
 
         private string _SetDefaultImage()
         {
@@ -33,67 +60,88 @@ namespace Drivers_and_Vehicles_License_Department__DVLD_
             return Path.Combine(ResourcesPath, FileName);
         }
 
-        public int PersonID
-        {
-            set
-            {
-                _PersonID = value;
-                FillPersonData();
-            }
-            get
-            {
-                return _PersonID;
-            }
-        }
-
         public string _ConvertGenderToText(int Gender)
         {
             return (Gender == 0) ? "Male" : "Female";
         }
 
-        public void FillPersonData()
+        private void _ClearPersonDetails()
         {
-            lblPersonID.Text = _PersonID.ToString();
-            _Person = clsPerson.GetPersonByID(_PersonID);
-            _Country = clsCountry.GetCountryByPersonID(_PersonID);
-
-            lblName.Text = $"{_Person.FirstName} {_Person.SecondName} {_Person.ThirdName} {_Person.LastName}";
-            lblNationalNO.Text = _Person.NationalNo;
-            lblGender.Text = _ConvertGenderToText(_Person.Gender);
-            lblEmail.Text = _Person.Email;
-            lblAddress.Text = _Person.Address;
-            lblPhone.Text = _Person.Phone;
-            lblDateOfBirth.Text = _Person.DateOfBirth.ToString("yyyy-MM-dd");
-            lblCountry.Text = _Country.CountryName;
-
-            if (!string.IsNullOrEmpty(_Person.ImagePath))
+            if (_PersonID == -1)
             {
-                if (!string.IsNullOrEmpty(_Person.ImagePath))
-                {
-                    string directoryPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "PeopleImages");
-                    string[] files = Directory.GetFiles(directoryPath, _Person.ImagePath + ".*");
+                lblPersonID.Text = "N\\A";
+                lblName.Text = "N\\A";
+                lblNationalNO.Text = "N\\A";
+                lblGender.Text = "N\\A";
+                lblEmail.Text = "N\\A";
+                lblAddress.Text = "N\\A";
+                lblPhone.Text = "N\\A";
+                lblDateOfBirth.Text = "N\\A";
+                lblCountry.Text = "N\\A";
+                pbPersonalImage.BackgroundImage = Image.FromFile(_SetDefaultImage());
+            }
+        }
 
-                    if (files.Length > 0)
-                    {
-                        pbPersonalImage.BackgroundImage = Image.FromFile(files[0]);
-                        pbPersonalImage.BackgroundImageLayout = ImageLayout.Stretch;
-                    }
-                    else
-                    {
-                        pbPersonalImage.BackgroundImage = Image.FromFile(_SetDefaultImage());
-                    }
-                }
-                else
+        private void _FillPersonData()
+        {
+            if ((_PersonID != -1))
+            {
+                lblPersonID.Text = _PersonID.ToString();
+                _Person = clsPerson.GetPersonByID(_PersonID);
+                _Country = clsCountry.GetCountryByPersonID(_PersonID);
+
+                if (_Person != null)
                 {
-                    pbPersonalImage.BackgroundImage = Image.FromFile(_SetDefaultImage());
+
+                    lblName.Text = $"{_Person.FirstName} {_Person.SecondName} {_Person.ThirdName} {_Person.LastName}";
+                    lblNationalNO.Text = _Person.NationalNo;
+                    lblGender.Text = _ConvertGenderToText(_Person.Gender);
+                    lblEmail.Text = _Person.Email;
+                    lblAddress.Text = _Person.Address;
+                    lblPhone.Text = _Person.Phone;
+                    lblDateOfBirth.Text = _Person.DateOfBirth.ToString("yyyy-MM-dd");
+                    lblCountry.Text = _Country.CountryName;
+
+                    if (!string.IsNullOrEmpty(_Person.ImagePath))
+                    {
+                        if (!string.IsNullOrEmpty(_Person.ImagePath))
+                        {
+                            string directoryPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "PeopleImages");
+                            string[] files = Directory.GetFiles(directoryPath, _Person.ImagePath + ".*");
+
+                            if (files.Length > 0)
+                            {
+                                pbPersonalImage.BackgroundImage = Image.FromFile(files[0]);
+                                pbPersonalImage.BackgroundImageLayout = ImageLayout.Stretch;
+                            }
+                            else
+                            {
+                                pbPersonalImage.BackgroundImage = Image.FromFile(_SetDefaultImage());
+                            }
+                        }
+                        else
+                        {
+                            pbPersonalImage.BackgroundImage = Image.FromFile(_SetDefaultImage());
+                        }
+                    }
                 }
+            }
+
+            else
+            {
+                _ClearPersonDetails();
             }
         }
 
         private void btnEditInfoClick(object sender, EventArgs e)
         {
-            frmAddAndUpdatePeople frmAddAndUpdatePeople = new frmAddAndUpdatePeople(_Person.PersonID, _frmPeople);
-            frmAddAndUpdatePeople.ShowDialog();
+            if (_Person != null)
+            {
+                frmAddAndUpdatePeople frmAddAndUpdatePeople = new frmAddAndUpdatePeople(_Person.PersonID, _frmPeople);
+                frmAddAndUpdatePeople.ShowDialog();
+            }
         }
+
+
     }
 }

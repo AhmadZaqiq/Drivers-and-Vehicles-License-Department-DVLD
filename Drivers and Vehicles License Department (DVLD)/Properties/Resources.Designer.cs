@@ -243,6 +243,16 @@ namespace Drivers_and_Vehicles_License_Department__DVLD_.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap find_user_1_512 {
+            get {
+                object obj = ResourceManager.GetObject("find-user-1-512", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap instagram_2 {
             get {
                 object obj = ResourceManager.GetObject("instagram_2", resourceCulture);
@@ -306,6 +316,16 @@ namespace Drivers_and_Vehicles_License_Department__DVLD_.Properties {
         internal static System.Drawing.Bitmap NationalNO {
             get {
                 object obj = ResourceManager.GetObject("NationalNO", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap next_63_32 {
+            get {
+                object obj = ResourceManager.GetObject("next-63-32", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -446,6 +466,16 @@ namespace Drivers_and_Vehicles_License_Department__DVLD_.Properties {
         internal static System.Drawing.Bitmap user_add_9_64 {
             get {
                 object obj = ResourceManager.GetObject("user-add-9-64", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap user_add_9_641 {
+            get {
+                object obj = ResourceManager.GetObject("user-add-9-641", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
