@@ -45,7 +45,7 @@
             this.txtConfirmPassword = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.btnShowHidePassword = new System.Windows.Forms.Button();
-            this.checkBox1 = new System.Windows.Forms.CheckBox();
+            this.chkIsActive = new System.Windows.Forms.CheckBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.pictureBox4 = new System.Windows.Forms.PictureBox();
             this.txtPassword = new System.Windows.Forms.TextBox();
@@ -187,7 +187,7 @@
             this.tabLoginInfo.Controls.Add(this.txtConfirmPassword);
             this.tabLoginInfo.Controls.Add(this.label5);
             this.tabLoginInfo.Controls.Add(this.btnShowHidePassword);
-            this.tabLoginInfo.Controls.Add(this.checkBox1);
+            this.tabLoginInfo.Controls.Add(this.chkIsActive);
             this.tabLoginInfo.Controls.Add(this.pictureBox1);
             this.tabLoginInfo.Controls.Add(this.pictureBox4);
             this.tabLoginInfo.Controls.Add(this.txtPassword);
@@ -208,7 +208,7 @@
             this.lblPersonID.Font = new System.Drawing.Font("Segoe UI", 10.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblPersonID.ForeColor = System.Drawing.Color.Black;
             this.lblPersonID.ImageAlign = System.Drawing.ContentAlignment.BottomLeft;
-            this.lblPersonID.Location = new System.Drawing.Point(202, 62);
+            this.lblPersonID.Location = new System.Drawing.Point(184, 62);
             this.lblPersonID.Name = "lblPersonID";
             this.lblPersonID.Size = new System.Drawing.Size(36, 19);
             this.lblPersonID.TabIndex = 48;
@@ -220,9 +220,9 @@
             this.label6.Font = new System.Drawing.Font("Segoe UI Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label6.Location = new System.Drawing.Point(109, 60);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(87, 21);
+            this.label6.Size = new System.Drawing.Size(69, 21);
             this.label6.TabIndex = 45;
-            this.label6.Text = "PersonID:";
+            this.label6.Text = "UserID:";
             // 
             // pictureBox2
             // 
@@ -236,12 +236,14 @@
             // 
             // txtConfirmPassword
             // 
+            this.txtConfirmPassword.Enabled = false;
             this.txtConfirmPassword.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtConfirmPassword.Location = new System.Drawing.Point(113, 344);
             this.txtConfirmPassword.Name = "txtConfirmPassword";
             this.txtConfirmPassword.PasswordChar = '*';
             this.txtConfirmPassword.Size = new System.Drawing.Size(289, 33);
             this.txtConfirmPassword.TabIndex = 25;
+            this.txtConfirmPassword.Validating += new System.ComponentModel.CancelEventHandler(this.txtConfirmPassword_Validating);
             // 
             // label5
             // 
@@ -258,6 +260,7 @@
             // 
             this.btnShowHidePassword.BackgroundImage = global::Drivers_and_Vehicles_License_Department__DVLD_.Properties.Resources.eye_22_512;
             this.btnShowHidePassword.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btnShowHidePassword.Enabled = false;
             this.btnShowHidePassword.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnShowHidePassword.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnShowHidePassword.ForeColor = System.Drawing.Color.Black;
@@ -266,19 +269,21 @@
             this.btnShowHidePassword.Size = new System.Drawing.Size(32, 17);
             this.btnShowHidePassword.TabIndex = 24;
             this.btnShowHidePassword.UseVisualStyleBackColor = true;
+            this.btnShowHidePassword.Click += new System.EventHandler(this.btnShowHidePassword_Click);
             // 
-            // checkBox1
+            // chkIsActive
             // 
-            this.checkBox1.AutoSize = true;
-            this.checkBox1.Checked = true;
-            this.checkBox1.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.checkBox1.Font = new System.Drawing.Font("Segoe UI", 10.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.checkBox1.Location = new System.Drawing.Point(113, 411);
-            this.checkBox1.Name = "checkBox1";
-            this.checkBox1.Size = new System.Drawing.Size(94, 23);
-            this.checkBox1.TabIndex = 19;
-            this.checkBox1.Text = "Is Active ?";
-            this.checkBox1.UseVisualStyleBackColor = true;
+            this.chkIsActive.AutoSize = true;
+            this.chkIsActive.Checked = true;
+            this.chkIsActive.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.chkIsActive.Enabled = false;
+            this.chkIsActive.Font = new System.Drawing.Font("Segoe UI", 10.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.chkIsActive.Location = new System.Drawing.Point(113, 411);
+            this.chkIsActive.Name = "chkIsActive";
+            this.chkIsActive.Size = new System.Drawing.Size(94, 23);
+            this.chkIsActive.TabIndex = 19;
+            this.chkIsActive.Text = "Is Active ?";
+            this.chkIsActive.UseVisualStyleBackColor = true;
             // 
             // pictureBox1
             // 
@@ -302,13 +307,13 @@
             // 
             // txtPassword
             // 
+            this.txtPassword.Enabled = false;
             this.txtPassword.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtPassword.Location = new System.Drawing.Point(113, 251);
             this.txtPassword.Name = "txtPassword";
             this.txtPassword.PasswordChar = '*';
             this.txtPassword.Size = new System.Drawing.Size(289, 33);
             this.txtPassword.TabIndex = 18;
-            this.txtPassword.TextChanged += new System.EventHandler(this.txtPassword_TextChanged);
             this.txtPassword.Validating += new System.ComponentModel.CancelEventHandler(this.txtPassword_Validating);
             // 
             // label3
@@ -336,6 +341,7 @@
             // 
             // txtUsername
             // 
+            this.txtUsername.Enabled = false;
             this.txtUsername.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtUsername.Location = new System.Drawing.Point(113, 158);
             this.txtUsername.Name = "txtUsername";
@@ -367,6 +373,7 @@
             this.btnSave.TabIndex = 40;
             this.btnSave.Text = "Save";
             this.btnSave.UseVisualStyleBackColor = true;
+            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
             // label1
             // 
@@ -441,7 +448,7 @@
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Button btnShowHidePassword;
-        private System.Windows.Forms.CheckBox checkBox1;
+        private System.Windows.Forms.CheckBox chkIsActive;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.PictureBox pictureBox4;
         private System.Windows.Forms.Label label3;
