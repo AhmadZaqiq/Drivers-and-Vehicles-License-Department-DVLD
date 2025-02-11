@@ -15,7 +15,7 @@ namespace Drivers_and_Vehicles_License_Department__DVLD_.Users.Forms
     {
 
         private frmPeople _frmPeople = new frmPeople();
-        private clsUser _User= new clsUser();
+        private clsUser _User = new clsUser();
         private int _PersonID = 0;
 
         public frmAddNewUser()
@@ -100,6 +100,14 @@ namespace Drivers_and_Vehicles_License_Department__DVLD_.Users.Forms
             btnShowHidePassword.Enabled = IsEnabled;
         }
 
+        private void _FillUserInfo()
+        {
+            _User.Username = txtUsername.Text;
+            _User.Password = txtPassword.Text;
+            _User.IsActive = chkIsActive.Checked;
+            _User.PersonID = _PersonID;
+        }
+
         private void btnFindPerson_Click(object sender, EventArgs e)
         {
             if (cbFilter.SelectedItem.ToString() == "PersonID")
@@ -173,26 +181,32 @@ namespace Drivers_and_Vehicles_License_Department__DVLD_.Users.Forms
             }
         }
 
-        private void _FillUserInfo()
+        private bool _CheckInputsValidity()
         {
-            _User.Username = txtUsername.Text;
-            _User.Password= txtPassword.Text;
-            _User.IsActive= chkIsActive.Checked;
-            _User.PersonID=_User.PersonID;
+            return string.IsNullOrWhiteSpace(txtUsername.Text.Trim()) ||
+                             clsUser.IsUserExists(txtUsername.Text.Trim()) ||
+                             string.IsNullOrWhiteSpace(txtPassword.Text) ||
+                             txtPassword.Text.Length < 4 ||
+                             txtConfirmPassword.Text != txtPassword.Text;
         }
 
         private void btnSave_Click(object sender, EventArgs e)
         {
             _FillUserInfo();
 
-            if (_User.Save())
+            if (_CheckInputsValidity())
+            {
+                MessageBox.Show("One or more inputs are invalid...", "Input Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
+            else if (_User.Save())
             {
                 MessageBox.Show("User Added Successfully", "Done", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
 
             else
             {
-                MessageBox.Show("Data not Saved", "Failed");
+                MessageBox.Show("Data not Saved...", "Failed");
             }
         }
 
@@ -257,5 +271,8 @@ namespace Drivers_and_Vehicles_License_Department__DVLD_.Users.Forms
                 errorProvider1.SetError(txtPassword, "");
             }
         }
+
+
+
     }
 }

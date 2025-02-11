@@ -54,7 +54,7 @@ namespace Drivers_and_Vehicles_License_Department__DVLD_
         {
             _FillCountriesComboBox();
             _SetDefaultValues();
-            _FillPersonInformation();
+            _FillPersonInformation(); //For Update
         }
 
         private void _UpdateMode()
@@ -389,16 +389,19 @@ namespace Drivers_and_Vehicles_License_Department__DVLD_
                     e.Cancel = true;
                     txtEmail.Focus();
                     errorProvider1.SetError(txtEmail, "Error, Invalid value");
+                    btnSave.Enabled = false;
                 }
                 else
                 {
                     e.Cancel = false;
                     errorProvider1.SetError(txtEmail, "");
+                    btnSave.Enabled = true;
                 }
             }
             else
             {
                 errorProvider1.SetError(txtEmail, "");
+                btnSave.Enabled = true;
             }
         }
 
