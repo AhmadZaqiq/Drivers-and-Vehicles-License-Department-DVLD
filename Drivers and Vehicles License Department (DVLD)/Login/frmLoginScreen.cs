@@ -10,6 +10,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.IO;
+using System.Drawing.Drawing2D;
+using Drivers_and_Vehicles_License_Department__DVLD_.Properties;
 
 namespace Drivers_and_Vehicles_License_Department__DVLD_.Login
 {
@@ -17,9 +19,36 @@ namespace Drivers_and_Vehicles_License_Department__DVLD_.Login
     {
 
         private clsUser _User = new clsUser();
+
         public frmLoginScreen()
         {
             InitializeComponent();
+
+            MakeRoundedCorners(30);
+
+        }
+
+
+        private void MakeRoundedCorners(int borderRadius)
+        {
+            GraphicsPath path = new GraphicsPath();
+            int arcSize = borderRadius * 2;
+
+            // Create rounded rectangle
+            path.AddArc(new Rectangle(0, 0, arcSize, arcSize), 180, 90);
+            path.AddArc(new Rectangle(Width - arcSize, 0, arcSize, arcSize), 270, 90);
+            path.AddArc(new Rectangle(Width - arcSize, Height - arcSize, arcSize, arcSize), 0, 90);
+            path.AddArc(new Rectangle(0, Height - arcSize, arcSize, arcSize), 90, 90);
+            path.CloseFigure();
+
+            // Apply region
+            this.Region = new Region(path);
+        }
+
+        protected override void OnResize(EventArgs e)
+        {
+            base.OnResize(e);
+            MakeRoundedCorners(30);
         }
 
         private void frmLoginScreen_Load(object sender, EventArgs e)
@@ -64,53 +93,18 @@ namespace Drivers_and_Vehicles_License_Department__DVLD_.Login
             }
         }
 
-        private void btnClose_Click(object sender, MouseEventArgs e)
-        {
-            this.Close();
-        }
-
-        private void pbFacebook_Click(object sender, EventArgs e)
-        {
-            ProcessStartInfo psi = new ProcessStartInfo
-            {
-                FileName = "https://www.facebook.com/ahmad0599132052",
-                UseShellExecute = true
-            };
-            Process.Start(psi);
-        }
-
-        private void pbLinkedin_Click(object sender, EventArgs e)
-        {
-            ProcessStartInfo psi = new ProcessStartInfo
-            {
-                FileName = "https://www.linkedin.com/in/ahmadzaqiq/",
-                UseShellExecute = true
-            };
-            Process.Start(psi);
-        }
-
-        private void pbInstagram_Click(object sender, EventArgs e)
-        {
-            ProcessStartInfo psi = new ProcessStartInfo
-            {
-                FileName = "https://www.instagram.com/4.ahmad_awad.4/",
-                UseShellExecute = true
-            };
-            Process.Start(psi);
-        }
-
         private bool _CheckIfUserExists()
         {
             return clsUser.IsUserExists(txtUsername.Text);
         }
 
-        private void LoginUser(clsUser CurrentUser)
+        private void _LoginUser(clsUser CurrentUser)
         {
             frmMainMenu MainMenuForm = new frmMainMenu(CurrentUser);
             MainMenuForm.ShowDialog();
         }
 
-        private void CheckCredentials()
+        private void _CheckCredentials()
         {
             if (!(_CheckIfUserExists()) || (_User = clsUser.GetUserByUsername(txtUsername.Text.Trim())).Password != txtPassword.Text)
             {
@@ -121,7 +115,7 @@ namespace Drivers_and_Vehicles_License_Department__DVLD_.Login
             if (_User.IsActive == true)
             {
                 _SaveUserSession();
-                LoginUser(_User);
+                _LoginUser(_User);
             }
 
             else
@@ -130,9 +124,44 @@ namespace Drivers_and_Vehicles_License_Department__DVLD_.Login
             }
         }
 
+        private void btnClose_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void btnFacebook_Click(object sender, EventArgs e)
+        {
+            ProcessStartInfo psi = new ProcessStartInfo
+            {
+                FileName = "https://www.facebook.com/ahmad0599132052",
+                UseShellExecute = true
+            };
+            Process.Start(psi);
+        }
+
+        private void btnLinkedin_Click(object sender, EventArgs e)
+        {
+            ProcessStartInfo psi = new ProcessStartInfo
+            {
+                FileName = "https://www.linkedin.com/in/ahmadzaqiq/",
+                UseShellExecute = true
+            };
+            Process.Start(psi);
+        }
+
+        private void btnInstagram_Click(object sender, EventArgs e)
+        {
+            ProcessStartInfo psi = new ProcessStartInfo
+            {
+                FileName = "https://www.instagram.com/4.ahmad_awad.4/",
+                UseShellExecute = true
+            };
+            Process.Start(psi);
+        }
+
         private void btnLogin_Click(object sender, EventArgs e)
         {
-            CheckCredentials();
+            _CheckCredentials();
         }
 
         private void txtPassword_TextChanged(object sender, EventArgs e)
@@ -153,15 +182,25 @@ namespace Drivers_and_Vehicles_License_Department__DVLD_.Login
         {
             if (txtPassword.PasswordChar == '*')
             {
-                btnShowHidePassword.Text = "Hide Password";
+                txtPassword.UseSystemPasswordChar = false;
                 txtPassword.PasswordChar = '\0';
+                btnShowHidePassword.BackgroundImage = Resources.eye_46_512;
             }
 
             else
             {
-                btnShowHidePassword.Text = "Show Password";
+                txtPassword.UseSystemPasswordChar = true;
                 txtPassword.PasswordChar = '*';
+                btnShowHidePassword.BackgroundImage = Resources.eye_50_512;
             }
         }
+
+
+
+
+
+
+
+
     }
 }

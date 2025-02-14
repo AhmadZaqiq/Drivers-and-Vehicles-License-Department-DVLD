@@ -44,7 +44,7 @@
             // menuStrip1
             // 
             this.menuStrip1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.menuStrip1.Font = new System.Drawing.Font("Segoe UI Black", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.menuStrip1.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.menuStrip1.ImageScalingSize = new System.Drawing.Size(48, 48);
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.applicationsToolStripMenuItem,
@@ -120,7 +120,7 @@
             this.currentUserInfoToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI Black", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.currentUserInfoToolStripMenuItem.Image = global::Drivers_and_Vehicles_License_Department__DVLD_.Properties.Resources.public_document;
             this.currentUserInfoToolStripMenuItem.Name = "currentUserInfoToolStripMenuItem";
-            this.currentUserInfoToolStripMenuItem.Size = new System.Drawing.Size(285, 54);
+            this.currentUserInfoToolStripMenuItem.Size = new System.Drawing.Size(253, 30);
             this.currentUserInfoToolStripMenuItem.Text = "Current User info";
             // 
             // changePasswordToolStripMenuItem
@@ -128,7 +128,7 @@
             this.changePasswordToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI Black", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.changePasswordToolStripMenuItem.Image = global::Drivers_and_Vehicles_License_Department__DVLD_.Properties.Resources.password1;
             this.changePasswordToolStripMenuItem.Name = "changePasswordToolStripMenuItem";
-            this.changePasswordToolStripMenuItem.Size = new System.Drawing.Size(285, 54);
+            this.changePasswordToolStripMenuItem.Size = new System.Drawing.Size(253, 30);
             this.changePasswordToolStripMenuItem.Text = "Change Password";
             // 
             // signoutToolStripMenuItem
@@ -136,7 +136,7 @@
             this.signoutToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI Black", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.signoutToolStripMenuItem.Image = global::Drivers_and_Vehicles_License_Department__DVLD_.Properties.Resources.sign_out;
             this.signoutToolStripMenuItem.Name = "signoutToolStripMenuItem";
-            this.signoutToolStripMenuItem.Size = new System.Drawing.Size(285, 54);
+            this.signoutToolStripMenuItem.Size = new System.Drawing.Size(253, 30);
             this.signoutToolStripMenuItem.Text = "Sign Out";
             this.signoutToolStripMenuItem.Click += new System.EventHandler(this.signoutToolStripMenuItem_Click);
             // 
@@ -148,7 +148,6 @@
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.ClientSize = new System.Drawing.Size(1924, 1061);
             this.Controls.Add(this.menuStrip1);
-            this.DoubleBuffered = true;
             this.Font = new System.Drawing.Font("Segoe UI Black", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ForeColor = System.Drawing.Color.Transparent;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
