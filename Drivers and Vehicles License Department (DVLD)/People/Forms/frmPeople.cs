@@ -2,6 +2,8 @@
 using System;
 using System.Data;
 using System.Diagnostics;
+using System.Drawing.Drawing2D;
+using System.Drawing;
 using System.Windows.Forms;
 
 namespace Drivers_and_Vehicles_License_Department__DVLD_
@@ -18,6 +20,56 @@ namespace Drivers_and_Vehicles_License_Department__DVLD_
             RefreshPeopleDataGrid();
 
             _FillComboBox();
+
+            _MakeRoundedCorners(30); //to make the form rounded
+
+            _OpenFormEffect();
+        }
+
+        private void _MakeRoundedCorners(int borderRadius)
+        {
+            GraphicsPath path = new GraphicsPath();
+            int arcSize = borderRadius * 2;
+
+            // Create rounded rectangle
+            path.AddArc(new Rectangle(0, 0, arcSize, arcSize), 180, 90);
+            path.AddArc(new Rectangle(Width - arcSize, 0, arcSize, arcSize), 270, 90);
+            path.AddArc(new Rectangle(Width - arcSize, Height - arcSize, arcSize, arcSize), 0, 90);
+            path.AddArc(new Rectangle(0, Height - arcSize, arcSize, arcSize), 90, 90);
+            path.CloseFigure();
+
+            // Apply region
+            this.Region = new Region(path);
+        }
+
+        private void _OpenFormEffect()
+        {
+            int startY = this.Top - 50;
+            this.Top = startY;
+            this.Opacity = 0;
+            Timer timer = new Timer();
+            timer.Interval = 10;
+            timer.Tick += (s, e) =>
+            {
+                if (this.Opacity < 1) this.Opacity += 0.05;
+                if (this.Top < startY + 50) this.Top += 2;
+                else timer.Stop();
+            };
+            timer.Start();
+        }
+
+        private void _CloseFormEffect()
+        {
+            Timer timer = new Timer();
+            timer.Interval = 10;
+            timer.Tick += (s, e) =>
+            {
+                if (this.Opacity > 0) this.Opacity -= 0.05;
+                if (this.Width > 10) this.Width -= 20;
+                if (this.Height > 10) this.Height -= 15;
+                if (this.Opacity <= 0) { timer.Stop(); this.Close(); }
+            };
+            timer.Start();
         }
 
         private void _FillComboBox()
@@ -73,33 +125,24 @@ namespace Drivers_and_Vehicles_License_Department__DVLD_
 
         private void cbFilter_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (cbFilter.SelectedItem.ToString() == "None")
-            {
-                txtFilter.Visible = false;
-            }
-            else
-            {
-                txtFilter.Visible = true;
+            string FilterColumn = cbFilter.SelectedItem.ToString();
 
-            }
+            txtFilter.Visible = (FilterColumn != "None");
 
-            if (cbFilter.SelectedItem.ToString() == "PersonID" || cbFilter.SelectedItem.ToString() == "DateOfBirth" || cbFilter.SelectedItem.ToString() == "Phone")
-            {
-                txtFilter.Mask = "0000000000";
-                txtFilter.PromptChar = ' ';
-            }
-
-            else
+            if (!(FilterColumn == "PersonID" || FilterColumn == "DateOfBirth" || FilterColumn == "Phone"))
             {
                 txtFilter.Mask = "";
+                return;
             }
 
+            txtFilter.Mask = "0000000000";
+            txtFilter.PromptChar = ' ';
             txtFilter.Focus();
         }
 
         private void btnCloseForm_Click(object sender, EventArgs e)
         {
-            this.Close();
+            _CloseFormEffect();
         }
 
         private void btnAddNewPerson_Click(object sender, EventArgs e)
@@ -112,62 +155,46 @@ namespace Drivers_and_Vehicles_License_Department__DVLD_
         {
             DataGridViewRow selectedRow = dgvPeople.SelectedRows[0];
 
-            if (selectedRow.Cells["PersonID"].Value != DBNull.Value && selectedRow.Cells["PersonID"].Value != null)
-            {
-                int PersonID = Convert.ToInt32(selectedRow.Cells["PersonID"].Value);
+            int PersonID = Convert.ToInt32(selectedRow.Cells["PersonID"].Value);
 
-                frmShowPersonDetails frmShowPersonDetails = new frmShowPersonDetails(PersonID);
-                frmShowPersonDetails.ShowDialog();
-            }
-
-            else
-            {
-                MessageBox.Show("The specified row does not contain a value! ");
-            }
+            frmShowPersonDetails FormPersonDetails = new frmShowPersonDetails(PersonID);
+            FormPersonDetails.ShowDialog();
         }
 
         private void addNewPersonToolStripMenuItem1_Click(object sender, EventArgs e)
         {
-            frmAddAndUpdatePeople frmAddAndUpdatePeople = new frmAddAndUpdatePeople(-1, this);
-            frmAddAndUpdatePeople.ShowDialog();
+            frmAddAndUpdatePeople FormAddAndUpdatePerson = new frmAddAndUpdatePeople(-1, this);
+            FormAddAndUpdatePerson.ShowDialog();
         }
 
         private void editToolStripMenuItem1_Click(object sender, EventArgs e)
         {
             DataGridViewRow selectedRow = dgvPeople.SelectedRows[0];
 
-            if (selectedRow.Cells["PersonID"].Value != DBNull.Value && selectedRow.Cells["PersonID"].Value != null)
-            {
-                int PersonID = Convert.ToInt32(selectedRow.Cells["PersonID"].Value);
+            int PersonID = Convert.ToInt32(selectedRow.Cells["PersonID"].Value);
 
-                frmAddAndUpdatePeople frmAddAndUpdatePeople = new frmAddAndUpdatePeople(PersonID, this);
-                frmAddAndUpdatePeople.ShowDialog();
-            }
-
-            else
-            {
-                MessageBox.Show("No Records Here...", "Error");
-            }
+            frmAddAndUpdatePeople frmAddAndUpdatePeople = new frmAddAndUpdatePeople(PersonID, this);
+            frmAddAndUpdatePeople.ShowDialog();
         }
 
         private void deleteToolStripMenuItem1_Click(object sender, EventArgs e)
         {
             DataGridViewRow selectedRow = dgvPeople.SelectedRows[0];
 
-            if (MessageBox.Show("Are You Sure you want to delete this Person?", "Alert", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
+            if (MessageBox.Show("Are You Sure you want to delete this Person?", "Alert", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) != DialogResult.Yes)
+                return;
+
+            int PersonID = Convert.ToInt32(selectedRow.Cells["PersonID"].Value);
+
+            if (!clsPerson.DeletePerson(PersonID))
             {
-                if (clsPerson.DeletePerson(Convert.ToInt32(selectedRow.Cells["PersonID"].Value)))
-                {
-                    MessageBox.Show("Person deleted successfully.", "Done");
-
-                    RefreshPeopleDataGrid();
-                }
-
-                else
-                {
-                    MessageBox.Show("Person was not deleted because it is linked to other transactions in the system...", "Alert");
-                }
+                MessageBox.Show("Person was not deleted because it is linked to other transactions in the system...", "Alert");
+                return;
             }
+
+            MessageBox.Show("Person deleted successfully.", "Done");
+
+            RefreshPeopleDataGrid();
         }
 
         private void callToolStripMenuItem_Click(object sender, EventArgs e)
@@ -186,7 +213,17 @@ namespace Drivers_and_Vehicles_License_Department__DVLD_
             Process.Start(new ProcessStartInfo(mailtoLink) { UseShellExecute = true });
         }
 
+        private void dgvPeople_MouseEnter(object sender, EventArgs e)
+        {
+            this.Cursor = Cursors.Hand;
+        }
+
+        private void dgvPeople_MouseLeave(object sender, EventArgs e)
+        {
+            this.Cursor = Cursors.Default;
+        }
+
+
 
     }
 }
-

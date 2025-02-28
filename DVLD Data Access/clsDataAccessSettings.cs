@@ -6,5 +6,5 @@ using System.Threading.Tasks;
 
 static class clsDataAccessSettings
 {
-    public static string ConnectionString = "Server=.;Database=DVLD;User id=sa;Password=sa123456";
+    public static string ConnectionString = "Server=.;Database=DriversLicense;User id=sa;Password=sa123456";
 }

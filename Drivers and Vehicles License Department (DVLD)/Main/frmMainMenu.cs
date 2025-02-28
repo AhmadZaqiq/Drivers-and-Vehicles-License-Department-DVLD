@@ -14,13 +14,31 @@ namespace Drivers_and_Vehicles_License_Department__DVLD_
 {
     public partial class frmMainMenu : Form
     {
-        private clsUser _CurrentUser = new clsUser();
+        private clsUser _CurrentUser;
 
         public frmMainMenu(clsUser CurrentUser)
         {
             InitializeComponent();
 
             _CurrentUser = CurrentUser;
+        }
+
+        private void frmMainMenu_Load(object sender, EventArgs e)
+        {
+        }
+
+        private void _CloseFormEffect()
+        {
+            Timer timer = new Timer();
+            timer.Interval = 10;
+            timer.Tick += (s, e) =>
+            {
+                if (this.Opacity > 0) this.Opacity -= 0.05;
+                if (this.Width > 10) this.Width -= 20;
+                if (this.Height > 10) this.Height -= 15;
+                if (this.Opacity <= 0) { timer.Stop(); this.Close(); }
+            };
+            timer.Start();
         }
 
         private void peopleToolStripMenuItem_Click(object sender, EventArgs e)
@@ -31,13 +49,25 @@ namespace Drivers_and_Vehicles_License_Department__DVLD_
 
         private void signoutToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            this.Close();
+            _CloseFormEffect();
         }
 
         private void usersToolStripMenuItem_Click(object sender, EventArgs e)
         {
             frmManageUsers ManageUsersForm = new frmManageUsers();
             ManageUsersForm.ShowDialog();
+        }
+
+        private void currentUserInfoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmShowUserDetails FormShowUserDetails = new frmShowUserDetails(_CurrentUser.UserID);
+            FormShowUserDetails.ShowDialog();
+        }
+
+        private void changePasswordToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmUpdateUsername FormChangePassword = new frmUpdateUsername(_CurrentUser.UserID,true);
+            FormChangePassword.ShowDialog();
         }
 
     }

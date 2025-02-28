@@ -350,7 +350,7 @@
             this.btnShowHidePassword.AccessibleName = "";
             this.btnShowHidePassword.AutoSizeBasedOnText = false;
             this.btnShowHidePassword.BackColor = System.Drawing.Color.Transparent;
-            this.btnShowHidePassword.BackgroundImage = global::Drivers_and_Vehicles_License_Department__DVLD_.Properties.Resources.eye_46_512;
+            this.btnShowHidePassword.BackgroundImage = global::Drivers_and_Vehicles_License_Department__DVLD_.Properties.Resources.eye_50_512;
             this.btnShowHidePassword.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.btnShowHidePassword.BadgeBackColor = System.Drawing.Color.White;
             this.btnShowHidePassword.BadgeFont = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Bold);
@@ -773,6 +773,7 @@
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "frmLoginScreen";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Load += new System.EventHandler(this.frmLoginScreen_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);

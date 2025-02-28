@@ -13,8 +13,8 @@ namespace Drivers_and_Vehicles_License_Department__DVLD_
     {
         public event Action DataAdded;
 
-        private clsPerson _Person = new clsPerson();
-        private clsCountry _Country = new clsCountry();
+        private clsPerson _Person=new clsPerson();
+        private clsCountry _Country;
 
         public enum enMode { AddNew = 0, Update = 1 };
         private enMode _Mode = enMode.AddNew;
@@ -51,7 +51,7 @@ namespace Drivers_and_Vehicles_License_Department__DVLD_
         {
             _FillCountriesComboBox();
             _SetDefaultValues();
-            _FillPersonInformation(); //For Update
+            _LoadPersonDataForUpdate();
         }
 
         private void _UpdateMode()
@@ -85,8 +85,8 @@ namespace Drivers_and_Vehicles_License_Department__DVLD_
 
         private void _UpdateGender()
         {
-            rbMale.Checked = _Person.Gender == 0 ? true : false;
-            rbFemale.Checked = _Person.Gender == 1 ? true : false;
+            rbMale.Checked = _Person.Gender == 0;
+            rbFemale.Checked = _Person.Gender == 1;
         }
 
         private void _UpdateBackgroundImage()
@@ -94,28 +94,25 @@ namespace Drivers_and_Vehicles_License_Department__DVLD_
             MessageBox.Show("This feature is currently not available :( ", "Note", MessageBoxButtons.OK, MessageBoxIcon.Warning);
         }
 
-        private void _FillPersonInformation()
+        private void _LoadPersonDataForUpdate()
         {
-            if (_Mode == enMode.Update && _PersonID != -1)
-            {
-                if (clsPerson.IsPersonExists(_PersonID))
-                {
-                    _Person = clsPerson.GetPersonByID(_PersonID);
-                    _Country = clsCountry.GetCountryByPersonID(_PersonID);
+            if (_Mode != enMode.Update && !clsPerson.IsPersonExists(_PersonID))
+                return;
 
-                    txtFirstName.Text = _Person.FirstName;
-                    txtSecondName.Text = _Person.SecondName;
-                    txtThirdName.Text = _Person.ThirdName;
-                    txtLastName.Text = _Person.LastName;
-                    txtNationalNO.Text = _Person.NationalNo;
-                    dtpDateOfBirth.Value = _Person.DateOfBirth;
-                    _UpdateGender();
-                    cbCountry.Text = _Country.CountryName;
-                    txtPhone.Text = _Person.Phone;
-                    txtEmail.Text = _Person.Email;
-                    txtAddress.Text = _Person.Address;
-                }
-            }
+            _Person = clsPerson.GetPersonByID(_PersonID);
+            _Country = clsCountry.GetCountryByPersonID(_PersonID);
+
+            txtFirstName.Text = _Person.FirstName;
+            txtSecondName.Text = _Person.SecondName;
+            txtThirdName.Text = _Person.ThirdName;
+            txtLastName.Text = _Person.LastName;
+            txtNationalNO.Text = _Person.NationalNo;
+            dtpDateOfBirth.Value = _Person.DateOfBirth;
+            _UpdateGender();
+            cbCountry.Text = _Country.CountryName;
+            txtPhone.Text = _Person.Phone;
+            txtEmail.Text = _Person.Email;
+            txtAddress.Text = _Person.Address;
         }
 
         private bool _VerifyAllInputs()
@@ -143,37 +140,32 @@ namespace Drivers_and_Vehicles_License_Department__DVLD_
 
         private void btnSave_Click(object sender, EventArgs e)
         {
-            if (_VerifyAllInputs())
-            {
-                int CountryID = clsCountry.GetCountryID(cbCountry.Text);
-
-                _Person.NationalNo = txtNationalNO.Text;
-                _Person.FirstName = txtFirstName.Text;
-                _Person.SecondName = txtSecondName.Text;
-                _Person.ThirdName = txtThirdName.Text;
-                _Person.LastName = txtLastName.Text;
-                _Person.DateOfBirth = dtpDateOfBirth.Value;
-                _Person.Gender = rbMale.Checked ? 0 : 1;
-                _Person.Address = txtAddress.Text;
-                _Person.Phone = txtPhone.Text;
-                _Person.Email = txtEmail.Text;
-                _Person.NationalityCountryID = CountryID;
-
-                if (_Person.Save())
-                {
-                    MessageBox.Show("Data Saved Successfully", "Success");
-                    DataAdded?.Invoke();
-                }
-                else
-                {
-                    MessageBox.Show("Data not Saved", "Failed");
-                }
-            }
-
-            else
+            if (!_VerifyAllInputs())
             {
                 MessageBox.Show("Some required fields are missing. Please fill in all the data.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
             }
+
+            _Person.NationalNo = txtNationalNO.Text;
+            _Person.FirstName = txtFirstName.Text;
+            _Person.SecondName = txtSecondName.Text;
+            _Person.ThirdName = txtThirdName.Text;
+            _Person.LastName = txtLastName.Text;
+            _Person.DateOfBirth = dtpDateOfBirth.Value;
+            _Person.Gender = rbMale.Checked ? 0 : 1;
+            _Person.Address = txtAddress.Text;
+            _Person.Phone = txtPhone.Text;
+            _Person.Email = txtEmail.Text;
+            _Person.NationalityCountryID = clsCountry.GetCountryID(cbCountry.Text);
+
+            if (!_Person.Save())
+            {
+                MessageBox.Show("Data not Saved", "Failed");
+                return;
+            }
+
+            MessageBox.Show("Data Saved Successfully", "Success");
+            DataAdded?.Invoke();
         }
 
         private void btnRemoveImage_Click(object sender, EventArgs e)
@@ -271,26 +263,25 @@ namespace Drivers_and_Vehicles_License_Department__DVLD_
 
         private void txtEmail_Validating(object sender, CancelEventArgs e)
         {
+            string Email = txtEmail.Text;
+
             if (!string.IsNullOrWhiteSpace(txtEmail.Text))
             {
-                if (!txtEmail.Text.ToLower().EndsWith("@gmail.com"))
+                if (!Email.ToLower().EndsWith("@gmail.com") || Email.StartsWith("@"))
                 {
                     e.Cancel = true;
                     txtEmail.Focus();
                     errorProvider1.SetError(txtEmail, "Error, Invalid value");
-                    btnSave.Enabled = false;
                 }
                 else
                 {
                     e.Cancel = false;
                     errorProvider1.SetError(txtEmail, "");
-                    btnSave.Enabled = true;
                 }
             }
             else
             {
                 errorProvider1.SetError(txtEmail, "");
-                btnSave.Enabled = true;
             }
         }
 
@@ -308,5 +299,6 @@ namespace Drivers_and_Vehicles_License_Department__DVLD_
                 errorProvider1.SetError(txtAddress, "");
             }
         }
+
     }
 }
