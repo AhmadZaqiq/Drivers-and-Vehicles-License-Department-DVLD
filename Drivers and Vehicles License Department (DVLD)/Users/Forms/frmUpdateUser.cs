@@ -14,13 +14,14 @@ namespace Drivers_and_Vehicles_License_Department__DVLD_.Users.Forms
 {
     public partial class frmUpdateUsername : Form
     {
+        public event Action DataAdded;
 
-        clsUser _User = new clsUser();
-        int _UserID = -1;
+        clsUser _User;
+        int _UserID;
         private bool _IsChangingPassword = false;
 
 
-        public frmUpdateUsername(int UserID, bool IsChangingPassword)
+        public frmUpdateUsername(int UserID, bool IsChangingPassword, frmManageUsers FormManageUsers)
         {
             InitializeComponent();
 
@@ -29,6 +30,9 @@ namespace Drivers_and_Vehicles_License_Department__DVLD_.Users.Forms
             _User = clsUser.GetUserByID(_UserID);
 
             _IsChangingPassword = IsChangingPassword;
+
+            if (FormManageUsers != null)
+                this.DataAdded += FormManageUsers.RefreshUsersDataGrid;
         }
 
         private void frmUpdateUser_Load(object sender, EventArgs e)
@@ -91,10 +95,16 @@ namespace Drivers_and_Vehicles_License_Department__DVLD_.Users.Forms
         {
             ctrlUserDetails1.UserID = _UserID;
 
-            lblTitle.Text = _UpdateTitle();
+            lblTitle.Text = (_IsChangingPassword ? "Change Password" : "Update User");
 
             _UpdateVisibility();
 
+        }
+
+        private void _PopulateUserFields()
+        {
+            txtUsername.Text = _User.Username;
+            chkIsActive.Checked = _User.IsActive;
         }
 
         private void _UpdateVisibility()
@@ -115,7 +125,7 @@ namespace Drivers_and_Vehicles_License_Department__DVLD_.Users.Forms
                 lblUsername.Visible = true;
                 txtUsername.Visible = true;
                 chkIsActive.Visible = true;
-                txtUsername.Text = _User.Username;
+                _PopulateUserFields();
 
                 txtCurrentPassword.Visible = false;
                 txtNewPassword.Visible = false;
@@ -123,24 +133,11 @@ namespace Drivers_and_Vehicles_License_Department__DVLD_.Users.Forms
             }
         }
 
-        private string _UpdateTitle()
-        {
-            return _IsChangingPassword ? "Change Password" : "Update username";
-        }
-
         private bool _IsUsernameValid()
         {
-            string NewUsername = txtUsername.Text.Trim();
-
-            if (string.IsNullOrWhiteSpace(NewUsername))
+            if (string.IsNullOrWhiteSpace(txtUsername.Text.Trim()))
             {
                 MessageBox.Show("Username cannot be empty.", "Error");
-                return false;
-            }
-
-            if (clsUser.IsUserExists(NewUsername))
-            {
-                MessageBox.Show("This username already exists.", "Error");
                 return false;
             }
 
@@ -187,7 +184,6 @@ namespace Drivers_and_Vehicles_License_Department__DVLD_.Users.Forms
 
         private void btnSave_Click(object sender, EventArgs e)
         {
-
             if (_IsChangingPassword)
             {
                 if (!_IsPasswordValid())
@@ -195,14 +191,14 @@ namespace Drivers_and_Vehicles_License_Department__DVLD_.Users.Forms
 
                 _User.Password = txtNewPassword.Text.Trim();
 
-                if (_User.Save())
-                {
-                    MessageBox.Show("Password updated successfully", "Success");
-                }
-                else
+                if (!_User.Save())
                 {
                     MessageBox.Show("Failed to change password", "Failed");
+                    return;
                 }
+
+                MessageBox.Show("Password updated successfully", "Success");
+                DataAdded?.Invoke();
             }
 
             else
@@ -213,14 +209,14 @@ namespace Drivers_and_Vehicles_License_Department__DVLD_.Users.Forms
                 _User.Username = txtUsername.Text.Trim();
                 _User.IsActive = chkIsActive.Checked;
 
-                if (_User.Save())
-                {
-                    MessageBox.Show("Updated successfully", "Success");
-                }
-                else
+                if (!_User.Save())
                 {
                     MessageBox.Show("Failed to update", "Failed");
+                    return;
                 }
+
+                MessageBox.Show("Updated successfully", "Success");
+                DataAdded?.Invoke();
             }
         }
 

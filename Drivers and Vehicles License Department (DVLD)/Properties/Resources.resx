@@ -127,11 +127,14 @@
   <data name="Users" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Users.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="NationalNO" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\NationalNO.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="password" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\password.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="ic_fluent_content_settings_24_filled (1)" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\ic_fluent_content_settings_24_filled (1).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="ic_fluent_slide_settings_24_filled" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\ic_fluent_slide_settings_24_filled.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="world_north_america" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\world_north_america.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -150,6 +153,9 @@
   </data>
   <data name="ic_fluent_person_delete_24_filled" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\ic_fluent_person_delete_24_filled.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="ic_fluent_people_community_24_filled" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\ic_fluent_people_community_24_filled.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="ic_fluent_credit_card_person_24_filled" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\ic_fluent_credit_card_person_24_filled.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -199,14 +205,14 @@
   <data name="Ahmad Logo1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Ahmad Logo2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="LinkedIn" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\LinkedIn.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="People" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\People.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="users-69-64" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\users-69-64.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="phone" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\phone.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="ic_fluent_people_search_24_filled" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\ic_fluent_people_search_24_filled.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -217,14 +223,29 @@
   <data name="user_female" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\user_female.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="direct_x" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\direct_x.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="phone" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\phone.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="attach_money_24dp_000000_FILL0_wght400_GRAD0_opsz24 (1)" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\attach_money_24dp_000000_FILL0_wght400_GRAD0_opsz24 (1).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="ic_fluent_people_add_24_filled" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\ic_fluent_people_add_24_filled.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="ic_fluent_hand_left_24_filled" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\ic_fluent_hand_left_24_filled.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="find-user-1-5121" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\find-user-1-5121.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Facebook" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Facebook.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="ic_fluent_contact_card_24_filled1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\ic_fluent_contact_card_24_filled1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Ahmad Logo White" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Ahmad Logo White.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Insta" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Insta.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -238,8 +259,14 @@
   <data name="user-add-9-641" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\user-add-9-641.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="ic_fluent_contact_card_24_filled" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\ic_fluent_contact_card_24_filled.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="ic_fluent_call_24_filled" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\ic_fluent_call_24_filled.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="ic_fluent_clipboard_settings_24_filled" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\ic_fluent_clipboard_settings_24_filled.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="edit1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\edit1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -253,17 +280,14 @@
   <data name="cross" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\cross.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="FemaleAvatar" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\FemaleAvatar.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="public_document" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\public_document.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="facebook-197-162" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\facebook-197-162.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="LinkedIn" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\LinkedIn.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="ic_fluent_content_settings_24_filled" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\ic_fluent_content_settings_24_filled.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="phone (1)" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\phone (1).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -292,8 +316,11 @@
   <data name="instagram_2 (1)" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\instagram_2 (1).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="ic_fluent_people_add_24_filled" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\ic_fluent_people_add_24_filled.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="FemaleAvatar" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\FemaleAvatar.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="attach_money_24dp_000000_FILL0_wght400_GRAD0_opsz24" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\attach_money_24dp_000000_FILL0_wght400_GRAD0_opsz24.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="notepad" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\notepad.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -301,14 +328,17 @@
   <data name="Yellow Black Pastel Abstract Background Instagram Story (بطاقة (مربعة))" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Yellow Black Pastel Abstract Background Instagram Story (بطاقة (مربعة)).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="ic_fluent_people_community_24_filled" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\ic_fluent_people_community_24_filled.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="NationalNO" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\NationalNO.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="facebook-197-161" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\facebook-197-161.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="instagram_2" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\instagram_2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="ic_fluent_edit_settings_24_filled" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\ic_fluent_edit_settings_24_filled.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="MaleAvatar" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\MaleAvatar.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -325,8 +355,8 @@
   <data name="next-63-321" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\next-63-321.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Ahmad Logo White" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Ahmad Logo White.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="direct_x" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\direct_x.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="person_boy" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\person_boy.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -343,7 +373,7 @@
   <data name="mail" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\mail.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="ic_fluent_content_settings_24_filled" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\ic_fluent_content_settings_24_filled.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="ic_fluent_contact_card_24_filled2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\ic_fluent_contact_card_24_filled2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

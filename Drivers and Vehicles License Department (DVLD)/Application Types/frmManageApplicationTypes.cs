@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DVLD_Business;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -9,29 +10,19 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace Drivers_and_Vehicles_License_Department__DVLD_
+namespace Drivers_and_Vehicles_License_Department__DVLD_.Application_Types
 {
-    public partial class frmAddAndUpdatePeople : Form
+    public partial class frmManageApplicationTypes : Form
     {
-        public delegate void DataBackEventHandler(object sender, int PersonID);
-
-        private frmPeople _PeopleForm;
-
-        public frmAddAndUpdatePeople(int PersonID = -1, frmPeople PeopleForm=null)
+        public frmManageApplicationTypes()
         {
             InitializeComponent();
-
-            ctrlAddNewPerson1.PersonID = PersonID;
-
-            lblTitle.Text = ctrlAddNewPerson1.Mode;
-
-            _SetPersonID(PersonID);
-            _PeopleForm = PeopleForm;
-            ctrlAddNewPerson1.DataAdded += _PeopleForm.RefreshPeopleDataGrid;
         }
 
-        private void frmAddAndUpdatePeople_Load(object sender, EventArgs e)
+        private void frmManageApplicationTypes_Load(object sender, EventArgs e)
         {
+            RefreshApplicationTypesDataGrid();
+
             _MakeRoundedCorners(30); //to make the form rounded
 
             _OpenFormEffect();
@@ -83,9 +74,16 @@ namespace Drivers_and_Vehicles_License_Department__DVLD_
             timer.Start();
         }
 
-        private void _SetPersonID(int PersonID)
+        public void RefreshApplicationTypesDataGrid()
         {
-            lblPersonID.Text = (PersonID == -1) ? "N/A" : PersonID.ToString();
+            dgvApplicationTypes.DataSource = clsApplicationTypes.GetAllApplicationTypes();
+
+            _UpdateApplicationTypesCount();
+        }
+
+        private void _UpdateApplicationTypesCount()
+        {
+            lblRecordsCount.Text = (dgvApplicationTypes.RowCount).ToString();
         }
 
         private void btnClose_Click(object sender, EventArgs e)
@@ -93,5 +91,14 @@ namespace Drivers_and_Vehicles_License_Department__DVLD_
             _CloseFormEffect();
         }
 
+        private void editApplicationTypeToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            DataGridViewRow selectedRow = dgvApplicationTypes.SelectedRows[0];
+
+            int ApplicationTypeID = Convert.ToInt32(selectedRow.Cells["ApplicationTypeID"].Value);
+
+            frmUpdateApplicationType FormUpdateApplicationType = new frmUpdateApplicationType(ApplicationTypeID,this);
+            FormUpdateApplicationType.ShowDialog();
+        }
     }
 }

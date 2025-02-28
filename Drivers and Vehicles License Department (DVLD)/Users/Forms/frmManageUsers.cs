@@ -15,7 +15,6 @@ namespace Drivers_and_Vehicles_License_Department__DVLD_.Users.Forms
 {
     public partial class frmManageUsers : Form
     {
-
         public frmManageUsers()
         {
             InitializeComponent();
@@ -197,7 +196,7 @@ namespace Drivers_and_Vehicles_License_Department__DVLD_.Users.Forms
 
         private void btnAddNewPerson_Click(object sender, EventArgs e)
         {
-            frmAddUser AddNewUserForm = new frmAddUser();
+            frmAddUser AddNewUserForm = new frmAddUser(this);
             AddNewUserForm.ShowDialog();
         }
 
@@ -213,7 +212,7 @@ namespace Drivers_and_Vehicles_License_Department__DVLD_.Users.Forms
 
         private void addNewPersonToolStripMenuItem1_Click(object sender, EventArgs e)
         {
-            frmAddUser FormAddandUpdateUser = new frmAddUser();
+            frmAddUser FormAddandUpdateUser = new frmAddUser(this);
             FormAddandUpdateUser.ShowDialog();
         }
 
@@ -222,7 +221,7 @@ namespace Drivers_and_Vehicles_License_Department__DVLD_.Users.Forms
             DataGridViewRow selectedRow = dgvUsers.SelectedRows[0];
             int UserID = Convert.ToInt32(selectedRow.Cells["UserID"].Value);
 
-            frmUpdateUsername FormUpdateUsername = new frmUpdateUsername(UserID, false);
+            frmUpdateUsername FormUpdateUsername = new frmUpdateUsername(UserID, false,this);
             FormUpdateUsername.ShowDialog();
         }
 
@@ -232,7 +231,7 @@ namespace Drivers_and_Vehicles_License_Department__DVLD_.Users.Forms
 
             int UserID = Convert.ToInt32(selectedRow.Cells["UserID"].Value);
 
-            frmUpdateUsername FormUpdateUsername = new frmUpdateUsername(UserID, true);
+            frmUpdateUsername FormUpdateUsername = new frmUpdateUsername(UserID, true, this);
             FormUpdateUsername.ShowDialog();
         }
 

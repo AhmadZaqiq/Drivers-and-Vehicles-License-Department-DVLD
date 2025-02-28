@@ -126,15 +126,12 @@ namespace DVLD_Data_Access
                     NationalityCountryID = (int)reader["NationalityCountryID"];
 
                     if (reader["ImagePath"] != null)
-                    {
-
                         ImagePath = (string)reader["ImagePath"];
-                    }
+
 
                     else
-                    {
                         ImagePath = "";
-                    }
+
                 }
 
                 else
@@ -258,10 +255,12 @@ namespace DVLD_Data_Access
                 int RowAffected = command.ExecuteNonQuery();
 
                 UpdatedSuccessfully = (RowAffected > 0);
-
             }
 
-            catch (Exception ex) { }
+            catch (Exception ex)
+            {
+
+            }
 
             finally
             {

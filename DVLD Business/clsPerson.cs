@@ -96,9 +96,8 @@ namespace DVLD_Business
             string ImagePath = "";
 
             if (clsPeopleData.GetPersonByID(PersonID, ref NationalNo, ref FirstName, ref SecondName, ref ThirdName, ref LastName, ref DateOfBirth, ref Gender, ref Address, ref Phone, ref Email, ref NationalityCountryID, ref ImagePath))
-            {
                 return new clsPerson(PersonID, NationalNo, FirstName, SecondName, ThirdName, LastName, DateOfBirth, Gender, Address, Phone, Email, NationalityCountryID, ImagePath);
-            }
+
 
             return null;
         }
@@ -153,7 +152,7 @@ namespace DVLD_Business
 
         public static bool DeletePerson(int PersonID)
         {
-           return clsPeopleData.DeletePerson(PersonID);
+            return clsPeopleData.DeletePerson(PersonID);
         }
 
         public static int GetPersonIDByNationalNO(string NationalNo)

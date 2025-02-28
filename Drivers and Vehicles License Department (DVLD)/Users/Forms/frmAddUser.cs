@@ -18,17 +18,15 @@ namespace Drivers_and_Vehicles_License_Department__DVLD_.Users.Forms
         public event Action DataAdded;
 
         private frmPeople _frmPeople = new frmPeople();
-        private frmManageUsers _frmManageUsers = new frmManageUsers();
 
-        private clsUser _User = new clsUser();
+        private clsUser _User = new clsUser(); //Unlike with 'People Addition', here we only create the object because there is no 'Update User' operation.
         private int _PersonID = -1;
 
-        public frmAddUser()
+        public frmAddUser(frmManageUsers FormManageUsers)
         {
             InitializeComponent();
 
-            DataAdded += _frmManageUsers.RefreshUsersDataGrid;
-
+            this.DataAdded += FormManageUsers.RefreshUsersDataGrid;
         }
 
         private void frmAddNewUser_Load(object sender, EventArgs e)
@@ -191,7 +189,6 @@ namespace Drivers_and_Vehicles_License_Department__DVLD_.Users.Forms
                     break;
             }
         }
-
 
         private void btnClose_Click(object sender, EventArgs e)
         {

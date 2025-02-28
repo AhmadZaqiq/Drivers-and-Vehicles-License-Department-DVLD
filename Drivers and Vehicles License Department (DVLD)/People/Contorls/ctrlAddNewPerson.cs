@@ -13,7 +13,7 @@ namespace Drivers_and_Vehicles_License_Department__DVLD_
     {
         public event Action DataAdded;
 
-        private clsPerson _Person=new clsPerson();
+        private clsPerson _Person;
         private clsCountry _Country;
 
         public enum enMode { AddNew = 0, Update = 1 };
@@ -51,7 +51,7 @@ namespace Drivers_and_Vehicles_License_Department__DVLD_
         {
             _FillCountriesComboBox();
             _SetDefaultValues();
-            _LoadPersonDataForUpdate();
+            _PopulatePersonFieldsForUpdate();
         }
 
         private void _UpdateMode()
@@ -94,7 +94,7 @@ namespace Drivers_and_Vehicles_License_Department__DVLD_
             MessageBox.Show("This feature is currently not available :( ", "Note", MessageBoxButtons.OK, MessageBoxIcon.Warning);
         }
 
-        private void _LoadPersonDataForUpdate()
+        private void _PopulatePersonFieldsForUpdate()
         {
             if (_Mode != enMode.Update && !clsPerson.IsPersonExists(_PersonID))
                 return;
@@ -138,6 +138,23 @@ namespace Drivers_and_Vehicles_License_Department__DVLD_
             _UpdateBackgroundImage();
         }
 
+        private void _LoadPersonData()
+        {
+
+
+            _Person.NationalNo = txtNationalNO.Text.Trim();
+            _Person.FirstName = txtFirstName.Text.Trim();
+            _Person.SecondName = txtSecondName.Text.Trim();
+            _Person.ThirdName = txtThirdName.Text.Trim();
+            _Person.LastName = txtLastName.Text.Trim();
+            _Person.DateOfBirth = dtpDateOfBirth.Value;
+            _Person.Gender = rbMale.Checked ? 0 : 1;
+            _Person.Address = txtAddress.Text.Trim();
+            _Person.Phone = txtPhone.Text.Trim();
+            _Person.Email = txtEmail.Text.Trim();
+            _Person.NationalityCountryID = clsCountry.GetCountryID(cbCountry.Text);
+        }
+
         private void btnSave_Click(object sender, EventArgs e)
         {
             if (!_VerifyAllInputs())
@@ -146,17 +163,9 @@ namespace Drivers_and_Vehicles_License_Department__DVLD_
                 return;
             }
 
-            _Person.NationalNo = txtNationalNO.Text;
-            _Person.FirstName = txtFirstName.Text;
-            _Person.SecondName = txtSecondName.Text;
-            _Person.ThirdName = txtThirdName.Text;
-            _Person.LastName = txtLastName.Text;
-            _Person.DateOfBirth = dtpDateOfBirth.Value;
-            _Person.Gender = rbMale.Checked ? 0 : 1;
-            _Person.Address = txtAddress.Text;
-            _Person.Phone = txtPhone.Text;
-            _Person.Email = txtEmail.Text;
-            _Person.NationalityCountryID = clsCountry.GetCountryID(cbCountry.Text);
+            _Person = (clsPerson.IsPersonExists(_PersonID)) ? clsPerson.GetPersonByID(_PersonID) : new clsPerson(); // To determine whether Add or Update
+
+            _LoadPersonData();
 
             if (!_Person.Save())
             {

@@ -1,4 +1,5 @@
-﻿using Drivers_and_Vehicles_License_Department__DVLD_.Users.Forms;
+﻿using Drivers_and_Vehicles_License_Department__DVLD_.Application_Types;
+using Drivers_and_Vehicles_License_Department__DVLD_.Users.Forms;
 using DVLD_Business;
 using System;
 using System.Collections.Generic;
@@ -66,9 +67,14 @@ namespace Drivers_and_Vehicles_License_Department__DVLD_
 
         private void changePasswordToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            frmUpdateUsername FormChangePassword = new frmUpdateUsername(_CurrentUser.UserID,true);
+            frmUpdateUsername FormChangePassword = new frmUpdateUsername(_CurrentUser.UserID,true,null);
             FormChangePassword.ShowDialog();
         }
 
+        private void manageApplicationTypesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmManageApplicationTypes FormManageApplicationTypes = new frmManageApplicationTypes();
+            FormManageApplicationTypes.ShowDialog();
+        }
     }
 }
