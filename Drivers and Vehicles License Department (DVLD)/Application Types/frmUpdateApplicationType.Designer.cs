@@ -32,14 +32,14 @@
             this.btnSave = new SiticoneNetFrameworkUI.SiticoneButton();
             this.btnCancel = new SiticoneNetFrameworkUI.SiticoneButton();
             this.txtApplicationTypeTitle = new SiticoneNetFrameworkUI.SiticoneTextBox();
-            this.txtApplicationTypeFee = new SiticoneNetFrameworkUI.SiticoneTextBox();
+            this.txtApplicationTypeFees = new SiticoneNetFrameworkUI.SiticoneTextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.siticonePictureBox2 = new SiticoneNetFrameworkUI.SiticonePictureBox();
-            this.siticonePictureBox1 = new SiticoneNetFrameworkUI.SiticonePictureBox();
             this.lblID = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
+            this.siticonePictureBox2 = new SiticoneNetFrameworkUI.SiticonePictureBox();
+            this.siticonePictureBox1 = new SiticoneNetFrameworkUI.SiticonePictureBox();
             this.SuspendLayout();
             // 
             // btnSave
@@ -261,66 +261,66 @@
             this.txtApplicationTypeTitle.ValidationErrorMessage = "Invalid input.";
             this.txtApplicationTypeTitle.ValidationFunction = null;
             // 
-            // txtApplicationTypeFee
+            // txtApplicationTypeFees
             // 
-            this.txtApplicationTypeFee.AccessibleDescription = "A customizable text input field.";
-            this.txtApplicationTypeFee.AccessibleName = "Text Box";
-            this.txtApplicationTypeFee.AccessibleRole = System.Windows.Forms.AccessibleRole.Text;
-            this.txtApplicationTypeFee.BackColor = System.Drawing.Color.Transparent;
-            this.txtApplicationTypeFee.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.txtApplicationTypeFee.BlinkCount = 3;
-            this.txtApplicationTypeFee.BlinkShadow = false;
-            this.txtApplicationTypeFee.BorderColor1 = System.Drawing.Color.LightSlateGray;
-            this.txtApplicationTypeFee.BorderColor2 = System.Drawing.Color.LightSlateGray;
-            this.txtApplicationTypeFee.BorderFocusColor1 = System.Drawing.Color.Gold;
-            this.txtApplicationTypeFee.BorderFocusColor2 = System.Drawing.Color.Gold;
-            this.txtApplicationTypeFee.CanShake = true;
-            this.txtApplicationTypeFee.ContinuousBlink = false;
-            this.txtApplicationTypeFee.CornerRadiusBottomLeft = 30;
-            this.txtApplicationTypeFee.CornerRadiusBottomRight = 30;
-            this.txtApplicationTypeFee.CornerRadiusTopLeft = 30;
-            this.txtApplicationTypeFee.CornerRadiusTopRight = 30;
-            this.txtApplicationTypeFee.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.txtApplicationTypeFee.CursorBlinkRate = 500;
-            this.txtApplicationTypeFee.CursorColor = System.Drawing.Color.Black;
-            this.txtApplicationTypeFee.CursorHeight = 26;
-            this.txtApplicationTypeFee.CursorOffset = 0;
-            this.txtApplicationTypeFee.CursorStyle = SiticoneNetFrameworkUI.Helpers.DrawingStyle.SiticoneDrawingStyle.Solid;
-            this.txtApplicationTypeFee.CursorWidth = 1;
-            this.txtApplicationTypeFee.DisabledBackColor = System.Drawing.Color.WhiteSmoke;
-            this.txtApplicationTypeFee.DisabledBorderColor = System.Drawing.Color.LightGray;
-            this.txtApplicationTypeFee.DisabledTextColor = System.Drawing.Color.DimGray;
-            this.txtApplicationTypeFee.EnableDropShadow = false;
-            this.txtApplicationTypeFee.FillColor1 = System.Drawing.Color.Black;
-            this.txtApplicationTypeFee.FillColor2 = System.Drawing.Color.Black;
-            this.txtApplicationTypeFee.FillGradientMode = System.Drawing.Drawing2D.LinearGradientMode.Vertical;
-            this.txtApplicationTypeFee.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtApplicationTypeFee.ForeColor = System.Drawing.Color.Black;
-            this.txtApplicationTypeFee.HoverBorderColor1 = System.Drawing.Color.Yellow;
-            this.txtApplicationTypeFee.HoverBorderColor2 = System.Drawing.Color.Yellow;
-            this.txtApplicationTypeFee.IsEnabled = true;
-            this.txtApplicationTypeFee.Location = new System.Drawing.Point(142, 231);
-            this.txtApplicationTypeFee.Name = "txtApplicationTypeFee";
-            this.txtApplicationTypeFee.PlaceholderColor = System.Drawing.Color.Gray;
-            this.txtApplicationTypeFee.PlaceholderText = "Application Type Fee";
-            this.txtApplicationTypeFee.ReadOnlyBorderColor1 = System.Drawing.Color.LightGray;
-            this.txtApplicationTypeFee.ReadOnlyBorderColor2 = System.Drawing.Color.LightGray;
-            this.txtApplicationTypeFee.ReadOnlyFillColor1 = System.Drawing.Color.WhiteSmoke;
-            this.txtApplicationTypeFee.ReadOnlyFillColor2 = System.Drawing.Color.WhiteSmoke;
-            this.txtApplicationTypeFee.ReadOnlyPlaceholderColor = System.Drawing.Color.DarkGray;
-            this.txtApplicationTypeFee.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(77)))), ((int)(((byte)(255)))));
-            this.txtApplicationTypeFee.ShadowAnimationDuration = 1;
-            this.txtApplicationTypeFee.ShadowBlur = 10;
-            this.txtApplicationTypeFee.ShadowColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.txtApplicationTypeFee.Size = new System.Drawing.Size(430, 45);
-            this.txtApplicationTypeFee.SolidBorderColor = System.Drawing.Color.LightSlateGray;
-            this.txtApplicationTypeFee.SolidBorderFocusColor = System.Drawing.Color.Gold;
-            this.txtApplicationTypeFee.SolidBorderHoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(186)))), ((int)(((byte)(0)))));
-            this.txtApplicationTypeFee.SolidFillColor = System.Drawing.Color.White;
-            this.txtApplicationTypeFee.TabIndex = 74;
-            this.txtApplicationTypeFee.TextPadding = new System.Windows.Forms.Padding(13, 1, 13, 1);
-            this.txtApplicationTypeFee.ValidationErrorMessage = "Invalid input.";
-            this.txtApplicationTypeFee.ValidationFunction = null;
+            this.txtApplicationTypeFees.AccessibleDescription = "A customizable text input field.";
+            this.txtApplicationTypeFees.AccessibleName = "Text Box";
+            this.txtApplicationTypeFees.AccessibleRole = System.Windows.Forms.AccessibleRole.Text;
+            this.txtApplicationTypeFees.BackColor = System.Drawing.Color.Transparent;
+            this.txtApplicationTypeFees.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.txtApplicationTypeFees.BlinkCount = 3;
+            this.txtApplicationTypeFees.BlinkShadow = false;
+            this.txtApplicationTypeFees.BorderColor1 = System.Drawing.Color.LightSlateGray;
+            this.txtApplicationTypeFees.BorderColor2 = System.Drawing.Color.LightSlateGray;
+            this.txtApplicationTypeFees.BorderFocusColor1 = System.Drawing.Color.Gold;
+            this.txtApplicationTypeFees.BorderFocusColor2 = System.Drawing.Color.Gold;
+            this.txtApplicationTypeFees.CanShake = true;
+            this.txtApplicationTypeFees.ContinuousBlink = false;
+            this.txtApplicationTypeFees.CornerRadiusBottomLeft = 30;
+            this.txtApplicationTypeFees.CornerRadiusBottomRight = 30;
+            this.txtApplicationTypeFees.CornerRadiusTopLeft = 30;
+            this.txtApplicationTypeFees.CornerRadiusTopRight = 30;
+            this.txtApplicationTypeFees.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txtApplicationTypeFees.CursorBlinkRate = 500;
+            this.txtApplicationTypeFees.CursorColor = System.Drawing.Color.Black;
+            this.txtApplicationTypeFees.CursorHeight = 26;
+            this.txtApplicationTypeFees.CursorOffset = 0;
+            this.txtApplicationTypeFees.CursorStyle = SiticoneNetFrameworkUI.Helpers.DrawingStyle.SiticoneDrawingStyle.Solid;
+            this.txtApplicationTypeFees.CursorWidth = 1;
+            this.txtApplicationTypeFees.DisabledBackColor = System.Drawing.Color.WhiteSmoke;
+            this.txtApplicationTypeFees.DisabledBorderColor = System.Drawing.Color.LightGray;
+            this.txtApplicationTypeFees.DisabledTextColor = System.Drawing.Color.DimGray;
+            this.txtApplicationTypeFees.EnableDropShadow = false;
+            this.txtApplicationTypeFees.FillColor1 = System.Drawing.Color.Black;
+            this.txtApplicationTypeFees.FillColor2 = System.Drawing.Color.Black;
+            this.txtApplicationTypeFees.FillGradientMode = System.Drawing.Drawing2D.LinearGradientMode.Vertical;
+            this.txtApplicationTypeFees.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtApplicationTypeFees.ForeColor = System.Drawing.Color.Black;
+            this.txtApplicationTypeFees.HoverBorderColor1 = System.Drawing.Color.Yellow;
+            this.txtApplicationTypeFees.HoverBorderColor2 = System.Drawing.Color.Yellow;
+            this.txtApplicationTypeFees.IsEnabled = true;
+            this.txtApplicationTypeFees.Location = new System.Drawing.Point(142, 231);
+            this.txtApplicationTypeFees.Name = "txtApplicationTypeFees";
+            this.txtApplicationTypeFees.PlaceholderColor = System.Drawing.Color.Gray;
+            this.txtApplicationTypeFees.PlaceholderText = "Application Type Fees";
+            this.txtApplicationTypeFees.ReadOnlyBorderColor1 = System.Drawing.Color.LightGray;
+            this.txtApplicationTypeFees.ReadOnlyBorderColor2 = System.Drawing.Color.LightGray;
+            this.txtApplicationTypeFees.ReadOnlyFillColor1 = System.Drawing.Color.WhiteSmoke;
+            this.txtApplicationTypeFees.ReadOnlyFillColor2 = System.Drawing.Color.WhiteSmoke;
+            this.txtApplicationTypeFees.ReadOnlyPlaceholderColor = System.Drawing.Color.DarkGray;
+            this.txtApplicationTypeFees.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(77)))), ((int)(((byte)(255)))));
+            this.txtApplicationTypeFees.ShadowAnimationDuration = 1;
+            this.txtApplicationTypeFees.ShadowBlur = 10;
+            this.txtApplicationTypeFees.ShadowColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.txtApplicationTypeFees.Size = new System.Drawing.Size(430, 45);
+            this.txtApplicationTypeFees.SolidBorderColor = System.Drawing.Color.LightSlateGray;
+            this.txtApplicationTypeFees.SolidBorderFocusColor = System.Drawing.Color.Gold;
+            this.txtApplicationTypeFees.SolidBorderHoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(186)))), ((int)(((byte)(0)))));
+            this.txtApplicationTypeFees.SolidFillColor = System.Drawing.Color.White;
+            this.txtApplicationTypeFees.TabIndex = 74;
+            this.txtApplicationTypeFees.TextPadding = new System.Windows.Forms.Padding(13, 1, 13, 1);
+            this.txtApplicationTypeFees.ValidationErrorMessage = "Invalid input.";
+            this.txtApplicationTypeFees.ValidationFunction = null;
             // 
             // label2
             // 
@@ -341,6 +341,39 @@
             this.label3.Size = new System.Drawing.Size(55, 25);
             this.label3.TabIndex = 78;
             this.label3.Text = "Title:";
+            // 
+            // lblID
+            // 
+            this.lblID.AutoSize = true;
+            this.lblID.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblID.Location = new System.Drawing.Point(155, 105);
+            this.lblID.Name = "lblID";
+            this.lblID.Size = new System.Drawing.Size(32, 25);
+            this.lblID.TabIndex = 80;
+            this.lblID.Text = "ID";
+            this.lblID.Visible = false;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Location = new System.Drawing.Point(32, 105);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(37, 25);
+            this.label5.TabIndex = 81;
+            this.label5.Text = "ID:";
+            this.label5.Visible = false;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Segoe UI Semibold", 27.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.Red;
+            this.label1.Location = new System.Drawing.Point(77, 9);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(430, 50);
+            this.label1.TabIndex = 57;
+            this.label1.Text = "Update Application type";
             // 
             // siticonePictureBox2
             // 
@@ -432,39 +465,6 @@
             this.siticonePictureBox1.TabIndex = 77;
             this.siticonePictureBox1.Text = "siticonePictureBox1";
             // 
-            // lblID
-            // 
-            this.lblID.AutoSize = true;
-            this.lblID.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblID.Location = new System.Drawing.Point(155, 105);
-            this.lblID.Name = "lblID";
-            this.lblID.Size = new System.Drawing.Size(32, 25);
-            this.lblID.TabIndex = 80;
-            this.lblID.Text = "ID";
-            this.lblID.Visible = false;
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(32, 105);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(37, 25);
-            this.label5.TabIndex = 81;
-            this.label5.Text = "ID:";
-            this.label5.Visible = false;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Segoe UI Semibold", 27.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.Red;
-            this.label1.Location = new System.Drawing.Point(77, 9);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(430, 50);
-            this.label1.TabIndex = 57;
-            this.label1.Text = "Update Application type";
-            // 
             // frmUpdateApplicationType
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 17F);
@@ -478,7 +478,7 @@
             this.Controls.Add(this.label3);
             this.Controls.Add(this.siticonePictureBox1);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.txtApplicationTypeFee);
+            this.Controls.Add(this.txtApplicationTypeFees);
             this.Controls.Add(this.txtApplicationTypeTitle);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.btnSave);
@@ -502,7 +502,7 @@
         private SiticoneNetFrameworkUI.SiticoneButton btnSave;
         private SiticoneNetFrameworkUI.SiticoneButton btnCancel;
         private SiticoneNetFrameworkUI.SiticoneTextBox txtApplicationTypeTitle;
-        private SiticoneNetFrameworkUI.SiticoneTextBox txtApplicationTypeFee;
+        private SiticoneNetFrameworkUI.SiticoneTextBox txtApplicationTypeFees;
         private System.Windows.Forms.Label label2;
         private SiticoneNetFrameworkUI.SiticonePictureBox siticonePictureBox1;
         private SiticoneNetFrameworkUI.SiticonePictureBox siticonePictureBox2;

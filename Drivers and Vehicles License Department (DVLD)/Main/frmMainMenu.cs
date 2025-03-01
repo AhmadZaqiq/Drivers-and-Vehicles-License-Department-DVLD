@@ -1,4 +1,5 @@
 ﻿using Drivers_and_Vehicles_License_Department__DVLD_.Application_Types;
+using Drivers_and_Vehicles_License_Department__DVLD_.Test_Types;
 using Drivers_and_Vehicles_License_Department__DVLD_.Users.Forms;
 using DVLD_Business;
 using System;
@@ -67,7 +68,7 @@ namespace Drivers_and_Vehicles_License_Department__DVLD_
 
         private void changePasswordToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            frmUpdateUsername FormChangePassword = new frmUpdateUsername(_CurrentUser.UserID,true,null);
+            frmUpdateUsername FormChangePassword = new frmUpdateUsername(_CurrentUser.UserID, true, null);
             FormChangePassword.ShowDialog();
         }
 
@@ -75,6 +76,12 @@ namespace Drivers_and_Vehicles_License_Department__DVLD_
         {
             frmManageApplicationTypes FormManageApplicationTypes = new frmManageApplicationTypes();
             FormManageApplicationTypes.ShowDialog();
+        }
+
+        private void manageTestTypesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmManageTestType FormManageTestTypes = new frmManageTestType();
+            FormManageTestTypes.ShowDialog();
         }
     }
 }

@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Drivers_and_Vehicles_License_Department__DVLD_.Application_Types;
+using DVLD_Business;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -8,32 +10,31 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using DVLD_Business;
 
-namespace Drivers_and_Vehicles_License_Department__DVLD_.Application_Types
+namespace Drivers_and_Vehicles_License_Department__DVLD_.Test_Types
 {
-    public partial class frmUpdateApplicationType : Form
+    public partial class frmUpdateTestType : Form
     {
         public event Action DataAdded;
 
-        private int _ApplicationTypeID = -1;
+        private int _TestTypeID = -1;
 
-        private clsApplicationType _ApplicationType;
+        private clsTestType _TestType;
 
-        public frmUpdateApplicationType(int ApplicationTypeID, frmManageApplicationTypes FormManageApplicationTypes)
+        public frmUpdateTestType(int TestTypeID, frmManageTestType FormManageTestTypes)
         {
             InitializeComponent();
 
-            _ApplicationTypeID = ApplicationTypeID;
+            _TestTypeID = TestTypeID;
 
-            _ApplicationType = clsApplicationType.GetApplicationTypeByID(_ApplicationTypeID);
+            _TestType = clsTestType.GetTestTypeByID(_TestTypeID);
 
-            this.DataAdded += FormManageApplicationTypes.RefreshApplicationTypesDataGrid;
+            this.DataAdded += FormManageTestTypes.RefreshTestTypesDataGrid;
         }
 
-        private void frmUpdateApplicationType_Load(object sender, EventArgs e)
+        private void frmUpdateTestType_Load(object sender, EventArgs e)
         {
-            _PopulateApplicationTypeFields();
+            _PopulateTestTypeFields();
 
             _MakeRoundedCorners(30); //to make the form rounded
 
@@ -86,14 +87,15 @@ namespace Drivers_and_Vehicles_License_Department__DVLD_.Application_Types
             timer.Start();
         }
 
-        private void _PopulateApplicationTypeFields()
+        private void _PopulateTestTypeFields()
         {
-            if (_ApplicationType == null)
+            if (_TestType == null)
                 return;
 
-            lblID.Text = _ApplicationTypeID.ToString();
-            txtApplicationTypeTitle.Text = _ApplicationType.ApplicationTypeTitle.ToString();
-            txtApplicationTypeFees.Text = _ApplicationType.ApplicationTypeFees.ToString();
+            lblID.Text = _TestTypeID.ToString();
+            txtTestTypeTitle.Text = _TestType.TestTypeTitle.ToString();
+            txtTestTypeDescription.Text = _TestType.TestTypeDescription.ToString();
+            txtTestTypeFees.Text = _TestType.TestTypeFees.ToString();
         }
 
         private void btnCancel_Click(object sender, EventArgs e)
@@ -101,43 +103,41 @@ namespace Drivers_and_Vehicles_License_Department__DVLD_.Application_Types
             _CloseFormEffect();
         }
 
-        private bool _ValidateAndSetApplicationTypeData()
+        private bool _ValidateAndSetTestTypeData()
         {
-            string ApplicationTypeTitle = txtApplicationTypeTitle.Text.Trim();
+            string TestTypeTitle = txtTestTypeTitle.Text.Trim();
+            string TestTypeDescription = txtTestTypeDescription.Text.Trim();
 
-            if (string.IsNullOrWhiteSpace(ApplicationTypeTitle))
+
+            if (string.IsNullOrWhiteSpace(TestTypeTitle) || string.IsNullOrWhiteSpace(TestTypeDescription))
                 return false;
 
-            if (!decimal.TryParse(txtApplicationTypeFees.Text.Trim(), out decimal ApplicationTypeFees) || ApplicationTypeFees < 0)
+            if (!decimal.TryParse(txtTestTypeFees.Text.Trim(), out decimal TestTypeFees) || TestTypeFees < 0)
                 return false;
 
-            _ApplicationType.ApplicationTypeTitle = ApplicationTypeTitle;
-            _ApplicationType.ApplicationTypeFees = ApplicationTypeFees;
+            _TestType.TestTypeTitle = TestTypeTitle;
+            _TestType.TestTypeDescription = TestTypeDescription;
+            _TestType.TestTypeFees = TestTypeFees;
             return true;
         }
 
         private void btnSave_Click(object sender, EventArgs e)
         {
-            if (!_ValidateAndSetApplicationTypeData())
+            if (!_ValidateAndSetTestTypeData())
             {
                 MessageBox.Show("Please make sure the entered values ​​are valid.", "Failed");
                 return;
             }
 
-            if (!_ApplicationType.UpdateApplicationType())
+            if (!_TestType.UpdateTestType())
             {
                 MessageBox.Show("Data Not Saved.", "Failed");
                 return;
             }
 
-            MessageBox.Show("Application type updated successfully", "Success");
+            MessageBox.Show("Test type updated successfully", "Success");
             DataAdded?.Invoke();
         }
-
-
-
-
-
 
 
 

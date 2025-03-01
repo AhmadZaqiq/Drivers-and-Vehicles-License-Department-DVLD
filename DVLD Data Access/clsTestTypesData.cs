@@ -1,27 +1,22 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Data;
 using System.Data.SqlClient;
+using System.Data;
 using System.Linq;
-using System.Linq.Expressions;
-using System.Net;
-using System.Reflection;
-using System.Runtime.Remoting.Messaging;
-using System.Security.Policy;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace DVLD_Data_Access
 {
-    public class clsApplicationTypesData
+    public class clsTestTypesData
     {
-        public static DataTable GetAllApplicationTypesData()
+        public static DataTable GetAllTestTypesData()
         {
             DataTable dt = new DataTable();
 
             SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString);
 
-            string query = "Select * From ApplicationTypes";
+            string query = "Select * From TestTypes";
 
             SqlCommand command = new SqlCommand(query, connection);
 
@@ -52,23 +47,26 @@ namespace DVLD_Data_Access
             return dt;
         }
 
-        public static bool UpdateApplicationType(int ApplicationTypeID, string ApplicationTypeTitle, decimal ApplicationFees)
+        public static bool UpdateTestType(int TestTypeID, string TestTypeTitle, string TestTypeDescription, decimal TestTypeFees)
         {
             SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString);
 
             bool UpdatedSuccessfully = false;
 
             string query = @"
-                            UPDATE ApplicationTypes 
-                            SET ApplicationTypeTitle = @ApplicationTypeTitle, 
-                            ApplicationFees = @ApplicationFees  
-                            WHERE ApplicationTypeID = @ApplicationTypeID;";
+                            UPDATE TestTypes
+                            SET TestTypeTitle = @TestTypeTitle,
+                            TestTypeDescription=@TestTypeDescription,
+                            TestTypeFees = @TestTypeFees  
+                            WHERE TestTypeID = @TestTypeID;";
 
             SqlCommand command = new SqlCommand(query, connection);
 
-            command.Parameters.AddWithValue("@ApplicationTypeID", ApplicationTypeID);
-            command.Parameters.AddWithValue("@ApplicationTypeTitle", ApplicationTypeTitle);
-            command.Parameters.AddWithValue("@ApplicationFees", ApplicationFees);
+            command.Parameters.AddWithValue("@TestTypeID", TestTypeID);
+            command.Parameters.AddWithValue("@TestTypeTitle", TestTypeTitle);
+            command.Parameters.AddWithValue("@TestTypeDescription", TestTypeDescription);
+            command.Parameters.AddWithValue("@TestTypeFees", TestTypeFees);
+
 
             try
             {
@@ -92,19 +90,19 @@ namespace DVLD_Data_Access
             return UpdatedSuccessfully;
         }
 
-        public static bool GetApplicationTypeByID(int ApplicationTypeID, ref string ApplicationTypeTitle, ref decimal ApplicationFees)
+        public static bool GetTestTypeByID(int TestTypeID, ref string TestTypeTitle, ref string TestTypeDescription, ref decimal TestTypeFees)
         {
             SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString);
 
             bool IsFound = false;
 
             string query = @" SELECT *
-                              FROM ApplicationTypes
-                              WHERE ApplicationTypeID = @ApplicationTypeID";
+                              FROM TestTypes
+                              WHERE TestTypeID = @TestTypeID";
 
             SqlCommand command = new SqlCommand(query, connection);
 
-            command.Parameters.AddWithValue("@ApplicationTypeID", ApplicationTypeID);
+            command.Parameters.AddWithValue("@TestTypeID", TestTypeID);
 
             try
             {
@@ -116,8 +114,9 @@ namespace DVLD_Data_Access
                 {
                     IsFound = true;
 
-                    ApplicationTypeTitle = (string)reader["ApplicationTypeTitle"];
-                    ApplicationFees = (decimal)reader["ApplicationFees"];
+                    TestTypeTitle = (string)reader["TestTypeTitle"];
+                    TestTypeDescription = (string)reader["TestTypeDescription"];
+                    TestTypeFees = (decimal)reader["TestTypeFees"];
                 }
 
                 reader.Close();
@@ -135,17 +134,6 @@ namespace DVLD_Data_Access
 
             return IsFound;
         }
-
-
-
-
-
-
-
-
-
-
-
 
 
 

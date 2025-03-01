@@ -119,7 +119,7 @@
             this.cmApplicationTypeSettings.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.editApplicationTypeToolStripMenuItem});
             this.cmApplicationTypeSettings.Name = "cmApplicationTypeSettings";
-            this.cmApplicationTypeSettings.Size = new System.Drawing.Size(231, 52);
+            this.cmApplicationTypeSettings.Size = new System.Drawing.Size(231, 30);
             // 
             // editApplicationTypeToolStripMenuItem
             // 

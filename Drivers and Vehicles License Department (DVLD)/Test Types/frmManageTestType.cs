@@ -1,4 +1,5 @@
-﻿using DVLD_Business;
+﻿using Drivers_and_Vehicles_License_Department__DVLD_.Application_Types;
+using DVLD_Business;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -10,18 +11,18 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace Drivers_and_Vehicles_License_Department__DVLD_.Application_Types
+namespace Drivers_and_Vehicles_License_Department__DVLD_.Test_Types
 {
-    public partial class frmManageApplicationTypes : Form
+    public partial class frmManageTestType : Form
     {
-        public frmManageApplicationTypes()
+        public frmManageTestType()
         {
             InitializeComponent();
         }
 
-        private void frmManageApplicationTypes_Load(object sender, EventArgs e)
+        private void frmManageTestType_Load(object sender, EventArgs e)
         {
-            RefreshApplicationTypesDataGrid();
+            RefreshTestTypesDataGrid();
 
             _MakeRoundedCorners(30); //to make the form rounded
 
@@ -74,16 +75,16 @@ namespace Drivers_and_Vehicles_License_Department__DVLD_.Application_Types
             timer.Start();
         }
 
-        public void RefreshApplicationTypesDataGrid()
+        public void RefreshTestTypesDataGrid()
         {
-            dgvApplicationTypes.DataSource = clsApplicationType.GetAllApplicationTypes();
+            dgvTestTypes.DataSource = clsTestType.GetAllTestTypes();
 
-            _UpdateApplicationTypesCount();
+            _UpdateTestTypesCount();
         }
 
-        private void _UpdateApplicationTypesCount()
+        private void _UpdateTestTypesCount()
         {
-            lblRecordsCount.Text = (dgvApplicationTypes.RowCount).ToString();
+            lblRecordsCount.Text = (dgvTestTypes.RowCount).ToString();
         }
 
         private void btnClose_Click(object sender, EventArgs e)
@@ -91,14 +92,14 @@ namespace Drivers_and_Vehicles_License_Department__DVLD_.Application_Types
             _CloseFormEffect();
         }
 
-        private void editApplicationTypeToolStripMenuItem_Click(object sender, EventArgs e)
+        private void editTestTypeToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            DataGridViewRow selectedRow = dgvApplicationTypes.SelectedRows[0];
+            DataGridViewRow selectedRow = dgvTestTypes.SelectedRows[0];
 
-            int ApplicationTypeID = Convert.ToInt32(selectedRow.Cells["ApplicationTypeID"].Value);
+            int TestTypeID = Convert.ToInt32(selectedRow.Cells["TestTypeID"].Value);
 
-            frmUpdateApplicationType FormUpdateApplicationType = new frmUpdateApplicationType(ApplicationTypeID,this);
-            FormUpdateApplicationType.ShowDialog();
+            frmUpdateTestType FormUpdateTestType = new frmUpdateTestType(TestTypeID, this);
+            FormUpdateTestType.ShowDialog();
         }
     }
 }

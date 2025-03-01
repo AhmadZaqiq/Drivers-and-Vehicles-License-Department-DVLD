@@ -15,20 +15,20 @@ using DVLD_Data_Access;
 
 namespace DVLD_Business
 {
-    public class clsApplicationTypes
+    public class clsApplicationType
     {
         public int ApplicationTypeID { get; set; }
         public string ApplicationTypeTitle { get; set; }
         public decimal ApplicationTypeFees { get; set; }
 
-        public clsApplicationTypes()
+        public clsApplicationType()
         {
             ApplicationTypeID = -1;
             ApplicationTypeTitle = "";
             ApplicationTypeFees = -1;
         }
 
-        private clsApplicationTypes(int ApplicationTypeID, string ApplicationTypeTitle, decimal ApplicationFees)
+        private clsApplicationType(int ApplicationTypeID, string ApplicationTypeTitle, decimal ApplicationFees)
         {
             this.ApplicationTypeID = ApplicationTypeID;
             this.ApplicationTypeTitle = ApplicationTypeTitle;
@@ -37,23 +37,23 @@ namespace DVLD_Business
 
         public static DataTable GetAllApplicationTypes()
         {
-            return  clsApplicationTypesData.ApplicationTypesData();
+            return  clsApplicationTypesData.GetAllApplicationTypesData();
         }
 
-        public static clsApplicationTypes GetApplicationByID(int ApplicationTypeID)
+        public static clsApplicationType GetApplicationTypeByID(int ApplicationTypeID)
         {        
             string ApplicationTypeTitle = "";
             decimal ApplicationFees= 0;
 
-            if (!clsApplicationTypesData.GetApplicationByID(ApplicationTypeID, ref ApplicationTypeTitle, ref ApplicationFees))
+            if (!clsApplicationTypesData.GetApplicationTypeByID(ApplicationTypeID, ref ApplicationTypeTitle, ref ApplicationFees))
                 return null;
 
-                return new clsApplicationTypes(ApplicationTypeID,ApplicationTypeTitle,ApplicationFees);
+                return new clsApplicationType(ApplicationTypeID,ApplicationTypeTitle,ApplicationFees);
         }
 
         public bool UpdateApplicationType()
         {
-            return clsApplicationTypesData.UpdateApplicationTypes(this.ApplicationTypeID,this.ApplicationTypeTitle,this.ApplicationTypeFees);
+            return clsApplicationTypesData.UpdateApplicationType(this.ApplicationTypeID,this.ApplicationTypeTitle,this.ApplicationTypeFees);
         }
 
 
