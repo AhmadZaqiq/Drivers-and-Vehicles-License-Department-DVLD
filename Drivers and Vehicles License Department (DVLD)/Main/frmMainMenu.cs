@@ -1,4 +1,5 @@
 ﻿using Drivers_and_Vehicles_License_Department__DVLD_.Application_Types;
+using Drivers_and_Vehicles_License_Department__DVLD_.Global;
 using Drivers_and_Vehicles_License_Department__DVLD_.Test_Types;
 using Drivers_and_Vehicles_License_Department__DVLD_.Users.Forms;
 using DVLD_Business;
@@ -29,20 +30,6 @@ namespace Drivers_and_Vehicles_License_Department__DVLD_
         {
         }
 
-        private void _CloseFormEffect()
-        {
-            Timer timer = new Timer();
-            timer.Interval = 10;
-            timer.Tick += (s, e) =>
-            {
-                if (this.Opacity > 0) this.Opacity -= 0.05;
-                if (this.Width > 10) this.Width -= 20;
-                if (this.Height > 10) this.Height -= 15;
-                if (this.Opacity <= 0) { timer.Stop(); this.Close(); }
-            };
-            timer.Start();
-        }
-
         private void peopleToolStripMenuItem_Click(object sender, EventArgs e)
         {
             frmPeople frmPeople = new frmPeople();
@@ -51,7 +38,7 @@ namespace Drivers_and_Vehicles_License_Department__DVLD_
 
         private void signoutToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            _CloseFormEffect();
+            clsFormUtil.CloseFormEffect(this);
         }
 
         private void usersToolStripMenuItem_Click(object sender, EventArgs e)
