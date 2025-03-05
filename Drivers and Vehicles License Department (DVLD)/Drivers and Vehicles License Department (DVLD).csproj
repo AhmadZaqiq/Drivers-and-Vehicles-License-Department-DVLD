@@ -122,11 +122,17 @@
     <Compile Include="People\Contorls\ctrlAddNewPerson.Designer.cs">
       <DependentUpon>ctrlAddNewPerson.cs</DependentUpon>
     </Compile>
-    <Compile Include="People\Contorls\ctrlPersonDetails.cs">
+    <Compile Include="People\Contorls\ctrlPersonCardWithFilter.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="People\Contorls\ctrlPersonDetails.Designer.cs">
-      <DependentUpon>ctrlPersonDetails.cs</DependentUpon>
+    <Compile Include="People\Contorls\ctrlPersonCardWithFilter.Designer.cs">
+      <DependentUpon>ctrlPersonCardWithFilter.cs</DependentUpon>
+    </Compile>
+    <Compile Include="People\Contorls\ctrlPersonCard.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="People\Contorls\ctrlPersonCard.Designer.cs">
+      <DependentUpon>ctrlPersonCard.cs</DependentUpon>
     </Compile>
     <Compile Include="People\Forms\frmAddAndUpdatePeople.cs">
       <SubType>Form</SubType>
@@ -166,11 +172,11 @@
     <Compile Include="Test Types\frmUpdateTestType.Designer.cs">
       <DependentUpon>frmUpdateTestType.cs</DependentUpon>
     </Compile>
-    <Compile Include="Users\Controls\ctrlUserDetails.cs">
+    <Compile Include="Users\Controls\ctrlUserCard.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Users\Controls\ctrlUserDetails.Designer.cs">
-      <DependentUpon>ctrlUserDetails.cs</DependentUpon>
+    <Compile Include="Users\Controls\ctrlUserCard.Designer.cs">
+      <DependentUpon>ctrlUserCard.cs</DependentUpon>
     </Compile>
     <Compile Include="Users\Forms\frmAddUser.cs">
       <SubType>Form</SubType>
@@ -208,8 +214,11 @@
     <EmbeddedResource Include="People\Contorls\ctrlAddNewPerson.resx">
       <DependentUpon>ctrlAddNewPerson.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="People\Contorls\ctrlPersonDetails.resx">
-      <DependentUpon>ctrlPersonDetails.cs</DependentUpon>
+    <EmbeddedResource Include="People\Contorls\ctrlPersonCardWithFilter.resx">
+      <DependentUpon>ctrlPersonCardWithFilter.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="People\Contorls\ctrlPersonCard.resx">
+      <DependentUpon>ctrlPersonCard.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="People\Forms\frmAddAndUpdatePeople.resx">
       <DependentUpon>frmAddAndUpdatePeople.cs</DependentUpon>
@@ -234,8 +243,8 @@
     <EmbeddedResource Include="Test Types\frmUpdateTestType.resx">
       <DependentUpon>frmUpdateTestType.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Users\Controls\ctrlUserDetails.resx">
-      <DependentUpon>ctrlUserDetails.cs</DependentUpon>
+    <EmbeddedResource Include="Users\Controls\ctrlUserCard.resx">
+      <DependentUpon>ctrlUserCard.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Users\Forms\frmAddUser.resx">
       <DependentUpon>frmAddUser.cs</DependentUpon>

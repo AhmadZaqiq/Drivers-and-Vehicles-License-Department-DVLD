@@ -32,7 +32,7 @@
             this.lblTitle = new System.Windows.Forms.Label();
             this.btnSave = new SiticoneNetFrameworkUI.SiticoneButton();
             this.btnCancel = new SiticoneNetFrameworkUI.SiticoneButton();
-            this.ctrlUserDetails1 = new Drivers_and_Vehicles_License_Department__DVLD_.Users.Controls.ctrlUserDetails();
+            this.ctrlUserDetails1 = new Drivers_and_Vehicles_License_Department__DVLD_.Users.Controls.ctrlUserCard();
             this.siticonePanel1 = new SiticoneNetFrameworkUI.SiticonePanel();
             this.txtCurrentPassword = new SiticoneNetFrameworkUI.SiticoneTextBox();
             this.txtConfirmPassword = new SiticoneNetFrameworkUI.SiticoneTextBox();
@@ -623,7 +623,7 @@
         private System.Windows.Forms.Label lblTitle;
         private SiticoneNetFrameworkUI.SiticoneButton btnSave;
         private SiticoneNetFrameworkUI.SiticoneButton btnCancel;
-        private Controls.ctrlUserDetails ctrlUserDetails1;
+        private Controls.ctrlUserCard ctrlUserDetails1;
         private SiticoneNetFrameworkUI.SiticonePanel siticonePanel1;
         private System.Windows.Forms.Label lblUsername;
         private SiticoneNetFrameworkUI.SiticoneTextBox txtUsername;

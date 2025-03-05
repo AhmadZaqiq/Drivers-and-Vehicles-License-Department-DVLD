@@ -1,6 +1,6 @@
 ﻿namespace Drivers_and_Vehicles_License_Department__DVLD_.Users.Controls
 {
-    partial class ctrlUserDetails
+    partial class ctrlUserCard
     {
         /// <summary> 
         /// Required designer variable.
@@ -35,7 +35,7 @@
             this.siticoneLabel3 = new SiticoneNetFrameworkUI.SiticoneLabel();
             this.lblUserID = new SiticoneNetFrameworkUI.SiticoneLabel();
             this.siticoneLabel2 = new SiticoneNetFrameworkUI.SiticoneLabel();
-            this.ctrlPersonDetails1 = new Drivers_and_Vehicles_License_Department__DVLD_.ctrlPersonDetails();
+            this.ctrlPersonDetails1 = new Drivers_and_Vehicles_License_Department__DVLD_.ctrlPersonCard();
             this.siticonePanel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -176,7 +176,7 @@
 
         #endregion
 
-        private ctrlPersonDetails ctrlPersonDetails1;
+        private ctrlPersonCard ctrlPersonDetails1;
         private SiticoneNetFrameworkUI.SiticonePanel siticonePanel1;
         private SiticoneNetFrameworkUI.SiticoneLabel lblIsAcitve;
         private SiticoneNetFrameworkUI.SiticoneLabel siticoneLabel4;

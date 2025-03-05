@@ -12,14 +12,14 @@ using System.Windows.Forms;
 
 namespace Drivers_and_Vehicles_License_Department__DVLD_
 {
-    public partial class ctrlPersonDetails : UserControl
+    public partial class ctrlPersonCard : UserControl
     {
         private frmPeople _frmPeople = new frmPeople();
         private clsPerson _Person = new clsPerson();
         private clsCountry _Country = new clsCountry();
         private int _PersonID;
 
-        public ctrlPersonDetails()
+        public ctrlPersonCard()
         {
             InitializeComponent();
         }

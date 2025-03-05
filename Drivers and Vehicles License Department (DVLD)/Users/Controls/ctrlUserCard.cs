@@ -12,12 +12,12 @@ using System.Windows.Forms;
 
 namespace Drivers_and_Vehicles_License_Department__DVLD_.Users.Controls
 {
-    public partial class ctrlUserDetails : UserControl
+    public partial class ctrlUserCard : UserControl
     {
         private clsUser _User = new clsUser();
         private int _UserID = -1;
 
-        public ctrlUserDetails()
+        public ctrlUserCard()
         {
             InitializeComponent();
         }

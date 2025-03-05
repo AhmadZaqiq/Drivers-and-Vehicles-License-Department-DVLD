@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.btnClose = new SiticoneNetFrameworkUI.SiticoneButton();
-            this.ctrlUserDetails1 = new Drivers_and_Vehicles_License_Department__DVLD_.Users.Controls.ctrlUserDetails();
+            this.ctrlUserDetails1 = new Drivers_and_Vehicles_License_Department__DVLD_.Users.Controls.ctrlUserCard();
             this.SuspendLayout();
             // 
             // btnClose
@@ -141,6 +141,6 @@
         #endregion
 
         private SiticoneNetFrameworkUI.SiticoneButton btnClose;
-        private Controls.ctrlUserDetails ctrlUserDetails1;
+        private Controls.ctrlUserCard ctrlUserDetails1;
     }
 }

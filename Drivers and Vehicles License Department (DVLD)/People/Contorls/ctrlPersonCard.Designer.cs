@@ -1,6 +1,6 @@
 ﻿namespace Drivers_and_Vehicles_License_Department__DVLD_
 {
-    partial class ctrlPersonDetails
+    partial class ctrlPersonCard
     {
         /// <summary> 
         /// Required designer variable.
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ctrlPersonDetails));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ctrlPersonCard));
             this.Panel = new SiticoneNetFrameworkUI.SiticonePanel();
             this.btnEditInfo = new SiticoneNetFrameworkUI.SiticoneButton();
             this.lblPersonID = new SiticoneNetFrameworkUI.SiticoneLabel();

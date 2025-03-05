@@ -30,7 +30,7 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmShowPersonDetails));
             this.label1 = new System.Windows.Forms.Label();
-            this.ctrlPersonDetails1 = new Drivers_and_Vehicles_License_Department__DVLD_.ctrlPersonDetails();
+            this.ctrlPersonDetails1 = new Drivers_and_Vehicles_License_Department__DVLD_.ctrlPersonCard();
             this.btnClose = new SiticoneNetFrameworkUI.SiticoneButton();
             this.SuspendLayout();
             // 
@@ -157,7 +157,7 @@
 
         #endregion
         private System.Windows.Forms.Label label1;
-        private ctrlPersonDetails ctrlPersonDetails1;
+        private ctrlPersonCard ctrlPersonDetails1;
         private SiticoneNetFrameworkUI.SiticoneButton btnClose;
     }
 }
