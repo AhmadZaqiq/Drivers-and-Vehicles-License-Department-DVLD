@@ -70,13 +70,19 @@ namespace Drivers_and_Vehicles_License_Department__DVLD_.Login
             }
         }
 
-        private void _LoginUser(clsUser CurrentUser)
+        private void _LoginUser()
         {
-            frmMainMenu FormMainMenu = new frmMainMenu(CurrentUser);
+            if (!_CheckCredentials())
+                return;
+
+            _SaveUserSession();
+            clsCurrentUser.CurrentUser = _User;
+
+            frmMainMenu FormMainMenu = new frmMainMenu();
             FormMainMenu.ShowDialog();
         }
 
-        private void _CheckCredentials()
+        private bool _CheckCredentials()
         {
             string Username = txtUsername.Text.Trim();
             string Password = txtPassword.Text;
@@ -85,17 +91,16 @@ namespace Drivers_and_Vehicles_License_Department__DVLD_.Login
             if (_User == null || (_User.Password != Password))
             {
                 MessageBox.Show("Invalid Username/Password", "Wrong Credentials", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
+                return false;
             }
 
             if (!_User.IsActive)
             {
                 MessageBox.Show("Your account is inactive please contact the admin", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
+                return false;
             }
 
-            _SaveUserSession();
-            _LoginUser(_User);
+            return true;
         }
 
         private void btnClose_Click(object sender, EventArgs e)
@@ -138,7 +143,7 @@ namespace Drivers_and_Vehicles_License_Department__DVLD_.Login
 
         private void btnLogin_Click(object sender, EventArgs e)
         {
-            _CheckCredentials();
+            _LoginUser();
         }
 
         private void txtPassword_TextChanged(object sender, EventArgs e)

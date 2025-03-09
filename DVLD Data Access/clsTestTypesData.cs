@@ -16,7 +16,7 @@ namespace DVLD_Data_Access
 
             SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString);
 
-            string query = "Select * From TestTypes";
+            string query = "SELECT * FROM TestTypes";
 
             SqlCommand command = new SqlCommand(query, connection);
 

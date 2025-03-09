@@ -12,7 +12,6 @@ using System.Text;
 using System.Threading.Tasks;
 using DVLD_Data_Access;
 
-
 namespace DVLD_Business
 {
     public class clsApplicationType
@@ -39,7 +38,6 @@ namespace DVLD_Business
         {
             return  clsApplicationTypesData.GetAllApplicationTypesData();
         }
-
         public static clsApplicationType GetApplicationTypeByID(int ApplicationTypeID)
         {        
             string ApplicationTypeTitle = "";

@@ -169,17 +169,17 @@ namespace DVLD_Data_Access
 
             SqlCommand command = new SqlCommand(query, connection);
 
-            command.Parameters.AddWithValue("NationalNo", NationalNo);
-            command.Parameters.AddWithValue("FirstName", FirstName);
-            command.Parameters.AddWithValue("SecondName", SecondName);
-            command.Parameters.AddWithValue("ThirdName", ThirdName);
-            command.Parameters.AddWithValue("LastName", LastName);
-            command.Parameters.AddWithValue("DateOfBirth", DateOfBirth);
-            command.Parameters.AddWithValue("Gender", Gender);
-            command.Parameters.AddWithValue("Address", Address);
-            command.Parameters.AddWithValue("Phone", Phone);
-            command.Parameters.AddWithValue("Email", Email);
-            command.Parameters.AddWithValue("NationalityCountryID", NationalityCountryID);
+            command.Parameters.AddWithValue("@NationalNo", NationalNo);
+            command.Parameters.AddWithValue("@FirstName", FirstName);
+            command.Parameters.AddWithValue("@SecondName", SecondName);
+            command.Parameters.AddWithValue("@ThirdName", ThirdName);
+            command.Parameters.AddWithValue("@LastName", LastName);
+            command.Parameters.AddWithValue("@DateOfBirth", DateOfBirth);
+            command.Parameters.AddWithValue("@Gender", Gender);
+            command.Parameters.AddWithValue("@Address", Address);
+            command.Parameters.AddWithValue("@Phone", Phone);
+            command.Parameters.AddWithValue("@Email", Email);
+            command.Parameters.AddWithValue("@NationalityCountryID", NationalityCountryID);
 
             if (ImagePath != "" && ImagePath != null)
                 command.Parameters.AddWithValue("@ImagePath", ImagePath);
@@ -339,7 +339,7 @@ namespace DVLD_Data_Access
 
         public static bool DeletePerson(int PersonID)
         {
-            bool IsFound = false;
+            bool DeletedSuccessfully = false;
 
             SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString);
 
@@ -355,7 +355,7 @@ namespace DVLD_Data_Access
 
                 int rowsAffected = command.ExecuteNonQuery();
 
-                IsFound = (rowsAffected > 0);
+                DeletedSuccessfully = (rowsAffected > 0);
 
             }
             catch (Exception ex)
@@ -368,7 +368,7 @@ namespace DVLD_Data_Access
                 connection.Close();
             }
 
-            return IsFound;
+            return DeletedSuccessfully;
         }
 
         public static int GetPersonIDByNationalNO(string NationalNO)

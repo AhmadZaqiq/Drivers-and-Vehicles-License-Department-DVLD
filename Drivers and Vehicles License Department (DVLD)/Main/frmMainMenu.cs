@@ -1,5 +1,6 @@
 ﻿using Drivers_and_Vehicles_License_Department__DVLD_.Application_Types;
 using Drivers_and_Vehicles_License_Department__DVLD_.Global;
+using Drivers_and_Vehicles_License_Department__DVLD_.Local_Driving_Application;
 using Drivers_and_Vehicles_License_Department__DVLD_.Test_Types;
 using Drivers_and_Vehicles_License_Department__DVLD_.Users.Forms;
 using DVLD_Business;
@@ -17,13 +18,10 @@ namespace Drivers_and_Vehicles_License_Department__DVLD_
 {
     public partial class frmMainMenu : Form
     {
-        private clsUser _CurrentUser;
-
-        public frmMainMenu(clsUser CurrentUser)
+        public frmMainMenu()
         {
             InitializeComponent();
 
-            _CurrentUser = CurrentUser;
         }
 
         private void frmMainMenu_Load(object sender, EventArgs e)
@@ -49,13 +47,13 @@ namespace Drivers_and_Vehicles_License_Department__DVLD_
 
         private void currentUserInfoToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            frmShowUserDetails FormShowUserDetails = new frmShowUserDetails(_CurrentUser.UserID);
+            frmShowUserDetails FormShowUserDetails = new frmShowUserDetails(clsCurrentUser.CurrentUser.UserID);
             FormShowUserDetails.ShowDialog();
         }
 
         private void changePasswordToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            frmUpdateUsername FormChangePassword = new frmUpdateUsername(_CurrentUser.UserID, true, null);
+            frmUpdateUsername FormChangePassword = new frmUpdateUsername(clsCurrentUser.CurrentUser.UserID, true, null);
             FormChangePassword.ShowDialog();
         }
 
@@ -69,6 +67,12 @@ namespace Drivers_and_Vehicles_License_Department__DVLD_
         {
             frmManageTestType FormManageTestTypes = new frmManageTestType();
             FormManageTestTypes.ShowDialog();
+        }
+
+        private void localLicemseToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmAddAndUpdateLocalDrivingApplication FormAddAndUpdateLocalDrivingApplication = new frmAddAndUpdateLocalDrivingApplication();
+            FormAddAndUpdateLocalDrivingApplication.ShowDialog();
         }
     }
 }
