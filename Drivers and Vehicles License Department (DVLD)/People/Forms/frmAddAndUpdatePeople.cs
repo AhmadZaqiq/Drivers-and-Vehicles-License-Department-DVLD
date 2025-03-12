@@ -16,9 +16,9 @@ namespace Drivers_and_Vehicles_License_Department__DVLD_
     {
         public delegate void DataBackEventHandler(object sender, int PersonID);
 
-        private frmPeople _PeopleForm;
+        private frmListPeople _PeopleForm;
 
-        public frmAddAndUpdatePeople(int PersonID = -1, frmPeople PeopleForm = null)
+        public frmAddAndUpdatePeople(int PersonID = -1, frmListPeople PeopleForm = null)
         {
             InitializeComponent();
 

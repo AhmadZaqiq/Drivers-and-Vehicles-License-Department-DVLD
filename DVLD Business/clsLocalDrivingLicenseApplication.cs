@@ -64,9 +64,9 @@ namespace DVLD_Business
             return (this.LocalDrivingLicenseApplicationID != -1);
         }
 
-        public static bool IsLocalDrivingApplication(int LocalDrivingLicenseApplicationID)
+        public static bool IsPersonDeniedForClass(int ApplicantPersonID, int ApplicationTypeID, int LicenseClassID)
         {
-            return clsLocalDrivingLicenseApplicationData.IsLocalDrivingLicenseApplicationExists(LocalDrivingLicenseApplicationID);
+            return clsLocalDrivingLicenseApplicationData.IsPersonDeniedForClass(ApplicantPersonID, ApplicationTypeID, LicenseClassID);
         }
 
         public bool Save()

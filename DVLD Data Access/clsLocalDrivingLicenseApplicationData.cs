@@ -176,19 +176,27 @@ namespace DVLD_Data_Access
             return UpdatedSuccessfully;
         }
 
-        public static bool IsLocalDrivingLicenseApplicationOfThisTypeExists(int ApplicationTypeID)
+        public static bool IsPersonDeniedForClass(int ApplicantPersonID, int ApplicationTypeID,int LicenseClassID)
         {
             bool IsFound = false;
 
             SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString);
 
-            string query = "SELECT Found=1" +
-                           " FROM LocalDrivingLicenseApplications" +
-                           " WHERE LocalDrivingLicenseApplicationID = @LocalDrivingLicenseApplicationID";
+            string query = @"SELECT Found = 1
+                             FROM Applications A
+                             JOIN LocalDrivingLicenseApplications L
+                             ON A.ApplicationID = L.ApplicationID
+                             WHERE A.ApplicantPersonID = @ApplicantPersonID
+                             AND A.ApplicationTypeID = @ApplicationTypeID
+                             AND L.LicenseClassID = @LicenseClassID";
+
 
             SqlCommand command = new SqlCommand(query, connection);
 
-            command.Parameters.AddWithValue("@LocalDrivingLicenseApplicationID", ApplicationTypeID);
+            command.Parameters.AddWithValue("@ApplicantPersonID", ApplicantPersonID);
+            command.Parameters.AddWithValue("@ApplicationTypeID", ApplicationTypeID);
+            command.Parameters.AddWithValue("@LicenseClassID", LicenseClassID);
+
 
             try
             {
@@ -200,10 +208,12 @@ namespace DVLD_Data_Access
 
                 reader.Close();
             }
+
             catch (Exception ex)
             {
 
             }
+
             finally
             {
                 connection.Close();

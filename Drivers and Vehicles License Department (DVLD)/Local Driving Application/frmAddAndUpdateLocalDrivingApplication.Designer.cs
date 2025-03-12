@@ -724,6 +724,7 @@
             this.btnNext.TooltipText = null;
             this.btnNext.UseAdvancedRendering = true;
             this.btnNext.UseParticles = false;
+            this.btnNext.Click += new System.EventHandler(this.btnNext_Click);
             // 
             // TabControl1
             // 

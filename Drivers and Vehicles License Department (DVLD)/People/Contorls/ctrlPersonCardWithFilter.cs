@@ -15,7 +15,7 @@ namespace Drivers_and_Vehicles_License_Department__DVLD_.People.Contorls
     {
         private int _PersonID=-1;
 
-        private frmPeople _frmPeople = new frmPeople();
+        private frmListPeople _frmPeople = new frmListPeople();
 
         public ctrlPersonCardWithFilter()
         {

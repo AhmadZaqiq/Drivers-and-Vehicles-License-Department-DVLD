@@ -18,7 +18,7 @@ namespace Drivers_and_Vehicles_License_Department__DVLD_.Users.Forms
     {
         public event Action DataAdded;
 
-        private frmPeople _frmPeople = new frmPeople();
+        private frmListPeople _frmPeople = new frmListPeople();
 
         private clsUser _User = new clsUser(); //Unlike with 'People Addition', here we only create the object because there is no 'Update User' operation.
 

@@ -195,15 +195,21 @@ namespace Drivers_and_Vehicles_License_Department__DVLD_.Users.Forms
             DataGridViewRow selectedRow = dgvUsers.SelectedRows[0];
 
             if (MessageBox.Show("Are You Sure you want to delete this User?", "Alert", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) != DialogResult.Yes)
+                return;
+
+            int UserID = Convert.ToInt32(selectedRow.Cells["UserID"].Value);
+
+            if (UserID == clsCurrentUser.CurrentUser.UserID)
+            {
+                MessageBox.Show("You cannot delete the account you are currently logged into.", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            if (!clsUser.DeleteUser(UserID))
             {
                 MessageBox.Show("User was not deleted because it is linked to other transactions in the system...", "Alert");
                 return;
             }
-
-            int UserID = Convert.ToInt32(selectedRow.Cells["UserID"].Value);
-
-            if (!clsUser.DeleteUser(UserID))
-                return;
 
             MessageBox.Show("User deleted successfully.", "Done");
             RefreshUsersDataGrid();

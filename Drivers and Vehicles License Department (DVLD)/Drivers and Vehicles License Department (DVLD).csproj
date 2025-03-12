@@ -117,6 +117,12 @@
     <Compile Include="Local Driving Application\frmAddAndUpdateLocalDrivingApplication.Designer.cs">
       <DependentUpon>frmAddAndUpdateLocalDrivingApplication.cs</DependentUpon>
     </Compile>
+    <Compile Include="Local Driving Application\frmListLocalDrivingLicenseApplications.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Local Driving Application\frmListLocalDrivingLicenseApplications.Designer.cs">
+      <DependentUpon>frmListLocalDrivingLicenseApplications.cs</DependentUpon>
+    </Compile>
     <Compile Include="Login\frmLoginScreen.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -153,11 +159,11 @@
     <Compile Include="Main\frmMainMenu.Designer.cs">
       <DependentUpon>frmMainMenu.cs</DependentUpon>
     </Compile>
-    <Compile Include="People\Forms\frmPeople.cs">
+    <Compile Include="People\Forms\frmListPeople.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="People\Forms\frmPeople.Designer.cs">
-      <DependentUpon>frmPeople.cs</DependentUpon>
+    <Compile Include="People\Forms\frmListPeople.Designer.cs">
+      <DependentUpon>frmListPeople.cs</DependentUpon>
     </Compile>
     <Compile Include="People\Forms\frmShowPersonDetails.cs">
       <SubType>Form</SubType>
@@ -218,6 +224,9 @@
     <EmbeddedResource Include="Local Driving Application\frmAddAndUpdateLocalDrivingApplication.resx">
       <DependentUpon>frmAddAndUpdateLocalDrivingApplication.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Local Driving Application\frmListLocalDrivingLicenseApplications.resx">
+      <DependentUpon>frmListLocalDrivingLicenseApplications.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Login\frmLoginScreen.resx">
       <DependentUpon>frmLoginScreen.cs</DependentUpon>
     </EmbeddedResource>
@@ -236,8 +245,8 @@
     <EmbeddedResource Include="Main\frmMainMenu.resx">
       <DependentUpon>frmMainMenu.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="People\Forms\frmPeople.resx">
-      <DependentUpon>frmPeople.cs</DependentUpon>
+    <EmbeddedResource Include="People\Forms\frmListPeople.resx">
+      <DependentUpon>frmListPeople.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="People\Forms\frmShowPersonDetails.resx">
       <DependentUpon>frmShowPersonDetails.cs</DependentUpon>

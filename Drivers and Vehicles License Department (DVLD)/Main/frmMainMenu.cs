@@ -30,7 +30,7 @@ namespace Drivers_and_Vehicles_License_Department__DVLD_
 
         private void peopleToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            frmPeople frmPeople = new frmPeople();
+            frmListPeople frmPeople = new frmListPeople();
             frmPeople.ShowDialog();
         }
 

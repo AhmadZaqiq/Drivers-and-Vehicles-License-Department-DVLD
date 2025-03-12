@@ -9,9 +9,9 @@ using Drivers_and_Vehicles_License_Department__DVLD_.Global;
 
 namespace Drivers_and_Vehicles_License_Department__DVLD_
 {
-    public partial class frmPeople : Form
+    public partial class frmListPeople : Form
     {
-        public frmPeople()
+        public frmListPeople()
         {
             InitializeComponent();
         }

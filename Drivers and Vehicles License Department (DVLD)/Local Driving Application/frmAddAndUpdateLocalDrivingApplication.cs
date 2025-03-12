@@ -16,7 +16,7 @@ namespace Drivers_and_Vehicles_License_Department__DVLD_.Local_Driving_Applicati
     {
         private clsApplication _Application = new clsApplication();
 
-        private clsLocalDrivingLicenseApplication _ApplicationLocal;
+        private clsLocalDrivingLicenseApplication _ApplicationLocal = new clsLocalDrivingLicenseApplication();
 
         private DateTime _ApplicationLastStatusDate = DateTime.Now;
 
@@ -27,18 +27,21 @@ namespace Drivers_and_Vehicles_License_Department__DVLD_.Local_Driving_Applicati
 
         private enStatus _Status = enStatus.New;
 
-
-
         public frmAddAndUpdateLocalDrivingApplication()
         {
             InitializeComponent();
         }
 
+        private int _GetLicenseClassIDFromComboBox()
+        {
+            return cbLicenseClass.SelectedIndex + 1;
+        }
+
         private void frmAddAndUpdateLocalDrivingApplication_Load(object sender, EventArgs e)
         {
-            _FillLicenseClassesComobBox();
+            _FillLicenseClassesComboBox();
 
-            _SetDefaultAplicationInfoValues();
+            _SetDefaultApplicationInfoValues();
 
             _UpdateMode();
 
@@ -49,7 +52,7 @@ namespace Drivers_and_Vehicles_License_Department__DVLD_.Local_Driving_Applicati
             clsFormUtil.OpenFormEffect(this);
         }
 
-        private void _FillLicenseClassesComobBox()
+        private void _FillLicenseClassesComboBox()
         {
             DataTable LicenseClass = clsLicenseClass.GetAllLicenseClasses();
             cbLicenseClass.DataSource = LicenseClass;
@@ -67,7 +70,7 @@ namespace Drivers_and_Vehicles_License_Department__DVLD_.Local_Driving_Applicati
                                                      : "Update Local Driving License Application";
         }
 
-        private void _SetDefaultAplicationInfoValues()
+        private void _SetDefaultApplicationInfoValues()
         {
             decimal ApplicationFees = clsApplicationType.GetApplicationTypeByID(1).ApplicationTypeFees;
 
@@ -145,12 +148,26 @@ namespace Drivers_and_Vehicles_License_Department__DVLD_.Local_Driving_Applicati
         private void _LoadLocalApplicationData()
         {
             _ApplicationLocal.ApplicationID = _Application.ApplicationID;
-            _ApplicationLocal.LicenseClassID = cbLicenseClass.SelectedIndex + 1;
+            _ApplicationLocal.LicenseClassID = _GetLicenseClassIDFromComboBox();
         }
 
         private void btnSave_Click(object sender, EventArgs e)
         {
-            if (ctrlPersonCardWithFilter1.PersonID == -1)
+            int PersonID = ctrlPersonCardWithFilter1.PersonID;
+            int LicenseClassID = _GetLicenseClassIDFromComboBox();
+            int NewLocalApplicationTypeID = clsApplicationType.GetApplicationTypeByID(1).ApplicationTypeID;
+
+            if (clsLocalDrivingLicenseApplication.IsPersonDeniedForClass(PersonID, NewLocalApplicationTypeID, LicenseClassID))
+            {
+
+
+                MessageBox.Show("Choose another License Class. " +
+                                "The selected person already has an active application for the selected class with ID: " + _Application.ApplicationID,
+                                "Failed", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            if (PersonID == -1)
             {
                 MessageBox.Show("Please select a person first", "Failed");
                 return;
@@ -164,6 +181,8 @@ namespace Drivers_and_Vehicles_License_Department__DVLD_.Local_Driving_Applicati
                 return;
             }
 
+            _ApplicationLocal = new clsLocalDrivingLicenseApplication();// Ensures a new ID is assigned for each instance.  
+
             _LoadLocalApplicationData();
 
             if (!_ApplicationLocal.Save())
@@ -175,9 +194,9 @@ namespace Drivers_and_Vehicles_License_Department__DVLD_.Local_Driving_Applicati
             MessageBox.Show("Data Added Successfully", "Done", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
-
-
-
-
+        private void btnNext_Click(object sender, EventArgs e)
+        {
+            TabControl1.SelectedTab = tabApplicationInfo;
+        }
     }
 }
