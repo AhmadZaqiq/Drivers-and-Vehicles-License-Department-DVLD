@@ -183,5 +183,39 @@ namespace DVLD_Data_Access
             return DeletedSuccessfully;
         }
 
+        public static int GetApplicationIDByApplicantPersonID(int ApplicantPersonID)
+        {
+            int ApplicationID = -1;
+
+            SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString);
+
+            string query = @"SELECT ApplicationID
+                             FROM Applications
+                             WHERE ApplicantPersonID=@ApplicantPersonID";
+
+            SqlCommand command = new SqlCommand(query, connection);
+
+            command.Parameters.AddWithValue("@ApplicantPersonID", ApplicantPersonID);
+
+            try
+            {
+                connection.Open();
+
+                object result = command.ExecuteScalar();
+
+                if (result != null)
+                {
+                    ApplicationID = Convert.ToInt32(result);
+                }
+            }
+
+            catch (Exception ex) { }
+
+            finally { connection.Close(); }
+
+            return ApplicationID;
+
+        }
+
     }
 }

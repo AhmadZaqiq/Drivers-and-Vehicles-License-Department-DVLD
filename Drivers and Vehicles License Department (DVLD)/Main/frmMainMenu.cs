@@ -74,5 +74,11 @@ namespace Drivers_and_Vehicles_License_Department__DVLD_
             frmAddAndUpdateLocalDrivingApplication FormAddAndUpdateLocalDrivingApplication = new frmAddAndUpdateLocalDrivingApplication();
             FormAddAndUpdateLocalDrivingApplication.ShowDialog();
         }
+
+        private void localDrivingLicenceApplicationsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmListLocalDrivingLicenseApplications FormListLocalDrivingLicenseApplications=new frmListLocalDrivingLicenseApplications();
+            FormListLocalDrivingLicenseApplications.ShowDialog();
+        }
     }
 }

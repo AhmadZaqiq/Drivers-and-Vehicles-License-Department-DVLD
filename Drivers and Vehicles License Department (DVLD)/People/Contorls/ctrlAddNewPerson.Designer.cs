@@ -119,6 +119,7 @@
             this.Panel.UseMultiGradient = false;
             this.Panel.UsePatternTexture = false;
             this.Panel.UseRadialGradient = false;
+            this.Panel.Paint += new System.Windows.Forms.PaintEventHandler(this.Panel_Paint);
             // 
             // txtAddress
             // 

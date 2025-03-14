@@ -158,11 +158,9 @@ namespace Drivers_and_Vehicles_License_Department__DVLD_.Local_Driving_Applicati
             int NewLocalApplicationTypeID = clsApplicationType.GetApplicationTypeByID(1).ApplicationTypeID;
 
             if (clsLocalDrivingLicenseApplication.IsPersonDeniedForClass(PersonID, NewLocalApplicationTypeID, LicenseClassID))
-            {
-
-
+            {             
                 MessageBox.Show("Choose another License Class. " +
-                                "The selected person already has an active application for the selected class with ID: " + _Application.ApplicationID,
+                                "The selected person already has an active application for the selected class with ID: " + clsApplication.GetApplicationIDByApplicantPersonID(PersonID),
                                 "Failed", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }

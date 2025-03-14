@@ -17,7 +17,33 @@ namespace DVLD_Data_Access
 
             SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString);
 
-            string query = "SELECT * FROM LocalDrivingLicenseApplications";
+            string query = @"
+                             SELECT  
+                                 LocalDrivingLicenseApplications.LocalDrivingLicenseApplicationID, 
+                                 LicenseClasses.ClassName, 
+                                 People.NationalNo, 
+                                 FullName = People.FirstName + ' ' + 
+                                            People.SecondName + ' ' + 
+                                            CASE 
+                                                WHEN People.ThirdName IS NOT NULL THEN People.ThirdName + ' ' 
+                                                ELSE '' 
+                                            END + 
+                                            People.LastName, 
+                                 Applications.ApplicationDate, 
+                                 PassedTests = 0, 
+                                 ApplicationStatus = CASE 
+                                     WHEN Applications.ApplicationStatus = 1 THEN 'New'
+                                     WHEN Applications.ApplicationStatus = 2 THEN 'Cancelled'
+                                     WHEN Applications.ApplicationStatus = 3 THEN 'Completed'
+                                     ELSE 'Unknown' 
+                                 END
+                             FROM LocalDrivingLicenseApplications
+                             JOIN LicenseClasses 
+                                 ON LocalDrivingLicenseApplications.LicenseClassID = LicenseClasses.LicenseClassID
+                             JOIN Applications 
+                                 ON LocalDrivingLicenseApplications.ApplicationID = Applications.ApplicationID
+                             JOIN People 
+                                 ON Applications.ApplicantPersonID = People.PersonID;";
 
             SqlCommand command = new SqlCommand(query, connection);
 
@@ -176,9 +202,11 @@ namespace DVLD_Data_Access
             return UpdatedSuccessfully;
         }
 
-        public static bool IsPersonDeniedForClass(int ApplicantPersonID, int ApplicationTypeID,int LicenseClassID)
+        public static bool IsPersonDeniedForClass(int ApplicantPersonID, int ApplicationTypeID, int LicenseClassID)
         {
             bool IsFound = false;
+
+            const int CancelledStatus = 2;
 
             SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString);
 
@@ -188,7 +216,8 @@ namespace DVLD_Data_Access
                              ON A.ApplicationID = L.ApplicationID
                              WHERE A.ApplicantPersonID = @ApplicantPersonID
                              AND A.ApplicationTypeID = @ApplicationTypeID
-                             AND L.LicenseClassID = @LicenseClassID";
+                             AND L.LicenseClassID = @LicenseClassID
+                             AND A.ApplicationStatus !=@CancelledStatus";
 
 
             SqlCommand command = new SqlCommand(query, connection);
@@ -196,7 +225,7 @@ namespace DVLD_Data_Access
             command.Parameters.AddWithValue("@ApplicantPersonID", ApplicantPersonID);
             command.Parameters.AddWithValue("@ApplicationTypeID", ApplicationTypeID);
             command.Parameters.AddWithValue("@LicenseClassID", LicenseClassID);
-
+            command.Parameters.AddWithValue("@CancelledStatus", CancelledStatus);
 
             try
             {
@@ -256,6 +285,49 @@ namespace DVLD_Data_Access
             }
 
             return DeletedSuccessfully;
+        }
+
+        public static bool CancelLocalDrivingLicenseApplication(int LocalDrivingLicenseApplicationID)
+        {
+            SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString);
+
+            const int CancelledStatus = 2;
+
+            bool CancelledSuccessfully = false;
+
+             string query = @"
+                               UPDATE dbo.Applications 
+                               SET ApplicationStatus = @CancelledStatus
+                               WHERE ApplicationID = (
+                                   SELECT ApplicationID FROM LocalDrivingLicenseApplications 
+                                   WHERE LocalDrivingLicenseApplicationID = @LocalDrivingLicenseApplicationID
+                             )";
+
+            SqlCommand command = new SqlCommand(query, connection);
+
+            command.Parameters.AddWithValue("@LocalDrivingLicenseApplicationID", LocalDrivingLicenseApplicationID);
+            command.Parameters.AddWithValue("@CancelledStatus", CancelledStatus);
+
+            try
+            {
+                connection.Open();
+
+                int RowsAffected = command.ExecuteNonQuery();
+
+                CancelledSuccessfully = (RowsAffected > 0);
+            }
+
+            catch (Exception ex)
+            {
+
+            }
+
+            finally
+            {
+                connection.Close();
+            }
+
+            return CancelledSuccessfully;
         }
 
     }

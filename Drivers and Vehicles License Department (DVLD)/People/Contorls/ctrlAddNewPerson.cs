@@ -309,5 +309,9 @@ namespace Drivers_and_Vehicles_License_Department__DVLD_
             }
         }
 
+        private void Panel_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
     }
 }

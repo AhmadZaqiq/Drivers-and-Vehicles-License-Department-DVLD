@@ -98,6 +98,9 @@ namespace DVLD_Business
             return clsLocalDrivingLicenseApplicationData.DeleteLocalDrivingLicenseApplication(LocalDrivingLicenseApplicationID);
         }
 
-
+        public static bool CancelLocalDrivingLicenseApplication(int LocalDrivingLicenseApplicationID)
+        {
+            return clsLocalDrivingLicenseApplicationData.CancelLocalDrivingLicenseApplication(LocalDrivingLicenseApplicationID);
+        }
     }
 }

@@ -83,5 +83,10 @@ namespace DVLD_Business
             return clsApplication.DeleteApplication(ApplicationID);
         }
 
+        public static int GetApplicationIDByApplicantPersonID(int ApplicantPersonID)
+        {
+            return clsApplicationsData.GetApplicationIDByApplicantPersonID(ApplicantPersonID);
+        }
+
     }
 }

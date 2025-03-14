@@ -5,6 +5,7 @@ using System.Data;
 using System.Drawing;
 using System.Drawing.Drawing2D;
 using System.Linq;
+using System.Runtime.Remoting.Messaging;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -51,11 +52,6 @@ namespace Drivers_and_Vehicles_License_Department__DVLD_.Application_Types
             txtApplicationTypeFees.Text = _ApplicationType.ApplicationTypeFees.ToString();
         }
 
-        private void btnCancel_Click(object sender, EventArgs e)
-        {
-            clsFormUtil.CloseFormEffect(this);
-        }
-
         private bool _ValidateAndSetApplicationTypeData()
         {
             string ApplicationTypeTitle = txtApplicationTypeTitle.Text.Trim();
@@ -71,32 +67,33 @@ namespace Drivers_and_Vehicles_License_Department__DVLD_.Application_Types
             return true;
         }
 
+        private void _ShowMessageBox(string Message, string Title, MessageBoxButtons Button, MessageBoxIcon Icon)
+        {
+            MessageBox.Show(Message, Title, Button, Icon);
+        }
+
         private void btnSave_Click(object sender, EventArgs e)
         {
             if (!_ValidateAndSetApplicationTypeData())
             {
-                MessageBox.Show("Please make sure the entered values ​​are valid.", "Failed");
+                _ShowMessageBox("Please make sure the entered values ​​are valid.", "Failed", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
 
             if (!_ApplicationType.UpdateApplicationType())
             {
-                MessageBox.Show("Data Not Saved.", "Failed");
+                _ShowMessageBox("Data Not Saved.", "Failed", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
 
-            MessageBox.Show("Application type updated successfully", "Success");
+            _ShowMessageBox("Application type updated successfully", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
             DataAdded?.Invoke();
         }
 
-
-
-
-
-
-
-
-
+        private void btnCancel_Click(object sender, EventArgs e)
+        {
+            clsFormUtil.CloseFormEffect(this);
+        }
 
 
     }

@@ -67,21 +67,19 @@ namespace Drivers_and_Vehicles_License_Department__DVLD_
             if (string.IsNullOrEmpty(SearchText))
             {
                 RefreshPeopleDataGrid(); // Return the complete data in the table after clearing the search box.
+                return;
             }
-            else
-            {
-                DataView dv = new DataView(clsPerson.GetAllPeople());
-                dv.RowFilter = $"CONVERT([{FilterColumn}], System.String) LIKE '{SearchText}%'";
-                dgvPeople.DataSource = dv;
 
-                _UpdatePeopleCount();
-            }
+            DataView dv = new DataView(clsPerson.GetAllPeople());
+            dv.RowFilter = $"CONVERT([{FilterColumn}], System.String) LIKE '{SearchText}%'";
+            dgvPeople.DataSource = dv;
+
+            _UpdatePeopleCount();
         }
 
         private void cbFilter_SelectedIndexChanged(object sender, EventArgs e)
         {
             string FilterColumn = cbFilter.SelectedItem.ToString();
-
             txtFilter.Visible = (FilterColumn != "None");
 
             if (!(FilterColumn == "PersonID" || FilterColumn == "DateOfBirth" || FilterColumn == "Phone"))

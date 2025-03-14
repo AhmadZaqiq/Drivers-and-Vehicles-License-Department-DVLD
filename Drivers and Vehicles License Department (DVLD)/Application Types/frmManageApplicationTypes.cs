@@ -46,7 +46,7 @@ namespace Drivers_and_Vehicles_License_Department__DVLD_.Application_Types
             clsFormUtil.CloseFormEffect(this);
         }
 
-        private void editApplicationTypeToolStripMenuItem_Click(object sender, EventArgs e)
+        private void EditApplicationTypeToolStripMenuItem_Click(object sender, EventArgs e)
         {
             DataGridViewRow selectedRow = dgvApplicationTypes.SelectedRows[0];
 
