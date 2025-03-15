@@ -93,6 +93,16 @@ namespace Drivers_and_Vehicles_License_Department__DVLD_.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Add_User_cuate {
+            get {
+                object obj = ResourceManager.GetObject("Add User-cuate", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Ahmad_Logo {
             get {
                 object obj = ResourceManager.GetObject("Ahmad Logo", resourceCulture);
@@ -163,6 +173,16 @@ namespace Drivers_and_Vehicles_License_Department__DVLD_.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Car_driving_rafiki {
+            get {
+                object obj = ResourceManager.GetObject("Car driving-rafiki", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap clinical_notes_24dp_000000_FILL0_wght400_GRAD0_opsz24 {
             get {
                 object obj = ResourceManager.GetObject("clinical_notes_24dp_000000_FILL0_wght400_GRAD0_opsz24", resourceCulture);
@@ -193,9 +213,29 @@ namespace Drivers_and_Vehicles_License_Department__DVLD_.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Credit_card_rafiki {
+            get {
+                object obj = ResourceManager.GetObject("Credit card-rafiki", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap cross {
             get {
                 object obj = ResourceManager.GetObject("cross", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Customer_Survey_rafiki {
+            get {
+                object obj = ResourceManager.GetObject("Customer Survey-rafiki", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -366,6 +406,16 @@ namespace Drivers_and_Vehicles_License_Department__DVLD_.Properties {
         internal static System.Drawing.Bitmap find_user_1_5121 {
             get {
                 object obj = ResourceManager.GetObject("find-user-1-5121", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap groups_1000dp_FFCC00_FILL0_wght400_GRAD0_opsz48 {
+            get {
+                object obj = ResourceManager.GetObject("groups_1000dp_FFCC00_FILL0_wght400_GRAD0_opsz48", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -653,6 +703,16 @@ namespace Drivers_and_Vehicles_License_Department__DVLD_.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap ic_fluent_people_audience_24_filled {
+            get {
+                object obj = ResourceManager.GetObject("ic_fluent_people_audience_24_filled", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap ic_fluent_people_community_24_filled {
             get {
                 object obj = ResourceManager.GetObject("ic_fluent_people_community_24_filled", resourceCulture);
@@ -783,6 +843,26 @@ namespace Drivers_and_Vehicles_License_Department__DVLD_.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap ic_fluent_video_person_star_24_filled {
+            get {
+                object obj = ResourceManager.GetObject("ic_fluent_video_person_star_24_filled", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap ic_fluent_video_person_star_24_filled1 {
+            get {
+                object obj = ResourceManager.GetObject("ic_fluent_video_person_star_24_filled1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Insta {
             get {
                 object obj = ResourceManager.GetObject("Insta", resourceCulture);
@@ -903,6 +983,26 @@ namespace Drivers_and_Vehicles_License_Department__DVLD_.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Online_test_amico {
+            get {
+                object obj = ResourceManager.GetObject("Online test-amico", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Online_test_pana {
+            get {
+                object obj = ResourceManager.GetObject("Online test-pana", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap password {
             get {
                 object obj = ResourceManager.GetObject("password", resourceCulture);
@@ -993,6 +1093,16 @@ namespace Drivers_and_Vehicles_License_Department__DVLD_.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Profile_data_rafiki {
+            get {
+                object obj = ResourceManager.GetObject("Profile data-rafiki", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap public_document {
             get {
                 object obj = ResourceManager.GetObject("public_document", resourceCulture);
@@ -1053,6 +1163,16 @@ namespace Drivers_and_Vehicles_License_Department__DVLD_.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap User_research_rafiki {
+            get {
+                object obj = ResourceManager.GetObject("User research-rafiki", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Users {
             get {
                 object obj = ResourceManager.GetObject("Users", resourceCulture);
@@ -1093,6 +1213,16 @@ namespace Drivers_and_Vehicles_License_Department__DVLD_.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Yellow_Black_Pastel_Abstract_Background_Instagram_Story {
+            get {
+                object obj = ResourceManager.GetObject("Yellow Black Pastel Abstract Background Instagram Story", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Yellow_Black_Pastel_Abstract_Background_Instagram_Story__1_ {
             get {
                 object obj = ResourceManager.GetObject("Yellow Black Pastel Abstract Background Instagram Story (1)", resourceCulture);
@@ -1106,6 +1236,38 @@ namespace Drivers_and_Vehicles_License_Department__DVLD_.Properties {
         internal static System.Drawing.Bitmap Yellow_Black_Pastel_Abstract_Background_Instagram_Story__بطاقة__مربعة__ {
             get {
                 object obj = ResourceManager.GetObject("Yellow Black Pastel Abstract Background Instagram Story (بطاقة (مربعة))", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Yellow_Black_Pastel_Abstract_Background_Instagram_Story__ملصق_مستطيل_الشكل__أفقي__ {
+            get {
+                object obj = ResourceManager.GetObject("Yellow Black Pastel Abstract Background Instagram Story (ملصق مستطيل الشكل (أفقي)" +
+                        ")", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Yellow_Black_Pastel_Abstract_Background_Instagram_Story__ملصق_مستطيل_الشكل__أفقي____2_ {
+            get {
+                object obj = ResourceManager.GetObject("Yellow Black Pastel Abstract Background Instagram Story (ملصق مستطيل الشكل (أفقي)" +
+                        ") (2)", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Yellow_Black_Pastel_Abstract_Background_Instagram_Story1 {
+            get {
+                object obj = ResourceManager.GetObject("Yellow Black Pastel Abstract Background Instagram Story1", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

@@ -33,21 +33,23 @@
             this.siticonePanel1 = new SiticoneNetFrameworkUI.SiticonePanel();
             this.dgvApplicationTypes = new System.Windows.Forms.DataGridView();
             this.cmApplicationTypeSettings = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.editApplicationTypeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.btnCloseForm = new SiticoneNetFrameworkUI.SiticoneButton();
             this.label3 = new System.Windows.Forms.Label();
             this.lblRecordsCount = new System.Windows.Forms.Label();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.editApplicationTypeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.siticonePanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvApplicationTypes)).BeginInit();
             this.cmApplicationTypeSettings.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Segoe UI Semibold", 27.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.Red;
-            this.label1.Location = new System.Drawing.Point(168, 38);
+            this.label1.ForeColor = System.Drawing.Color.Black;
+            this.label1.Location = new System.Drawing.Point(168, 334);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(465, 50);
             this.label1.TabIndex = 2;
@@ -79,7 +81,7 @@
         0F,
         0.5F,
         1F};
-            this.siticonePanel1.Location = new System.Drawing.Point(12, 197);
+            this.siticonePanel1.Location = new System.Drawing.Point(12, 410);
             this.siticonePanel1.Name = "siticonePanel1";
             this.siticonePanel1.PatternStyle = System.Drawing.Drawing2D.HatchStyle.LargeGrid;
             this.siticonePanel1.RippleAlpha = 50;
@@ -120,15 +122,6 @@
             this.editApplicationTypeToolStripMenuItem});
             this.cmApplicationTypeSettings.Name = "cmApplicationTypeSettings";
             this.cmApplicationTypeSettings.Size = new System.Drawing.Size(231, 30);
-            // 
-            // editApplicationTypeToolStripMenuItem
-            // 
-            this.editApplicationTypeToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.editApplicationTypeToolStripMenuItem.Image = global::Drivers_and_Vehicles_License_Department__DVLD_.Properties.Resources.ic_fluent_edit_settings_24_filled;
-            this.editApplicationTypeToolStripMenuItem.Name = "editApplicationTypeToolStripMenuItem";
-            this.editApplicationTypeToolStripMenuItem.Size = new System.Drawing.Size(230, 26);
-            this.editApplicationTypeToolStripMenuItem.Text = "Edit Application type";
-            this.editApplicationTypeToolStripMenuItem.Click += new System.EventHandler(this.EditApplicationTypeToolStripMenuItem_Click);
             // 
             // btnCloseForm
             // 
@@ -180,7 +173,7 @@
             this.btnCloseForm.IsReadOnly = false;
             this.btnCloseForm.IsToggleButton = false;
             this.btnCloseForm.IsToggled = false;
-            this.btnCloseForm.Location = new System.Drawing.Point(663, 599);
+            this.btnCloseForm.Location = new System.Drawing.Point(663, 812);
             this.btnCloseForm.LongPressDurationMS = 1000;
             this.btnCloseForm.Name = "btnCloseForm";
             this.btnCloseForm.NormalFontStyle = System.Drawing.FontStyle.Regular;
@@ -213,7 +206,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(20, 555);
+            this.label3.Location = new System.Drawing.Point(20, 768);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(87, 21);
             this.label3.TabIndex = 54;
@@ -223,23 +216,43 @@
             // 
             this.lblRecordsCount.AutoSize = true;
             this.lblRecordsCount.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblRecordsCount.Location = new System.Drawing.Point(109, 555);
+            this.lblRecordsCount.Location = new System.Drawing.Point(109, 768);
             this.lblRecordsCount.Name = "lblRecordsCount";
             this.lblRecordsCount.Size = new System.Drawing.Size(87, 21);
             this.lblRecordsCount.TabIndex = 55;
             this.lblRecordsCount.Text = "# Records:";
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.BackgroundImage = global::Drivers_and_Vehicles_License_Department__DVLD_.Properties.Resources.Customer_Survey_rafiki;
+            this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.pictureBox1.Location = new System.Drawing.Point(156, -42);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(488, 426);
+            this.pictureBox1.TabIndex = 57;
+            this.pictureBox1.TabStop = false;
+            // 
+            // editApplicationTypeToolStripMenuItem
+            // 
+            this.editApplicationTypeToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.editApplicationTypeToolStripMenuItem.Image = global::Drivers_and_Vehicles_License_Department__DVLD_.Properties.Resources.ic_fluent_edit_settings_24_filled;
+            this.editApplicationTypeToolStripMenuItem.Name = "editApplicationTypeToolStripMenuItem";
+            this.editApplicationTypeToolStripMenuItem.Size = new System.Drawing.Size(230, 26);
+            this.editApplicationTypeToolStripMenuItem.Text = "Edit Application type";
+            this.editApplicationTypeToolStripMenuItem.Click += new System.EventHandler(this.EditApplicationTypeToolStripMenuItem_Click);
             // 
             // frmManageApplicationTypes
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(800, 650);
+            this.ClientSize = new System.Drawing.Size(800, 863);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.lblRecordsCount);
             this.Controls.Add(this.btnCloseForm);
             this.Controls.Add(this.siticonePanel1);
-            this.Controls.Add(this.label1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
@@ -252,6 +265,7 @@
             this.siticonePanel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvApplicationTypes)).EndInit();
             this.cmApplicationTypeSettings.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -267,5 +281,6 @@
         private System.Windows.Forms.Label lblRecordsCount;
         private System.Windows.Forms.ContextMenuStrip cmApplicationTypeSettings;
         private System.Windows.Forms.ToolStripMenuItem editApplicationTypeToolStripMenuItem;
+        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }

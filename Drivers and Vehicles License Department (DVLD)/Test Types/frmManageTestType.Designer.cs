@@ -37,18 +37,20 @@
             this.siticonePanel1 = new SiticoneNetFrameworkUI.SiticonePanel();
             this.dgvTestTypes = new System.Windows.Forms.DataGridView();
             this.cmTestTypeSettings = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.EditTestTypeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.siticonePanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvTestTypes)).BeginInit();
             this.cmTestTypeSettings.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Segoe UI Semibold", 27.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.Red;
-            this.label1.Location = new System.Drawing.Point(231, 38);
+            this.label1.ForeColor = System.Drawing.Color.Black;
+            this.label1.Location = new System.Drawing.Point(230, 347);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(338, 50);
             this.label1.TabIndex = 3;
@@ -58,7 +60,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(20, 555);
+            this.label3.Location = new System.Drawing.Point(20, 768);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(87, 21);
             this.label3.TabIndex = 58;
@@ -68,7 +70,7 @@
             // 
             this.lblRecordsCount.AutoSize = true;
             this.lblRecordsCount.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblRecordsCount.Location = new System.Drawing.Point(109, 555);
+            this.lblRecordsCount.Location = new System.Drawing.Point(109, 768);
             this.lblRecordsCount.Name = "lblRecordsCount";
             this.lblRecordsCount.Size = new System.Drawing.Size(87, 21);
             this.lblRecordsCount.TabIndex = 59;
@@ -124,7 +126,7 @@
             this.btnCloseForm.IsReadOnly = false;
             this.btnCloseForm.IsToggleButton = false;
             this.btnCloseForm.IsToggled = false;
-            this.btnCloseForm.Location = new System.Drawing.Point(663, 599);
+            this.btnCloseForm.Location = new System.Drawing.Point(663, 812);
             this.btnCloseForm.LongPressDurationMS = 1000;
             this.btnCloseForm.Name = "btnCloseForm";
             this.btnCloseForm.NormalFontStyle = System.Drawing.FontStyle.Regular;
@@ -179,7 +181,7 @@
         0F,
         0.5F,
         1F};
-            this.siticonePanel1.Location = new System.Drawing.Point(12, 197);
+            this.siticonePanel1.Location = new System.Drawing.Point(12, 410);
             this.siticonePanel1.Name = "siticonePanel1";
             this.siticonePanel1.PatternStyle = System.Drawing.Drawing2D.HatchStyle.LargeGrid;
             this.siticonePanel1.RippleAlpha = 50;
@@ -226,14 +228,24 @@
             this.cmTestTypeSettings.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.EditTestTypeToolStripMenuItem});
             this.cmTestTypeSettings.Name = "cmApplicationTypeSettings";
-            this.cmTestTypeSettings.Size = new System.Drawing.Size(181, 52);
+            this.cmTestTypeSettings.Size = new System.Drawing.Size(176, 30);
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.BackgroundImage = global::Drivers_and_Vehicles_License_Department__DVLD_.Properties.Resources.Online_test_pana;
+            this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.pictureBox1.Location = new System.Drawing.Point(180, -19);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(438, 386);
+            this.pictureBox1.TabIndex = 60;
+            this.pictureBox1.TabStop = false;
             // 
             // EditTestTypeToolStripMenuItem
             // 
             this.EditTestTypeToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.EditTestTypeToolStripMenuItem.Image = global::Drivers_and_Vehicles_License_Department__DVLD_.Properties.Resources.ic_fluent_edit_settings_24_filled;
             this.EditTestTypeToolStripMenuItem.Name = "EditTestTypeToolStripMenuItem";
-            this.EditTestTypeToolStripMenuItem.Size = new System.Drawing.Size(180, 26);
+            this.EditTestTypeToolStripMenuItem.Size = new System.Drawing.Size(175, 26);
             this.EditTestTypeToolStripMenuItem.Text = "Edit Test type";
             this.EditTestTypeToolStripMenuItem.Click += new System.EventHandler(this.EditTestTypeToolStripMenuItem_Click);
             // 
@@ -243,13 +255,14 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoValidate = System.Windows.Forms.AutoValidate.EnablePreventFocusChange;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(800, 650);
+            this.ClientSize = new System.Drawing.Size(800, 863);
             this.ControlBox = false;
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.lblRecordsCount);
             this.Controls.Add(this.btnCloseForm);
             this.Controls.Add(this.siticonePanel1);
-            this.Controls.Add(this.label1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "frmManageTestType";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
@@ -258,6 +271,7 @@
             this.siticonePanel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvTestTypes)).EndInit();
             this.cmTestTypeSettings.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -273,5 +287,6 @@
         private System.Windows.Forms.DataGridView dgvTestTypes;
         private System.Windows.Forms.ContextMenuStrip cmTestTypeSettings;
         private System.Windows.Forms.ToolStripMenuItem EditTestTypeToolStripMenuItem;
+        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }

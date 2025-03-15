@@ -740,12 +740,12 @@
             // 
             // pictureBox1
             // 
-            this.pictureBox1.BackgroundImage = global::Drivers_and_Vehicles_License_Department__DVLD_.Properties.Resources.Yellow_Black_Pastel_Abstract_Background_Instagram_Story__بطاقة__مربعة__;
+            this.pictureBox1.BackgroundImage = global::Drivers_and_Vehicles_License_Department__DVLD_.Properties.Resources.Car_driving_rafiki;
             this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.pictureBox1.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.pictureBox1.Location = new System.Drawing.Point(90, 20);
+            this.pictureBox1.Location = new System.Drawing.Point(66, -9);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(200, 200);
+            this.pictureBox1.Size = new System.Drawing.Size(250, 250);
             this.pictureBox1.TabIndex = 14;
             this.pictureBox1.TabStop = false;
             // 

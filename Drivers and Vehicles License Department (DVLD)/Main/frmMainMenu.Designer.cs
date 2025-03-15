@@ -246,7 +246,7 @@
             // DriversToolStripMenuItem
             // 
             this.DriversToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI Semibold", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.DriversToolStripMenuItem.Image = global::Drivers_and_Vehicles_License_Department__DVLD_.Properties.Resources.ic_fluent_person_money_24_filled;
+            this.DriversToolStripMenuItem.Image = global::Drivers_and_Vehicles_License_Department__DVLD_.Properties.Resources.ic_fluent_video_person_star_24_filled1;
             this.DriversToolStripMenuItem.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.DriversToolStripMenuItem.Name = "DriversToolStripMenuItem";
             this.DriversToolStripMenuItem.Size = new System.Drawing.Size(163, 52);
@@ -284,7 +284,7 @@
             this.CurrentUserInfoToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI Semibold", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.CurrentUserInfoToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("CurrentUserInfoToolStripMenuItem.Image")));
             this.CurrentUserInfoToolStripMenuItem.Name = "CurrentUserInfoToolStripMenuItem";
-            this.CurrentUserInfoToolStripMenuItem.Size = new System.Drawing.Size(270, 54);
+            this.CurrentUserInfoToolStripMenuItem.Size = new System.Drawing.Size(238, 30);
             this.CurrentUserInfoToolStripMenuItem.Text = "Current User info";
             this.CurrentUserInfoToolStripMenuItem.Click += new System.EventHandler(this.CurrentUserInfoToolStripMenuItem_Click);
             // 
@@ -293,21 +293,21 @@
             this.ChangePasswordToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI Semibold", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ChangePasswordToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("ChangePasswordToolStripMenuItem.Image")));
             this.ChangePasswordToolStripMenuItem.Name = "ChangePasswordToolStripMenuItem";
-            this.ChangePasswordToolStripMenuItem.Size = new System.Drawing.Size(270, 54);
+            this.ChangePasswordToolStripMenuItem.Size = new System.Drawing.Size(238, 30);
             this.ChangePasswordToolStripMenuItem.Text = "Change Password";
             this.ChangePasswordToolStripMenuItem.Click += new System.EventHandler(this.ChangePasswordToolStripMenuItem_Click);
             // 
             // toolStripSeparator1
             // 
             this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(267, 6);
+            this.toolStripSeparator1.Size = new System.Drawing.Size(235, 6);
             // 
             // SignoutToolStripMenuItem
             // 
             this.SignoutToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI Semibold", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.SignoutToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("SignoutToolStripMenuItem.Image")));
             this.SignoutToolStripMenuItem.Name = "SignoutToolStripMenuItem";
-            this.SignoutToolStripMenuItem.Size = new System.Drawing.Size(270, 54);
+            this.SignoutToolStripMenuItem.Size = new System.Drawing.Size(238, 30);
             this.SignoutToolStripMenuItem.Text = "Sign Out";
             this.SignoutToolStripMenuItem.Click += new System.EventHandler(this.SignoutToolStripMenuItem_Click);
             // 

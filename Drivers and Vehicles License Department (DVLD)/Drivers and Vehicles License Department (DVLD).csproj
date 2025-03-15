@@ -613,5 +613,53 @@
   <ItemGroup>
     <None Include="Resources\ic_fluent_apps_list_detail_24_filled.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ic_fluent_video_person_star_24_filled.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ic_fluent_video_person_star_24_filled1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Yellow Black Pastel Abstract Background Instagram Story.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Yellow Black Pastel Abstract Background Instagram Story1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Yellow Black Pastel Abstract Background Instagram Story %28ملصق مستطيل الشكل %28أفقي%29%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Yellow Black Pastel Abstract Background Instagram Story %28ملصق مستطيل الشكل %28أفقي%29%29 %282%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\groups_1000dp_FFCC00_FILL0_wght400_GRAD0_opsz48.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ic_fluent_people_audience_24_filled.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Add User-cuate.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Car driving-rafiki.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\User research-rafiki.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Credit card-rafiki.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Customer Survey-rafiki.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Online test-amico.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Online test-pana.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Profile data-rafiki.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
