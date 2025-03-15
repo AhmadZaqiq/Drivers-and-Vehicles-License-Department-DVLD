@@ -44,7 +44,7 @@ namespace DVLD_Business
 
         public static DataTable GetAllUsers()
         {
-            return clsUsersData.GetAllUsers();
+            return clsUsersData.GetAllUsersData();
         }
 
         public static clsUser GetUserByID(int UserID)
@@ -55,7 +55,7 @@ namespace DVLD_Business
             bool IsActive = false;
 
 
-            if (clsUsersData.GetUserByID(UserID, ref PersonID, ref Username, ref Password, ref IsActive))
+            if (clsUsersData.GetUserByIDData(UserID, ref PersonID, ref Username, ref Password, ref IsActive))
             {
                 return new clsUser(UserID, PersonID, Username, Password, IsActive);
             }
@@ -71,7 +71,7 @@ namespace DVLD_Business
             bool IsActive = false;
 
 
-            if (clsUsersData.GetUserByUsername(Username, ref UserID, ref PersonID, ref Password, ref IsActive))
+            if (clsUsersData.GetUserByUsernameData(Username, ref UserID, ref PersonID, ref Password, ref IsActive))
             {
                 return new clsUser(UserID, PersonID, Username, Password, IsActive);
             }
@@ -81,14 +81,14 @@ namespace DVLD_Business
 
         private bool _AddNewUser()
         {
-            this.UserID = clsUsersData.AddNewUser(this.PersonID, this.Username, this.Password, this.IsActive);
+            this.UserID = clsUsersData.AddNewUserData(this.PersonID, this.Username, this.Password, this.IsActive);
 
             return (this.UserID != -1);
         }
 
         private bool _UpdateUser()
         {
-            return clsUsersData.UpdateUser(this.PersonID, this.Username, this.Password, this.IsActive);
+            return clsUsersData.UpdateUserData(this.PersonID, this.Username, this.Password, this.IsActive);
         }
 
         public bool Save()
@@ -128,19 +128,18 @@ namespace DVLD_Business
 
         public static bool DeleteUser(int UserID)
         {
-            return clsUsersData.DeleteUser(UserID);
+            return clsUsersData.DeleteUserData(UserID);
         }
 
         public static bool IsUserExists(int UserID)
         {
-            return clsUsersData.IsUserExist(UserID);
+            return clsUsersData.IsUserExistData(UserID);
         }
 
         public static bool IsUserExists(string Username)
         {
-            return clsUsersData.IsUserExist(Username);
+            return clsUsersData.IsUserExistData(Username);
         }
-
 
 
     }

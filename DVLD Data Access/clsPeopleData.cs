@@ -12,17 +12,32 @@ namespace DVLD_Data_Access
 {
     public class clsPeopleData
     {
-        public static DataTable PeopleData()
+        public static DataTable GetAllPeopleData()
         {
             DataTable dt = new DataTable();
 
             SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString);
 
-            string query = "SELECT People.PersonID, People.NationalNo, People.FirstName," +
-                " People.SecondName, People.ThirdName, People.LastName," +
-                " CASE WHEN People.Gender = 0 THEN 'Male' WHEN People.Gender = 1 THEN 'Female' ELSE 'Unknown' END AS Gender," +
-                " People.DateOfBirth, Countries.CountryName, People.Phone, People.Email FROM People JOIN Countries" +
-                " ON People.NationalityCountryID = Countries.CountryID";
+            string query = @"SELECT 
+                                 People.PersonID, 
+                                 People.NationalNo, 
+                                 People.FirstName, 
+                                 People.SecondName, 
+                                 People.ThirdName, 
+                                 People.LastName, 
+                                 CASE 
+                                     WHEN People.Gender = 0 THEN 'Male' 
+                                     WHEN People.Gender = 1 THEN 'Female' 
+                                     ELSE 'Unknown' 
+                                 END AS Gender, 
+                                 People.DateOfBirth, 
+                                 Countries.CountryName, 
+                                 People.Phone, 
+                                 People.Email 
+                             FROM 
+                                 People 
+                             JOIN 
+                                 Countries ON People.NationalityCountryID = Countries.CountryID";
 
             SqlCommand command = new SqlCommand(query, connection);
 
@@ -39,9 +54,10 @@ namespace DVLD_Data_Access
 
                 reader.Close();
             }
+
             catch (Exception ex)
             {
-
+                Console.WriteLine(ex.Message);
             }
 
             finally
@@ -52,13 +68,14 @@ namespace DVLD_Data_Access
             return dt;
         }
 
-        public static int PeopleCount()
+        public static int PeopleCountData()
         {
             int CountofPeople = 0;
 
             SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString);
 
-            string query = "SELECT Count(*) FROM People";
+            string query = @"SELECT Count(*)
+                             FROM People";
 
             SqlCommand command = new SqlCommand(query, connection);
 
@@ -77,7 +94,7 @@ namespace DVLD_Data_Access
 
             catch (Exception ex)
             {
-
+                Console.WriteLine(ex.Message);
             }
 
             finally
@@ -88,7 +105,7 @@ namespace DVLD_Data_Access
             return CountofPeople;
         }
 
-        public static bool GetPersonByID(int PersonID, ref string NationalNo, ref string FirstName, ref string SecondName,
+        public static bool GetPersonByIDData(int PersonID, ref string NationalNo, ref string FirstName, ref string SecondName,
             ref string ThirdName, ref string LastName, ref DateTime DateOfBirth, ref int Gender, ref string Address,
             ref string Phone, ref string Email, ref int NationalityCountryID, ref string ImagePath)
         {
@@ -96,8 +113,24 @@ namespace DVLD_Data_Access
 
             SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString);
 
-            string query = "SELECT NationalNo,FirstName,SecondName,ThirdName,LastName,DateOfBirth," +
-                "Gender,Address,Phone,Email,NationalityCountryID,ImagePath FROM People WHERE PersonID = @PersonID;";
+            string query = @"SELECT 
+                             NationalNo, 
+                             FirstName, 
+                             SecondName, 
+                             ThirdName, 
+                             LastName, 
+                             DateOfBirth, 
+                             Gender, 
+                             Address, 
+                             Phone, 
+                             Email, 
+                             NationalityCountryID, 
+                             ImagePath 
+                         FROM 
+                             People 
+                         WHERE 
+                             PersonID = @PersonID;";
+
 
             SqlCommand command = new SqlCommand(query, connection);
 
@@ -126,12 +159,14 @@ namespace DVLD_Data_Access
                     NationalityCountryID = (int)reader["NationalityCountryID"];
 
                     if (reader["ImagePath"] != null)
+                    {
                         ImagePath = (string)reader["ImagePath"];
-
+                    }
 
                     else
+                    {
                         ImagePath = "";
-
+                    }
                 }
 
                 else
@@ -142,7 +177,10 @@ namespace DVLD_Data_Access
                 reader.Close();
             }
 
-            catch (Exception ex) { }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
 
             finally
             {
@@ -152,7 +190,7 @@ namespace DVLD_Data_Access
             return IsFound;
         }
 
-        public static int AddNewPerson(string NationalNo, string FirstName, string SecondName,
+        public static int AddNewPersonData(string NationalNo, string FirstName, string SecondName,
             string ThirdName, string LastName, DateTime DateOfBirth, int Gender, string Address,
             string Phone, string Email, int NationalityCountryID, string ImagePath)
         {
@@ -160,12 +198,19 @@ namespace DVLD_Data_Access
 
             int PersonID = -1;
 
-            string query = "INSERT INTO dbo.People (NationalNo, FirstName, SecondName, ThirdName, LastName, " +
-                "DateOfBirth, Gender, Address, Phone, Email, NationalityCountryID, ImagePath) " +
-                "VALUES (@NationalNo, @FirstName, @SecondName, @ThirdName, @LastName, @DateOfBirth, " +
-                "@Gender, @Address, @Phone, @Email, @NationalityCountryID, @ImagePath); " +
-                "SELECT SCOPE_IDENTITY();";
-
+            string query = @"INSERT INTO People (
+                             NationalNo, FirstName, SecondName, 
+                             ThirdName, LastName, DateOfBirth, 
+                             Gender, Address, Phone, 
+                             Email, NationalityCountryID, ImagePath
+                         ) 
+                         VALUES (
+                             @NationalNo, @FirstName, @SecondName, 
+                             @ThirdName, @LastName, @DateOfBirth, 
+                             @Gender, @Address, @Phone, 
+                             @Email, @NationalityCountryID, @ImagePath
+                         ); 
+                         SELECT SCOPE_IDENTITY();";
 
             SqlCommand command = new SqlCommand(query, connection);
 
@@ -182,9 +227,14 @@ namespace DVLD_Data_Access
             command.Parameters.AddWithValue("@NationalityCountryID", NationalityCountryID);
 
             if (ImagePath != "" && ImagePath != null)
+            {
                 command.Parameters.AddWithValue("@ImagePath", ImagePath);
+            }
+
             else
+            {
                 command.Parameters.AddWithValue("@ImagePath", System.DBNull.Value);
+            }
 
             try
             {
@@ -204,7 +254,10 @@ namespace DVLD_Data_Access
                 }
             }
 
-            catch (Exception ex) { }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
 
             finally
             {
@@ -214,8 +267,7 @@ namespace DVLD_Data_Access
             return PersonID;
         }
 
-
-        public static bool UpdatePerson(int PersonID, string NationalNo, string FirstName, string SecondName,
+        public static bool UpdatePersonData(int PersonID, string NationalNo, string FirstName, string SecondName,
           string ThirdName, string LastName, DateTime DateOfBirth, int Gender, string Address,
           string Phone, string Email, int NationalityCountryID, string ImagePath)
         {
@@ -223,10 +275,14 @@ namespace DVLD_Data_Access
 
             bool UpdatedSuccessfully = false;
 
-            string query = "UPDATE dbo.People SET NationalNo = @NationalNo, FirstName = @FirstName," +
-                " SecondName = @SecondName, ThirdName = @ThirdName, LastName = @LastName, DateOfBirth = @DateOfBirth" +
-                ", Gender = @Gender, Address = @Address, Phone = @Phone, Email = @Email, NationalityCountryID = @NationalityCountryID," +
-                " ImagePath = @ImagePath WHERE PersonID = @PersonID";
+            string query = @"UPDATE People 
+                             SET 
+                                 NationalNo = @NationalNo, FirstName = @FirstName, SecondName = @SecondName, 
+                                 ThirdName = @ThirdName, LastName = @LastName, DateOfBirth = @DateOfBirth, 
+                                 Gender = @Gender, Address = @Address, Phone = @Phone, 
+                                 Email = @Email, NationalityCountryID = @NationalityCountryID, ImagePath = @ImagePath 
+                             WHERE 
+                                 PersonID = @PersonID;";
 
             SqlCommand command = new SqlCommand(query, connection);
 
@@ -244,9 +300,14 @@ namespace DVLD_Data_Access
             command.Parameters.AddWithValue("NationalityCountryID", NationalityCountryID);
 
             if (ImagePath != "" && ImagePath != null)
+            {
                 command.Parameters.AddWithValue("@ImagePath", ImagePath);
+            }
+
             else
+            {
                 command.Parameters.AddWithValue("@ImagePath", System.DBNull.Value);
+            }
 
             try
             {
@@ -259,7 +320,7 @@ namespace DVLD_Data_Access
 
             catch (Exception ex)
             {
-
+                Console.WriteLine(ex.Message);
             }
 
             finally
@@ -270,13 +331,15 @@ namespace DVLD_Data_Access
             return UpdatedSuccessfully;
         }
 
-        public static bool IsPersonExists(int PersonID)
+        public static bool IsPersonExistsData(int PersonID)
         {
             bool IsFound = false;
 
             SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString);
 
-            string query = "SELECT Found=1 FROM People WHERE PersonID = @PersonID";
+            string query = @"SELECT Found=1
+                             FROM People
+                             WHERE PersonID = @PersonID";
 
             SqlCommand command = new SqlCommand(query, connection);
 
@@ -292,10 +355,12 @@ namespace DVLD_Data_Access
 
                 reader.Close();
             }
+
             catch (Exception ex)
             {
-
+                Console.WriteLine(ex.Message);
             }
+
             finally
             {
                 connection.Close();
@@ -304,13 +369,15 @@ namespace DVLD_Data_Access
             return IsFound;
         }
 
-        public static bool IsPersonExists(string NationalNo)
+        public static bool IsPersonExistsData(string NationalNo)
         {
             bool IsFound = false;
 
             SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString);
 
-            string query = "SELECT Found=1 FROM People WHERE NationalNo = @NationalNo";
+            string query = @"SELECT Found=1
+                             FROM People
+                             WHERE NationalNo = @NationalNo";
 
             SqlCommand command = new SqlCommand(query, connection);
 
@@ -319,6 +386,7 @@ namespace DVLD_Data_Access
             try
             {
                 connection.Open();
+
                 SqlDataReader reader = command.ExecuteReader();
 
                 IsFound = reader.HasRows;
@@ -327,8 +395,9 @@ namespace DVLD_Data_Access
             }
             catch (Exception ex)
             {
-
+                Console.WriteLine(ex.Message);
             }
+
             finally
             {
                 connection.Close();
@@ -337,13 +406,14 @@ namespace DVLD_Data_Access
             return IsFound;
         }
 
-        public static bool DeletePerson(int PersonID)
+        public static bool DeletePersonData(int PersonID)
         {
             bool DeletedSuccessfully = false;
 
             SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString);
 
-            string query = "DELETE FROM People WHERE PersonID = @PersonID;";
+            string query = @"DELETE FROM People
+                             WHERE PersonID = @PersonID;";
 
             SqlCommand command = new SqlCommand(query, connection);
 
@@ -360,7 +430,7 @@ namespace DVLD_Data_Access
             }
             catch (Exception ex)
             {
-
+                Console.WriteLine(ex.Message);
             }
 
             finally
@@ -371,13 +441,15 @@ namespace DVLD_Data_Access
             return DeletedSuccessfully;
         }
 
-        public static int GetPersonIDByNationalNO(string NationalNO)
+        public static int GetPersonIDByNationalNOData(string NationalNO)
         {
             int PersonID = -1;
 
             SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString);
 
-            string query = "SELECT PersonID FROM People WHERE NationalNo=@NationalNo";
+            string query = @"SELECT PersonID
+                             FROM People
+                             WHERE NationalNo=@NationalNo";
 
             SqlCommand command = new SqlCommand(query, connection);
 
@@ -395,12 +467,17 @@ namespace DVLD_Data_Access
                 }
             }
 
-            catch (Exception ex) { }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
 
-            finally { connection.Close(); }
+            finally
+            {
+                connection.Close();
+            }
 
             return PersonID;
-
         }
 
 

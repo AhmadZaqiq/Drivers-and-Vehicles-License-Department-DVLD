@@ -45,17 +45,14 @@ namespace Drivers_and_Vehicles_License_Department__DVLD_.Test_Types
         private void _PopulateTestTypeFields()
         {
             if (_TestType == null)
+            {
                 return;
+            }
 
             lblID.Text = _TestTypeID.ToString();
             txtTestTypeTitle.Text = _TestType.TestTypeTitle.ToString();
             txtTestTypeDescription.Text = _TestType.TestTypeDescription.ToString();
             txtTestTypeFees.Text = _TestType.TestTypeFees.ToString();
-        }
-
-        private void btnCancel_Click(object sender, EventArgs e)
-        {
-            clsFormUtil.CloseFormEffect(this);
         }
 
         private bool _ValidateAndSetTestTypeData()
@@ -65,10 +62,14 @@ namespace Drivers_and_Vehicles_License_Department__DVLD_.Test_Types
 
 
             if (string.IsNullOrWhiteSpace(TestTypeTitle) || string.IsNullOrWhiteSpace(TestTypeDescription))
+            {
                 return false;
+            }
 
             if (!decimal.TryParse(txtTestTypeFees.Text.Trim(), out decimal TestTypeFees) || TestTypeFees < 0)
+            {
                 return false;
+            }
 
             _TestType.TestTypeTitle = TestTypeTitle;
             _TestType.TestTypeDescription = TestTypeDescription;
@@ -80,23 +81,24 @@ namespace Drivers_and_Vehicles_License_Department__DVLD_.Test_Types
         {
             if (!_ValidateAndSetTestTypeData())
             {
-                MessageBox.Show("Please make sure the entered values ​​are valid.", "Failed");
+                clsMessageBoxManager.ShowMessageBox("Please make sure the entered values ​​are valid.", "Failed",MessageBoxButtons.OK,MessageBoxIcon.Error);
                 return;
             }
 
             if (!_TestType.UpdateTestType())
             {
-                MessageBox.Show("Data Not Saved.", "Failed");
+                clsMessageBoxManager.ShowMessageBox("Data Not Saved.", "Failed", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
 
-            MessageBox.Show("Test type updated successfully", "Success");
+            clsMessageBoxManager.ShowMessageBox("Test type updated successfully", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
             DataAdded?.Invoke();
         }
 
-
-
-
+        private void btnCancel_Click(object sender, EventArgs e)
+        {
+            clsFormUtil.CloseFormEffect(this);
+        }
 
 
     }

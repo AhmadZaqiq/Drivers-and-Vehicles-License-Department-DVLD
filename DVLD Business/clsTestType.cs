@@ -51,7 +51,9 @@ namespace DVLD_Business
 
         public bool UpdateTestType()
         {
-            return clsTestTypesData.UpdateTestType(this.TestTypeID, this.TestTypeTitle, this.TestTypeDescription, this.TestTypeFees);
+            return clsTestTypesData.UpdateTestTypeData(this.TestTypeID, this.TestTypeTitle, this.TestTypeDescription, this.TestTypeFees);
         }
+ 
+    
     }
 }

@@ -10,13 +10,14 @@ namespace DVLD_Data_Access
 {
     public class clsCountriesData
     {
-        public static DataTable CountriesData()
+        public static DataTable GetAllCountriesData()
         {
             DataTable dt = new DataTable();
 
             SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString);
 
-            string query = "SELECT CountryID,CountryName FROM Countries";
+            string query = @"SELECT CountryID,CountryName
+                             FROM Countries";
 
             SqlCommand command = new SqlCommand(query, connection);
 
@@ -34,7 +35,10 @@ namespace DVLD_Data_Access
                 reader.Close();
             }
 
-            catch (Exception ex) { }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
 
             finally
             {
@@ -44,13 +48,17 @@ namespace DVLD_Data_Access
             return dt;
         }
 
-        public static bool FindCountryByPersonID(int PersonID, ref int CountryID, ref string CountryName)
+        public static bool GetCountryByPersonIDData(int PersonID, ref int CountryID, ref string CountryName)
         {
             bool IsFound = false;
 
             SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString);
 
-            string query = "SELECT Countries.CountryID, Countries.CountryName FROM Countries JOIN People ON Countries.CountryID=People.NationalityCountryID WHERE PersonID=@PersonID";
+            string query = @"SELECT Countries.CountryID, Countries.CountryName 
+                             FROM Countries
+                             JOIN People 
+                             ON Countries.CountryID=People.NationalityCountryID 
+                             WHERE PersonID=@PersonID";
 
             SqlCommand command = new SqlCommand(query, connection);
 
@@ -73,7 +81,7 @@ namespace DVLD_Data_Access
 
             catch (Exception ex)
             {
-
+                Console.WriteLine(ex.Message);
             }
 
             finally
@@ -84,13 +92,16 @@ namespace DVLD_Data_Access
             return IsFound;
         }
 
-        public static string GetCountryNameByCountryID(int CountryID)
+        public static string GetCountryNameByCountryIDData(int CountryID)
         {
             string CountryName = "";
 
             SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString);
 
-            string query = "SELECT CountryName FROM Countries WHERE CountryID = @CountryID";
+            string query = @"SELECT 
+                             CountryName 
+                             FROM Countries 
+                             WHERE CountryID = @CountryID";
 
             SqlCommand command = new SqlCommand(query, connection);
 
@@ -109,7 +120,7 @@ namespace DVLD_Data_Access
             }
             catch (Exception ex)
             {
-
+                Console.WriteLine(ex.Message);
             }
 
             finally
@@ -117,17 +128,19 @@ namespace DVLD_Data_Access
                 connection.Close();
             }
 
-
             return CountryName;
         }
 
-        public static int GetCountryIDByCountryName(string CountryName)
+        public static int GetCountryIDByCountryNameData(string CountryName)
         {
             int CountryID = -1;
 
             SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString);
 
-            string query = "SELECT CountryID FROM Countries WHERE CountryName = @CountryName";
+            string query = @"SELECT 
+                             CountryID 
+                             FROM Countries 
+                             WHERE CountryName = @CountryName";
 
             SqlCommand command = new SqlCommand(query, connection);
 
@@ -146,7 +159,7 @@ namespace DVLD_Data_Access
             }
             catch (Exception ex)
             {
-
+                Console.WriteLine(ex.Message);
             }
             finally
             {
@@ -155,7 +168,6 @@ namespace DVLD_Data_Access
 
             return CountryID;
         }
-
 
 
     }

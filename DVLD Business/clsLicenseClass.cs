@@ -39,7 +39,7 @@ namespace DVLD_Business
 
         public static DataTable GetAllLicenseClasses()
         {
-            return clsLicenseClassesData.GetAllLicenseClasses();
+            return clsLicenseClassesData.GetAllLicenseClassesData();
         }
 
         public static clsLicenseClass GetLicenseClassByID(int LicenseClassID)
@@ -50,10 +50,12 @@ namespace DVLD_Business
             byte DefaultValidityLength = 0;
             decimal ClassFees = 0;
 
-            if (!clsLicenseClassesData.GetLicenseClassDataByID(LicenseClassID, ref ClassName, ref ClassDescription, ref MinimumAllowedAge, ref DefaultValidityLength, ref ClassFees))
+            if (!clsLicenseClassesData.GetLicenseClassDataByIDData(LicenseClassID, ref ClassName, ref ClassDescription, ref MinimumAllowedAge, ref DefaultValidityLength, ref ClassFees))
                 return null;
 
             return new clsLicenseClass(LicenseClassID, ClassName, ClassDescription, MinimumAllowedAge, DefaultValidityLength, ClassFees);
         }
+
+
     }
 }

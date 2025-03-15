@@ -36,7 +36,7 @@ namespace DVLD_Business
 
         public static DataTable GetAllLocalDrivingApplications()
         {
-            return clsLocalDrivingLicenseApplicationData.GetAllLocalDrivingLicenseApplications();
+            return clsLocalDrivingLicenseApplicationData.GetAllLocalDrivingLicenseApplicationsData();
         }
 
         public static clsLocalDrivingLicenseApplication GetLocalDrivingApplicationByID(int LocalDrivingLicenseApplicationID)
@@ -44,7 +44,7 @@ namespace DVLD_Business
             int ApplicationID = -1;
             int LicenseClassID = -1;
 
-            if (!clsLocalDrivingLicenseApplicationData.GetLocalDrivingLicenseApplicationByID(LocalDrivingLicenseApplicationID, ref ApplicationID, ref LicenseClassID))
+            if (!clsLocalDrivingLicenseApplicationData.GetLocalDrivingLicenseApplicationByIDData(LocalDrivingLicenseApplicationID, ref ApplicationID, ref LicenseClassID))
                 return null;
 
             return new clsLocalDrivingLicenseApplication(LocalDrivingLicenseApplicationID, ApplicationID, LicenseClassID);
@@ -52,13 +52,13 @@ namespace DVLD_Business
 
         private bool _UpdateLocalDrivingApplication()
         {
-            return clsLocalDrivingLicenseApplicationData.UpdateLocalDrivingLicenseApplication
+            return clsLocalDrivingLicenseApplicationData.UpdateLocalDrivingLicenseApplicationData
                 (this.LocalDrivingLicenseApplicationID, this.ApplicationID, this.LicenseClassID);
         }
 
         private bool _AddNewLocalDrivingApplication()
         {
-            this.LocalDrivingLicenseApplicationID = clsLocalDrivingLicenseApplicationData.AddNewLocalDrivingLicenseApplication
+            this.LocalDrivingLicenseApplicationID = clsLocalDrivingLicenseApplicationData.AddNewLocalDrivingLicenseApplicationData
                 (this.ApplicationID, this.LicenseClassID);
 
             return (this.LocalDrivingLicenseApplicationID != -1);
@@ -66,7 +66,7 @@ namespace DVLD_Business
 
         public static bool IsPersonDeniedForClass(int ApplicantPersonID, int ApplicationTypeID, int LicenseClassID)
         {
-            return clsLocalDrivingLicenseApplicationData.IsPersonDeniedForClass(ApplicantPersonID, ApplicationTypeID, LicenseClassID);
+            return clsLocalDrivingLicenseApplicationData.IsPersonDeniedForClassData(ApplicantPersonID, ApplicationTypeID, LicenseClassID);
         }
 
         public bool Save()
@@ -95,12 +95,14 @@ namespace DVLD_Business
 
         public static bool DeleteLocalDrivingApplication(int LocalDrivingLicenseApplicationID)
         {
-            return clsLocalDrivingLicenseApplicationData.DeleteLocalDrivingLicenseApplication(LocalDrivingLicenseApplicationID);
+            return clsLocalDrivingLicenseApplicationData.DeleteLocalDrivingLicenseApplicationData(LocalDrivingLicenseApplicationID);
         }
 
         public static bool CancelLocalDrivingLicenseApplication(int LocalDrivingLicenseApplicationID)
         {
             return clsLocalDrivingLicenseApplicationData.CancelLocalDrivingLicenseApplication(LocalDrivingLicenseApplicationID);
         }
+
+
     }
 }

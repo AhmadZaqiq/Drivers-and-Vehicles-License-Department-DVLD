@@ -42,12 +42,12 @@ namespace Drivers_and_Vehicles_License_Department__DVLD_.Test_Types
             lblRecordsCount.Text = (dgvTestTypes.RowCount).ToString();
         }
 
-        private void btnClose_Click(object sender, EventArgs e)
+        private void btnCloseForm_Click(object sender, EventArgs e)
         {
             clsFormUtil.CloseFormEffect(this);
         }
 
-        private void editTestTypeToolStripMenuItem_Click(object sender, EventArgs e)
+        private void EditTestTypeToolStripMenuItem_Click(object sender, EventArgs e)
         {
             DataGridViewRow selectedRow = dgvTestTypes.SelectedRows[0];
 
@@ -56,5 +56,7 @@ namespace Drivers_and_Vehicles_License_Department__DVLD_.Test_Types
             frmUpdateTestType FormUpdateTestType = new frmUpdateTestType(TestTypeID, this);
             FormUpdateTestType.ShowDialog();
         }
+
+
     }
 }

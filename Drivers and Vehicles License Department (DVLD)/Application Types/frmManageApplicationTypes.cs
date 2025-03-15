@@ -41,7 +41,7 @@ namespace Drivers_and_Vehicles_License_Department__DVLD_.Application_Types
             lblRecordsCount.Text = (dgvApplicationTypes.RowCount).ToString();
         }
 
-        private void btnClose_Click(object sender, EventArgs e)
+        private void btnCloseForm_Click(object sender, EventArgs e)
         {
             clsFormUtil.CloseFormEffect(this);
         }
@@ -55,5 +55,7 @@ namespace Drivers_and_Vehicles_License_Department__DVLD_.Application_Types
             frmUpdateApplicationType FormUpdateApplicationType = new frmUpdateApplicationType(ApplicationTypeID, this);
             FormUpdateApplicationType.ShowDialog();
         }
+
+
     }
 }

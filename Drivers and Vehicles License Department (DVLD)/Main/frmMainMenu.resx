@@ -121,7 +121,7 @@
     <value>17, 17</value>
   </metadata>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="applicationsToolStripMenuItem.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="ApplicationsToolStripMenuItem.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAgAAAAIACAYAAAD0eNT6AAAABGdBTUEAALGPC/xhBQAAHDNJREFUeF7t
         3Qm0LFV973EmlcGJSdAIgsagqOCIQxRF4xOQpTigRGOcQtQY44BRjD5HcOBpVFScnjigKChGiROOoIlG
@@ -247,7 +247,7 @@
         kiRJkiRJGnMbbPCf9rCXoAX3Fy8AAAAASUVORK5CYII=
 </value>
   </data>
-  <data name="peopleToolStripMenuItem.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="PeopleToolStripMenuItem.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAgAAAAIACAYAAAD0eNT6AAAABGdBTUEAALGPC/xhBQAAKKlJREFUeF7t
         3QvYbuWc+HESTSk5lVRUqBCZBpFTDsk4TIVEM5QpifQnCslhSIUQcipyHKcYMZlMhPJPDjFUREhyKpWU
@@ -426,7 +426,7 @@
         mZmZmZmZmZmZmZmZmZmZzb+b3OT/A1sgJN02KyCIAAAAAElFTkSuQmCC
 </value>
   </data>
-  <data name="currentUserInfoToolStripMenuItem.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="CurrentUserInfoToolStripMenuItem.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAEgAAABICAYAAABV7bNHAAAABGdBTUEAALGPC/xhBQAAA+VJREFUeF7l
         mIttHDEMRF1KSkkp6SSlpJSUklKSe8bJWDBDrT6URPsGGNi+lbTUW5La81uwvj386+E/D/9N4t8PE9dx
@@ -448,7 +448,7 @@
         uBUmq+SFTH4P0kiNi/bHAaEuZvJuQIB5vii/vf0DzTtDhc9BPiMAAAAASUVORK5CYII=
 </value>
   </data>
-  <data name="changePasswordToolStripMenuItem.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="ChangePasswordToolStripMenuItem.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAEgAAABICAYAAABV7bNHAAAABGdBTUEAALGPC/xhBQAAAdBJREFUeF7t
         l4FNxDAQBFMKpVAKnVAKpVAKpUA2sGF9ipN8hIT+PSOtSGwn9u2fL2YCAAAAAAAAAAAAAAC4O55nvaJF
@@ -461,7 +461,7 @@
         c5bTvyq/swj9qvlXJo/weZAaVdRjAAAAAAAAAAAAAAC4K6bpC0vJeyiU4nPwAAAAAElFTkSuQmCC
 </value>
   </data>
-  <data name="signoutToolStripMenuItem.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="SignoutToolStripMenuItem.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAEgAAABICAYAAABV7bNHAAAABGdBTUEAALGPC/xhBQAAAXFJREFUeF7t
         2t1NxEAMAOGUQimUcp1QCqVQCqXAzoOlEzqwTsS762hGshAvSfhYQn7uMDMzMzP7b69jPsd8NZ2PMS9j

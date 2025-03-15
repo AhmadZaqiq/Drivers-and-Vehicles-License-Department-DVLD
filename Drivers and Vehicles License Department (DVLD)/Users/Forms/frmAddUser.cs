@@ -20,7 +20,7 @@ namespace Drivers_and_Vehicles_License_Department__DVLD_.Users.Forms
 
         private frmListPeople _frmPeople = new frmListPeople();
 
-        private clsUser _User = new clsUser(); //Unlike with 'People Addition', here we only create the object because there is no 'Update User' operation.
+        private clsUser _User = new clsUser(); //Unlike with 'People Addition', here we only create the object because there is no 'Update User' operation here.
 
         public frmAddUser(frmManageUsers FormManageUsers)
         {
@@ -53,16 +53,6 @@ namespace Drivers_and_Vehicles_License_Department__DVLD_.Users.Forms
                              txtConfirmPassword.Text != txtPassword.Text;
         }
 
-        private void btnClose_Click(object sender, EventArgs e)
-        {
-            clsFormUtil.CloseFormEffect(this);
-        }
-
-        private void btnNext_Click(object sender, EventArgs e)
-        {
-            TabControl1.SelectedTab = tabLoginInfo;
-        }
-
         private void btnShowHidePassword_Click(object sender, EventArgs e)
         {
             bool IsPasswordHidden = txtPassword.PasswordChar == '*';
@@ -82,84 +72,78 @@ namespace Drivers_and_Vehicles_License_Department__DVLD_.Users.Forms
 
             if (_CheckInputsValidity())
             {
-                MessageBox.Show("One or more inputs are invalid...", "Input Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                clsMessageBoxManager.ShowMessageBox("One or more inputs are invalid", "Failed", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
 
             if (ctrlPersonCardWithFilter1.PersonID == -1)
             {
-                MessageBox.Show("Please select a person first", "Failed");
+                clsMessageBoxManager.ShowMessageBox("Please select a person first", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
 
             if (!_User.Save())
             {
-                MessageBox.Show("Data not Saved...", "Failed");
+                clsMessageBoxManager.ShowMessageBox("Data not Saved...", "Failed",MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
 
-            MessageBox.Show("User Added Successfully", "Done", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            clsMessageBoxManager.ShowMessageBox("User Added Successfully", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
             DataAdded?.Invoke();
+        }
+
+        private void btnCancel_Click(object sender, EventArgs e)
+        {
+            clsFormUtil.CloseFormEffect(this);
+        }
+
+        private void btnNext_Click(object sender, EventArgs e)
+        {
+            TabControl1.SelectedTab = tabLoginInfo;
         }
 
         private void txtUsername_Validating(object sender, CancelEventArgs e)
         {
-            if (string.IsNullOrWhiteSpace(txtUsername.Text.Trim()))
-            {
-                e.Cancel = true;
-                errorProvider1.SetError(txtUsername, "Error, Username connot be Blank");
-            }
-
-            else if (clsUser.IsUserExists(txtUsername.Text.Trim()))
-            {
-                e.Cancel = true;
-                errorProvider1.SetError(txtUsername, string.Format("Error, {0} Exists", txtUsername.Text));
-            }
-
-            else
+            if (!string.IsNullOrWhiteSpace(txtUsername.Text.Trim()) && !clsUser.IsUserExists(txtUsername.Text.Trim()))
             {
                 e.Cancel = false;
                 errorProvider1.SetError(txtUsername, "");
+                return;
             }
+
+            e.Cancel = true;
+            errorProvider1.SetError(txtUsername, string.IsNullOrWhiteSpace(txtUsername.Text.Trim())
+                ? "Error, Username cannot be blank"
+                : string.Format("Error, {0} Exists", txtUsername.Text));
         }
 
         private void txtPassword_Validating(object sender, CancelEventArgs e)
         {
-            if (string.IsNullOrWhiteSpace(txtPassword.Text.Trim()))
-            {
-                e.Cancel = true;
-                errorProvider1.SetError(txtPassword, "Error, Please enter Password");
-            }
-
-            else if (txtPassword.Text.Length < 4)
-            {
-                e.Cancel = true;
-                errorProvider1.SetError(txtPassword, "Error, Password must be at least 4 characters long");
-            }
-
-            else
+            if (!string.IsNullOrWhiteSpace(txtPassword.Text.Trim()) && txtPassword.Text.Length >= 4)
             {
                 e.Cancel = false;
                 errorProvider1.SetError(txtPassword, "");
+                return;
             }
+
+            e.Cancel = true;
+            errorProvider1.SetError(txtPassword, string.IsNullOrWhiteSpace(txtPassword.Text.Trim())
+                ? "Error, Please enter Password"
+                : "Error, Password must be at least 4 characters long");
         }
 
         private void txtConfirmPassword_Validating(object sender, CancelEventArgs e)
         {
-            if (txtConfirmPassword.Text.Trim() != txtPassword.Text.Trim())
-            {
-                e.Cancel = true;
-                errorProvider1.SetError(txtConfirmPassword, "Error, Password confirmation does not match");
-            }
-
-            else
+            if (txtConfirmPassword.Text.Trim() == txtPassword.Text.Trim())
             {
                 e.Cancel = false;
                 errorProvider1.SetError(txtConfirmPassword, "");
+                return;
             }
+
+            e.Cancel = true;
+            errorProvider1.SetError(txtConfirmPassword, "Error, Password confirmation does not match");
         }
-
-
 
 
     }

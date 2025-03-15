@@ -10,13 +10,14 @@ namespace DVLD_Data_Access
 {
     public class clsLicenseClassesData
     {
-        public static DataTable GetAllLicenseClasses()
+        public static DataTable GetAllLicenseClassesData()
         {
             DataTable dt = new DataTable();
 
             SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString);
 
-            string query = "SELECT * FROM LicenseClasses";
+            string query = @"SELECT *
+                             FROM LicenseClasses";
 
             SqlCommand command = new SqlCommand(query, connection);
 
@@ -36,7 +37,7 @@ namespace DVLD_Data_Access
 
             catch (Exception ex)
             {
-
+                Console.WriteLine(ex.Message);
             }
 
             finally
@@ -47,7 +48,7 @@ namespace DVLD_Data_Access
             return dt;
         }
 
-        public static bool GetLicenseClassDataByID(int LicenseClassID, ref string ClassName, ref string ClassDescription,
+        public static bool GetLicenseClassDataByIDData(int LicenseClassID, ref string ClassName, ref string ClassDescription,
                                                ref byte MinimumAllowedAge, ref byte DefaultValidityLength, ref decimal ClassFees)
         {
             SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString);
@@ -84,7 +85,7 @@ namespace DVLD_Data_Access
 
             catch (Exception ex)
             {
-
+                Console.WriteLine(ex.Message);
             }
 
             finally

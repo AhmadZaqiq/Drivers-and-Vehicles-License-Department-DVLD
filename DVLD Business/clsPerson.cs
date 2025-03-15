@@ -66,12 +66,12 @@ namespace DVLD_Business
 
         public static DataTable GetAllPeople()
         {
-            return clsPeopleData.PeopleData();
+            return clsPeopleData.GetAllPeopleData();
         }
 
         public static int GetPeopleCount()
         {
-            return clsPeopleData.PeopleCount();
+            return clsPeopleData.PeopleCountData();
         }
 
         public static clsPerson GetPersonByID(int PersonID)
@@ -95,7 +95,7 @@ namespace DVLD_Business
 
             string ImagePath = "";
 
-            if (clsPeopleData.GetPersonByID(PersonID, ref NationalNo, ref FirstName, ref SecondName, ref ThirdName, ref LastName, ref DateOfBirth, ref Gender, ref Address, ref Phone, ref Email, ref NationalityCountryID, ref ImagePath))
+            if (clsPeopleData.GetPersonByIDData(PersonID, ref NationalNo, ref FirstName, ref SecondName, ref ThirdName, ref LastName, ref DateOfBirth, ref Gender, ref Address, ref Phone, ref Email, ref NationalityCountryID, ref ImagePath))
                 return new clsPerson(PersonID, NationalNo, FirstName, SecondName, ThirdName, LastName, DateOfBirth, Gender, Address, Phone, Email, NationalityCountryID, ImagePath);
 
 
@@ -104,13 +104,13 @@ namespace DVLD_Business
 
         private bool _UpdatePerson()
         {
-            return clsPeopleData.UpdatePerson(this.PersonID, this.NationalNo, this.FirstName, this.SecondName, this.ThirdName, this.LastName,
+            return clsPeopleData.UpdatePersonData(this.PersonID, this.NationalNo, this.FirstName, this.SecondName, this.ThirdName, this.LastName,
                 this.DateOfBirth, this.Gender, this.Address, this.Phone, this.Email, this.NationalityCountryID, this.ImagePath);
         }
 
         private bool _AddNewPerson()
         {
-            this.PersonID = clsPeopleData.AddNewPerson(this.NationalNo, this.FirstName, this.SecondName, this.ThirdName, this.LastName,
+            this.PersonID = clsPeopleData.AddNewPersonData(this.NationalNo, this.FirstName, this.SecondName, this.ThirdName, this.LastName,
                 this.DateOfBirth, this.Gender, this.Address, this.Phone, this.Email, this.NationalityCountryID, this.ImagePath);
 
             return (this.PersonID != -1);
@@ -118,12 +118,12 @@ namespace DVLD_Business
 
         public static bool IsPersonExists(int PersonID)
         {
-            return clsPeopleData.IsPersonExists(PersonID);
+            return clsPeopleData.IsPersonExistsData(PersonID);
         }
 
         public static bool IsPersonExists(string NationalNo)
         {
-            return clsPeopleData.IsPersonExists(NationalNo);
+            return clsPeopleData.IsPersonExistsData(NationalNo);
         }
 
         public bool Save()
@@ -152,13 +152,14 @@ namespace DVLD_Business
 
         public static bool DeletePerson(int PersonID)
         {
-            return clsPeopleData.DeletePerson(PersonID);
+            return clsPeopleData.DeletePersonData(PersonID);
         }
 
         public static int GetPersonIDByNationalNO(string NationalNo)
         {
-            return clsPeopleData.GetPersonIDByNationalNO(NationalNo);
+            return clsPeopleData.GetPersonIDByNationalNOData(NationalNo);
         }
+
 
     }
 }

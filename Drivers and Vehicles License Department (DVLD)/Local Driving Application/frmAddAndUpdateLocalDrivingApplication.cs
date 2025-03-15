@@ -1,4 +1,6 @@
-﻿using Drivers_and_Vehicles_License_Department__DVLD_.Global;
+﻿using Drivers_and_Vehicles_License_Department__DVLD_.Application_Types;
+using Drivers_and_Vehicles_License_Department__DVLD_.Global;
+using Drivers_and_Vehicles_License_Department__DVLD_.Users.Forms;
 using DVLD_Business;
 using System;
 using System.Collections.Generic;
@@ -14,22 +16,29 @@ namespace Drivers_and_Vehicles_License_Department__DVLD_.Local_Driving_Applicati
 {
     public partial class frmAddAndUpdateLocalDrivingApplication : Form
     {
+        public event Action DataAdded;
+
         private clsApplication _Application = new clsApplication();
 
         private clsLocalDrivingLicenseApplication _ApplicationLocal = new clsLocalDrivingLicenseApplication();
 
+        private const int NewLocalDrivingLicenseServiesID = 1;
+
         private DateTime _ApplicationLastStatusDate = DateTime.Now;
 
-        public enum enMode { AddNew = 0, Update = 1 };
+        clsApplicationType _NewLocalDrivingLicenseServies = clsApplicationType.GetApplicationTypeByID(NewLocalDrivingLicenseServiesID);
         public enum enStatus { New = 1, Canceled = 2, Completed = 3 };
-
-        private enMode _Mode = enMode.AddNew;
 
         private enStatus _Status = enStatus.New;
 
-        public frmAddAndUpdateLocalDrivingApplication()
+        public frmAddAndUpdateLocalDrivingApplication(frmListLocalDrivingLicenseApplications FormListLocalDrivingLicenseApplications)
         {
             InitializeComponent();
+
+            if (FormListLocalDrivingLicenseApplications != null)
+            {
+                this.DataAdded += FormListLocalDrivingLicenseApplications.RefreshLocalDrivingApplicationsDataGrid;
+            }
         }
 
         private int _GetLicenseClassIDFromComboBox()
@@ -43,10 +52,6 @@ namespace Drivers_and_Vehicles_License_Department__DVLD_.Local_Driving_Applicati
 
             _SetDefaultApplicationInfoValues();
 
-            _UpdateMode();
-
-            _UpdateTitle();
-
             clsFormUtil.MakeRoundedCorners(this, 30); //to make the form rounded
 
             clsFormUtil.OpenFormEffect(this);
@@ -59,29 +64,11 @@ namespace Drivers_and_Vehicles_License_Department__DVLD_.Local_Driving_Applicati
             cbLicenseClass.DisplayMember = "ClassName";
         }
 
-        private void _UpdateMode()
-        {
-            _Mode = (ctrlPersonCardWithFilter1.PersonID == -1) ? enMode.AddNew : enMode.Update;
-        }
-
-        private void _UpdateTitle()
-        {
-            lblTitle.Text = (_Mode == enMode.AddNew) ? "New Local Driving License Application"
-                                                     : "Update Local Driving License Application";
-        }
-
         private void _SetDefaultApplicationInfoValues()
         {
-            decimal ApplicationFees = clsApplicationType.GetApplicationTypeByID(1).ApplicationTypeFees;
-
-            lblApplicationFees.Text = ApplicationFees.ToString("G29");
+            lblApplicationFees.Text = _NewLocalDrivingLicenseServies.ApplicationTypeFees.ToString("G29");
             lblApplicationDate.Text = DateTime.Now.ToString("yyyy-MM-dd");
             lblCreatedBy.Text = clsCurrentUser.CurrentUser.Username;
-        }
-
-        private void btnClose_Click(object sender, EventArgs e)
-        {
-            clsFormUtil.CloseFormEffect(this);
         }
 
         private int _SetStatusID()
@@ -98,50 +85,14 @@ namespace Drivers_and_Vehicles_License_Department__DVLD_.Local_Driving_Applicati
             }
         }
 
-        private decimal _SetApplicationFees()
-        {
-            decimal ApplicationTypeFees = 1;
-
-            switch (_Mode)
-            {
-                case enMode.AddNew:
-                    ApplicationTypeFees = clsApplicationType.GetApplicationTypeByID(1).ApplicationTypeFees;
-                    break;
-
-                case enMode.Update:
-                    ApplicationTypeFees = clsApplicationType.GetApplicationTypeByID(2).ApplicationTypeFees;
-                    break;
-            }
-
-            return ApplicationTypeFees;
-        }
-
-        private int _SetApplicationType()
-        {
-            int ApplicationTypeID = 1;
-
-            switch (_Mode)
-            {
-                case enMode.AddNew:
-                    ApplicationTypeID = clsApplicationType.GetApplicationTypeByID(1).ApplicationTypeID;
-                    break;
-
-                case enMode.Update:
-                    ApplicationTypeID = clsApplicationType.GetApplicationTypeByID(2).ApplicationTypeID;
-                    break;
-            }
-
-            return ApplicationTypeID;
-        }
-
         private void _LoadApplicationData()
         {
             _Application.ApplicantPersonID = ctrlPersonCardWithFilter1.PersonID;
             _Application.ApplicationDate = DateTime.Now;
-            _Application.ApplicationTypeID = _SetApplicationType();
+            _Application.ApplicationTypeID = _NewLocalDrivingLicenseServies.ApplicationTypeID;
             _Application.ApplicationStatus = _SetStatusID();
             _Application.LastStatusDate = _ApplicationLastStatusDate;
-            _Application.PaidFees = _SetApplicationFees();
+            _Application.PaidFees = _NewLocalDrivingLicenseServies.ApplicationTypeFees;
             _Application.CreatedByUserID = clsCurrentUser.CurrentUser.UserID;
         }
 
@@ -158,8 +109,8 @@ namespace Drivers_and_Vehicles_License_Department__DVLD_.Local_Driving_Applicati
             int NewLocalApplicationTypeID = clsApplicationType.GetApplicationTypeByID(1).ApplicationTypeID;
 
             if (clsLocalDrivingLicenseApplication.IsPersonDeniedForClass(PersonID, NewLocalApplicationTypeID, LicenseClassID))
-            {             
-                MessageBox.Show("Choose another License Class. " +
+            {
+                clsMessageBoxManager.ShowMessageBox("Choose another License Class. " +
                                 "The selected person already has an active application for the selected class with ID: " + clsApplication.GetApplicationIDByApplicantPersonID(PersonID),
                                 "Failed", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
@@ -167,7 +118,7 @@ namespace Drivers_and_Vehicles_License_Department__DVLD_.Local_Driving_Applicati
 
             if (PersonID == -1)
             {
-                MessageBox.Show("Please select a person first", "Failed");
+                clsMessageBoxManager.ShowMessageBox("Please select a person first", "Failed", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
 
@@ -175,26 +126,34 @@ namespace Drivers_and_Vehicles_License_Department__DVLD_.Local_Driving_Applicati
 
             if (!_Application.AddNewApplication())
             {
-                MessageBox.Show("Data not Saved...", "Failed");
+                clsMessageBoxManager.ShowMessageBox("Data not Saved...", "Failed", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
 
-            _ApplicationLocal = new clsLocalDrivingLicenseApplication();// Ensures a new ID is assigned for each instance.  
+            _ApplicationLocal = new clsLocalDrivingLicenseApplication(); // Ensures a new ID is assigned for each instance.  
 
             _LoadLocalApplicationData();
 
             if (!_ApplicationLocal.Save())
             {
-                MessageBox.Show("Data not Saved...", "Failed");
+                clsMessageBoxManager.ShowMessageBox("Data not Saved...", "Failed", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
 
-            MessageBox.Show("Data Added Successfully", "Done", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            clsMessageBoxManager.ShowMessageBox("Data Added Successfully", "Done", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            DataAdded?.Invoke();
         }
 
         private void btnNext_Click(object sender, EventArgs e)
         {
             TabControl1.SelectedTab = tabApplicationInfo;
         }
+
+        private void btnCloseForm_Click(object sender, EventArgs e)
+        {
+            clsFormUtil.CloseFormEffect(this);
+        }
+
+
     }
 }

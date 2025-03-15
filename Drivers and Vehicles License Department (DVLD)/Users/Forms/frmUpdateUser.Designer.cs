@@ -32,7 +32,7 @@
             this.lblTitle = new System.Windows.Forms.Label();
             this.btnSave = new SiticoneNetFrameworkUI.SiticoneButton();
             this.btnCancel = new SiticoneNetFrameworkUI.SiticoneButton();
-            this.ctrlUserDetails1 = new Drivers_and_Vehicles_License_Department__DVLD_.Users.Controls.ctrlUserCard();
+            this.ctrlUserCard1 = new Drivers_and_Vehicles_License_Department__DVLD_.Users.Controls.ctrlUserCard();
             this.siticonePanel1 = new SiticoneNetFrameworkUI.SiticonePanel();
             this.txtCurrentPassword = new SiticoneNetFrameworkUI.SiticoneTextBox();
             this.txtConfirmPassword = new SiticoneNetFrameworkUI.SiticoneTextBox();
@@ -216,11 +216,11 @@
             // 
             // ctrlUserDetails1
             // 
-            this.ctrlUserDetails1.Location = new System.Drawing.Point(17, 91);
-            this.ctrlUserDetails1.Name = "ctrlUserDetails1";
-            this.ctrlUserDetails1.Size = new System.Drawing.Size(1157, 740);
-            this.ctrlUserDetails1.TabIndex = 55;
-            this.ctrlUserDetails1.UserID = -1;
+            this.ctrlUserCard1.Location = new System.Drawing.Point(17, 91);
+            this.ctrlUserCard1.Name = "ctrlUserDetails1";
+            this.ctrlUserCard1.Size = new System.Drawing.Size(1157, 740);
+            this.ctrlUserCard1.TabIndex = 55;
+            this.ctrlUserCard1.UserID = -1;
             // 
             // siticonePanel1
             // 
@@ -600,7 +600,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1191, 998);
-            this.Controls.Add(this.ctrlUserDetails1);
+            this.Controls.Add(this.ctrlUserCard1);
             this.Controls.Add(this.siticonePanel1);
             this.Controls.Add(this.btnSave);
             this.Controls.Add(this.btnCancel);
@@ -623,7 +623,7 @@
         private System.Windows.Forms.Label lblTitle;
         private SiticoneNetFrameworkUI.SiticoneButton btnSave;
         private SiticoneNetFrameworkUI.SiticoneButton btnCancel;
-        private Controls.ctrlUserCard ctrlUserDetails1;
+        private Controls.ctrlUserCard ctrlUserCard1;
         private SiticoneNetFrameworkUI.SiticonePanel siticonePanel1;
         private System.Windows.Forms.Label lblUsername;
         private SiticoneNetFrameworkUI.SiticoneTextBox txtUsername;

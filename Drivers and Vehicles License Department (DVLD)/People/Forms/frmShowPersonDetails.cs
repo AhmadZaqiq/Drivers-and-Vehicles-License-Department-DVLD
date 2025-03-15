@@ -19,6 +19,7 @@ namespace Drivers_and_Vehicles_License_Department__DVLD_
         public frmShowPersonDetails(int PersonID)
         {
             InitializeComponent();
+
             this._PersonID = PersonID;
         }
 
@@ -35,5 +36,7 @@ namespace Drivers_and_Vehicles_License_Department__DVLD_
         {
             clsFormUtil.CloseFormEffect(this);
         }
+
+
     }
 }

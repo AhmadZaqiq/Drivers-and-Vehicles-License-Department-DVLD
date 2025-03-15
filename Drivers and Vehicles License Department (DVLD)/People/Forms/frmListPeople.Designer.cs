@@ -31,8 +31,14 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmListPeople));
             this.cmPersonSettings = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.ShowDetailsToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator4 = new System.Windows.Forms.ToolStripSeparator();
+            this.AddNewPersonToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.EditToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.DeleteToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
+            this.SendEmailToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.CallToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.label1 = new System.Windows.Forms.Label();
@@ -45,12 +51,6 @@
             this.btnClose = new SiticoneNetFrameworkUI.SiticoneButton();
             this.txtFilter = new System.Windows.Forms.MaskedTextBox();
             this.btnAddNew = new SiticoneNetFrameworkUI.SiticoneButton();
-            this.showDetailsToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.addNewPersonToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.editToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.deleteToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.sendEmailToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.callToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.btnAddNewPerson = new System.Windows.Forms.Button();
             this.cmPersonSettings.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvPeople)).BeginInit();
@@ -62,26 +62,74 @@
             this.cmPersonSettings.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmPersonSettings.ImageScalingSize = new System.Drawing.Size(32, 32);
             this.cmPersonSettings.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.showDetailsToolStripMenuItem1,
+            this.ShowDetailsToolStripMenuItem1,
             this.toolStripSeparator4,
-            this.addNewPersonToolStripMenuItem1,
-            this.editToolStripMenuItem1,
-            this.deleteToolStripMenuItem1,
+            this.AddNewPersonToolStripMenuItem1,
+            this.EditToolStripMenuItem1,
+            this.DeleteToolStripMenuItem1,
             this.toolStripSeparator3,
-            this.sendEmailToolStripMenuItem1,
-            this.callToolStripMenuItem});
+            this.SendEmailToolStripMenuItem1,
+            this.CallToolStripMenuItem});
             this.cmPersonSettings.Name = "cmPersonSettings";
             this.cmPersonSettings.Size = new System.Drawing.Size(197, 266);
+            // 
+            // ShowDetailsToolStripMenuItem1
+            // 
+            this.ShowDetailsToolStripMenuItem1.Image = global::Drivers_and_Vehicles_License_Department__DVLD_.Properties.Resources.ic_fluent_text_description_24_filled;
+            this.ShowDetailsToolStripMenuItem1.Name = "ShowDetailsToolStripMenuItem1";
+            this.ShowDetailsToolStripMenuItem1.Size = new System.Drawing.Size(196, 38);
+            this.ShowDetailsToolStripMenuItem1.Text = "Show Details";
+            this.ShowDetailsToolStripMenuItem1.Click += new System.EventHandler(this.ShowDetailsToolStripMenuItem_Click);
             // 
             // toolStripSeparator4
             // 
             this.toolStripSeparator4.Name = "toolStripSeparator4";
             this.toolStripSeparator4.Size = new System.Drawing.Size(193, 6);
             // 
+            // AddNewPersonToolStripMenuItem1
+            // 
+            this.AddNewPersonToolStripMenuItem1.Image = global::Drivers_and_Vehicles_License_Department__DVLD_.Properties.Resources.ic_fluent_people_add_24_filled1;
+            this.AddNewPersonToolStripMenuItem1.Name = "AddNewPersonToolStripMenuItem1";
+            this.AddNewPersonToolStripMenuItem1.Size = new System.Drawing.Size(196, 38);
+            this.AddNewPersonToolStripMenuItem1.Text = "Add New Person";
+            this.AddNewPersonToolStripMenuItem1.Click += new System.EventHandler(this.AddNewPersonToolStripMenuItem1_Click);
+            // 
+            // EditToolStripMenuItem1
+            // 
+            this.EditToolStripMenuItem1.Image = global::Drivers_and_Vehicles_License_Department__DVLD_.Properties.Resources.ic_fluent_edit_24_filled;
+            this.EditToolStripMenuItem1.Name = "EditToolStripMenuItem1";
+            this.EditToolStripMenuItem1.Size = new System.Drawing.Size(196, 38);
+            this.EditToolStripMenuItem1.Text = "Edit";
+            this.EditToolStripMenuItem1.Click += new System.EventHandler(this.EditToolStripMenuItem1_Click);
+            // 
+            // DeleteToolStripMenuItem1
+            // 
+            this.DeleteToolStripMenuItem1.Image = global::Drivers_and_Vehicles_License_Department__DVLD_.Properties.Resources.ic_fluent_person_delete_24_filled;
+            this.DeleteToolStripMenuItem1.Name = "DeleteToolStripMenuItem1";
+            this.DeleteToolStripMenuItem1.Size = new System.Drawing.Size(196, 38);
+            this.DeleteToolStripMenuItem1.Text = "Delete";
+            this.DeleteToolStripMenuItem1.Click += new System.EventHandler(this.DeleteToolStripMenuItem1_Click);
+            // 
             // toolStripSeparator3
             // 
             this.toolStripSeparator3.Name = "toolStripSeparator3";
             this.toolStripSeparator3.Size = new System.Drawing.Size(193, 6);
+            // 
+            // SendEmailToolStripMenuItem1
+            // 
+            this.SendEmailToolStripMenuItem1.Image = global::Drivers_and_Vehicles_License_Department__DVLD_.Properties.Resources.ic_fluent_mail_24_filled;
+            this.SendEmailToolStripMenuItem1.Name = "SendEmailToolStripMenuItem1";
+            this.SendEmailToolStripMenuItem1.Size = new System.Drawing.Size(196, 38);
+            this.SendEmailToolStripMenuItem1.Text = "Send Email";
+            this.SendEmailToolStripMenuItem1.Click += new System.EventHandler(this.SendEmailToolStripMenuItem1_Click);
+            // 
+            // CallToolStripMenuItem
+            // 
+            this.CallToolStripMenuItem.Image = global::Drivers_and_Vehicles_License_Department__DVLD_.Properties.Resources.ic_fluent_call_24_filled;
+            this.CallToolStripMenuItem.Name = "CallToolStripMenuItem";
+            this.CallToolStripMenuItem.Size = new System.Drawing.Size(196, 38);
+            this.CallToolStripMenuItem.Text = "Call";
+            this.CallToolStripMenuItem.Click += new System.EventHandler(this.CallToolStripMenuItem_Click);
             // 
             // toolStripSeparator1
             // 
@@ -375,54 +423,6 @@
             this.btnAddNew.UseParticles = false;
             this.btnAddNew.Click += new System.EventHandler(this.btnAddNewPerson_Click);
             // 
-            // showDetailsToolStripMenuItem1
-            // 
-            this.showDetailsToolStripMenuItem1.Image = global::Drivers_and_Vehicles_License_Department__DVLD_.Properties.Resources.ic_fluent_text_description_24_filled;
-            this.showDetailsToolStripMenuItem1.Name = "showDetailsToolStripMenuItem1";
-            this.showDetailsToolStripMenuItem1.Size = new System.Drawing.Size(196, 38);
-            this.showDetailsToolStripMenuItem1.Text = "Show Details";
-            this.showDetailsToolStripMenuItem1.Click += new System.EventHandler(this.showDetailsToolStripMenuItem_Click);
-            // 
-            // addNewPersonToolStripMenuItem1
-            // 
-            this.addNewPersonToolStripMenuItem1.Image = global::Drivers_and_Vehicles_License_Department__DVLD_.Properties.Resources.ic_fluent_people_add_24_filled1;
-            this.addNewPersonToolStripMenuItem1.Name = "addNewPersonToolStripMenuItem1";
-            this.addNewPersonToolStripMenuItem1.Size = new System.Drawing.Size(196, 38);
-            this.addNewPersonToolStripMenuItem1.Text = "Add New Person";
-            this.addNewPersonToolStripMenuItem1.Click += new System.EventHandler(this.addNewPersonToolStripMenuItem1_Click);
-            // 
-            // editToolStripMenuItem1
-            // 
-            this.editToolStripMenuItem1.Image = global::Drivers_and_Vehicles_License_Department__DVLD_.Properties.Resources.ic_fluent_edit_24_filled;
-            this.editToolStripMenuItem1.Name = "editToolStripMenuItem1";
-            this.editToolStripMenuItem1.Size = new System.Drawing.Size(196, 38);
-            this.editToolStripMenuItem1.Text = "Edit";
-            this.editToolStripMenuItem1.Click += new System.EventHandler(this.editToolStripMenuItem1_Click);
-            // 
-            // deleteToolStripMenuItem1
-            // 
-            this.deleteToolStripMenuItem1.Image = global::Drivers_and_Vehicles_License_Department__DVLD_.Properties.Resources.ic_fluent_person_delete_24_filled;
-            this.deleteToolStripMenuItem1.Name = "deleteToolStripMenuItem1";
-            this.deleteToolStripMenuItem1.Size = new System.Drawing.Size(196, 38);
-            this.deleteToolStripMenuItem1.Text = "Delete";
-            this.deleteToolStripMenuItem1.Click += new System.EventHandler(this.deleteToolStripMenuItem1_Click);
-            // 
-            // sendEmailToolStripMenuItem1
-            // 
-            this.sendEmailToolStripMenuItem1.Image = global::Drivers_and_Vehicles_License_Department__DVLD_.Properties.Resources.ic_fluent_mail_24_filled;
-            this.sendEmailToolStripMenuItem1.Name = "sendEmailToolStripMenuItem1";
-            this.sendEmailToolStripMenuItem1.Size = new System.Drawing.Size(196, 38);
-            this.sendEmailToolStripMenuItem1.Text = "Send Email";
-            this.sendEmailToolStripMenuItem1.Click += new System.EventHandler(this.sendEmailToolStripMenuItem1_Click);
-            // 
-            // callToolStripMenuItem
-            // 
-            this.callToolStripMenuItem.Image = global::Drivers_and_Vehicles_License_Department__DVLD_.Properties.Resources.ic_fluent_call_24_filled;
-            this.callToolStripMenuItem.Name = "callToolStripMenuItem";
-            this.callToolStripMenuItem.Size = new System.Drawing.Size(196, 38);
-            this.callToolStripMenuItem.Text = "Call";
-            this.callToolStripMenuItem.Click += new System.EventHandler(this.callToolStripMenuItem_Click);
-            // 
             // btnAddNewPerson
             // 
             this.btnAddNewPerson.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -476,12 +476,12 @@
         private System.Windows.Forms.ContextMenuStrip cmPersonSettings;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
-        private System.Windows.Forms.ToolStripMenuItem showDetailsToolStripMenuItem1;
-        private System.Windows.Forms.ToolStripMenuItem addNewPersonToolStripMenuItem1;
-        private System.Windows.Forms.ToolStripMenuItem editToolStripMenuItem1;
-        private System.Windows.Forms.ToolStripMenuItem deleteToolStripMenuItem1;
-        private System.Windows.Forms.ToolStripMenuItem sendEmailToolStripMenuItem1;
-        private System.Windows.Forms.ToolStripMenuItem callToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem ShowDetailsToolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem AddNewPersonToolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem EditToolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem DeleteToolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem SendEmailToolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem CallToolStripMenuItem;
         private System.Windows.Forms.DataGridView dgvPeople;
         private SiticoneNetFrameworkUI.SiticonePanel siticonePanel1;
         private SiticoneNetFrameworkUI.SiticoneButton btnClose;

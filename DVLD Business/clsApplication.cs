@@ -48,7 +48,7 @@ namespace DVLD_Business
 
         public static DataTable GetAllApplications()
         {
-            return clsApplicationsData.GetAllApplications();
+            return clsApplicationsData.GetAllApplicationsData();
         }
 
         public static clsApplication GetApplicationByID(int ApplicationID)
@@ -61,7 +61,7 @@ namespace DVLD_Business
             decimal PaidFees = -1;
             int CreatedByUserID = -1;
 
-            if (!clsApplicationsData.GetApplicationByID(ApplicationID, ref ApplicantPersonID, ref ApplicationDate, ref ApplicationTypeID,
+            if (!clsApplicationsData.GetApplicationByIDData(ApplicationID, ref ApplicantPersonID, ref ApplicationDate, ref ApplicationTypeID,
              ref ApplicationStatus, ref LastStatusDate, ref PaidFees, ref CreatedByUserID))
                 return null;
 
@@ -71,7 +71,7 @@ namespace DVLD_Business
 
         public bool AddNewApplication()
         {
-            this.ApplicationID = clsApplicationsData.AddNewApplication(this.ApplicantPersonID,
+            this.ApplicationID = clsApplicationsData.AddNewApplicationData(this.ApplicantPersonID,
                  this.ApplicationDate, this.ApplicationTypeID, this.ApplicationStatus,
                  this.LastStatusDate, this.PaidFees, this.CreatedByUserID);
 
@@ -85,8 +85,9 @@ namespace DVLD_Business
 
         public static int GetApplicationIDByApplicantPersonID(int ApplicantPersonID)
         {
-            return clsApplicationsData.GetApplicationIDByApplicantPersonID(ApplicantPersonID);
+            return clsApplicationsData.GetApplicationIDByApplicantPersonIDData(ApplicantPersonID);
         }
+
 
     }
 }

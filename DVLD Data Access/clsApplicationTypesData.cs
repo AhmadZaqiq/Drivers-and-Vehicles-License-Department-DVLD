@@ -21,7 +21,8 @@ namespace DVLD_Data_Access
 
             SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString);
 
-            string query = "Select * From ApplicationTypes";
+            string query = @"Select * 
+                             From ApplicationTypes";
 
             SqlCommand command = new SqlCommand(query, connection);
 
@@ -41,7 +42,7 @@ namespace DVLD_Data_Access
 
             catch (Exception ex)
             {
-
+                Console.WriteLine(ex.Message);
             }
 
             finally
@@ -52,17 +53,16 @@ namespace DVLD_Data_Access
             return dt;
         }
 
-        public static bool UpdateApplicationType(int ApplicationTypeID, string ApplicationTypeTitle, decimal ApplicationFees)
+        public static bool UpdateApplicationTypeData(int ApplicationTypeID, string ApplicationTypeTitle, decimal ApplicationFees)
         {
             SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString);
 
             bool UpdatedSuccessfully = false;
 
-            string query = @"
-                            UPDATE ApplicationTypes 
-                            SET ApplicationTypeTitle = @ApplicationTypeTitle, 
-                            ApplicationFees = @ApplicationFees  
-                            WHERE ApplicationTypeID = @ApplicationTypeID;";
+            string query = @"UPDATE ApplicationTypes 
+                             SET ApplicationTypeTitle = @ApplicationTypeTitle, 
+                             ApplicationFees = @ApplicationFees  
+                             WHERE ApplicationTypeID = @ApplicationTypeID;";
 
             SqlCommand command = new SqlCommand(query, connection);
 
@@ -81,7 +81,7 @@ namespace DVLD_Data_Access
 
             catch (Exception ex)
             {
-
+                Console.WriteLine(ex.Message);
             }
 
             finally
@@ -92,7 +92,7 @@ namespace DVLD_Data_Access
             return UpdatedSuccessfully;
         }
 
-        public static bool GetApplicationTypeByID(int ApplicationTypeID, ref string ApplicationTypeTitle, ref decimal ApplicationFees)
+        public static bool GetApplicationTypeByIDData(int ApplicationTypeID, ref string ApplicationTypeTitle, ref decimal ApplicationFees)
         {
             SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString);
 
@@ -125,7 +125,7 @@ namespace DVLD_Data_Access
 
             catch (Exception ex)
             {
-
+                Console.WriteLine(ex.Message);
             }
 
             finally
@@ -135,19 +135,6 @@ namespace DVLD_Data_Access
 
             return IsFound;
         }
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
     }

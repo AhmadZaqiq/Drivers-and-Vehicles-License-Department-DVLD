@@ -1,23 +1,19 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Data.SqlClient;
 using System.Data;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using static System.Net.Mime.MediaTypeNames;
+using System.Data.SqlClient;
 
 namespace DVLD_Data_Access
 {
     public class clsApplicationsData
     {
-        public static DataTable GetAllApplications()
+        public static DataTable GetAllApplicationsData()
         {
             DataTable dt = new DataTable();
 
             SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString);
 
-            string query = "SELECT * FROM Applications";
+            string query = @"SELECT *
+                             FROM Applications";
 
             SqlCommand command = new SqlCommand(query, connection);
 
@@ -37,7 +33,7 @@ namespace DVLD_Data_Access
 
             catch (Exception ex)
             {
-
+                Console.WriteLine(ex.Message);
             }
 
             finally
@@ -48,7 +44,7 @@ namespace DVLD_Data_Access
             return dt;
         }
 
-        public static bool GetApplicationByID(int ApplicationID, ref int ApplicantPersonID,
+        public static bool GetApplicationByIDData(int ApplicationID, ref int ApplicantPersonID,
             ref DateTime ApplicationDate, ref int ApplicationTypeID, ref int ApplicationStatus,
             ref DateTime LastStatusDate, ref decimal PaidFees, ref int CreatedByUserID)
         {
@@ -88,7 +84,7 @@ namespace DVLD_Data_Access
 
             catch (Exception ex)
             {
-
+                Console.WriteLine(ex.Message);
             }
 
             finally
@@ -99,7 +95,7 @@ namespace DVLD_Data_Access
             return IsFound;
         }
 
-        public static int AddNewApplication(int ApplicantPersonID,
+        public static int AddNewApplicationData(int ApplicantPersonID,
              DateTime ApplicationDate, int ApplicationTypeID, int ApplicationStatus,
              DateTime LastStatusDate, decimal PaidFees, int CreatedByUserID)
         {
@@ -148,14 +144,14 @@ namespace DVLD_Data_Access
             return ApplicationID;
         }
 
-        public static bool DeleteApplication(int ApplicationID)
+        public static bool DeleteApplicationData(int ApplicationID)
         {
             bool DeletedSuccessfully = false;
 
             SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString);
 
-            string query = "DELETE FROM dbo.Applications" +
-                           " WHERE ApplicationID = @ApplicationID;";
+            string query = @"DELETE FROM Applications
+                             WHERE ApplicationID = @ApplicationID;";
 
             SqlCommand command = new SqlCommand(query, connection);
 
@@ -172,7 +168,7 @@ namespace DVLD_Data_Access
             }
             catch (Exception ex)
             {
-
+                Console.WriteLine(ex.Message);
             }
 
             finally
@@ -183,7 +179,7 @@ namespace DVLD_Data_Access
             return DeletedSuccessfully;
         }
 
-        public static int GetApplicationIDByApplicantPersonID(int ApplicantPersonID)
+        public static int GetApplicationIDByApplicantPersonIDData(int ApplicantPersonID)
         {
             int ApplicationID = -1;
 
@@ -209,13 +205,19 @@ namespace DVLD_Data_Access
                 }
             }
 
-            catch (Exception ex) { }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
 
-            finally { connection.Close(); }
+            finally
+            {
+                connection.Close();
+            }
 
             return ApplicationID;
-
         }
+
 
     }
 }

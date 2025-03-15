@@ -44,7 +44,7 @@ namespace Drivers_and_Vehicles_License_Department__DVLD_.Users.Controls
         {
             if ((UserID == -1))
             {
-                ctrlPersonDetails1.PersonID = -1;
+                ctrlPersonCard1.PersonID = -1;
                 return;
             }
 
@@ -52,12 +52,14 @@ namespace Drivers_and_Vehicles_License_Department__DVLD_.Users.Controls
             _User = clsUser.GetUserByID(_UserID);
 
             if (_User == null)
+            {
                 return;
+            }
 
             lblUserID.Text = _User.UserID.ToString();
             lblUsername.Text = _User.Username.ToString();
             lblIsAcitve.Text = _ConvertActiveStatustoText();
-            ctrlPersonDetails1.PersonID = _User.PersonID;
+            ctrlPersonCard1.PersonID = _User.PersonID;
         }
 
 

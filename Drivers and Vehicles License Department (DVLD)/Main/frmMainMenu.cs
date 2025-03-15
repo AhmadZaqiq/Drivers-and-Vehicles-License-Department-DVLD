@@ -21,64 +21,65 @@ namespace Drivers_and_Vehicles_License_Department__DVLD_
         public frmMainMenu()
         {
             InitializeComponent();
-
         }
 
         private void frmMainMenu_Load(object sender, EventArgs e)
         {
         }
 
-        private void peopleToolStripMenuItem_Click(object sender, EventArgs e)
+        private void PeopleToolStripMenuItem_Click(object sender, EventArgs e)
         {
             frmListPeople frmPeople = new frmListPeople();
             frmPeople.ShowDialog();
         }
 
-        private void signoutToolStripMenuItem_Click(object sender, EventArgs e)
+        private void SignoutToolStripMenuItem_Click(object sender, EventArgs e)
         {
             clsFormUtil.CloseFormEffect(this);
         }
 
-        private void usersToolStripMenuItem_Click(object sender, EventArgs e)
+        private void UsersToolStripMenuItem_Click(object sender, EventArgs e)
         {
             frmManageUsers ManageUsersForm = new frmManageUsers();
             ManageUsersForm.ShowDialog();
         }
 
-        private void currentUserInfoToolStripMenuItem_Click(object sender, EventArgs e)
+        private void CurrentUserInfoToolStripMenuItem_Click(object sender, EventArgs e)
         {
             frmShowUserDetails FormShowUserDetails = new frmShowUserDetails(clsCurrentUser.CurrentUser.UserID);
             FormShowUserDetails.ShowDialog();
         }
 
-        private void changePasswordToolStripMenuItem_Click(object sender, EventArgs e)
+        private void ChangePasswordToolStripMenuItem_Click(object sender, EventArgs e)
         {
             frmUpdateUsername FormChangePassword = new frmUpdateUsername(clsCurrentUser.CurrentUser.UserID, true, null);
             FormChangePassword.ShowDialog();
         }
 
-        private void manageApplicationTypesToolStripMenuItem_Click(object sender, EventArgs e)
+        private void ManageApplicationTypesToolStripMenuItem_Click(object sender, EventArgs e)
         {
             frmManageApplicationTypes FormManageApplicationTypes = new frmManageApplicationTypes();
             FormManageApplicationTypes.ShowDialog();
         }
 
-        private void manageTestTypesToolStripMenuItem_Click(object sender, EventArgs e)
+        private void ManageTestTypesToolStripMenuItem_Click(object sender, EventArgs e)
         {
             frmManageTestType FormManageTestTypes = new frmManageTestType();
             FormManageTestTypes.ShowDialog();
         }
 
-        private void localLicemseToolStripMenuItem_Click(object sender, EventArgs e)
+        private void LocalLicemseToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            frmAddAndUpdateLocalDrivingApplication FormAddAndUpdateLocalDrivingApplication = new frmAddAndUpdateLocalDrivingApplication();
+            frmAddAndUpdateLocalDrivingApplication FormAddAndUpdateLocalDrivingApplication = new frmAddAndUpdateLocalDrivingApplication(null);
             FormAddAndUpdateLocalDrivingApplication.ShowDialog();
         }
 
-        private void localDrivingLicenceApplicationsToolStripMenuItem_Click(object sender, EventArgs e)
+        private void LocalDrivingLicenceApplicationsToolStripMenuItem_Click(object sender, EventArgs e)
         {
             frmListLocalDrivingLicenseApplications FormListLocalDrivingLicenseApplications=new frmListLocalDrivingLicenseApplications();
             FormListLocalDrivingLicenseApplications.ShowDialog();
         }
+
+
     }
 }

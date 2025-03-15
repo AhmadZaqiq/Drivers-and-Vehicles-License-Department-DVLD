@@ -10,13 +10,14 @@ namespace DVLD_Data_Access
 {
     public class clsLicense
     {
-        public static DataTable GetAllLicenses()
+        public static DataTable GetAllLicensesData()
         {
             DataTable dt = new DataTable();
 
             SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString);
 
-            string query = "SELECT * FROM Licenses";
+            string query = @"SELECT * 
+                             FROM Licenses";
 
             SqlCommand command = new SqlCommand(query, connection);
 
@@ -36,7 +37,7 @@ namespace DVLD_Data_Access
 
             catch (Exception ex)
             {
-
+                Console.WriteLine(ex.Message);
             }
 
             finally
@@ -46,6 +47,7 @@ namespace DVLD_Data_Access
 
             return dt;
         }
+
 
     }
 }

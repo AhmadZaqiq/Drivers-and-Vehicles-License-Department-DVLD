@@ -37,19 +37,19 @@
             this.cbFilter = new System.Windows.Forms.ComboBox();
             this.dgvUsers = new System.Windows.Forms.DataGridView();
             this.cmUserSettings = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.showDetailsToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.ShowDetailsToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
-            this.addNewPersonToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.editUserToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.deleteToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.changePasswordStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.AddNewUserToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.EditUserToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.DeleteToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.ChangePasswordStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
-            this.sendEmailToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.callToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.SendEmailToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.CallToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.label2 = new System.Windows.Forms.Label();
             this.cbIsActive = new System.Windows.Forms.ComboBox();
             this.siticonePanel1 = new SiticoneNetFrameworkUI.SiticonePanel();
-            this.btnClose = new SiticoneNetFrameworkUI.SiticoneButton();
+            this.btnCloseForm = new SiticoneNetFrameworkUI.SiticoneButton();
             this.btnAddNewPerson = new SiticoneNetFrameworkUI.SiticoneButton();
             ((System.ComponentModel.ISupportInitialize)(this.dgvUsers)).BeginInit();
             this.cmUserSettings.SuspendLayout();
@@ -133,90 +133,90 @@
             this.cmUserSettings.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmUserSettings.ImageScalingSize = new System.Drawing.Size(32, 32);
             this.cmUserSettings.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.showDetailsToolStripMenuItem1,
+            this.ShowDetailsToolStripMenuItem1,
             this.toolStripSeparator2,
-            this.addNewPersonToolStripMenuItem1,
-            this.editUserToolStripMenuItem1,
-            this.deleteToolStripMenuItem1,
-            this.changePasswordStripMenuItem1,
+            this.AddNewUserToolStripMenuItem1,
+            this.EditUserToolStripMenuItem1,
+            this.DeleteToolStripMenuItem1,
+            this.ChangePasswordStripMenuItem1,
             this.toolStripSeparator1,
-            this.sendEmailToolStripMenuItem1,
-            this.callToolStripMenuItem});
+            this.SendEmailToolStripMenuItem1,
+            this.CallToolStripMenuItem});
             this.cmUserSettings.Name = "cmPersonSettings";
-            this.cmUserSettings.Size = new System.Drawing.Size(200, 282);
+            this.cmUserSettings.Size = new System.Drawing.Size(200, 304);
             // 
-            // showDetailsToolStripMenuItem1
+            // ShowDetailsToolStripMenuItem1
             // 
-            this.showDetailsToolStripMenuItem1.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.showDetailsToolStripMenuItem1.Image = global::Drivers_and_Vehicles_License_Department__DVLD_.Properties.Resources.ic_fluent_text_description_24_filled;
-            this.showDetailsToolStripMenuItem1.Name = "showDetailsToolStripMenuItem1";
-            this.showDetailsToolStripMenuItem1.Size = new System.Drawing.Size(199, 38);
-            this.showDetailsToolStripMenuItem1.Text = "Show Details";
-            this.showDetailsToolStripMenuItem1.Click += new System.EventHandler(this.showDetailsToolStripMenuItem1_Click);
+            this.ShowDetailsToolStripMenuItem1.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ShowDetailsToolStripMenuItem1.Image = global::Drivers_and_Vehicles_License_Department__DVLD_.Properties.Resources.ic_fluent_text_description_24_filled;
+            this.ShowDetailsToolStripMenuItem1.Name = "ShowDetailsToolStripMenuItem1";
+            this.ShowDetailsToolStripMenuItem1.Size = new System.Drawing.Size(199, 38);
+            this.ShowDetailsToolStripMenuItem1.Text = "Show Details";
+            this.ShowDetailsToolStripMenuItem1.Click += new System.EventHandler(this.ShowDetailsToolStripMenuItem1_Click);
             // 
             // toolStripSeparator2
             // 
             this.toolStripSeparator2.Name = "toolStripSeparator2";
             this.toolStripSeparator2.Size = new System.Drawing.Size(196, 6);
             // 
-            // addNewPersonToolStripMenuItem1
+            // AddNewUserToolStripMenuItem1
             // 
-            this.addNewPersonToolStripMenuItem1.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.addNewPersonToolStripMenuItem1.Image = global::Drivers_and_Vehicles_License_Department__DVLD_.Properties.Resources.ic_fluent_people_add_24_filled1;
-            this.addNewPersonToolStripMenuItem1.Name = "addNewPersonToolStripMenuItem1";
-            this.addNewPersonToolStripMenuItem1.Size = new System.Drawing.Size(199, 38);
-            this.addNewPersonToolStripMenuItem1.Text = "Add New Person";
-            this.addNewPersonToolStripMenuItem1.Click += new System.EventHandler(this.addNewPersonToolStripMenuItem1_Click);
+            this.AddNewUserToolStripMenuItem1.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.AddNewUserToolStripMenuItem1.Image = global::Drivers_and_Vehicles_License_Department__DVLD_.Properties.Resources.ic_fluent_people_add_24_filled1;
+            this.AddNewUserToolStripMenuItem1.Name = "AddNewUserToolStripMenuItem1";
+            this.AddNewUserToolStripMenuItem1.Size = new System.Drawing.Size(199, 38);
+            this.AddNewUserToolStripMenuItem1.Text = "Add New User";
+            this.AddNewUserToolStripMenuItem1.Click += new System.EventHandler(this.AddNewPersonToolStripMenuItem1_Click);
             // 
-            // editUserToolStripMenuItem1
+            // EditUserToolStripMenuItem1
             // 
-            this.editUserToolStripMenuItem1.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.editUserToolStripMenuItem1.Image = global::Drivers_and_Vehicles_License_Department__DVLD_.Properties.Resources.ic_fluent_edit_24_filled;
-            this.editUserToolStripMenuItem1.Name = "editUserToolStripMenuItem1";
-            this.editUserToolStripMenuItem1.Size = new System.Drawing.Size(199, 38);
-            this.editUserToolStripMenuItem1.Text = "Edit";
-            this.editUserToolStripMenuItem1.Click += new System.EventHandler(this.editUsernameToolStripMenuItem1_Click);
+            this.EditUserToolStripMenuItem1.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.EditUserToolStripMenuItem1.Image = global::Drivers_and_Vehicles_License_Department__DVLD_.Properties.Resources.ic_fluent_edit_24_filled;
+            this.EditUserToolStripMenuItem1.Name = "EditUserToolStripMenuItem1";
+            this.EditUserToolStripMenuItem1.Size = new System.Drawing.Size(199, 38);
+            this.EditUserToolStripMenuItem1.Text = "Edit";
+            this.EditUserToolStripMenuItem1.Click += new System.EventHandler(this.EditUsernameToolStripMenuItem1_Click);
             // 
-            // deleteToolStripMenuItem1
+            // DeleteToolStripMenuItem1
             // 
-            this.deleteToolStripMenuItem1.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.deleteToolStripMenuItem1.Image = global::Drivers_and_Vehicles_License_Department__DVLD_.Properties.Resources.ic_fluent_person_delete_24_filled;
-            this.deleteToolStripMenuItem1.Name = "deleteToolStripMenuItem1";
-            this.deleteToolStripMenuItem1.Size = new System.Drawing.Size(199, 38);
-            this.deleteToolStripMenuItem1.Text = "Delete";
-            this.deleteToolStripMenuItem1.Click += new System.EventHandler(this.deleteToolStripMenuItem1_Click);
+            this.DeleteToolStripMenuItem1.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.DeleteToolStripMenuItem1.Image = global::Drivers_and_Vehicles_License_Department__DVLD_.Properties.Resources.ic_fluent_person_delete_24_filled;
+            this.DeleteToolStripMenuItem1.Name = "DeleteToolStripMenuItem1";
+            this.DeleteToolStripMenuItem1.Size = new System.Drawing.Size(199, 38);
+            this.DeleteToolStripMenuItem1.Text = "Delete";
+            this.DeleteToolStripMenuItem1.Click += new System.EventHandler(this.DeleteToolStripMenuItem1_Click);
             // 
-            // changePasswordStripMenuItem1
+            // ChangePasswordStripMenuItem1
             // 
-            this.changePasswordStripMenuItem1.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.changePasswordStripMenuItem1.Image = global::Drivers_and_Vehicles_License_Department__DVLD_.Properties.Resources.ic_fluent_password_24_filled__1_;
-            this.changePasswordStripMenuItem1.Name = "changePasswordStripMenuItem1";
-            this.changePasswordStripMenuItem1.Size = new System.Drawing.Size(199, 38);
-            this.changePasswordStripMenuItem1.Text = "Change Password";
-            this.changePasswordStripMenuItem1.Click += new System.EventHandler(this.changePasswordStripMenuItem1_Click);
+            this.ChangePasswordStripMenuItem1.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ChangePasswordStripMenuItem1.Image = global::Drivers_and_Vehicles_License_Department__DVLD_.Properties.Resources.ic_fluent_password_24_filled__1_;
+            this.ChangePasswordStripMenuItem1.Name = "ChangePasswordStripMenuItem1";
+            this.ChangePasswordStripMenuItem1.Size = new System.Drawing.Size(199, 38);
+            this.ChangePasswordStripMenuItem1.Text = "Change Password";
+            this.ChangePasswordStripMenuItem1.Click += new System.EventHandler(this.ChangePasswordStripMenuItem1_Click);
             // 
             // toolStripSeparator1
             // 
             this.toolStripSeparator1.Name = "toolStripSeparator1";
             this.toolStripSeparator1.Size = new System.Drawing.Size(196, 6);
             // 
-            // sendEmailToolStripMenuItem1
+            // SendEmailToolStripMenuItem1
             // 
-            this.sendEmailToolStripMenuItem1.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.sendEmailToolStripMenuItem1.Image = global::Drivers_and_Vehicles_License_Department__DVLD_.Properties.Resources.ic_fluent_mail_24_filled;
-            this.sendEmailToolStripMenuItem1.Name = "sendEmailToolStripMenuItem1";
-            this.sendEmailToolStripMenuItem1.Size = new System.Drawing.Size(199, 38);
-            this.sendEmailToolStripMenuItem1.Text = "Send Email";
-            this.sendEmailToolStripMenuItem1.Click += new System.EventHandler(this.sendEmailToolStripMenuItem1_Click);
+            this.SendEmailToolStripMenuItem1.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.SendEmailToolStripMenuItem1.Image = global::Drivers_and_Vehicles_License_Department__DVLD_.Properties.Resources.ic_fluent_mail_24_filled;
+            this.SendEmailToolStripMenuItem1.Name = "SendEmailToolStripMenuItem1";
+            this.SendEmailToolStripMenuItem1.Size = new System.Drawing.Size(199, 38);
+            this.SendEmailToolStripMenuItem1.Text = "Send Email";
+            this.SendEmailToolStripMenuItem1.Click += new System.EventHandler(this.SendEmailToolStripMenuItem1_Click);
             // 
-            // callToolStripMenuItem
+            // CallToolStripMenuItem
             // 
-            this.callToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.callToolStripMenuItem.Image = global::Drivers_and_Vehicles_License_Department__DVLD_.Properties.Resources.ic_fluent_call_24_filled;
-            this.callToolStripMenuItem.Name = "callToolStripMenuItem";
-            this.callToolStripMenuItem.Size = new System.Drawing.Size(199, 38);
-            this.callToolStripMenuItem.Text = "Call";
-            this.callToolStripMenuItem.Click += new System.EventHandler(this.callToolStripMenuItem_Click);
+            this.CallToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CallToolStripMenuItem.Image = global::Drivers_and_Vehicles_License_Department__DVLD_.Properties.Resources.ic_fluent_call_24_filled;
+            this.CallToolStripMenuItem.Name = "CallToolStripMenuItem";
+            this.CallToolStripMenuItem.Size = new System.Drawing.Size(199, 38);
+            this.CallToolStripMenuItem.Text = "Call";
+            this.CallToolStripMenuItem.Click += new System.EventHandler(this.CallToolStripMenuItem_Click);
             // 
             // label2
             // 
@@ -284,84 +284,84 @@
             this.siticonePanel1.UsePatternTexture = false;
             this.siticonePanel1.UseRadialGradient = false;
             // 
-            // btnClose
+            // btnCloseForm
             // 
-            this.btnClose.AccessibleDescription = "The default button control that accept input though the mouse, touch and keyboard" +
+            this.btnCloseForm.AccessibleDescription = "The default button control that accept input though the mouse, touch and keyboard" +
     "";
-            this.btnClose.AccessibleName = "Close";
-            this.btnClose.AutoSizeBasedOnText = false;
-            this.btnClose.BackColor = System.Drawing.Color.Transparent;
-            this.btnClose.BadgeBackColor = System.Drawing.Color.Red;
-            this.btnClose.BadgeFont = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnClose.BadgeValue = 0;
-            this.btnClose.BadgeValueForeColor = System.Drawing.Color.White;
-            this.btnClose.BorderColor = System.Drawing.Color.Transparent;
-            this.btnClose.BorderWidth = 2;
-            this.btnClose.ButtonBackColor = System.Drawing.Color.Silver;
-            this.btnClose.ButtonImage = null;
-            this.btnClose.CanBeep = true;
-            this.btnClose.CanGlow = false;
-            this.btnClose.CanShake = true;
-            this.btnClose.ContextMenuStripEx = null;
-            this.btnClose.CornerRadiusBottomLeft = 20;
-            this.btnClose.CornerRadiusBottomRight = 20;
-            this.btnClose.CornerRadiusTopLeft = 20;
-            this.btnClose.CornerRadiusTopRight = 20;
-            this.btnClose.CustomCursor = System.Windows.Forms.Cursors.Default;
-            this.btnClose.DisabledTextColor = System.Drawing.Color.FromArgb(((int)(((byte)(150)))), ((int)(((byte)(150)))), ((int)(((byte)(150)))));
-            this.btnClose.EnableLongPress = false;
-            this.btnClose.EnablePressAnimation = true;
-            this.btnClose.EnableRippleEffect = true;
-            this.btnClose.EnableShadow = false;
-            this.btnClose.EnableTextWrapping = false;
-            this.btnClose.Font = new System.Drawing.Font("Segoe UI Semibold", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnClose.ForeColor = System.Drawing.Color.Transparent;
-            this.btnClose.GlowColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.btnClose.GlowIntensity = 100;
-            this.btnClose.GlowRadius = 20F;
-            this.btnClose.GradientBackground = false;
-            this.btnClose.GradientColor = System.Drawing.Color.FromArgb(((int)(((byte)(114)))), ((int)(((byte)(168)))), ((int)(((byte)(255)))));
-            this.btnClose.GradientMode = System.Drawing.Drawing2D.LinearGradientMode.Vertical;
-            this.btnClose.HintText = null;
-            this.btnClose.HoverBackColor = System.Drawing.Color.DimGray;
-            this.btnClose.HoverFontStyle = System.Drawing.FontStyle.Regular;
-            this.btnClose.HoverTextColor = System.Drawing.Color.Black;
-            this.btnClose.HoverTransitionDuration = 250;
-            this.btnClose.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnClose.ImagePadding = 5;
-            this.btnClose.ImageSize = new System.Drawing.Size(16, 16);
-            this.btnClose.IsRadial = false;
-            this.btnClose.IsReadOnly = false;
-            this.btnClose.IsToggleButton = false;
-            this.btnClose.IsToggled = false;
-            this.btnClose.Location = new System.Drawing.Point(1054, 666);
-            this.btnClose.LongPressDurationMS = 1000;
-            this.btnClose.Name = "btnClose";
-            this.btnClose.NormalFontStyle = System.Drawing.FontStyle.Regular;
-            this.btnClose.ParticleColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(200)))), ((int)(((byte)(200)))));
-            this.btnClose.ParticleCount = 15;
-            this.btnClose.PressAnimationScale = 0.97F;
-            this.btnClose.PressedBackColor = System.Drawing.Color.Red;
-            this.btnClose.PressedFontStyle = System.Drawing.FontStyle.Regular;
-            this.btnClose.PressTransitionDuration = 150;
-            this.btnClose.ReadOnlyTextColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(100)))), ((int)(((byte)(100)))));
-            this.btnClose.RippleColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.btnClose.RippleOpacity = 0.3F;
-            this.btnClose.RippleRadiusMultiplier = 0.6F;
-            this.btnClose.ShadowBlur = 5;
-            this.btnClose.ShadowColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.btnClose.ShadowOffset = new System.Drawing.Point(2, 2);
-            this.btnClose.ShakeDuration = 500;
-            this.btnClose.ShakeIntensity = 5;
-            this.btnClose.Size = new System.Drawing.Size(125, 39);
-            this.btnClose.TabIndex = 52;
-            this.btnClose.Text = "Close";
-            this.btnClose.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.btnClose.TextColor = System.Drawing.Color.Black;
-            this.btnClose.TooltipText = null;
-            this.btnClose.UseAdvancedRendering = true;
-            this.btnClose.UseParticles = false;
-            this.btnClose.Click += new System.EventHandler(this.btnCloseForm_Click);
+            this.btnCloseForm.AccessibleName = "Close";
+            this.btnCloseForm.AutoSizeBasedOnText = false;
+            this.btnCloseForm.BackColor = System.Drawing.Color.Transparent;
+            this.btnCloseForm.BadgeBackColor = System.Drawing.Color.Red;
+            this.btnCloseForm.BadgeFont = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCloseForm.BadgeValue = 0;
+            this.btnCloseForm.BadgeValueForeColor = System.Drawing.Color.White;
+            this.btnCloseForm.BorderColor = System.Drawing.Color.Transparent;
+            this.btnCloseForm.BorderWidth = 2;
+            this.btnCloseForm.ButtonBackColor = System.Drawing.Color.Silver;
+            this.btnCloseForm.ButtonImage = null;
+            this.btnCloseForm.CanBeep = true;
+            this.btnCloseForm.CanGlow = false;
+            this.btnCloseForm.CanShake = true;
+            this.btnCloseForm.ContextMenuStripEx = null;
+            this.btnCloseForm.CornerRadiusBottomLeft = 20;
+            this.btnCloseForm.CornerRadiusBottomRight = 20;
+            this.btnCloseForm.CornerRadiusTopLeft = 20;
+            this.btnCloseForm.CornerRadiusTopRight = 20;
+            this.btnCloseForm.CustomCursor = System.Windows.Forms.Cursors.Default;
+            this.btnCloseForm.DisabledTextColor = System.Drawing.Color.FromArgb(((int)(((byte)(150)))), ((int)(((byte)(150)))), ((int)(((byte)(150)))));
+            this.btnCloseForm.EnableLongPress = false;
+            this.btnCloseForm.EnablePressAnimation = true;
+            this.btnCloseForm.EnableRippleEffect = true;
+            this.btnCloseForm.EnableShadow = false;
+            this.btnCloseForm.EnableTextWrapping = false;
+            this.btnCloseForm.Font = new System.Drawing.Font("Segoe UI Semibold", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCloseForm.ForeColor = System.Drawing.Color.Transparent;
+            this.btnCloseForm.GlowColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.btnCloseForm.GlowIntensity = 100;
+            this.btnCloseForm.GlowRadius = 20F;
+            this.btnCloseForm.GradientBackground = false;
+            this.btnCloseForm.GradientColor = System.Drawing.Color.FromArgb(((int)(((byte)(114)))), ((int)(((byte)(168)))), ((int)(((byte)(255)))));
+            this.btnCloseForm.GradientMode = System.Drawing.Drawing2D.LinearGradientMode.Vertical;
+            this.btnCloseForm.HintText = null;
+            this.btnCloseForm.HoverBackColor = System.Drawing.Color.DimGray;
+            this.btnCloseForm.HoverFontStyle = System.Drawing.FontStyle.Regular;
+            this.btnCloseForm.HoverTextColor = System.Drawing.Color.Black;
+            this.btnCloseForm.HoverTransitionDuration = 250;
+            this.btnCloseForm.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnCloseForm.ImagePadding = 5;
+            this.btnCloseForm.ImageSize = new System.Drawing.Size(16, 16);
+            this.btnCloseForm.IsRadial = false;
+            this.btnCloseForm.IsReadOnly = false;
+            this.btnCloseForm.IsToggleButton = false;
+            this.btnCloseForm.IsToggled = false;
+            this.btnCloseForm.Location = new System.Drawing.Point(1054, 666);
+            this.btnCloseForm.LongPressDurationMS = 1000;
+            this.btnCloseForm.Name = "btnCloseForm";
+            this.btnCloseForm.NormalFontStyle = System.Drawing.FontStyle.Regular;
+            this.btnCloseForm.ParticleColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(200)))), ((int)(((byte)(200)))));
+            this.btnCloseForm.ParticleCount = 15;
+            this.btnCloseForm.PressAnimationScale = 0.97F;
+            this.btnCloseForm.PressedBackColor = System.Drawing.Color.Red;
+            this.btnCloseForm.PressedFontStyle = System.Drawing.FontStyle.Regular;
+            this.btnCloseForm.PressTransitionDuration = 150;
+            this.btnCloseForm.ReadOnlyTextColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(100)))), ((int)(((byte)(100)))));
+            this.btnCloseForm.RippleColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.btnCloseForm.RippleOpacity = 0.3F;
+            this.btnCloseForm.RippleRadiusMultiplier = 0.6F;
+            this.btnCloseForm.ShadowBlur = 5;
+            this.btnCloseForm.ShadowColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.btnCloseForm.ShadowOffset = new System.Drawing.Point(2, 2);
+            this.btnCloseForm.ShakeDuration = 500;
+            this.btnCloseForm.ShakeIntensity = 5;
+            this.btnCloseForm.Size = new System.Drawing.Size(125, 39);
+            this.btnCloseForm.TabIndex = 52;
+            this.btnCloseForm.Text = "Close";
+            this.btnCloseForm.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.btnCloseForm.TextColor = System.Drawing.Color.Black;
+            this.btnCloseForm.TooltipText = null;
+            this.btnCloseForm.UseAdvancedRendering = true;
+            this.btnCloseForm.UseParticles = false;
+            this.btnCloseForm.Click += new System.EventHandler(this.btnCloseForm_Click);
             // 
             // btnAddNewPerson
             // 
@@ -451,7 +451,7 @@
             this.ClientSize = new System.Drawing.Size(1191, 715);
             this.ControlBox = false;
             this.Controls.Add(this.btnAddNewPerson);
-            this.Controls.Add(this.btnClose);
+            this.Controls.Add(this.btnCloseForm);
             this.Controls.Add(this.cbIsActive);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.txtFilter);
@@ -486,17 +486,17 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.ComboBox cbIsActive;
         private SiticoneNetFrameworkUI.SiticonePanel siticonePanel1;
-        private SiticoneNetFrameworkUI.SiticoneButton btnClose;
+        private SiticoneNetFrameworkUI.SiticoneButton btnCloseForm;
         private SiticoneNetFrameworkUI.SiticoneButton btnAddNewPerson;
         private System.Windows.Forms.ContextMenuStrip cmUserSettings;
-        private System.Windows.Forms.ToolStripMenuItem showDetailsToolStripMenuItem1;
-        private System.Windows.Forms.ToolStripMenuItem addNewPersonToolStripMenuItem1;
-        private System.Windows.Forms.ToolStripMenuItem editUserToolStripMenuItem1;
-        private System.Windows.Forms.ToolStripMenuItem deleteToolStripMenuItem1;
-        private System.Windows.Forms.ToolStripMenuItem sendEmailToolStripMenuItem1;
-        private System.Windows.Forms.ToolStripMenuItem callToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem ShowDetailsToolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem AddNewUserToolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem EditUserToolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem DeleteToolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem SendEmailToolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem CallToolStripMenuItem;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
-        private System.Windows.Forms.ToolStripMenuItem changePasswordStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem ChangePasswordStripMenuItem1;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
     }
 }

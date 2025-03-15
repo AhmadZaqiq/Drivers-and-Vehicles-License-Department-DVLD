@@ -13,17 +13,17 @@ namespace DVLD_Data_Access
 {
     public class clsUsersData
     {
-        public static DataTable GetAllUsers()
+        public static DataTable GetAllUsersData()
         {
             DataTable dt = new DataTable();
 
             SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString);
 
-            string query = "SELECT UserID, Users.PersonID, UserName, People.FirstName + ' ' + People.SecondName +" +
-                " ' ' + People.ThirdName + ' ' + People.LastName AS FullName, IsActive " +
-                           "FROM Users " +
-                           "JOIN People ON Users.PersonID = People.PersonID";
-
+            string query = @"SELECT UserID, Users.PersonID, UserName, 
+                              People.FirstName + ' ' + People.SecondName + ' ' + 
+                              People.ThirdName + ' ' + People.LastName AS FullName,IsActive 
+                             FROM Users 
+                             JOIN People ON Users.PersonID = People.PersonID;";
 
             SqlCommand command = new SqlCommand(query, connection);
 
@@ -39,7 +39,10 @@ namespace DVLD_Data_Access
                 }
             }
 
-            catch (Exception ex) { }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
 
             finally
             {
@@ -49,14 +52,15 @@ namespace DVLD_Data_Access
             return dt;
         }
 
-        public static bool GetUserByID(int UserID, ref int PersonID, ref string UserName, ref string Password, ref bool IsActive)
+        public static bool GetUserByIDData(int UserID, ref int PersonID, ref string UserName, ref string Password, ref bool IsActive)
         {
             bool IsFound = false;
 
             SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString);
 
-            string query = "Select * FROM Users WHERE UserID =@UserID";
-
+            string query = @"Select *
+                             FROM Users
+                             WHERE UserID =@UserID";
 
             SqlCommand command = new SqlCommand(query, connection);
 
@@ -86,7 +90,10 @@ namespace DVLD_Data_Access
                 reader.Close();
             }
 
-            catch (Exception ex) { }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
 
             finally
             {
@@ -96,13 +103,15 @@ namespace DVLD_Data_Access
             return IsFound;
         }
 
-        public static bool GetUserByUsername(string Username, ref int UserID, ref int PersonID, ref string Password, ref bool IsActive)
+        public static bool GetUserByUsernameData(string Username, ref int UserID, ref int PersonID, ref string Password, ref bool IsActive)
         {
             bool IsFound = false;
 
             SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString);
 
-            string query = "Select * FROM Users WHERE Username =@Username";
+            string query = @"Select *
+                             FROM Users
+                             WHERE Username =@Username";
 
 
             SqlCommand command = new SqlCommand(query, connection);
@@ -133,7 +142,10 @@ namespace DVLD_Data_Access
                 reader.Close();
             }
 
-            catch (Exception ex) { }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
 
             finally
             {
@@ -143,16 +155,15 @@ namespace DVLD_Data_Access
             return IsFound;
         }
 
-        public static int AddNewUser(int PersonID, string UserName, string Password, bool IsActive)
+        public static int AddNewUserData(int PersonID, string UserName, string Password, bool IsActive)
         {
             SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString);
 
             int UserID = -1;
 
-
-            string query = "INSERT INTO Users (PersonID, UserName, Password, IsActive)" +
-                " VALUES" +
-                " (@PersonID, @UserName, @Password, @IsActive); SELECT SCOPE_IDENTITY();";
+            string query = @"INSERT INTO Users (PersonID, UserName, Password, IsActive) 
+                             VALUES (@PersonID, @UserName, @Password, @IsActive); 
+                             SELECT SCOPE_IDENTITY();";
 
             SqlCommand command = new SqlCommand(query, connection);
 
@@ -167,19 +178,16 @@ namespace DVLD_Data_Access
 
                 object Result = command.ExecuteScalar();
 
-
                 if (Result != null && int.TryParse(Result.ToString(), out int insertedID))
                 {
                     UserID = insertedID;
                 }
-
-                else
-                {
-
-                }
             }
 
-            catch (Exception ex) { }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
 
             finally
             {
@@ -189,13 +197,17 @@ namespace DVLD_Data_Access
             return UserID;
         }
 
-        public static bool UpdateUser(int PersonID, string UserName, string Password, bool IsActive)
+        public static bool UpdateUserData(int PersonID, string UserName, string Password, bool IsActive)
         {
             SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString);
 
             bool UpdatedSuccessfully = false;
 
-            string query = "UPDATE Users SET UserName = @UserName, Password = @Password, IsActive = @IsActive WHERE PersonID = @PersonID;";
+            string query = @"UPDATE Users
+                             SET UserName = @UserName,
+                                 Password = @Password,
+                                 IsActive = @IsActive 
+                             WHERE PersonID = @PersonID;";
 
             SqlCommand command = new SqlCommand(query, connection);
 
@@ -211,10 +223,12 @@ namespace DVLD_Data_Access
                 int RowAffected = command.ExecuteNonQuery();
 
                 UpdatedSuccessfully = (RowAffected > 0);
-
             }
 
-            catch (Exception ex) { }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
 
             finally
             {
@@ -224,13 +238,15 @@ namespace DVLD_Data_Access
             return UpdatedSuccessfully;
         }
 
-        public static bool IsUserExist(int UserID)
+        public static bool IsUserExistData(int UserID)
         {
             bool IsFound = false;
 
             SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString);
 
-            string query = "SELECT Found=1 FROM Users WHERE UserID = @UserID";
+            string query = @"SELECT Found=1
+                             FROM Users
+                             WHERE UserID = @UserID";
 
             SqlCommand command = new SqlCommand(query, connection);
 
@@ -248,8 +264,9 @@ namespace DVLD_Data_Access
             }
             catch (Exception ex)
             {
-
+                Console.WriteLine(ex.Message);
             }
+
             finally
             {
                 connection.Close();
@@ -258,13 +275,15 @@ namespace DVLD_Data_Access
             return IsFound;
         }
 
-        public static bool IsUserExist(string Username)
+        public static bool IsUserExistData(string Username)
         {
             bool IsFound = false;
 
             SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString);
 
-            string query = "SELECT Found=1 FROM Users WHERE Username = @Username";
+            string query = @"SELECT Found=1
+                             FROM Users
+                             WHERE Username = @Username";
 
             SqlCommand command = new SqlCommand(query, connection);
 
@@ -282,8 +301,9 @@ namespace DVLD_Data_Access
             }
             catch (Exception ex)
             {
-
+                Console.WriteLine(ex.Message);
             }
+
             finally
             {
                 connection.Close();
@@ -292,13 +312,14 @@ namespace DVLD_Data_Access
             return IsFound;
         }
 
-        public static bool DeleteUser(int UserID)
+        public static bool DeleteUserData(int UserID)
         {
             bool IsFound = false;
 
             SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString);
 
-            string query = "DELETE FROM Users WHERE UserID = @UserID;";
+            string query = @"DELETE FROM Users
+                             WHERE UserID = @UserID;";
 
             SqlCommand command = new SqlCommand(query, connection);
 
@@ -315,7 +336,7 @@ namespace DVLD_Data_Access
             }
             catch (Exception ex)
             {
-
+                Console.WriteLine(ex.Message);
             }
 
             finally
@@ -325,6 +346,7 @@ namespace DVLD_Data_Access
 
             return IsFound;
         }
+
 
     }
 }

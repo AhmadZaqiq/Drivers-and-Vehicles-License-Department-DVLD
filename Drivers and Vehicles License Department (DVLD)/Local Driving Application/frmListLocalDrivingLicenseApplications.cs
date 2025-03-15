@@ -23,14 +23,14 @@ namespace Drivers_and_Vehicles_License_Department__DVLD_.Local_Driving_Applicati
         {
             RefreshLocalDrivingApplicationsDataGrid();
 
-            _FillComboBox();
+            _FillLocalApplicationsComboBox();
 
             clsFormUtil.MakeRoundedCorners(this, 30); //to make the form rounded
 
             clsFormUtil.OpenFormEffect(this);
         }
 
-        private void _FillComboBox()
+        private void _FillLocalApplicationsComboBox()
         {
             cbFilter.Items.Clear();
 
@@ -89,15 +89,36 @@ namespace Drivers_and_Vehicles_License_Department__DVLD_.Local_Driving_Applicati
             txtFilter.Focus();
         }
 
-        private void btnAddNew_Click(object sender, EventArgs e)
+        private void btnAddNewLocalApplication_Click(object sender, EventArgs e)
         {
-            frmAddAndUpdateLocalDrivingApplication FormAddAndUpdateLocalDrivingApplication = new frmAddAndUpdateLocalDrivingApplication();
+            frmAddAndUpdateLocalDrivingApplication FormAddAndUpdateLocalDrivingApplication = new frmAddAndUpdateLocalDrivingApplication(this);
             FormAddAndUpdateLocalDrivingApplication.ShowDialog();
         }
 
-        private void btnClose_Click(object sender, EventArgs e)
+        private void btnCloseForm_Click(object sender, EventArgs e)
         {
             clsFormUtil.CloseFormEffect(this);
+        }
+
+        private void CancelApplicationToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            DataGridViewRow SelectedRow = dgvLocalDrivingLicenseApplications.SelectedRows[0];
+
+            if (!clsMessageBoxManager.ShowConfirmActionBox("Are you sure you want to cancel this application?", "Alert", MessageBoxButtons.YesNo, MessageBoxIcon.Warning))
+            {
+                return;
+            }
+
+            int LocalApplicationID = Convert.ToInt32(SelectedRow.Cells["LocalDrivingLicenseApplicationID"].Value);
+
+            if (!clsLocalDrivingLicenseApplication.CancelLocalDrivingLicenseApplication(LocalApplicationID))
+            {
+                clsMessageBoxManager.ShowMessageBox("Failed to cancel the application.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            clsMessageBoxManager.ShowMessageBox("Person cancelled successfully.", "Done", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            RefreshLocalDrivingApplicationsDataGrid();
         }
 
         private void dgvLocalDrivingLicenseApplications_MouseEnter(object sender, EventArgs e)
@@ -110,23 +131,6 @@ namespace Drivers_and_Vehicles_License_Department__DVLD_.Local_Driving_Applicati
             this.Cursor = Cursors.Default;
         }
 
-        private void CancelApplicationToolStripMenuItem1_Click(object sender, EventArgs e)
-        {
-            DataGridViewRow SelectedRow = dgvLocalDrivingLicenseApplications.SelectedRows[0];
 
-            if (MessageBox.Show("Are You Sure you want to Cancel this Application?", "Alert", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) != DialogResult.Yes)
-                return;
-
-            int LocalApplicationID = Convert.ToInt32(SelectedRow.Cells["LocalDrivingLicenseApplicationID"].Value);
-
-            if(!clsLocalDrivingLicenseApplication.CancelLocalDrivingLicenseApplication(LocalApplicationID))
-            {
-                MessageBox.Show("Person was not Cancelled", "Alert");
-                return;
-            }
-
-            MessageBox.Show("Person Cancelled successfully.", "Done");
-            RefreshLocalDrivingApplicationsDataGrid();
-        }
     }
 }

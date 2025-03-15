@@ -373,6 +373,16 @@ namespace Drivers_and_Vehicles_License_Department__DVLD_.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap ic_fluent_apps_list_detail_24_filled {
+            get {
+                object obj = ResourceManager.GetObject("ic_fluent_apps_list_detail_24_filled", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap ic_fluent_arrow_counterclockwise_24_filled {
             get {
                 object obj = ResourceManager.GetObject("ic_fluent_arrow_counterclockwise_24_filled", resourceCulture);
@@ -433,6 +443,16 @@ namespace Drivers_and_Vehicles_License_Department__DVLD_.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap ic_fluent_contact_card_24_filled__1_ {
+            get {
+                object obj = ResourceManager.GetObject("ic_fluent_contact_card_24_filled (1)", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap ic_fluent_contact_card_24_filled1 {
             get {
                 object obj = ResourceManager.GetObject("ic_fluent_contact_card_24_filled1", resourceCulture);
@@ -476,6 +496,16 @@ namespace Drivers_and_Vehicles_License_Department__DVLD_.Properties {
         internal static System.Drawing.Bitmap ic_fluent_credit_card_person_24_filled {
             get {
                 object obj = ResourceManager.GetObject("ic_fluent_credit_card_person_24_filled", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap ic_fluent_delete_24_filled {
+            get {
+                object obj = ResourceManager.GetObject("ic_fluent_delete_24_filled", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -673,9 +703,29 @@ namespace Drivers_and_Vehicles_License_Department__DVLD_.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap ic_fluent_share_screen_stop_24_filled {
+            get {
+                object obj = ResourceManager.GetObject("ic_fluent_share_screen_stop_24_filled", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap ic_fluent_slide_add_24_filled {
             get {
                 object obj = ResourceManager.GetObject("ic_fluent_slide_add_24_filled", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap ic_fluent_slide_add_24_filled__1_ {
+            get {
+                object obj = ResourceManager.GetObject("ic_fluent_slide_add_24_filled (1)", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -703,9 +753,29 @@ namespace Drivers_and_Vehicles_License_Department__DVLD_.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap ic_fluent_text_bullet_list_square_edit_24_filled {
+            get {
+                object obj = ResourceManager.GetObject("ic_fluent_text_bullet_list_square_edit_24_filled", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap ic_fluent_text_description_24_filled {
             get {
                 object obj = ResourceManager.GetObject("ic_fluent_text_description_24_filled", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap ic_fluent_timer_24_filled {
+            get {
+                object obj = ResourceManager.GetObject("ic_fluent_timer_24_filled", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

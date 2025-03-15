@@ -6,6 +6,7 @@ using System.Data;
 using System.Drawing;
 using System.IO;
 using System.Windows.Forms;
+using Drivers_and_Vehicles_License_Department__DVLD_.Global;
 
 namespace Drivers_and_Vehicles_License_Department__DVLD_
 {
@@ -14,9 +15,11 @@ namespace Drivers_and_Vehicles_License_Department__DVLD_
         public event Action DataAdded;
 
         private clsPerson _Person;
+
         private clsCountry _Country;
 
         public enum enMode { AddNew = 0, Update = 1 };
+
         private enMode _Mode = enMode.AddNew;
 
         private int _PersonID = -1;
@@ -51,7 +54,11 @@ namespace Drivers_and_Vehicles_License_Department__DVLD_
         {
             _FillCountriesComboBox();
             _SetDefaultValues();
-            _PopulatePersonFieldsForUpdate();
+
+            if (_Mode == enMode.Update)
+            {
+                _PopulatePersonFieldsForUpdate();
+            }
         }
 
         private void _UpdateMode()
@@ -61,18 +68,22 @@ namespace Drivers_and_Vehicles_License_Department__DVLD_
 
         private void _RefreshPersonalImage()
         {
-            if (pbPersonalImage.Tag?.ToString() != "ImageSet")
+            if (pbPersonalImage.Tag?.ToString() == "ImageSet")
             {
-                if (rbMale.Checked)
-                {
-                    pbPersonalImage.BackgroundImage = Resources.MaleAvatar;
-                    pbPersonalImage.Tag = "Male";
-                }
-                else if (rbFemale.Checked)
-                {
-                    pbPersonalImage.BackgroundImage = Resources.FemaleAvatar;
-                    pbPersonalImage.Tag = "Female";
-                }
+                return;
+            }
+
+            if (rbMale.Checked)
+            {
+                pbPersonalImage.BackgroundImage = Resources.MaleAvatar;
+                pbPersonalImage.Tag = "Male";
+                return;
+            }
+
+            if (rbFemale.Checked)
+            {
+                pbPersonalImage.BackgroundImage = Resources.FemaleAvatar;
+                pbPersonalImage.Tag = "Female";
             }
         }
 
@@ -91,13 +102,15 @@ namespace Drivers_and_Vehicles_License_Department__DVLD_
 
         private void _UpdateBackgroundImage()
         {
-            MessageBox.Show("This feature is currently not available :( ", "Note", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            clsMessageBoxManager.ShowMessageBox("This feature is currently not available :( ", "Note", MessageBoxButtons.OK, MessageBoxIcon.Warning);
         }
 
         private void _PopulatePersonFieldsForUpdate()
         {
-            if (_Mode != enMode.Update && !clsPerson.IsPersonExists(_PersonID))
+            if (!clsPerson.IsPersonExists(_PersonID))
+            {
                 return;
+            }
 
             _Person = clsPerson.GetPersonByID(_PersonID);
             _Country = clsCountry.GetCountryByPersonID(_PersonID);
@@ -133,15 +146,8 @@ namespace Drivers_and_Vehicles_License_Department__DVLD_
             pbPersonalImage.Tag = "Male";
         }
 
-        private void btnSetImage_Click(object sender, EventArgs e)
-        {
-            _UpdateBackgroundImage();
-        }
-
         private void _LoadPersonData()
         {
-
-
             _Person.NationalNo = txtNationalNO.Text.Trim();
             _Person.FirstName = txtFirstName.Text.Trim();
             _Person.SecondName = txtSecondName.Text.Trim();
@@ -155,11 +161,16 @@ namespace Drivers_and_Vehicles_License_Department__DVLD_
             _Person.NationalityCountryID = clsCountry.GetCountryID(cbCountry.Text);
         }
 
+        private void btnSetImage_Click(object sender, EventArgs e)
+        {
+            _UpdateBackgroundImage();
+        }
+
         private void btnSave_Click(object sender, EventArgs e)
         {
             if (!_VerifyAllInputs())
             {
-                MessageBox.Show("Some required fields are missing. Please fill in all the data.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                clsMessageBoxManager.ShowMessageBox("Some required fields are missing. Please fill in all the data.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
 
@@ -169,11 +180,11 @@ namespace Drivers_and_Vehicles_License_Department__DVLD_
 
             if (!_Person.Save())
             {
-                MessageBox.Show("Data not Saved", "Failed");
+                clsMessageBoxManager.ShowMessageBox("Data not Saved", "Failed", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
 
-            MessageBox.Show("Data Saved Successfully", "Success");
+            clsMessageBoxManager.ShowMessageBox("Data Saved Successfully", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
             DataAdded?.Invoke();
         }
 
@@ -189,129 +200,106 @@ namespace Drivers_and_Vehicles_License_Department__DVLD_
 
         private void txtFirstName_Validating(object sender, CancelEventArgs e)
         {
-            if (string.IsNullOrWhiteSpace(txtFirstName.Text.Trim()))
-            {
-                e.Cancel = true;
-                txtFirstName.Focus();
-                errorProvider1.SetError(txtFirstName, "Error, Please enter Name");
-            }
-            else
+            if (!string.IsNullOrWhiteSpace(txtFirstName.Text.Trim()))
             {
                 e.Cancel = false;
                 errorProvider1.SetError(txtFirstName, "");
+                return;
             }
+
+            e.Cancel = true;
+            txtFirstName.Focus();
+            errorProvider1.SetError(txtFirstName, "Error, Please enter Name");
         }
 
         private void txtSecondName_Validating(object sender, CancelEventArgs e)
         {
-            if (string.IsNullOrWhiteSpace(txtSecondName.Text.Trim()))
-            {
-                e.Cancel = true;
-                txtSecondName.Focus();
-                errorProvider1.SetError(txtSecondName, "Error, Please enter Name");
-            }
-            else
+            if (!string.IsNullOrWhiteSpace(txtSecondName.Text.Trim()))
             {
                 e.Cancel = false;
                 errorProvider1.SetError(txtSecondName, "");
+                return;
             }
+
+            e.Cancel = true;
+            txtSecondName.Focus();
+            errorProvider1.SetError(txtSecondName, "Error, Please enter Name");
         }
 
         private void txtLastName_Validating(object sender, CancelEventArgs e)
         {
-            if (string.IsNullOrWhiteSpace(txtLastName.Text.Trim()))
-            {
-                e.Cancel = true;
-                txtLastName.Focus();
-                errorProvider1.SetError(txtLastName, "Error, Please enter Name");
-            }
-            else
+            if (!string.IsNullOrWhiteSpace(txtLastName.Text.Trim()))
             {
                 e.Cancel = false;
                 errorProvider1.SetError(txtLastName, "");
+                return;
             }
+
+            e.Cancel = true;
+            txtLastName.Focus();
+            errorProvider1.SetError(txtLastName, "Error, Please enter Name");
         }
 
         private void txtNationalNO_Validating(object sender, CancelEventArgs e)
         {
-            if (string.IsNullOrWhiteSpace(txtNationalNO.Text.Trim()))
-            {
-                e.Cancel = true;
-                txtNationalNO.Focus();
-                errorProvider1.SetError(txtNationalNO, "Error, Please enter National Number");
-            }
-
-            else if (clsPerson.IsPersonExists(txtNationalNO.Text.Trim()))
-            {
-                e.Cancel = true;
-                txtNationalNO.Focus();
-                errorProvider1.SetError(txtNationalNO, string.Format("Error, {0} Exists", txtNationalNO.Text));
-            }
-
-            else
+            if (!string.IsNullOrWhiteSpace(txtNationalNO.Text.Trim()) && !clsPerson.IsPersonExists(txtNationalNO.Text.Trim()))
             {
                 e.Cancel = false;
                 errorProvider1.SetError(txtNationalNO, "");
+                return;
             }
+
+            e.Cancel = true;
+            txtNationalNO.Focus();
+            errorProvider1.SetError(txtNationalNO, string.IsNullOrWhiteSpace(txtNationalNO.Text.Trim())
+                ? "Error, Please enter National Number"
+                : $"Error, {txtNationalNO.Text.Trim()} Exists");
         }
 
         private void txtPhone_Validating(object sender, CancelEventArgs e)
         {
-            if (string.IsNullOrWhiteSpace(txtPhone.Text.Trim()))
-            {
-                e.Cancel = true;
-                txtPhone.Focus();
-                errorProvider1.SetError(txtPhone, "Error, Please enter Phone Number");
-            }
-            else
+            if (!string.IsNullOrWhiteSpace(txtPhone.Text.Trim()))
             {
                 e.Cancel = false;
                 errorProvider1.SetError(txtPhone, "");
+                return;
             }
+
+            e.Cancel = true;
+            txtPhone.Focus();
+            errorProvider1.SetError(txtPhone, "Error, Please enter Phone Number");
         }
 
         private void txtEmail_Validating(object sender, CancelEventArgs e)
         {
-            string Email = txtEmail.Text;
+            string Email = txtEmail.Text.Trim();
 
-            if (!string.IsNullOrWhiteSpace(txtEmail.Text))
+            if (string.IsNullOrWhiteSpace(Email) || (!Email.ToLower().EndsWith("@gmail.com") || Email.StartsWith("@")))
             {
-                if (!Email.ToLower().EndsWith("@gmail.com") || Email.StartsWith("@"))
-                {
-                    e.Cancel = true;
-                    txtEmail.Focus();
-                    errorProvider1.SetError(txtEmail, "Error, Invalid value");
-                }
-                else
-                {
-                    e.Cancel = false;
-                    errorProvider1.SetError(txtEmail, "");
-                }
+                e.Cancel = true;
+                txtEmail.Focus();
+                errorProvider1.SetError(txtEmail, string.IsNullOrWhiteSpace(Email) ? "" : "Error, Invalid value");
+                return;
             }
-            else
-            {
-                errorProvider1.SetError(txtEmail, "");
-            }
+
+            e.Cancel = false;
+            errorProvider1.SetError(txtEmail, "");
         }
 
         private void txtAddress_Validating(object sender, CancelEventArgs e)
         {
-            if (string.IsNullOrWhiteSpace(txtAddress.Text.Trim()))
-            {
-                e.Cancel = true;
-                txtAddress.Focus();
-                errorProvider1.SetError(txtAddress, "Error, Please enter Address");
-            }
-            else
+            if (!string.IsNullOrWhiteSpace(txtAddress.Text.Trim()))
             {
                 e.Cancel = false;
                 errorProvider1.SetError(txtAddress, "");
+                return;
             }
+
+            e.Cancel = true;
+            txtAddress.Focus();
+            errorProvider1.SetError(txtAddress, "Error, Please enter Address");
         }
 
-        private void Panel_Paint(object sender, PaintEventArgs e)
-        {
 
-        }
     }
 }

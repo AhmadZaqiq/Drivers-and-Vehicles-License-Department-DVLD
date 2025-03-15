@@ -20,14 +20,14 @@ namespace Drivers_and_Vehicles_License_Department__DVLD_
         {
             RefreshPeopleDataGrid();
 
-            _FillComboBox();
+            _FillPeopleComboBox();
 
             clsFormUtil.MakeRoundedCorners(this, 30); //to make the form rounded
 
             clsFormUtil.OpenFormEffect(this);
         }
 
-        private void _FillComboBox()
+        private void _FillPeopleComboBox()
         {
             DataTable PeopleTable = clsPerson.GetAllPeople();
 
@@ -93,18 +93,18 @@ namespace Drivers_and_Vehicles_License_Department__DVLD_
             txtFilter.Focus();
         }
 
-        private void btnCloseForm_Click(object sender, EventArgs e)
-        {
-            clsFormUtil.CloseFormEffect(this);
-        }
-
         private void btnAddNewPerson_Click(object sender, EventArgs e)
         {
             frmAddAndUpdatePeople frmAddAndUpdatePeople = new frmAddAndUpdatePeople(-1, this);
             frmAddAndUpdatePeople.ShowDialog();
         }
 
-        private void showDetailsToolStripMenuItem_Click(object sender, EventArgs e)
+        private void btnCloseForm_Click(object sender, EventArgs e)
+        {
+            clsFormUtil.CloseFormEffect(this);
+        }
+
+        private void ShowDetailsToolStripMenuItem_Click(object sender, EventArgs e)
         {
             DataGridViewRow selectedRow = dgvPeople.SelectedRows[0];
 
@@ -114,13 +114,13 @@ namespace Drivers_and_Vehicles_License_Department__DVLD_
             FormPersonDetails.ShowDialog();
         }
 
-        private void addNewPersonToolStripMenuItem1_Click(object sender, EventArgs e)
+        private void AddNewPersonToolStripMenuItem1_Click(object sender, EventArgs e)
         {
             frmAddAndUpdatePeople FormAddAndUpdatePerson = new frmAddAndUpdatePeople(-1, this);
             FormAddAndUpdatePerson.ShowDialog();
         }
 
-        private void editToolStripMenuItem1_Click(object sender, EventArgs e)
+        private void EditToolStripMenuItem1_Click(object sender, EventArgs e)
         {
             DataGridViewRow selectedRow = dgvPeople.SelectedRows[0];
 
@@ -130,32 +130,34 @@ namespace Drivers_and_Vehicles_License_Department__DVLD_
             frmAddAndUpdatePeople.ShowDialog();
         }
 
-        private void deleteToolStripMenuItem1_Click(object sender, EventArgs e)
+        private void DeleteToolStripMenuItem1_Click(object sender, EventArgs e)
         {
             DataGridViewRow selectedRow = dgvPeople.SelectedRows[0];
 
-            if (MessageBox.Show("Are You Sure you want to delete this Person?", "Alert", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) != DialogResult.Yes)
+            if (!clsMessageBoxManager.ShowConfirmActionBox("Are You Sure you want to delete this Person?", "Alert", MessageBoxButtons.YesNo, MessageBoxIcon.Warning))
+            {
                 return;
+            }
 
             int PersonID = Convert.ToInt32(selectedRow.Cells["PersonID"].Value);
 
             if (!clsPerson.DeletePerson(PersonID))
             {
-                MessageBox.Show("Person was not deleted because it is linked to other transactions in the system...", "Alert");
+                clsMessageBoxManager.ShowMessageBox("Person was not deleted because it is linked to other transactions in the system...", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
 
-            MessageBox.Show("Person deleted successfully.", "Done");
+            clsMessageBoxManager.ShowMessageBox("Person deleted successfully.", "Done", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
             RefreshPeopleDataGrid();
         }
 
-        private void callToolStripMenuItem_Click(object sender, EventArgs e)
+        private void CallToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("Coming Soon... (;", "Alert", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            clsMessageBoxManager.ShowMessageBox("Coming Soon... (;", "Alert", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
-        private void sendEmailToolStripMenuItem1_Click(object sender, EventArgs e)
+        private void SendEmailToolStripMenuItem1_Click(object sender, EventArgs e)
         {
             DataGridViewRow selectedRow = dgvPeople.SelectedRows[0];
 
@@ -175,7 +177,6 @@ namespace Drivers_and_Vehicles_License_Department__DVLD_
         {
             this.Cursor = Cursors.Default;
         }
-
 
 
     }

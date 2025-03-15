@@ -16,7 +16,8 @@ namespace DVLD_Data_Access
 
             SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString);
 
-            string query = "SELECT * FROM TestTypes";
+            string query = @"SELECT * 
+                             FROM TestTypes";
 
             SqlCommand command = new SqlCommand(query, connection);
 
@@ -36,7 +37,7 @@ namespace DVLD_Data_Access
 
             catch (Exception ex)
             {
-
+                Console.WriteLine(ex.Message);
             }
 
             finally
@@ -47,18 +48,17 @@ namespace DVLD_Data_Access
             return dt;
         }
 
-        public static bool UpdateTestType(int TestTypeID, string TestTypeTitle, string TestTypeDescription, decimal TestTypeFees)
+        public static bool UpdateTestTypeData(int TestTypeID, string TestTypeTitle, string TestTypeDescription, decimal TestTypeFees)
         {
             SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString);
 
             bool UpdatedSuccessfully = false;
 
-            string query = @"
-                            UPDATE TestTypes
-                            SET TestTypeTitle = @TestTypeTitle,
-                            TestTypeDescription=@TestTypeDescription,
-                            TestTypeFees = @TestTypeFees  
-                            WHERE TestTypeID = @TestTypeID;";
+            string query = @"UPDATE TestTypes
+                             SET TestTypeTitle = @TestTypeTitle,
+                             TestTypeDescription=@TestTypeDescription,
+                             TestTypeFees = @TestTypeFees  
+                             WHERE TestTypeID = @TestTypeID;";
 
             SqlCommand command = new SqlCommand(query, connection);
 
@@ -66,7 +66,6 @@ namespace DVLD_Data_Access
             command.Parameters.AddWithValue("@TestTypeTitle", TestTypeTitle);
             command.Parameters.AddWithValue("@TestTypeDescription", TestTypeDescription);
             command.Parameters.AddWithValue("@TestTypeFees", TestTypeFees);
-
 
             try
             {
@@ -79,7 +78,7 @@ namespace DVLD_Data_Access
 
             catch (Exception ex)
             {
-
+                Console.WriteLine(ex.Message);
             }
 
             finally
@@ -124,7 +123,7 @@ namespace DVLD_Data_Access
 
             catch (Exception ex)
             {
-
+                Console.WriteLine(ex.Message);
             }
 
             finally
@@ -134,8 +133,6 @@ namespace DVLD_Data_Access
 
             return IsFound;
         }
-
-
 
 
     }

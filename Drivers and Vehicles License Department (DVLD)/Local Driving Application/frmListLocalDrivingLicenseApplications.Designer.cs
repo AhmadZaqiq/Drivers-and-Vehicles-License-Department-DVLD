@@ -44,9 +44,9 @@
             this.ShowLicenseStripToolMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.ShowPersonlicenseHistoryStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.btnAddNew = new SiticoneNetFrameworkUI.SiticoneButton();
+            this.btnAddNewLocalApplication = new SiticoneNetFrameworkUI.SiticoneButton();
             this.txtFilter = new System.Windows.Forms.MaskedTextBox();
-            this.btnClose = new SiticoneNetFrameworkUI.SiticoneButton();
+            this.btnCloseForm = new SiticoneNetFrameworkUI.SiticoneButton();
             this.siticonePanel1 = new SiticoneNetFrameworkUI.SiticonePanel();
             this.dgvLocalDrivingLicenseApplications = new System.Windows.Forms.DataGridView();
             this.lblRecordsCount = new System.Windows.Forms.Label();
@@ -95,14 +95,14 @@
             // 
             // EditToolStripMenuItem1
             // 
-            this.EditToolStripMenuItem1.Image = global::Drivers_and_Vehicles_License_Department__DVLD_.Properties.Resources.ic_fluent_edit_24_filled;
+            this.EditToolStripMenuItem1.Image = global::Drivers_and_Vehicles_License_Department__DVLD_.Properties.Resources.ic_fluent_text_bullet_list_square_edit_24_filled;
             this.EditToolStripMenuItem1.Name = "EditToolStripMenuItem1";
             this.EditToolStripMenuItem1.Size = new System.Drawing.Size(272, 38);
             this.EditToolStripMenuItem1.Text = "Edit Application";
             // 
             // DeleteToolStripMenuItem1
             // 
-            this.DeleteToolStripMenuItem1.Image = global::Drivers_and_Vehicles_License_Department__DVLD_.Properties.Resources.ic_fluent_person_delete_24_filled;
+            this.DeleteToolStripMenuItem1.Image = global::Drivers_and_Vehicles_License_Department__DVLD_.Properties.Resources.ic_fluent_delete_24_filled;
             this.DeleteToolStripMenuItem1.Name = "DeleteToolStripMenuItem1";
             this.DeleteToolStripMenuItem1.Size = new System.Drawing.Size(272, 38);
             this.DeleteToolStripMenuItem1.Text = "Delete Application";
@@ -114,7 +114,7 @@
             // 
             // CancelApplicationToolStripMenuItem1
             // 
-            this.CancelApplicationToolStripMenuItem1.Image = global::Drivers_and_Vehicles_License_Department__DVLD_.Properties.Resources.ic_fluent_mail_24_filled;
+            this.CancelApplicationToolStripMenuItem1.Image = global::Drivers_and_Vehicles_License_Department__DVLD_.Properties.Resources.ic_fluent_share_screen_stop_24_filled;
             this.CancelApplicationToolStripMenuItem1.Name = "CancelApplicationToolStripMenuItem1";
             this.CancelApplicationToolStripMenuItem1.Size = new System.Drawing.Size(272, 38);
             this.CancelApplicationToolStripMenuItem1.Text = "Cancel Application";
@@ -127,7 +127,7 @@
             // 
             // ScheduleTestsToolStripMenuItem
             // 
-            this.ScheduleTestsToolStripMenuItem.Image = global::Drivers_and_Vehicles_License_Department__DVLD_.Properties.Resources.ic_fluent_call_24_filled;
+            this.ScheduleTestsToolStripMenuItem.Image = global::Drivers_and_Vehicles_License_Department__DVLD_.Properties.Resources.ic_fluent_timer_24_filled;
             this.ScheduleTestsToolStripMenuItem.Name = "ScheduleTestsToolStripMenuItem";
             this.ScheduleTestsToolStripMenuItem.Size = new System.Drawing.Size(272, 38);
             this.ScheduleTestsToolStripMenuItem.Text = "Schedule Tests";
@@ -139,6 +139,7 @@
             // 
             // IssueDrivingLicenseToolStripMenuItem1
             // 
+            this.IssueDrivingLicenseToolStripMenuItem1.Image = global::Drivers_and_Vehicles_License_Department__DVLD_.Properties.Resources.ic_fluent_slide_add_24_filled__1_;
             this.IssueDrivingLicenseToolStripMenuItem1.Name = "IssueDrivingLicenseToolStripMenuItem1";
             this.IssueDrivingLicenseToolStripMenuItem1.Size = new System.Drawing.Size(272, 38);
             this.IssueDrivingLicenseToolStripMenuItem1.Text = "Issue Driving License (First Time)";
@@ -150,6 +151,7 @@
             // 
             // ShowLicenseStripToolMenuItem1
             // 
+            this.ShowLicenseStripToolMenuItem1.Image = global::Drivers_and_Vehicles_License_Department__DVLD_.Properties.Resources.ic_fluent_contact_card_24_filled__1_;
             this.ShowLicenseStripToolMenuItem1.Name = "ShowLicenseStripToolMenuItem1";
             this.ShowLicenseStripToolMenuItem1.Size = new System.Drawing.Size(272, 38);
             this.ShowLicenseStripToolMenuItem1.Text = "Show License";
@@ -161,88 +163,89 @@
             // 
             // ShowPersonlicenseHistoryStripMenuItem1
             // 
+            this.ShowPersonlicenseHistoryStripMenuItem1.Image = global::Drivers_and_Vehicles_License_Department__DVLD_.Properties.Resources.ic_fluent_apps_list_detail_24_filled;
             this.ShowPersonlicenseHistoryStripMenuItem1.Name = "ShowPersonlicenseHistoryStripMenuItem1";
             this.ShowPersonlicenseHistoryStripMenuItem1.Size = new System.Drawing.Size(272, 38);
             this.ShowPersonlicenseHistoryStripMenuItem1.Text = "Show Person license History";
             // 
-            // btnAddNew
+            // btnAddNewLocalApplication
             // 
-            this.btnAddNew.AccessibleDescription = "The default button control that accept input though the mouse, touch and keyboard" +
+            this.btnAddNewLocalApplication.AccessibleDescription = "The default button control that accept input though the mouse, touch and keyboard" +
     "";
-            this.btnAddNew.AccessibleName = "";
-            this.btnAddNew.AutoSizeBasedOnText = false;
-            this.btnAddNew.BackColor = System.Drawing.Color.Transparent;
-            this.btnAddNew.BackgroundImage = global::Drivers_and_Vehicles_License_Department__DVLD_.Properties.Resources.ic_fluent_people_add_24_filled;
-            this.btnAddNew.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.btnAddNew.BadgeBackColor = System.Drawing.Color.White;
-            this.btnAddNew.BadgeFont = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Bold);
-            this.btnAddNew.BadgeValue = 0;
-            this.btnAddNew.BadgeValueForeColor = System.Drawing.Color.White;
-            this.btnAddNew.BorderColor = System.Drawing.Color.Transparent;
-            this.btnAddNew.BorderWidth = 2;
-            this.btnAddNew.ButtonBackColor = System.Drawing.Color.Transparent;
-            this.btnAddNew.ButtonImage = null;
-            this.btnAddNew.CanBeep = true;
-            this.btnAddNew.CanGlow = false;
-            this.btnAddNew.CanShake = true;
-            this.btnAddNew.ContextMenuStripEx = null;
-            this.btnAddNew.CornerRadiusBottomLeft = 20;
-            this.btnAddNew.CornerRadiusBottomRight = 20;
-            this.btnAddNew.CornerRadiusTopLeft = 20;
-            this.btnAddNew.CornerRadiusTopRight = 20;
-            this.btnAddNew.CustomCursor = System.Windows.Forms.Cursors.Default;
-            this.btnAddNew.DisabledTextColor = System.Drawing.Color.FromArgb(((int)(((byte)(150)))), ((int)(((byte)(150)))), ((int)(((byte)(150)))));
-            this.btnAddNew.EnableLongPress = false;
-            this.btnAddNew.EnablePressAnimation = true;
-            this.btnAddNew.EnableRippleEffect = true;
-            this.btnAddNew.EnableShadow = false;
-            this.btnAddNew.EnableTextWrapping = false;
-            this.btnAddNew.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.btnAddNew.GlowColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.btnAddNew.GlowIntensity = 100;
-            this.btnAddNew.GlowRadius = 20F;
-            this.btnAddNew.GradientBackground = false;
-            this.btnAddNew.GradientColor = System.Drawing.Color.White;
-            this.btnAddNew.GradientMode = System.Drawing.Drawing2D.LinearGradientMode.Vertical;
-            this.btnAddNew.HintText = null;
-            this.btnAddNew.HoverBackColor = System.Drawing.Color.Transparent;
-            this.btnAddNew.HoverFontStyle = System.Drawing.FontStyle.Regular;
-            this.btnAddNew.HoverTextColor = System.Drawing.Color.White;
-            this.btnAddNew.HoverTransitionDuration = 250;
-            this.btnAddNew.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnAddNew.ImagePadding = 5;
-            this.btnAddNew.ImageSize = new System.Drawing.Size(16, 16);
-            this.btnAddNew.IsRadial = false;
-            this.btnAddNew.IsReadOnly = false;
-            this.btnAddNew.IsToggleButton = false;
-            this.btnAddNew.IsToggled = false;
-            this.btnAddNew.Location = new System.Drawing.Point(1115, 192);
-            this.btnAddNew.LongPressDurationMS = 1000;
-            this.btnAddNew.Name = "btnAddNew";
-            this.btnAddNew.NormalFontStyle = System.Drawing.FontStyle.Regular;
-            this.btnAddNew.ParticleColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(200)))), ((int)(((byte)(200)))));
-            this.btnAddNew.ParticleCount = 15;
-            this.btnAddNew.PressAnimationScale = 0.97F;
-            this.btnAddNew.PressedBackColor = System.Drawing.Color.Transparent;
-            this.btnAddNew.PressedFontStyle = System.Drawing.FontStyle.Regular;
-            this.btnAddNew.PressTransitionDuration = 150;
-            this.btnAddNew.ReadOnlyTextColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(100)))), ((int)(((byte)(100)))));
-            this.btnAddNew.RippleColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.btnAddNew.RippleOpacity = 0.3F;
-            this.btnAddNew.RippleRadiusMultiplier = 0.6F;
-            this.btnAddNew.ShadowBlur = 5;
-            this.btnAddNew.ShadowColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.btnAddNew.ShadowOffset = new System.Drawing.Point(2, 2);
-            this.btnAddNew.ShakeDuration = 500;
-            this.btnAddNew.ShakeIntensity = 5;
-            this.btnAddNew.Size = new System.Drawing.Size(65, 60);
-            this.btnAddNew.TabIndex = 63;
-            this.btnAddNew.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.btnAddNew.TextColor = System.Drawing.Color.White;
-            this.btnAddNew.TooltipText = null;
-            this.btnAddNew.UseAdvancedRendering = true;
-            this.btnAddNew.UseParticles = false;
-            this.btnAddNew.Click += new System.EventHandler(this.btnAddNew_Click);
+            this.btnAddNewLocalApplication.AccessibleName = "";
+            this.btnAddNewLocalApplication.AutoSizeBasedOnText = false;
+            this.btnAddNewLocalApplication.BackColor = System.Drawing.Color.Transparent;
+            this.btnAddNewLocalApplication.BackgroundImage = global::Drivers_and_Vehicles_License_Department__DVLD_.Properties.Resources.ic_fluent_people_add_24_filled;
+            this.btnAddNewLocalApplication.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btnAddNewLocalApplication.BadgeBackColor = System.Drawing.Color.White;
+            this.btnAddNewLocalApplication.BadgeFont = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Bold);
+            this.btnAddNewLocalApplication.BadgeValue = 0;
+            this.btnAddNewLocalApplication.BadgeValueForeColor = System.Drawing.Color.White;
+            this.btnAddNewLocalApplication.BorderColor = System.Drawing.Color.Transparent;
+            this.btnAddNewLocalApplication.BorderWidth = 2;
+            this.btnAddNewLocalApplication.ButtonBackColor = System.Drawing.Color.Transparent;
+            this.btnAddNewLocalApplication.ButtonImage = null;
+            this.btnAddNewLocalApplication.CanBeep = true;
+            this.btnAddNewLocalApplication.CanGlow = false;
+            this.btnAddNewLocalApplication.CanShake = true;
+            this.btnAddNewLocalApplication.ContextMenuStripEx = null;
+            this.btnAddNewLocalApplication.CornerRadiusBottomLeft = 20;
+            this.btnAddNewLocalApplication.CornerRadiusBottomRight = 20;
+            this.btnAddNewLocalApplication.CornerRadiusTopLeft = 20;
+            this.btnAddNewLocalApplication.CornerRadiusTopRight = 20;
+            this.btnAddNewLocalApplication.CustomCursor = System.Windows.Forms.Cursors.Default;
+            this.btnAddNewLocalApplication.DisabledTextColor = System.Drawing.Color.FromArgb(((int)(((byte)(150)))), ((int)(((byte)(150)))), ((int)(((byte)(150)))));
+            this.btnAddNewLocalApplication.EnableLongPress = false;
+            this.btnAddNewLocalApplication.EnablePressAnimation = true;
+            this.btnAddNewLocalApplication.EnableRippleEffect = true;
+            this.btnAddNewLocalApplication.EnableShadow = false;
+            this.btnAddNewLocalApplication.EnableTextWrapping = false;
+            this.btnAddNewLocalApplication.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.btnAddNewLocalApplication.GlowColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.btnAddNewLocalApplication.GlowIntensity = 100;
+            this.btnAddNewLocalApplication.GlowRadius = 20F;
+            this.btnAddNewLocalApplication.GradientBackground = false;
+            this.btnAddNewLocalApplication.GradientColor = System.Drawing.Color.White;
+            this.btnAddNewLocalApplication.GradientMode = System.Drawing.Drawing2D.LinearGradientMode.Vertical;
+            this.btnAddNewLocalApplication.HintText = null;
+            this.btnAddNewLocalApplication.HoverBackColor = System.Drawing.Color.Transparent;
+            this.btnAddNewLocalApplication.HoverFontStyle = System.Drawing.FontStyle.Regular;
+            this.btnAddNewLocalApplication.HoverTextColor = System.Drawing.Color.White;
+            this.btnAddNewLocalApplication.HoverTransitionDuration = 250;
+            this.btnAddNewLocalApplication.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnAddNewLocalApplication.ImagePadding = 5;
+            this.btnAddNewLocalApplication.ImageSize = new System.Drawing.Size(16, 16);
+            this.btnAddNewLocalApplication.IsRadial = false;
+            this.btnAddNewLocalApplication.IsReadOnly = false;
+            this.btnAddNewLocalApplication.IsToggleButton = false;
+            this.btnAddNewLocalApplication.IsToggled = false;
+            this.btnAddNewLocalApplication.Location = new System.Drawing.Point(1115, 192);
+            this.btnAddNewLocalApplication.LongPressDurationMS = 1000;
+            this.btnAddNewLocalApplication.Name = "btnAddNewLocalApplication";
+            this.btnAddNewLocalApplication.NormalFontStyle = System.Drawing.FontStyle.Regular;
+            this.btnAddNewLocalApplication.ParticleColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(200)))), ((int)(((byte)(200)))));
+            this.btnAddNewLocalApplication.ParticleCount = 15;
+            this.btnAddNewLocalApplication.PressAnimationScale = 0.97F;
+            this.btnAddNewLocalApplication.PressedBackColor = System.Drawing.Color.Transparent;
+            this.btnAddNewLocalApplication.PressedFontStyle = System.Drawing.FontStyle.Regular;
+            this.btnAddNewLocalApplication.PressTransitionDuration = 150;
+            this.btnAddNewLocalApplication.ReadOnlyTextColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(100)))), ((int)(((byte)(100)))));
+            this.btnAddNewLocalApplication.RippleColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.btnAddNewLocalApplication.RippleOpacity = 0.3F;
+            this.btnAddNewLocalApplication.RippleRadiusMultiplier = 0.6F;
+            this.btnAddNewLocalApplication.ShadowBlur = 5;
+            this.btnAddNewLocalApplication.ShadowColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.btnAddNewLocalApplication.ShadowOffset = new System.Drawing.Point(2, 2);
+            this.btnAddNewLocalApplication.ShakeDuration = 500;
+            this.btnAddNewLocalApplication.ShakeIntensity = 5;
+            this.btnAddNewLocalApplication.Size = new System.Drawing.Size(65, 60);
+            this.btnAddNewLocalApplication.TabIndex = 63;
+            this.btnAddNewLocalApplication.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.btnAddNewLocalApplication.TextColor = System.Drawing.Color.White;
+            this.btnAddNewLocalApplication.TooltipText = null;
+            this.btnAddNewLocalApplication.UseAdvancedRendering = true;
+            this.btnAddNewLocalApplication.UseParticles = false;
+            this.btnAddNewLocalApplication.Click += new System.EventHandler(this.btnAddNewLocalApplication_Click);
             // 
             // txtFilter
             // 
@@ -254,84 +257,84 @@
             this.txtFilter.Visible = false;
             this.txtFilter.TextChanged += new System.EventHandler(this.txtFilter_TextChanged);
             // 
-            // btnClose
+            // btnCloseForm
             // 
-            this.btnClose.AccessibleDescription = "The default button control that accept input though the mouse, touch and keyboard" +
+            this.btnCloseForm.AccessibleDescription = "The default button control that accept input though the mouse, touch and keyboard" +
     "";
-            this.btnClose.AccessibleName = "Close";
-            this.btnClose.AutoSizeBasedOnText = false;
-            this.btnClose.BackColor = System.Drawing.Color.Transparent;
-            this.btnClose.BadgeBackColor = System.Drawing.Color.Red;
-            this.btnClose.BadgeFont = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnClose.BadgeValue = 0;
-            this.btnClose.BadgeValueForeColor = System.Drawing.Color.White;
-            this.btnClose.BorderColor = System.Drawing.Color.Transparent;
-            this.btnClose.BorderWidth = 2;
-            this.btnClose.ButtonBackColor = System.Drawing.Color.Silver;
-            this.btnClose.ButtonImage = null;
-            this.btnClose.CanBeep = true;
-            this.btnClose.CanGlow = false;
-            this.btnClose.CanShake = true;
-            this.btnClose.ContextMenuStripEx = null;
-            this.btnClose.CornerRadiusBottomLeft = 20;
-            this.btnClose.CornerRadiusBottomRight = 20;
-            this.btnClose.CornerRadiusTopLeft = 20;
-            this.btnClose.CornerRadiusTopRight = 20;
-            this.btnClose.CustomCursor = System.Windows.Forms.Cursors.Default;
-            this.btnClose.DisabledTextColor = System.Drawing.Color.FromArgb(((int)(((byte)(150)))), ((int)(((byte)(150)))), ((int)(((byte)(150)))));
-            this.btnClose.EnableLongPress = false;
-            this.btnClose.EnablePressAnimation = true;
-            this.btnClose.EnableRippleEffect = true;
-            this.btnClose.EnableShadow = false;
-            this.btnClose.EnableTextWrapping = false;
-            this.btnClose.Font = new System.Drawing.Font("Segoe UI", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnClose.ForeColor = System.Drawing.Color.Transparent;
-            this.btnClose.GlowColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.btnClose.GlowIntensity = 100;
-            this.btnClose.GlowRadius = 20F;
-            this.btnClose.GradientBackground = false;
-            this.btnClose.GradientColor = System.Drawing.Color.FromArgb(((int)(((byte)(114)))), ((int)(((byte)(168)))), ((int)(((byte)(255)))));
-            this.btnClose.GradientMode = System.Drawing.Drawing2D.LinearGradientMode.Vertical;
-            this.btnClose.HintText = null;
-            this.btnClose.HoverBackColor = System.Drawing.Color.DimGray;
-            this.btnClose.HoverFontStyle = System.Drawing.FontStyle.Regular;
-            this.btnClose.HoverTextColor = System.Drawing.Color.Black;
-            this.btnClose.HoverTransitionDuration = 250;
-            this.btnClose.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnClose.ImagePadding = 5;
-            this.btnClose.ImageSize = new System.Drawing.Size(16, 16);
-            this.btnClose.IsRadial = false;
-            this.btnClose.IsReadOnly = false;
-            this.btnClose.IsToggleButton = false;
-            this.btnClose.IsToggled = false;
-            this.btnClose.Location = new System.Drawing.Point(1054, 666);
-            this.btnClose.LongPressDurationMS = 1000;
-            this.btnClose.Name = "btnClose";
-            this.btnClose.NormalFontStyle = System.Drawing.FontStyle.Regular;
-            this.btnClose.ParticleColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(200)))), ((int)(((byte)(200)))));
-            this.btnClose.ParticleCount = 15;
-            this.btnClose.PressAnimationScale = 0.97F;
-            this.btnClose.PressedBackColor = System.Drawing.Color.Red;
-            this.btnClose.PressedFontStyle = System.Drawing.FontStyle.Regular;
-            this.btnClose.PressTransitionDuration = 150;
-            this.btnClose.ReadOnlyTextColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(100)))), ((int)(((byte)(100)))));
-            this.btnClose.RippleColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.btnClose.RippleOpacity = 0.3F;
-            this.btnClose.RippleRadiusMultiplier = 0.6F;
-            this.btnClose.ShadowBlur = 5;
-            this.btnClose.ShadowColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.btnClose.ShadowOffset = new System.Drawing.Point(2, 2);
-            this.btnClose.ShakeDuration = 500;
-            this.btnClose.ShakeIntensity = 5;
-            this.btnClose.Size = new System.Drawing.Size(125, 39);
-            this.btnClose.TabIndex = 61;
-            this.btnClose.Text = "Close";
-            this.btnClose.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.btnClose.TextColor = System.Drawing.Color.Black;
-            this.btnClose.TooltipText = null;
-            this.btnClose.UseAdvancedRendering = true;
-            this.btnClose.UseParticles = false;
-            this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
+            this.btnCloseForm.AccessibleName = "Close";
+            this.btnCloseForm.AutoSizeBasedOnText = false;
+            this.btnCloseForm.BackColor = System.Drawing.Color.Transparent;
+            this.btnCloseForm.BadgeBackColor = System.Drawing.Color.Red;
+            this.btnCloseForm.BadgeFont = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCloseForm.BadgeValue = 0;
+            this.btnCloseForm.BadgeValueForeColor = System.Drawing.Color.White;
+            this.btnCloseForm.BorderColor = System.Drawing.Color.Transparent;
+            this.btnCloseForm.BorderWidth = 2;
+            this.btnCloseForm.ButtonBackColor = System.Drawing.Color.Silver;
+            this.btnCloseForm.ButtonImage = null;
+            this.btnCloseForm.CanBeep = true;
+            this.btnCloseForm.CanGlow = false;
+            this.btnCloseForm.CanShake = true;
+            this.btnCloseForm.ContextMenuStripEx = null;
+            this.btnCloseForm.CornerRadiusBottomLeft = 20;
+            this.btnCloseForm.CornerRadiusBottomRight = 20;
+            this.btnCloseForm.CornerRadiusTopLeft = 20;
+            this.btnCloseForm.CornerRadiusTopRight = 20;
+            this.btnCloseForm.CustomCursor = System.Windows.Forms.Cursors.Default;
+            this.btnCloseForm.DisabledTextColor = System.Drawing.Color.FromArgb(((int)(((byte)(150)))), ((int)(((byte)(150)))), ((int)(((byte)(150)))));
+            this.btnCloseForm.EnableLongPress = false;
+            this.btnCloseForm.EnablePressAnimation = true;
+            this.btnCloseForm.EnableRippleEffect = true;
+            this.btnCloseForm.EnableShadow = false;
+            this.btnCloseForm.EnableTextWrapping = false;
+            this.btnCloseForm.Font = new System.Drawing.Font("Segoe UI", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCloseForm.ForeColor = System.Drawing.Color.Transparent;
+            this.btnCloseForm.GlowColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.btnCloseForm.GlowIntensity = 100;
+            this.btnCloseForm.GlowRadius = 20F;
+            this.btnCloseForm.GradientBackground = false;
+            this.btnCloseForm.GradientColor = System.Drawing.Color.FromArgb(((int)(((byte)(114)))), ((int)(((byte)(168)))), ((int)(((byte)(255)))));
+            this.btnCloseForm.GradientMode = System.Drawing.Drawing2D.LinearGradientMode.Vertical;
+            this.btnCloseForm.HintText = null;
+            this.btnCloseForm.HoverBackColor = System.Drawing.Color.DimGray;
+            this.btnCloseForm.HoverFontStyle = System.Drawing.FontStyle.Regular;
+            this.btnCloseForm.HoverTextColor = System.Drawing.Color.Black;
+            this.btnCloseForm.HoverTransitionDuration = 250;
+            this.btnCloseForm.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnCloseForm.ImagePadding = 5;
+            this.btnCloseForm.ImageSize = new System.Drawing.Size(16, 16);
+            this.btnCloseForm.IsRadial = false;
+            this.btnCloseForm.IsReadOnly = false;
+            this.btnCloseForm.IsToggleButton = false;
+            this.btnCloseForm.IsToggled = false;
+            this.btnCloseForm.Location = new System.Drawing.Point(1054, 666);
+            this.btnCloseForm.LongPressDurationMS = 1000;
+            this.btnCloseForm.Name = "btnCloseForm";
+            this.btnCloseForm.NormalFontStyle = System.Drawing.FontStyle.Regular;
+            this.btnCloseForm.ParticleColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(200)))), ((int)(((byte)(200)))));
+            this.btnCloseForm.ParticleCount = 15;
+            this.btnCloseForm.PressAnimationScale = 0.97F;
+            this.btnCloseForm.PressedBackColor = System.Drawing.Color.Red;
+            this.btnCloseForm.PressedFontStyle = System.Drawing.FontStyle.Regular;
+            this.btnCloseForm.PressTransitionDuration = 150;
+            this.btnCloseForm.ReadOnlyTextColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(100)))), ((int)(((byte)(100)))));
+            this.btnCloseForm.RippleColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.btnCloseForm.RippleOpacity = 0.3F;
+            this.btnCloseForm.RippleRadiusMultiplier = 0.6F;
+            this.btnCloseForm.ShadowBlur = 5;
+            this.btnCloseForm.ShadowColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.btnCloseForm.ShadowOffset = new System.Drawing.Point(2, 2);
+            this.btnCloseForm.ShakeDuration = 500;
+            this.btnCloseForm.ShakeIntensity = 5;
+            this.btnCloseForm.Size = new System.Drawing.Size(125, 39);
+            this.btnCloseForm.TabIndex = 61;
+            this.btnCloseForm.Text = "Close";
+            this.btnCloseForm.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.btnCloseForm.TextColor = System.Drawing.Color.Black;
+            this.btnCloseForm.TooltipText = null;
+            this.btnCloseForm.UseAdvancedRendering = true;
+            this.btnCloseForm.UseParticles = false;
+            this.btnCloseForm.Click += new System.EventHandler(this.btnCloseForm_Click);
             // 
             // siticonePanel1
             // 
@@ -455,9 +458,9 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1191, 715);
-            this.Controls.Add(this.btnAddNew);
+            this.Controls.Add(this.btnAddNewLocalApplication);
             this.Controls.Add(this.txtFilter);
-            this.Controls.Add(this.btnClose);
+            this.Controls.Add(this.btnCloseForm);
             this.Controls.Add(this.siticonePanel1);
             this.Controls.Add(this.lblRecordsCount);
             this.Controls.Add(this.label3);
@@ -491,9 +494,9 @@
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator3;
         private System.Windows.Forms.ToolStripMenuItem CancelApplicationToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem ScheduleTestsToolStripMenuItem;
-        private SiticoneNetFrameworkUI.SiticoneButton btnAddNew;
+        private SiticoneNetFrameworkUI.SiticoneButton btnAddNewLocalApplication;
         private System.Windows.Forms.MaskedTextBox txtFilter;
-        private SiticoneNetFrameworkUI.SiticoneButton btnClose;
+        private SiticoneNetFrameworkUI.SiticoneButton btnCloseForm;
         private SiticoneNetFrameworkUI.SiticonePanel siticonePanel1;
         private System.Windows.Forms.DataGridView dgvLocalDrivingLicenseApplications;
         private System.Windows.Forms.Label lblRecordsCount;

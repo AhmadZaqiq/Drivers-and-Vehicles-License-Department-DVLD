@@ -111,6 +111,7 @@
     </Compile>
     <Compile Include="Global\clsCurrentUser.cs" />
     <Compile Include="Global\clsFormUtil.cs" />
+    <Compile Include="Global\clsMessageBoxManager.cs" />
     <Compile Include="Local Driving Application\frmAddAndUpdateLocalDrivingApplication.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -590,6 +591,27 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\ic_fluent_number_symbol_square_24_filled.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ic_fluent_text_bullet_list_square_edit_24_filled.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ic_fluent_delete_24_filled.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ic_fluent_share_screen_stop_24_filled.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ic_fluent_timer_24_filled.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ic_fluent_slide_add_24_filled %281%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ic_fluent_contact_card_24_filled %281%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ic_fluent_apps_list_detail_24_filled.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

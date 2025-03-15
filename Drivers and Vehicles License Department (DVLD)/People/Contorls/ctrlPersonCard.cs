@@ -15,8 +15,11 @@ namespace Drivers_and_Vehicles_License_Department__DVLD_
     public partial class ctrlPersonCard : UserControl
     {
         private frmListPeople _frmPeople = new frmListPeople();
+
         private clsPerson _Person = new clsPerson();
+
         private clsCountry _Country = new clsCountry();
+
         private int _PersonID;
 
         public ctrlPersonCard()
@@ -59,8 +62,9 @@ namespace Drivers_and_Vehicles_License_Department__DVLD_
         private void _ClearPersonDetails()
         {
             if (_PersonID != -1)
+            {
                 return;
-
+            }
 
             lblPersonID.Text = "N\\A";
             lblName.Text = "N\\A";
@@ -76,7 +80,7 @@ namespace Drivers_and_Vehicles_License_Department__DVLD_
 
         private void _FillPersonData()
         {
-            if ((_PersonID == -1))
+            if (_PersonID == -1)
             {
                 _ClearPersonDetails();
                 return;
@@ -87,7 +91,9 @@ namespace Drivers_and_Vehicles_License_Department__DVLD_
             _Country = clsCountry.GetCountryByPersonID(_PersonID);
 
             if (_Person == null)
+            {
                 return;
+            }
 
             lblName.Text = $"{_Person.FirstName} {_Person.SecondName} {_Person.ThirdName} {_Person.LastName}";
             lblNationalNO.Text = _Person.NationalNo;
@@ -102,11 +108,14 @@ namespace Drivers_and_Vehicles_License_Department__DVLD_
         private void btnEditInfoClick(object sender, EventArgs e)
         {
             if (_Person == null)
+            {
                 return;
+            }
 
             frmAddAndUpdatePeople frmAddAndUpdatePeople = new frmAddAndUpdatePeople(_Person.PersonID, _frmPeople);
             frmAddAndUpdatePeople.ShowDialog();
         }
+
 
     }
 }

@@ -38,12 +38,13 @@ namespace DVLD_Business
         {
             return  clsApplicationTypesData.GetAllApplicationTypesData();
         }
+
         public static clsApplicationType GetApplicationTypeByID(int ApplicationTypeID)
         {        
             string ApplicationTypeTitle = "";
             decimal ApplicationFees= 0;
 
-            if (!clsApplicationTypesData.GetApplicationTypeByID(ApplicationTypeID, ref ApplicationTypeTitle, ref ApplicationFees))
+            if (!clsApplicationTypesData.GetApplicationTypeByIDData(ApplicationTypeID, ref ApplicationTypeTitle, ref ApplicationFees))
                 return null;
 
                 return new clsApplicationType(ApplicationTypeID,ApplicationTypeTitle,ApplicationFees);
@@ -51,10 +52,8 @@ namespace DVLD_Business
 
         public bool UpdateApplicationType()
         {
-            return clsApplicationTypesData.UpdateApplicationType(this.ApplicationTypeID,this.ApplicationTypeTitle,this.ApplicationTypeFees);
+            return clsApplicationTypesData.UpdateApplicationTypeData(this.ApplicationTypeID,this.ApplicationTypeTitle,this.ApplicationTypeFees);
         }
-
-
 
 
     }

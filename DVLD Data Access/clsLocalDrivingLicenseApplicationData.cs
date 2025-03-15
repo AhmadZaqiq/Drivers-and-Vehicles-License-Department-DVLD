@@ -11,14 +11,13 @@ namespace DVLD_Data_Access
 {
     public class clsLocalDrivingLicenseApplicationData
     {
-        public static DataTable GetAllLocalDrivingLicenseApplications()
+        public static DataTable GetAllLocalDrivingLicenseApplicationsData()
         {
             DataTable dt = new DataTable();
 
             SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString);
 
-            string query = @"
-                             SELECT  
+            string query = @"SELECT  
                                  LocalDrivingLicenseApplications.LocalDrivingLicenseApplicationID, 
                                  LicenseClasses.ClassName, 
                                  People.NationalNo, 
@@ -63,7 +62,7 @@ namespace DVLD_Data_Access
 
             catch (Exception ex)
             {
-
+                Console.WriteLine(ex.Message);
             }
 
             finally
@@ -74,15 +73,15 @@ namespace DVLD_Data_Access
             return dt;
         }
 
-        public static bool GetLocalDrivingLicenseApplicationByID(int LocalDrivingLicenseApplicationID, ref int ApplicationID, ref int LicenseClassID)
+        public static bool GetLocalDrivingLicenseApplicationByIDData(int LocalDrivingLicenseApplicationID, ref int ApplicationID, ref int LicenseClassID)
         {
             SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString);
 
             bool IsFound = false;
 
-            string query = @" SELECT *
-                              FROM Applications
-                              WHERE LocalDrivingLicenseApplicationID = @LocalDrivingLicenseApplicationID";
+            string query = @"SELECT *
+                             FROM Applications
+                             WHERE LocalDrivingLicenseApplicationID = @LocalDrivingLicenseApplicationID";
 
             SqlCommand command = new SqlCommand(query, connection);
 
@@ -107,7 +106,7 @@ namespace DVLD_Data_Access
 
             catch (Exception ex)
             {
-
+                Console.WriteLine(ex.Message);
             }
 
             finally
@@ -118,16 +117,15 @@ namespace DVLD_Data_Access
             return IsFound;
         }
 
-        public static int AddNewLocalDrivingLicenseApplication(int ApplicationID, int LicenseClassID)
+        public static int AddNewLocalDrivingLicenseApplicationData(int ApplicationID, int LicenseClassID)
         {
             SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString);
 
             int LocalDrivingLicenseApplicationID = -1;
 
-            string query = "INSERT INTO dbo.LocalDrivingLicenseApplications (ApplicationID, LicenseClassID) " +
-                        "VALUES (@ApplicationID, @LicenseClassID); " +
-                        "SELECT SCOPE_IDENTITY();";
-
+            string query = @"INSERT INTO LocalDrivingLicenseApplications (ApplicationID, LicenseClassID) 
+                             VALUES (@ApplicationID, @LicenseClassID);  
+                             SELECT SCOPE_IDENTITY();";
 
 
             SqlCommand command = new SqlCommand(query, connection);
@@ -146,14 +144,12 @@ namespace DVLD_Data_Access
                 {
                     LocalDrivingLicenseApplicationID = insertedID;
                 }
-
-                else
-                {
-
-                }
             }
 
-            catch (Exception ex) { }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
 
             finally
             {
@@ -163,15 +159,16 @@ namespace DVLD_Data_Access
             return LocalDrivingLicenseApplicationID;
         }
 
-        public static bool UpdateLocalDrivingLicenseApplication(int LocalDrivingLicenseApplicationID, int ApplicationID, int LicenseClassID)
+        public static bool UpdateLocalDrivingLicenseApplicationData(int LocalDrivingLicenseApplicationID, int ApplicationID, int LicenseClassID)
         {
             SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString);
 
             bool UpdatedSuccessfully = false;
 
-            string query = "UPDATE dbo.LocalDrivingLicenseApplications " +
-                           "SET ApplicationID = @ApplicationID, LicenseClassID = @LicenseClassID " +
-                           "WHERE LocalDrivingLicenseApplicationID = @LocalDrivingLicenseApplicationID";
+            string query = @"UPDATE LocalDrivingLicenseApplications 
+                             SET ApplicationID = @ApplicationID,
+                                 LicenseClassID = @LicenseClassID 
+                             WHERE LocalDrivingLicenseApplicationID = @LocalDrivingLicenseApplicationID";
 
 
             SqlCommand command = new SqlCommand(query, connection);
@@ -191,7 +188,7 @@ namespace DVLD_Data_Access
 
             catch (Exception ex)
             {
-
+                Console.WriteLine(ex.Message);
             }
 
             finally
@@ -202,7 +199,7 @@ namespace DVLD_Data_Access
             return UpdatedSuccessfully;
         }
 
-        public static bool IsPersonDeniedForClass(int ApplicantPersonID, int ApplicationTypeID, int LicenseClassID)
+        public static bool IsPersonDeniedForClassData(int ApplicantPersonID, int ApplicationTypeID, int LicenseClassID)
         {
             bool IsFound = false;
 
@@ -240,7 +237,7 @@ namespace DVLD_Data_Access
 
             catch (Exception ex)
             {
-
+                Console.WriteLine(ex.Message);
             }
 
             finally
@@ -251,7 +248,7 @@ namespace DVLD_Data_Access
             return IsFound;
         }
 
-        public static bool DeleteLocalDrivingLicenseApplication(int LocalDrivingLicenseApplicationID)
+        public static bool DeleteLocalDrivingLicenseApplicationData(int LocalDrivingLicenseApplicationID)
         {
             bool DeletedSuccessfully = false;
 
@@ -276,7 +273,7 @@ namespace DVLD_Data_Access
             }
             catch (Exception ex)
             {
-
+                Console.WriteLine(ex.Message);
             }
 
             finally
@@ -295,13 +292,11 @@ namespace DVLD_Data_Access
 
             bool CancelledSuccessfully = false;
 
-             string query = @"
-                               UPDATE dbo.Applications 
-                               SET ApplicationStatus = @CancelledStatus
-                               WHERE ApplicationID = (
+            string query = @"UPDATE dbo.Applications 
+                             SET ApplicationStatus = @CancelledStatus
+                             WHERE ApplicationID = (
                                    SELECT ApplicationID FROM LocalDrivingLicenseApplications 
-                                   WHERE LocalDrivingLicenseApplicationID = @LocalDrivingLicenseApplicationID
-                             )";
+                                   WHERE LocalDrivingLicenseApplicationID = @LocalDrivingLicenseApplicationID )";
 
             SqlCommand command = new SqlCommand(query, connection);
 
@@ -319,7 +314,7 @@ namespace DVLD_Data_Access
 
             catch (Exception ex)
             {
-
+                Console.WriteLine(ex.Message);
             }
 
             finally
@@ -329,6 +324,7 @@ namespace DVLD_Data_Access
 
             return CancelledSuccessfully;
         }
+
 
     }
 }

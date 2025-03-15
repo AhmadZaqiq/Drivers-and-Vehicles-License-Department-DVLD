@@ -35,7 +35,7 @@
             this.siticoneLabel3 = new SiticoneNetFrameworkUI.SiticoneLabel();
             this.lblUserID = new SiticoneNetFrameworkUI.SiticoneLabel();
             this.siticoneLabel2 = new SiticoneNetFrameworkUI.SiticoneLabel();
-            this.ctrlPersonDetails1 = new Drivers_and_Vehicles_License_Department__DVLD_.ctrlPersonCard();
+            this.ctrlPersonCard1 = new Drivers_and_Vehicles_License_Department__DVLD_.ctrlPersonCard();
             this.siticonePanel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -152,21 +152,21 @@
             // 
             // ctrlPersonDetails1
             // 
-            this.ctrlPersonDetails1.BackColor = System.Drawing.Color.White;
-            this.ctrlPersonDetails1.Font = new System.Drawing.Font("Segoe UI Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ctrlPersonDetails1.Location = new System.Drawing.Point(0, 0);
-            this.ctrlPersonDetails1.Margin = new System.Windows.Forms.Padding(5);
-            this.ctrlPersonDetails1.Name = "ctrlPersonDetails1";
-            this.ctrlPersonDetails1.PersonID = 0;
-            this.ctrlPersonDetails1.Size = new System.Drawing.Size(1157, 646);
-            this.ctrlPersonDetails1.TabIndex = 0;
+            this.ctrlPersonCard1.BackColor = System.Drawing.Color.White;
+            this.ctrlPersonCard1.Font = new System.Drawing.Font("Segoe UI Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ctrlPersonCard1.Location = new System.Drawing.Point(0, 0);
+            this.ctrlPersonCard1.Margin = new System.Windows.Forms.Padding(5);
+            this.ctrlPersonCard1.Name = "ctrlPersonDetails1";
+            this.ctrlPersonCard1.PersonID = 0;
+            this.ctrlPersonCard1.Size = new System.Drawing.Size(1157, 646);
+            this.ctrlPersonCard1.TabIndex = 0;
             // 
             // ctrlUserDetails
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.siticonePanel1);
-            this.Controls.Add(this.ctrlPersonDetails1);
+            this.Controls.Add(this.ctrlPersonCard1);
             this.Name = "ctrlUserDetails";
             this.Size = new System.Drawing.Size(1157, 740);
             this.siticonePanel1.ResumeLayout(false);
@@ -176,7 +176,7 @@
 
         #endregion
 
-        private ctrlPersonCard ctrlPersonDetails1;
+        private ctrlPersonCard ctrlPersonCard1;
         private SiticoneNetFrameworkUI.SiticonePanel siticonePanel1;
         private SiticoneNetFrameworkUI.SiticoneLabel lblIsAcitve;
         private SiticoneNetFrameworkUI.SiticoneLabel siticoneLabel4;

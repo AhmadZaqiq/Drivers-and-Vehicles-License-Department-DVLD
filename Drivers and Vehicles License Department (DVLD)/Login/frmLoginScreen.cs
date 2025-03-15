@@ -21,7 +21,7 @@ namespace Drivers_and_Vehicles_License_Department__DVLD_.Login
 
         private clsUser _User;
 
-        static string FileName = "UserSession.txt";
+        static string UserSessionFileName = "UserSession.txt";
 
         public frmLoginScreen()
         {
@@ -51,35 +51,26 @@ namespace Drivers_and_Vehicles_License_Department__DVLD_.Login
         private void _SaveValuesOnFile(string Username, string Password)
         {
             string Data = Username + "#%%#" + Password;
-            File.WriteAllText(FileName, Data);
+            File.WriteAllText(UserSessionFileName, Data);
         }
 
         private void _LoadValuesFromFile()
         {
-            if (File.Exists(FileName))
+            if (!File.Exists(UserSessionFileName))
             {
-                string Data = File.ReadAllText(FileName);
-
-                string[] Parts = Data.Split(new string[] { "#%%#" }, StringSplitOptions.None);
-
-                if (Parts.Length == 2)
-                {
-                    txtUsername.Text = Parts[0];
-                    txtPassword.Text = Parts[1];
-                }
-            }
-        }
-
-        private void _LoginUser()
-        {
-            if (!_CheckCredentials())
                 return;
+            }
 
-            _SaveUserSession();
-            clsCurrentUser.CurrentUser = _User;
+            string data = File.ReadAllText(UserSessionFileName);
+            string[] parts = data.Split(new string[] { "#%%#" }, StringSplitOptions.None);
 
-            frmMainMenu FormMainMenu = new frmMainMenu();
-            FormMainMenu.ShowDialog();
+            if (parts.Length != 2)
+            {
+                return;
+            }
+
+            txtUsername.Text = parts[0];
+            txtPassword.Text = parts[1];
         }
 
         private bool _CheckCredentials()
@@ -90,22 +81,17 @@ namespace Drivers_and_Vehicles_License_Department__DVLD_.Login
 
             if (_User == null || (_User.Password != Password))
             {
-                MessageBox.Show("Invalid Username/Password", "Wrong Credentials", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                clsMessageBoxManager.ShowMessageBox("Invalid Username/Password", "Wrong Credentials", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return false;
             }
 
             if (!_User.IsActive)
             {
-                MessageBox.Show("Your account is inactive please contact the admin", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                clsMessageBoxManager.ShowMessageBox("Your account is inactive please contact the admin", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return false;
             }
 
             return true;
-        }
-
-        private void btnClose_Click(object sender, EventArgs e)
-        {
-            clsFormUtil.CloseFormEffect(this);
         }
 
         private void btnFacebook_Click(object sender, EventArgs e)
@@ -143,7 +129,21 @@ namespace Drivers_and_Vehicles_License_Department__DVLD_.Login
 
         private void btnLogin_Click(object sender, EventArgs e)
         {
-            _LoginUser();
+            if (!_CheckCredentials())
+            {
+                return;
+            }
+
+            _SaveUserSession();
+            clsCurrentUser.CurrentUser = _User;
+
+            frmMainMenu FormMainMenu = new frmMainMenu();
+            FormMainMenu.ShowDialog();
+        }
+
+        private void btnCloseForm_Click(object sender, EventArgs e)
+        {
+            clsFormUtil.CloseFormEffect(this);
         }
 
         private void txtPassword_TextChanged(object sender, EventArgs e)
@@ -158,5 +158,7 @@ namespace Drivers_and_Vehicles_License_Department__DVLD_.Login
             txtPassword.UseSystemPasswordChar = !IsHidden;
             btnShowHidePassword.BackgroundImage = IsHidden ? Resources.eye_46_512 : Resources.eye_50_512;
         }
+
+
     }
 }

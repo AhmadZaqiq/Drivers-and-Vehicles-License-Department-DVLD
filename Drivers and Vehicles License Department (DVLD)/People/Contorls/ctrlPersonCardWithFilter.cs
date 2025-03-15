@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Drivers_and_Vehicles_License_Department__DVLD_.Global;
 
 namespace Drivers_and_Vehicles_License_Department__DVLD_.People.Contorls
 {
@@ -49,14 +50,16 @@ namespace Drivers_and_Vehicles_License_Department__DVLD_.People.Contorls
         private void _GetPersonDetailsByID()
         {
             if (String.IsNullOrEmpty((txtFilter.Text)))
+            {
                 return;
+            }
 
             _PersonID = Convert.ToInt32(txtFilter.Text.Trim());
 
             if (!clsPerson.IsPersonExists(_PersonID))
             {
-                MessageBox.Show($"There is No Person with ID: {_PersonID}",
-                                 "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                clsMessageBoxManager.ShowMessageBox($"There is No Person with ID: {_PersonID}",
+                                                     "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
 
                 ctrlShowPersonDetails1.PersonID = -1;
 
@@ -75,8 +78,8 @@ namespace Drivers_and_Vehicles_License_Department__DVLD_.People.Contorls
 
             if (!clsPerson.IsPersonExists(NationalNo))
             {
-                MessageBox.Show($"There is No Person with NationalNo: {NationalNo}",
-                                 "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                clsMessageBoxManager.ShowMessageBox($"There is No Person with NationalNo: {NationalNo}",
+                                                     "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
 
                 ctrlShowPersonDetails1.PersonID = -1;
 
@@ -102,23 +105,20 @@ namespace Drivers_and_Vehicles_License_Department__DVLD_.People.Contorls
                     break;
 
                 default:
-                    MessageBox.Show("Invalid filter selection.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    clsMessageBoxManager.ShowMessageBox("Invalid filter selection.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     break;
             }
         }
 
+        private void btnAddNewPerson_Click(object sender, EventArgs e)
+        {
+            frmAddAndUpdatePeople AddNewPersonForm = new frmAddAndUpdatePeople(-1, _frmPeople);
+            AddNewPersonForm.ShowDialog();
+        }
+
         private void cbFilter_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (cbFilter.SelectedItem.ToString() == "None")
-            {
-                txtFilter.Visible = false;
-            }
-
-            else
-            {
-                txtFilter.Visible = true;
-            }
-
+            txtFilter.Visible = cbFilter.SelectedItem.ToString() != "None";
 
             if (cbFilter.SelectedItem.ToString() == "PersonID")
             {
@@ -133,30 +133,6 @@ namespace Drivers_and_Vehicles_License_Department__DVLD_.People.Contorls
 
             txtFilter.Focus();
         }
-
-        private void btnAddNewPerson_Click(object sender, EventArgs e)
-        {
-            frmAddAndUpdatePeople AddNewPersonForm = new frmAddAndUpdatePeople(-1, _frmPeople);
-            AddNewPersonForm.ShowDialog();
-        }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
     }

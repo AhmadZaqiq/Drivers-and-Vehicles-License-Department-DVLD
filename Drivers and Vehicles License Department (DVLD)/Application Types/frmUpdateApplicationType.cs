@@ -45,7 +45,9 @@ namespace Drivers_and_Vehicles_License_Department__DVLD_.Application_Types
         private void _PopulateApplicationTypeFields()
         {
             if (_ApplicationType == null)
+            {
                 return;
+            }
 
             lblID.Text = _ApplicationTypeID.ToString();
             txtApplicationTypeTitle.Text = _ApplicationType.ApplicationTypeTitle.ToString();
@@ -57,36 +59,35 @@ namespace Drivers_and_Vehicles_License_Department__DVLD_.Application_Types
             string ApplicationTypeTitle = txtApplicationTypeTitle.Text.Trim();
 
             if (string.IsNullOrWhiteSpace(ApplicationTypeTitle))
+            {
                 return false;
+            }
 
             if (!decimal.TryParse(txtApplicationTypeFees.Text.Trim(), out decimal ApplicationTypeFees) || ApplicationTypeFees < 0)
+            {
                 return false;
+            }
 
             _ApplicationType.ApplicationTypeTitle = ApplicationTypeTitle;
             _ApplicationType.ApplicationTypeFees = ApplicationTypeFees;
             return true;
         }
 
-        private void _ShowMessageBox(string Message, string Title, MessageBoxButtons Button, MessageBoxIcon Icon)
-        {
-            MessageBox.Show(Message, Title, Button, Icon);
-        }
-
         private void btnSave_Click(object sender, EventArgs e)
         {
             if (!_ValidateAndSetApplicationTypeData())
             {
-                _ShowMessageBox("Please make sure the entered values ​​are valid.", "Failed", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                clsMessageBoxManager.ShowMessageBox("Please make sure the entered values ​​are valid.", "Failed", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
 
             if (!_ApplicationType.UpdateApplicationType())
             {
-                _ShowMessageBox("Data Not Saved.", "Failed", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                clsMessageBoxManager.ShowMessageBox("Data Not Saved.", "Failed", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
 
-            _ShowMessageBox("Application type updated successfully", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            clsMessageBoxManager.ShowMessageBox("Application type updated successfully", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
             DataAdded?.Invoke();
         }
 

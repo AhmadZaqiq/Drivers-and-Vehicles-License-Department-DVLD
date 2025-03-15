@@ -43,10 +43,9 @@ namespace Drivers_and_Vehicles_License_Department__DVLD_
             lblPersonID.Text = (PersonID == -1) ? "N/A" : PersonID.ToString();
         }
 
-        private void btnClose_Click(object sender, EventArgs e)
+        private void btnCloseForm_Click(object sender, EventArgs e)
         {
             clsFormUtil.CloseFormEffect(this);
         }
-
     }
 }

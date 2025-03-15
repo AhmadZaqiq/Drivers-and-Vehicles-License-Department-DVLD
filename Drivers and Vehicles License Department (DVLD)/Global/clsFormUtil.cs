@@ -11,6 +11,8 @@ namespace Drivers_and_Vehicles_License_Department__DVLD_.Global
 {
     public class clsFormUtil
     {
+        private clsFormUtil() { }
+
         public static void MakeRoundedCorners(Form form, int borderRadius)
         {
             GraphicsPath path = new GraphicsPath();
