@@ -22,9 +22,9 @@ namespace Drivers_and_Vehicles_License_Department__DVLD_
 
             _FillPeopleComboBox();
 
-            clsFormUtil.MakeRoundedCorners(this, 30); //to make the form rounded
+            clsUtil.MakeRoundedCorners(this, 30); //to make the form rounded
 
-            clsFormUtil.OpenFormEffect(this);
+            clsUtil.OpenFormEffect(this);
         }
 
         private void _FillPeopleComboBox()
@@ -101,7 +101,7 @@ namespace Drivers_and_Vehicles_License_Department__DVLD_
 
         private void btnCloseForm_Click(object sender, EventArgs e)
         {
-            clsFormUtil.CloseFormEffect(this);
+            clsUtil.CloseFormEffect(this);
         }
 
         private void ShowDetailsToolStripMenuItem_Click(object sender, EventArgs e)

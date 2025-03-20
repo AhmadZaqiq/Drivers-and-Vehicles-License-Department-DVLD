@@ -31,9 +31,9 @@ namespace Drivers_and_Vehicles_License_Department__DVLD_.Users.Forms
 
         private void frmAddNewUser_Load(object sender, EventArgs e)
         {
-            clsFormUtil.MakeRoundedCorners(this, 30); //to make the form rounded
+            clsUtil.MakeRoundedCorners(this, 30); //to make the form rounded
 
-            clsFormUtil.OpenFormEffect(this);
+            clsUtil.OpenFormEffect(this);
         }
 
         private void _FillUserInfo()
@@ -94,7 +94,7 @@ namespace Drivers_and_Vehicles_License_Department__DVLD_.Users.Forms
 
         private void btnCancel_Click(object sender, EventArgs e)
         {
-            clsFormUtil.CloseFormEffect(this);
+            clsUtil.CloseFormEffect(this);
         }
 
         private void btnNext_Click(object sender, EventArgs e)

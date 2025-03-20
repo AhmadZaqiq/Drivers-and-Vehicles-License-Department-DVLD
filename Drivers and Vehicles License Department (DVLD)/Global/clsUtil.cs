@@ -9,9 +9,9 @@ using System.Windows.Forms;
 
 namespace Drivers_and_Vehicles_License_Department__DVLD_.Global
 {
-    public class clsFormUtil
+    public class clsUtil
     {
-        private clsFormUtil() { }
+        private clsUtil() { }
 
         public static void MakeRoundedCorners(Form form, int borderRadius)
         {
@@ -59,5 +59,11 @@ namespace Drivers_and_Vehicles_License_Department__DVLD_.Global
             };
             timer.Start();
         }
+
+        public static string ValidGmailPattern = @"^[a-zA-Z0-9._%+-]+@gmail\.com$";
+
+        public static string ValidPhonePattern = @"^\d{8,15}$";
+
+
     }
 }

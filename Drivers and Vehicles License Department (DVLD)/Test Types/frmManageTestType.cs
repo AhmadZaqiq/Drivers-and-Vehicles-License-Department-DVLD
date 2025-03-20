@@ -25,9 +25,9 @@ namespace Drivers_and_Vehicles_License_Department__DVLD_.Test_Types
         {
             RefreshTestTypesDataGrid();
 
-            clsFormUtil.MakeRoundedCorners(this, 30); //to make the form rounded
+            clsUtil.MakeRoundedCorners(this, 30); //to make the form rounded
 
-            clsFormUtil.OpenFormEffect(this);
+            clsUtil.OpenFormEffect(this);
         }
 
         public void RefreshTestTypesDataGrid()
@@ -44,7 +44,7 @@ namespace Drivers_and_Vehicles_License_Department__DVLD_.Test_Types
 
         private void btnCloseForm_Click(object sender, EventArgs e)
         {
-            clsFormUtil.CloseFormEffect(this);
+            clsUtil.CloseFormEffect(this);
         }
 
         private void EditTestTypeToolStripMenuItem_Click(object sender, EventArgs e)

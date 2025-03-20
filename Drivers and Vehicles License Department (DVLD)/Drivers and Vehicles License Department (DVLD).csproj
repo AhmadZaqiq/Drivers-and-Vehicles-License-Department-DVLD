@@ -110,7 +110,7 @@
       <DependentUpon>frmUpdateApplicationType.cs</DependentUpon>
     </Compile>
     <Compile Include="Global\clsCurrentUser.cs" />
-    <Compile Include="Global\clsFormUtil.cs" />
+    <Compile Include="Global\clsUtil.cs" />
     <Compile Include="Global\clsMessageBoxManager.cs" />
     <Compile Include="Local Driving Application\frmAddAndUpdateLocalDrivingApplication.cs">
       <SubType>Form</SubType>

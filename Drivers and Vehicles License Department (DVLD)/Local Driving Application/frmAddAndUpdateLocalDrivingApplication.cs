@@ -52,9 +52,9 @@ namespace Drivers_and_Vehicles_License_Department__DVLD_.Local_Driving_Applicati
 
             _SetDefaultApplicationInfoValues();
 
-            clsFormUtil.MakeRoundedCorners(this, 30); //to make the form rounded
+            clsUtil.MakeRoundedCorners(this, 30); //to make the form rounded
 
-            clsFormUtil.OpenFormEffect(this);
+            clsUtil.OpenFormEffect(this);
         }
 
         private void _FillLicenseClassesComboBox()
@@ -151,7 +151,7 @@ namespace Drivers_and_Vehicles_License_Department__DVLD_.Local_Driving_Applicati
 
         private void btnCloseForm_Click(object sender, EventArgs e)
         {
-            clsFormUtil.CloseFormEffect(this);
+            clsUtil.CloseFormEffect(this);
         }
 
 

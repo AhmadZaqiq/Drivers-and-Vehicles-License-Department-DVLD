@@ -7,6 +7,7 @@ using System.Drawing;
 using System.IO;
 using System.Windows.Forms;
 using Drivers_and_Vehicles_License_Department__DVLD_.Global;
+using System.Text.RegularExpressions;
 
 namespace Drivers_and_Vehicles_License_Department__DVLD_
 {
@@ -130,12 +131,40 @@ namespace Drivers_and_Vehicles_License_Department__DVLD_
 
         private bool _VerifyAllInputs()
         {
-            return !(string.IsNullOrEmpty(txtFirstName.Text) ||
-                     string.IsNullOrEmpty(txtSecondName.Text) ||
-                     string.IsNullOrEmpty(txtLastName.Text) ||
-                     string.IsNullOrEmpty(txtNationalNO.Text) ||
-                     string.IsNullOrEmpty(txtPhone.Text) ||
-                     string.IsNullOrEmpty(txtAddress.Text));
+            string[] InputFields = {
+                                    txtFirstName.Text,
+                                    txtSecondName.Text,
+                                    txtLastName.Text,
+                                    txtNationalNO.Text,
+                                    txtPhone.Text
+                                     };
+
+            for (int i = 0; i < InputFields.Length; i++)
+            {
+                if (string.IsNullOrWhiteSpace(InputFields[i]))
+                {
+                    return false;
+                }
+            }
+
+            return true;
+        }
+
+        private bool _IsValidPhoneAndEmail()
+        {
+            string Email = txtEmail.Text.Trim();
+
+            if (!Regex.IsMatch(txtPhone.Text.Trim(), clsUtil.ValidPhonePattern))
+            {
+                return false;
+            }
+
+            if (!string.IsNullOrWhiteSpace(Email) && !Regex.IsMatch(Email, clsUtil.ValidGmailPattern))
+            {
+                return false;
+            }
+
+            return true;
         }
 
         private void _SetDefaultValues()
@@ -174,13 +203,25 @@ namespace Drivers_and_Vehicles_License_Department__DVLD_
                 return;
             }
 
+            if (!_IsValidPhoneAndEmail())
+            {
+                clsMessageBoxManager.ShowMessageBox("Invalid phone number or email. Please check your inputs.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            if (clsPerson.IsPersonExists(txtNationalNO.Text.Trim()))
+            {
+                clsMessageBoxManager.ShowMessageBox("A person with this national ID is already registered. Please verify the information.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
             _Person = (clsPerson.IsPersonExists(_PersonID)) ? clsPerson.GetPersonByID(_PersonID) : new clsPerson(); // To determine whether Add or Update
 
             _LoadPersonData();
 
             if (!_Person.Save())
             {
-                clsMessageBoxManager.ShowMessageBox("Data not Saved", "Failed", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                clsMessageBoxManager.ShowMessageBox("An error occurred while saving the data. Please try again.", "Save Failed", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
 
@@ -258,27 +299,29 @@ namespace Drivers_and_Vehicles_License_Department__DVLD_
 
         private void txtPhone_Validating(object sender, CancelEventArgs e)
         {
-            if (!string.IsNullOrWhiteSpace(txtPhone.Text.Trim()))
+            string PhoneNumber = txtPhone.Text.Trim();
+
+            if (string.IsNullOrWhiteSpace(PhoneNumber) || !Regex.IsMatch(PhoneNumber, clsUtil.ValidPhonePattern))
             {
-                e.Cancel = false;
-                errorProvider1.SetError(txtPhone, "");
+                e.Cancel = true;
+                txtPhone.Focus();
+                errorProvider1.SetError(txtPhone, "Error, Please enter a valid Phone Number");
                 return;
             }
 
-            e.Cancel = true;
-            txtPhone.Focus();
-            errorProvider1.SetError(txtPhone, "Error, Please enter Phone Number");
+            e.Cancel = false;
+            errorProvider1.SetError(txtPhone, "");
         }
 
         private void txtEmail_Validating(object sender, CancelEventArgs e)
         {
             string Email = txtEmail.Text.Trim();
 
-            if (string.IsNullOrWhiteSpace(Email) || (!Email.ToLower().EndsWith("@gmail.com") || Email.StartsWith("@")))
+            if (!string.IsNullOrWhiteSpace(Email) && !Regex.IsMatch(Email, clsUtil.ValidGmailPattern))
             {
                 e.Cancel = true;
                 txtEmail.Focus();
-                errorProvider1.SetError(txtEmail, string.IsNullOrWhiteSpace(Email) ? "" : "Error, Invalid value");
+                errorProvider1.SetError(txtEmail, "Error, Invalid value");
                 return;
             }
 

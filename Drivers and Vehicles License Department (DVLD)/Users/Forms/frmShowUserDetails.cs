@@ -27,14 +27,14 @@ namespace Drivers_and_Vehicles_License_Department__DVLD_.Users.Forms
         {
             ctrlUserDetails1.UserID = _UserID;
 
-            clsFormUtil.MakeRoundedCorners(this, 30); //to make the form rounded
+            clsUtil.MakeRoundedCorners(this, 30); //to make the form rounded
 
-            clsFormUtil.OpenFormEffect(this);
+            clsUtil.OpenFormEffect(this);
         }
 
         private void btnClose_Click(object sender, EventArgs e)
         {
-            clsFormUtil.CloseFormEffect(this);
+            clsUtil.CloseFormEffect(this);
         }
     }
 }

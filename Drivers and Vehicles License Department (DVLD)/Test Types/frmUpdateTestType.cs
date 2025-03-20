@@ -37,9 +37,9 @@ namespace Drivers_and_Vehicles_License_Department__DVLD_.Test_Types
         {
             _PopulateTestTypeFields();
 
-            clsFormUtil.MakeRoundedCorners(this, 30); //to make the form rounded
+            clsUtil.MakeRoundedCorners(this, 30); //to make the form rounded
 
-            clsFormUtil.OpenFormEffect(this);
+            clsUtil.OpenFormEffect(this);
         }
 
         private void _PopulateTestTypeFields()
@@ -97,7 +97,7 @@ namespace Drivers_and_Vehicles_License_Department__DVLD_.Test_Types
 
         private void btnCancel_Click(object sender, EventArgs e)
         {
-            clsFormUtil.CloseFormEffect(this);
+            clsUtil.CloseFormEffect(this);
         }
 
 

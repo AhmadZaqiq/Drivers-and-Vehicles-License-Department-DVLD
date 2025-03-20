@@ -35,7 +35,7 @@ namespace Drivers_and_Vehicles_License_Department__DVLD_
 
         private void SignoutToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            clsFormUtil.CloseFormEffect(this);
+            clsUtil.CloseFormEffect(this);
         }
 
         private void UsersToolStripMenuItem_Click(object sender, EventArgs e)
