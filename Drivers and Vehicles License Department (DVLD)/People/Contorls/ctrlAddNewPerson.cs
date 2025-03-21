@@ -195,6 +195,18 @@ namespace Drivers_and_Vehicles_License_Department__DVLD_
             _UpdateBackgroundImage();
         }
 
+        private bool _IsValidNationalNO()
+        {
+            string NationalNO = txtNationalNO.Text.Trim();
+
+            if (_Person.NationalNo != NationalNO)
+            {
+                return !clsPerson.IsPersonExists(NationalNO);
+            }
+
+            return true;
+        }
+
         private void btnSave_Click(object sender, EventArgs e)
         {
             if (!_VerifyAllInputs())
@@ -209,13 +221,13 @@ namespace Drivers_and_Vehicles_License_Department__DVLD_
                 return;
             }
 
-            if (clsPerson.IsPersonExists(txtNationalNO.Text.Trim()))
+            _Person = (clsPerson.IsPersonExists(_PersonID)) ? clsPerson.GetPersonByID(_PersonID) : new clsPerson(); // To determine whether Add or Update
+
+            if (!_IsValidNationalNO())
             {
                 clsMessageBoxManager.ShowMessageBox("A person with this national ID is already registered. Please verify the information.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
-
-            _Person = (clsPerson.IsPersonExists(_PersonID)) ? clsPerson.GetPersonByID(_PersonID) : new clsPerson(); // To determine whether Add or Update
 
             _LoadPersonData();
 
@@ -283,19 +295,20 @@ namespace Drivers_and_Vehicles_License_Department__DVLD_
 
         private void txtNationalNO_Validating(object sender, CancelEventArgs e)
         {
-            if (!string.IsNullOrWhiteSpace(txtNationalNO.Text.Trim()) && !clsPerson.IsPersonExists(txtNationalNO.Text.Trim()))
+            if (string.IsNullOrWhiteSpace(txtNationalNO.Text.Trim()) || _IsValidNationalNO())
             {
-                e.Cancel = false;
-                errorProvider1.SetError(txtNationalNO, "");
+                e.Cancel = true;
+                txtNationalNO.Focus();
+                errorProvider1.SetError(txtNationalNO, string.IsNullOrWhiteSpace(txtNationalNO.Text.Trim())
+                    ? "Error, Please enter National Number"
+                    : $"Error, {txtNationalNO.Text.Trim()} Exists");
                 return;
             }
 
-            e.Cancel = true;
-            txtNationalNO.Focus();
-            errorProvider1.SetError(txtNationalNO, string.IsNullOrWhiteSpace(txtNationalNO.Text.Trim())
-                ? "Error, Please enter National Number"
-                : $"Error, {txtNationalNO.Text.Trim()} Exists");
+            e.Cancel = false;
+            errorProvider1.SetError(txtNationalNO, "");
         }
+
 
         private void txtPhone_Validating(object sender, CancelEventArgs e)
         {
