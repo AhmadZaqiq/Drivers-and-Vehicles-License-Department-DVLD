@@ -129,7 +129,7 @@ namespace Drivers_and_Vehicles_License_Department__DVLD_
             txtAddress.Text = _Person.Address;
         }
 
-        private bool _VerifyAllInputs()
+        private bool _AreAllInputsFilled()
         {
             string[] InputFields = {
                                     txtFirstName.Text,
@@ -209,7 +209,7 @@ namespace Drivers_and_Vehicles_License_Department__DVLD_
 
         private void btnSave_Click(object sender, EventArgs e)
         {
-            if (!_VerifyAllInputs())
+            if (!_AreAllInputsFilled())
             {
                 clsMessageBoxManager.ShowMessageBox("Some required fields are missing. Please fill in all the data.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
@@ -295,7 +295,7 @@ namespace Drivers_and_Vehicles_License_Department__DVLD_
 
         private void txtNationalNO_Validating(object sender, CancelEventArgs e)
         {
-            if (string.IsNullOrWhiteSpace(txtNationalNO.Text.Trim()) || _IsValidNationalNO())
+            if (string.IsNullOrWhiteSpace(txtNationalNO.Text.Trim()) || !_IsValidNationalNO())
             {
                 e.Cancel = true;
                 txtNationalNO.Focus();
@@ -308,7 +308,6 @@ namespace Drivers_and_Vehicles_License_Department__DVLD_
             e.Cancel = false;
             errorProvider1.SetError(txtNationalNO, "");
         }
-
 
         private void txtPhone_Validating(object sender, CancelEventArgs e)
         {
