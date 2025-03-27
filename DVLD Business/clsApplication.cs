@@ -63,7 +63,9 @@ namespace DVLD_Business
 
             if (!clsApplicationsData.GetApplicationByIDData(ApplicationID, ref ApplicantPersonID, ref ApplicationDate, ref ApplicationTypeID,
              ref ApplicationStatus, ref LastStatusDate, ref PaidFees, ref CreatedByUserID))
+            {
                 return null;
+            }
 
             return new clsApplication(ApplicationID, ApplicantPersonID, ApplicationDate, ApplicationTypeID,
               ApplicationStatus, LastStatusDate, PaidFees, CreatedByUserID);

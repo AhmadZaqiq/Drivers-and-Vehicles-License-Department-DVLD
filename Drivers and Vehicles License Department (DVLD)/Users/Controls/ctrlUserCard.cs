@@ -27,7 +27,7 @@ namespace Drivers_and_Vehicles_License_Department__DVLD_.Users.Controls
             set
             {
                 _UserID = value;
-                _FillUserData();
+                _DisplayUserData();
             }
             get
             {
@@ -35,12 +35,17 @@ namespace Drivers_and_Vehicles_License_Department__DVLD_.Users.Controls
             }
         }
 
-        private string _ConvertActiveStatustoText()
+        private string _ConvertActiveStatusToText()
         {
             return _User.IsActive == true ? "Yes" : "No";
         }
 
-        private void _FillUserData()
+        private void _LoadUserData()
+        {
+            _User = clsUser.GetUserByID(_UserID);
+        }
+
+        private void _DisplayUserData()
         {
             if ((UserID == -1))
             {
@@ -48,8 +53,7 @@ namespace Drivers_and_Vehicles_License_Department__DVLD_.Users.Controls
                 return;
             }
 
-            lblUserID.Text = UserID.ToString();
-            _User = clsUser.GetUserByID(_UserID);
+            _LoadUserData();
 
             if (_User == null)
             {
@@ -58,7 +62,7 @@ namespace Drivers_and_Vehicles_License_Department__DVLD_.Users.Controls
 
             lblUserID.Text = _User.UserID.ToString();
             lblUsername.Text = _User.Username.ToString();
-            lblIsAcitve.Text = _ConvertActiveStatustoText();
+            lblIsAcitve.Text = _ConvertActiveStatusToText();
             ctrlPersonCard1.PersonID = _User.PersonID;
         }
 

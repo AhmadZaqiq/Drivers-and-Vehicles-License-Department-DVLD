@@ -52,6 +52,9 @@
             this.DeleteToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.CancelApplicationToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.ScheduleTestsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.ScheduleWrittenTestToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.ScheduleVisionTestToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.ScheduleStreetTestToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.IssueDrivingLicenseToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.ShowLicenseStripToolMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.ShowPersonlicenseHistoryStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
@@ -81,7 +84,7 @@
             this.toolStripSeparator2,
             this.ShowPersonlicenseHistoryStripMenuItem1});
             this.cmLicenseApplicationSettings.Name = "cmPersonSettings";
-            this.cmLicenseApplicationSettings.Size = new System.Drawing.Size(273, 344);
+            this.cmLicenseApplicationSettings.Size = new System.Drawing.Size(273, 366);
             // 
             // toolStripSeparator4
             // 
@@ -438,13 +441,41 @@
             // 
             // ScheduleTestsToolStripMenuItem
             // 
+            this.ScheduleTestsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.ScheduleWrittenTestToolStripMenuItem1,
+            this.ScheduleVisionTestToolStripMenuItem1,
+            this.ScheduleStreetTestToolStripMenuItem1});
             this.ScheduleTestsToolStripMenuItem.Image = global::Drivers_and_Vehicles_License_Department__DVLD_.Properties.Resources.ic_fluent_timer_24_filled;
             this.ScheduleTestsToolStripMenuItem.Name = "ScheduleTestsToolStripMenuItem";
             this.ScheduleTestsToolStripMenuItem.Size = new System.Drawing.Size(272, 38);
             this.ScheduleTestsToolStripMenuItem.Text = "Schedule Tests";
             // 
+            // ScheduleWrittenTestToolStripMenuItem1
+            // 
+            this.ScheduleWrittenTestToolStripMenuItem1.BackgroundImage = global::Drivers_and_Vehicles_License_Department__DVLD_.Properties.Resources.ic_fluent_text_bullet_list_square_edit_24_filled;
+            this.ScheduleWrittenTestToolStripMenuItem1.Image = global::Drivers_and_Vehicles_License_Department__DVLD_.Properties.Resources.ic_fluent_eye_tracking_on_24_filled;
+            this.ScheduleWrittenTestToolStripMenuItem1.Name = "ScheduleWrittenTestToolStripMenuItem1";
+            this.ScheduleWrittenTestToolStripMenuItem1.Size = new System.Drawing.Size(214, 38);
+            this.ScheduleWrittenTestToolStripMenuItem1.Text = "Schedule Written Test";
+            // 
+            // ScheduleVisionTestToolStripMenuItem1
+            // 
+            this.ScheduleVisionTestToolStripMenuItem1.Enabled = false;
+            this.ScheduleVisionTestToolStripMenuItem1.Image = global::Drivers_and_Vehicles_License_Department__DVLD_.Properties.Resources.ic_fluent_text_bullet_list_square_edit_24_filled;
+            this.ScheduleVisionTestToolStripMenuItem1.Name = "ScheduleVisionTestToolStripMenuItem1";
+            this.ScheduleVisionTestToolStripMenuItem1.Size = new System.Drawing.Size(214, 38);
+            this.ScheduleVisionTestToolStripMenuItem1.Text = "Schedule Vision Test";
+            // 
+            // ScheduleStreetTestToolStripMenuItem1
+            // 
+            this.ScheduleStreetTestToolStripMenuItem1.Image = global::Drivers_and_Vehicles_License_Department__DVLD_.Properties.Resources.ic_fluent_vehicle_car_24_filled;
+            this.ScheduleStreetTestToolStripMenuItem1.Name = "ScheduleStreetTestToolStripMenuItem1";
+            this.ScheduleStreetTestToolStripMenuItem1.Size = new System.Drawing.Size(214, 38);
+            this.ScheduleStreetTestToolStripMenuItem1.Text = "Schedule Street Test";
+            // 
             // IssueDrivingLicenseToolStripMenuItem1
             // 
+            this.IssueDrivingLicenseToolStripMenuItem1.Enabled = false;
             this.IssueDrivingLicenseToolStripMenuItem1.Image = global::Drivers_and_Vehicles_License_Department__DVLD_.Properties.Resources.ic_fluent_slide_add_24_filled__1_;
             this.IssueDrivingLicenseToolStripMenuItem1.Name = "IssueDrivingLicenseToolStripMenuItem1";
             this.IssueDrivingLicenseToolStripMenuItem1.Size = new System.Drawing.Size(272, 38);
@@ -452,6 +483,7 @@
             // 
             // ShowLicenseStripToolMenuItem1
             // 
+            this.ShowLicenseStripToolMenuItem1.Enabled = false;
             this.ShowLicenseStripToolMenuItem1.Image = global::Drivers_and_Vehicles_License_Department__DVLD_.Properties.Resources.ic_fluent_contact_card_24_filled__1_;
             this.ShowLicenseStripToolMenuItem1.Name = "ShowLicenseStripToolMenuItem1";
             this.ShowLicenseStripToolMenuItem1.Size = new System.Drawing.Size(272, 38);
@@ -526,5 +558,8 @@
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
         private System.Windows.Forms.ToolStripMenuItem ShowPersonlicenseHistoryStripMenuItem1;
         private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.ToolStripMenuItem ScheduleWrittenTestToolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem ScheduleVisionTestToolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem ScheduleStreetTestToolStripMenuItem1;
     }
 }

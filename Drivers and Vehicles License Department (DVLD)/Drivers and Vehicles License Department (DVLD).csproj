@@ -97,16 +97,22 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Application Types\frmManageApplicationTypes.cs">
+    <Compile Include="Applications\Controls\ctrlLocalDrivingApplicationCard.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Applications\Controls\ctrlLocalDrivingApplicationCard.Designer.cs">
+      <DependentUpon>ctrlLocalDrivingApplicationCard.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Applications\Forms\frmManageApplicationTypes.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Application Types\frmManageApplicationTypes.Designer.cs">
+    <Compile Include="Applications\Forms\frmManageApplicationTypes.Designer.cs">
       <DependentUpon>frmManageApplicationTypes.cs</DependentUpon>
     </Compile>
-    <Compile Include="Application Types\frmUpdateApplicationType.cs">
+    <Compile Include="Applications\Forms\frmUpdateApplicationType.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Application Types\frmUpdateApplicationType.Designer.cs">
+    <Compile Include="Applications\Forms\frmUpdateApplicationType.Designer.cs">
       <DependentUpon>frmUpdateApplicationType.cs</DependentUpon>
     </Compile>
     <Compile Include="Global\clsCurrentUser.cs" />
@@ -216,10 +222,13 @@
     <Compile Include="Users\Forms\frmUpdateUser.Designer.cs">
       <DependentUpon>frmUpdateUser.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="Application Types\frmManageApplicationTypes.resx">
+    <EmbeddedResource Include="Applications\Controls\ctrlLocalDrivingApplicationCard.resx">
+      <DependentUpon>ctrlLocalDrivingApplicationCard.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Applications\Forms\frmManageApplicationTypes.resx">
       <DependentUpon>frmManageApplicationTypes.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Application Types\frmUpdateApplicationType.resx">
+    <EmbeddedResource Include="Applications\Forms\frmUpdateApplicationType.resx">
       <DependentUpon>frmUpdateApplicationType.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Local Driving Application\frmAddAndUpdateLocalDrivingApplication.resx">
@@ -660,6 +669,48 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\Profile data-rafiki.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ic_fluent_eye_tracking_on_24_filled.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ic_fluent_vehicle_car_24_filled.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ic_fluent_person_24_filled.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ic_fluent_document_page_number_24_filled.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ic_fluent_person_question_mark_24_filled.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ic_fluent_document_page_number_24_filled1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ic_fluent_location_24_filled.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ic_fluent_globe_location_24_filled.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ic_fluent_question_24_filled.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ic_fluent_app_generic_24_filled.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ic_fluent_document_checkmark_24_filled.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ic_fluent_checkmark_circle_24_filled.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ic_fluent_status_24_filled.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ic_fluent_clipboard_24_filled.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

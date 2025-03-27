@@ -1,19 +1,23 @@
 ﻿using System;
-using System.Data;
+using System.Collections.Generic;
 using System.Data.SqlClient;
+using System.Data;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
 namespace DVLD_Data_Access
 {
-    public class clsApplicationsData
+    public class clsTestAppointmentsData
     {
-        public static DataTable GetAllApplicationsData()
+        public static DataTable GetAllTestAppointmentsData()
         {
             DataTable dt = new DataTable();
 
             SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString);
 
             string query = @"SELECT *
-                             FROM Applications";
+                             FROM TestAppointments";
 
             SqlCommand command = new SqlCommand(query, connection);
 
@@ -44,21 +48,21 @@ namespace DVLD_Data_Access
             return dt;
         }
 
-        public static bool GetApplicationByIDData(int ApplicationID, ref int ApplicantPersonID,
-            ref DateTime ApplicationDate, ref int ApplicationTypeID, ref int ApplicationStatus,
-            ref DateTime LastStatusDate, ref decimal PaidFees, ref int CreatedByUserID)
+        public static bool GetTestAppointmentByIDData(int TestAppointmentID, ref int TestTypeID,
+            ref int LocalDrivingLicenseApplicationID, ref DateTime AppointmentDate,
+            ref decimal PaidFees, ref int CreatedByUserID, ref bool IsLocked, ref int RetakeTestApplicationID)
         {
             SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString);
 
             bool IsFound = false;
 
             string query = @" SELECT *
-                              FROM Applications
-                              WHERE ApplicationID = @ApplicationID";
+                              FROM TestAppointments
+                              WHERE TestAppointmentID = @TestAppointmentID";
 
             SqlCommand command = new SqlCommand(query, connection);
 
-            command.Parameters.AddWithValue("@ApplicationID", ApplicationID);
+            command.Parameters.AddWithValue("@TestAppointmentID", TestAppointmentID);
 
             try
             {
@@ -70,13 +74,13 @@ namespace DVLD_Data_Access
                 {
                     IsFound = true;
 
-                    ApplicantPersonID = (int)reader["ApplicantPersonID"];
-                    ApplicationDate = (DateTime)reader["ApplicationDate"];
-                    ApplicationTypeID = (int)reader["ApplicationTypeID"];
-                    ApplicationStatus = (int)reader["ApplicationStatus"];
-                    LastStatusDate = (DateTime)reader["LastStatusDate"];
+                    TestTypeID = (int)reader["TestTypeID"];
+                    LocalDrivingLicenseApplicationID = (int)reader["LocalDrivingLicenseApplicationID"];
+                    AppointmentDate = (DateTime)reader["AppointmentDate"];
                     PaidFees = (decimal)reader["PaidFees"];
                     CreatedByUserID = (int)reader["CreatedByUserID"];
+                    IsLocked = (bool)reader["IsLocked"];
+                    RetakeTestApplicationID = (int)reader["RetakeTestApplicationID"];
                 }
 
                 reader.Close();
@@ -95,31 +99,31 @@ namespace DVLD_Data_Access
             return IsFound;
         }
 
-        public static int AddNewApplicationData(int ApplicantPersonID,
-             DateTime ApplicationDate, int ApplicationTypeID, int ApplicationStatus,
-             DateTime LastStatusDate, decimal PaidFees, int CreatedByUserID)
+        public static int AddNewTestAppointmentData(int TestTypeID,
+             int LocalDrivingLicenseApplicationID, DateTime AppointmentDate,
+             decimal PaidFees, int CreatedByUserID, bool IsLocked, int RetakeTestApplicationID)
         {
             SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString);
 
-            int ApplicationID = -1;
+            int TestAppointmentsID = -1;
 
-            string query = @"INSERT INTO dbo.Applications 
-                             (ApplicantPersonID, ApplicationDate, ApplicationTypeID, 
-                              ApplicationStatus, LastStatusDate, PaidFees, CreatedByUserID) 
-                             VALUES (@ApplicantPersonID, @ApplicationDate, @ApplicationTypeID, 
-                                     @ApplicationStatus, @LastStatusDate, @PaidFees, @CreatedByUserID); 
+            string query = @"INSERT INTO dbo.TestAppointments 
+                             (TestTypeID, LocalDrivingLicenseApplicationID, AppointmentDate, 
+                              PaidFees, CreatedByUserID, IsLocked, RetakeTestApplicationID) 
+                             VALUES 
+                             (@TestTypeID, @LocalDrivingLicenseApplicationID, @AppointmentDate, 
+                              @PaidFees, @CreatedByUserID, @IsLocked, @RetakeTestApplicationID); 
                              SELECT SCOPE_IDENTITY();";
 
             SqlCommand command = new SqlCommand(query, connection);
 
-            command.Parameters.AddWithValue("@ApplicantPersonID", ApplicantPersonID);
-            command.Parameters.AddWithValue("@ApplicationDate", ApplicationDate);
-            command.Parameters.AddWithValue("@ApplicationTypeID", ApplicationTypeID);
-            command.Parameters.AddWithValue("@ApplicationStatus", ApplicationStatus);
-            command.Parameters.AddWithValue("@LastStatusDate", LastStatusDate);
+            command.Parameters.AddWithValue("@TestTypeID", TestTypeID);
+            command.Parameters.AddWithValue("@LocalDrivingLicenseApplicationID", LocalDrivingLicenseApplicationID);
+            command.Parameters.AddWithValue("@AppointmentDate", AppointmentDate);
             command.Parameters.AddWithValue("@PaidFees", PaidFees);
             command.Parameters.AddWithValue("@CreatedByUserID", CreatedByUserID);
-
+            command.Parameters.AddWithValue("@IsLocked", IsLocked);
+            command.Parameters.AddWithValue("@RetakeTestApplicationID", RetakeTestApplicationID);
 
             try
             {
@@ -130,7 +134,7 @@ namespace DVLD_Data_Access
 
                 if (Result != null && int.TryParse(Result.ToString(), out int insertedID))
                 {
-                    ApplicationID = insertedID;
+                    TestAppointmentsID = insertedID;
                 }
             }
 
@@ -144,21 +148,21 @@ namespace DVLD_Data_Access
                 connection.Close();
             }
 
-            return ApplicationID;
+            return TestAppointmentsID;
         }
 
-        public static bool DeleteApplicationData(int ApplicationID)
+        public static bool DeleteTestAppointmentData(int TestAppointmentsID)
         {
             bool DeletedSuccessfully = false;
 
             SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString);
 
-            string query = @"DELETE FROM Applications
-                             WHERE ApplicationID = @ApplicationID;";
+            string query = @"DELETE FROM TestAppointments
+                             WHERE TestAppointmentID = @TestAppointmentID;";
 
             SqlCommand command = new SqlCommand(query, connection);
 
-            command.Parameters.AddWithValue("@ApplicationID", ApplicationID);
+            command.Parameters.AddWithValue("@TestAppointmentID", TestAppointmentsID);
 
             try
             {
@@ -167,8 +171,8 @@ namespace DVLD_Data_Access
                 int rowsAffected = command.ExecuteNonQuery();
 
                 DeletedSuccessfully = (rowsAffected > 0);
-
             }
+
             catch (Exception ex)
             {
                 Console.WriteLine(ex.Message);
@@ -182,15 +186,19 @@ namespace DVLD_Data_Access
             return DeletedSuccessfully;
         }
 
-        public static int GetApplicationIDByApplicantPersonIDData(int ApplicantPersonID)
+        public static int GetTestsCountForPersonData(int ApplicantPersonID)
         {
-            int ApplicationID = -1;
+            int Tests = -1;
 
             SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString);
 
-            string query = @"SELECT ApplicationID
-                             FROM Applications
-                             WHERE ApplicantPersonID=@ApplicantPersonID";
+            string query = @" SELECT COUNT(*) 
+                              FROM TestAppointments	
+                              JOIN LocalDrivingLicenseApplications
+                                  ON LocalDrivingLicenseApplications.LocalDrivingLicenseApplicationID = TestAppointments.LocalDrivingLicenseApplicationID
+                              JOIN Applications
+                                  ON LocalDrivingLicenseApplications.ApplicationID = Applications.ApplicationID
+                              WHERE Applications.ApplicantPersonID = ApplicantPersonID";
 
             SqlCommand command = new SqlCommand(query, connection);
 
@@ -204,7 +212,7 @@ namespace DVLD_Data_Access
 
                 if (result != null)
                 {
-                    ApplicationID = Convert.ToInt32(result);
+                    Tests = Convert.ToInt32(result);
                 }
             }
 
@@ -218,7 +226,7 @@ namespace DVLD_Data_Access
                 connection.Close();
             }
 
-            return ApplicationID;
+            return Tests;
         }
 
 

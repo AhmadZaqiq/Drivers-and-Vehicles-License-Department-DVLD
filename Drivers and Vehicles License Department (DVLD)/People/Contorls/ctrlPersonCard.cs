@@ -32,7 +32,7 @@ namespace Drivers_and_Vehicles_License_Department__DVLD_
             set
             {
                 _PersonID = value;
-                _FillPersonData();
+                _DisplayPersonDetails();
             }
             get
             {
@@ -78,7 +78,13 @@ namespace Drivers_and_Vehicles_License_Department__DVLD_
             pbPersonalImage.BackgroundImage = Image.FromFile(_SetDefaultImage());
         }
 
-        private void _FillPersonData()
+        private void _LoadPersonData()
+        {
+            _Person = clsPerson.GetPersonByID(_PersonID);
+            _Country = clsCountry.GetCountryByPersonID(_PersonID);
+        }
+
+        private void _DisplayPersonDetails()
         {
             if (_PersonID == -1)
             {
@@ -86,15 +92,14 @@ namespace Drivers_and_Vehicles_License_Department__DVLD_
                 return;
             }
 
-            lblPersonID.Text = _PersonID.ToString();
-            _Person = clsPerson.GetPersonByID(_PersonID);
-            _Country = clsCountry.GetCountryByPersonID(_PersonID);
+            _LoadPersonData();
 
             if (_Person == null)
             {
                 return;
             }
 
+            lblPersonID.Text = _PersonID.ToString();
             lblName.Text = $"{_Person.FirstName} {_Person.SecondName} {_Person.ThirdName} {_Person.LastName}";
             lblNationalNO.Text = _Person.NationalNo;
             lblGender.Text = _ConvertGenderToText(_Person.Gender);
