@@ -131,6 +131,14 @@ namespace Drivers_and_Vehicles_License_Department__DVLD_.Local_Driving_Applicati
             this.Cursor = Cursors.Default;
         }
 
+        private void ScheduleVisionTestToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            DataGridViewRow SelectedRow = dgvLocalDrivingLicenseApplications.SelectedRows[0];
 
+            int ID = Convert.ToInt32(SelectedRow.Cells["LocalDrivingLicenseApplicationID"].Value);
+
+            frmTest frmTest = new frmTest(ID); 
+            frmTest.ShowDialog();
+        }
     }
 }

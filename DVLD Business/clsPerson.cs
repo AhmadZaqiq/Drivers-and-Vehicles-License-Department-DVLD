@@ -64,6 +64,15 @@ namespace DVLD_Business
             Mode = enMode.Update;
         }
 
+        public string FullName
+        {
+            get
+            {
+                return $"{FirstName} {SecondName} {ThirdName} {LastName}";
+            }
+        }
+
+
         public static DataTable GetAllPeople()
         {
             return clsPeopleData.GetAllPeopleData();

@@ -45,7 +45,7 @@ namespace DVLD_Data_Access
         }
 
         public static bool GetApplicationByIDData(int ApplicationID, ref int ApplicantPersonID,
-            ref DateTime ApplicationDate, ref int ApplicationTypeID, ref int ApplicationStatus,
+            ref DateTime ApplicationDate, ref int ApplicationTypeID, ref byte ApplicationStatus,
             ref DateTime LastStatusDate, ref decimal PaidFees, ref int CreatedByUserID)
         {
             SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString);
@@ -73,7 +73,7 @@ namespace DVLD_Data_Access
                     ApplicantPersonID = (int)reader["ApplicantPersonID"];
                     ApplicationDate = (DateTime)reader["ApplicationDate"];
                     ApplicationTypeID = (int)reader["ApplicationTypeID"];
-                    ApplicationStatus = (int)reader["ApplicationStatus"];
+                    ApplicationStatus = (byte)reader["ApplicationStatus"];
                     LastStatusDate = (DateTime)reader["LastStatusDate"];
                     PaidFees = (decimal)reader["PaidFees"];
                     CreatedByUserID = (int)reader["CreatedByUserID"];
@@ -96,7 +96,7 @@ namespace DVLD_Data_Access
         }
 
         public static int AddNewApplicationData(int ApplicantPersonID,
-             DateTime ApplicationDate, int ApplicationTypeID, int ApplicationStatus,
+             DateTime ApplicationDate, int ApplicationTypeID, byte ApplicationStatus,
              DateTime LastStatusDate, decimal PaidFees, int CreatedByUserID)
         {
             SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString);

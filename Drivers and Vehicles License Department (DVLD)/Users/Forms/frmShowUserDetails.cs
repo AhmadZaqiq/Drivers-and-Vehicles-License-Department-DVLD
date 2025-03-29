@@ -14,7 +14,7 @@ namespace Drivers_and_Vehicles_License_Department__DVLD_.Users.Forms
 {
     public partial class frmShowUserDetails : Form
     {
-        private int _UserID = 0;
+        private int _UserID = -1;
 
         public frmShowUserDetails(int UserID)
         {

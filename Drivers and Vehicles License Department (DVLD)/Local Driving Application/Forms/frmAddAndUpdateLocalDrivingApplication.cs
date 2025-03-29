@@ -71,7 +71,7 @@ namespace Drivers_and_Vehicles_License_Department__DVLD_.Local_Driving_Applicati
             lblCreatedBy.Text = clsCurrentUser.CurrentUser.Username;
         }
 
-        private int _SetStatusID()
+        private byte _SetStatusID()
         {
             switch (_Status)
             {

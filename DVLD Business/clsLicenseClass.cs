@@ -10,12 +10,12 @@ namespace DVLD_Business
 {
     public class clsLicenseClass
     {
-        int LicenseClassID { get; set; }
-        string ClassName { get; set; }
-        string ClassDescription { get; set; }
-        byte MinimumAllowedAge { get; set; }
-        byte DefaultValidityLength { get; set; }
-        decimal ClassFees { get; set; }
+        public int LicenseClassID { get; set; }
+        public string ClassName { get; set; }
+        public string ClassDescription { get; set; }
+        public byte MinimumAllowedAge { get; set; }
+        public byte DefaultValidityLength { get; set; }
+        public decimal ClassFees { get; set; }
 
         public clsLicenseClass()
         {
@@ -29,12 +29,12 @@ namespace DVLD_Business
 
         private clsLicenseClass(int LicenseClassID, string ClassName, string ClassDescription, byte MinimumAllowedAge, byte DefaultValidityLength, decimal ClassFees)
         {
-            this.LicenseClassID = 0;
-            this.ClassName = "";
-            this.ClassDescription = "";
-            this.MinimumAllowedAge = 0;
-            this.DefaultValidityLength = 0;
-            this.ClassFees = 0;
+            this.LicenseClassID = LicenseClassID;
+            this.ClassName = ClassName;
+            this.ClassDescription = ClassDescription;
+            this.MinimumAllowedAge = MinimumAllowedAge;
+            this.DefaultValidityLength = DefaultValidityLength;
+            this.ClassFees = ClassFees;
         }
 
         public static DataTable GetAllLicenseClasses()

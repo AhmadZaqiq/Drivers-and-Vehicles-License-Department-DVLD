@@ -30,12 +30,23 @@
         {
             this.components = new System.ComponentModel.Container();
             this.cmLicenseApplicationSettings = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.ShowDetailsToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator4 = new System.Windows.Forms.ToolStripSeparator();
+            this.EditToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.DeleteToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
+            this.CancelApplicationToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
+            this.ScheduleTestsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.ScheduleWrittenTestToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.ScheduleVisionTestToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.ScheduleStreetTestToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator6 = new System.Windows.Forms.ToolStripSeparator();
+            this.IssueDrivingLicenseToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator5 = new System.Windows.Forms.ToolStripSeparator();
+            this.ShowLicenseStripToolMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
+            this.ShowPersonlicenseHistoryStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.txtFilter = new System.Windows.Forms.MaskedTextBox();
             this.btnCloseForm = new SiticoneNetFrameworkUI.SiticoneButton();
             this.siticonePanel1 = new SiticoneNetFrameworkUI.SiticonePanel();
@@ -47,17 +58,6 @@
             this.label1 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.btnAddNewLocalApplication = new SiticoneNetFrameworkUI.SiticoneButton();
-            this.ShowDetailsToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.EditToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.DeleteToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.CancelApplicationToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.ScheduleTestsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.ScheduleWrittenTestToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.ScheduleVisionTestToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.ScheduleStreetTestToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.IssueDrivingLicenseToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.ShowLicenseStripToolMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.ShowPersonlicenseHistoryStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.cmLicenseApplicationSettings.SuspendLayout();
             this.siticonePanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvLocalDrivingLicenseApplications)).BeginInit();
@@ -86,35 +86,123 @@
             this.cmLicenseApplicationSettings.Name = "cmPersonSettings";
             this.cmLicenseApplicationSettings.Size = new System.Drawing.Size(273, 366);
             // 
+            // ShowDetailsToolStripMenuItem1
+            // 
+            this.ShowDetailsToolStripMenuItem1.Image = global::Drivers_and_Vehicles_License_Department__DVLD_.Properties.Resources.ic_fluent_text_description_24_filled;
+            this.ShowDetailsToolStripMenuItem1.Name = "ShowDetailsToolStripMenuItem1";
+            this.ShowDetailsToolStripMenuItem1.Size = new System.Drawing.Size(272, 38);
+            this.ShowDetailsToolStripMenuItem1.Text = "Show Application Details";
+            // 
             // toolStripSeparator4
             // 
             this.toolStripSeparator4.Name = "toolStripSeparator4";
             this.toolStripSeparator4.Size = new System.Drawing.Size(269, 6);
+            // 
+            // EditToolStripMenuItem1
+            // 
+            this.EditToolStripMenuItem1.Image = global::Drivers_and_Vehicles_License_Department__DVLD_.Properties.Resources.ic_fluent_text_bullet_list_square_edit_24_filled;
+            this.EditToolStripMenuItem1.Name = "EditToolStripMenuItem1";
+            this.EditToolStripMenuItem1.Size = new System.Drawing.Size(272, 38);
+            this.EditToolStripMenuItem1.Text = "Edit Application";
+            // 
+            // DeleteToolStripMenuItem1
+            // 
+            this.DeleteToolStripMenuItem1.Image = global::Drivers_and_Vehicles_License_Department__DVLD_.Properties.Resources.ic_fluent_delete_24_filled;
+            this.DeleteToolStripMenuItem1.Name = "DeleteToolStripMenuItem1";
+            this.DeleteToolStripMenuItem1.Size = new System.Drawing.Size(272, 38);
+            this.DeleteToolStripMenuItem1.Text = "Delete Application";
             // 
             // toolStripSeparator3
             // 
             this.toolStripSeparator3.Name = "toolStripSeparator3";
             this.toolStripSeparator3.Size = new System.Drawing.Size(269, 6);
             // 
+            // CancelApplicationToolStripMenuItem1
+            // 
+            this.CancelApplicationToolStripMenuItem1.Image = global::Drivers_and_Vehicles_License_Department__DVLD_.Properties.Resources.ic_fluent_share_screen_stop_24_filled;
+            this.CancelApplicationToolStripMenuItem1.Name = "CancelApplicationToolStripMenuItem1";
+            this.CancelApplicationToolStripMenuItem1.Size = new System.Drawing.Size(272, 38);
+            this.CancelApplicationToolStripMenuItem1.Text = "Cancel Application";
+            this.CancelApplicationToolStripMenuItem1.Click += new System.EventHandler(this.CancelApplicationToolStripMenuItem1_Click);
+            // 
             // toolStripSeparator1
             // 
             this.toolStripSeparator1.Name = "toolStripSeparator1";
             this.toolStripSeparator1.Size = new System.Drawing.Size(269, 6);
+            // 
+            // ScheduleTestsToolStripMenuItem
+            // 
+            this.ScheduleTestsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.ScheduleVisionTestToolStripMenuItem1,
+            this.ScheduleWrittenTestToolStripMenuItem1,
+            this.ScheduleStreetTestToolStripMenuItem1});
+            this.ScheduleTestsToolStripMenuItem.Image = global::Drivers_and_Vehicles_License_Department__DVLD_.Properties.Resources.ic_fluent_timer_24_filled;
+            this.ScheduleTestsToolStripMenuItem.Name = "ScheduleTestsToolStripMenuItem";
+            this.ScheduleTestsToolStripMenuItem.Size = new System.Drawing.Size(272, 38);
+            this.ScheduleTestsToolStripMenuItem.Text = "Schedule Tests";
+            // 
+            // ScheduleWrittenTestToolStripMenuItem1
+            // 
+            this.ScheduleWrittenTestToolStripMenuItem1.BackgroundImage = global::Drivers_and_Vehicles_License_Department__DVLD_.Properties.Resources.ic_fluent_text_bullet_list_square_edit_24_filled;
+            this.ScheduleWrittenTestToolStripMenuItem1.Enabled = false;
+            this.ScheduleWrittenTestToolStripMenuItem1.Image = global::Drivers_and_Vehicles_License_Department__DVLD_.Properties.Resources.ic_fluent_eye_tracking_on_24_filled;
+            this.ScheduleWrittenTestToolStripMenuItem1.Name = "ScheduleWrittenTestToolStripMenuItem1";
+            this.ScheduleWrittenTestToolStripMenuItem1.Size = new System.Drawing.Size(214, 38);
+            this.ScheduleWrittenTestToolStripMenuItem1.Text = "Schedule Written Test";
+            // 
+            // ScheduleVisionTestToolStripMenuItem1
+            // 
+            this.ScheduleVisionTestToolStripMenuItem1.Image = global::Drivers_and_Vehicles_License_Department__DVLD_.Properties.Resources.ic_fluent_text_bullet_list_square_edit_24_filled;
+            this.ScheduleVisionTestToolStripMenuItem1.Name = "ScheduleVisionTestToolStripMenuItem1";
+            this.ScheduleVisionTestToolStripMenuItem1.Size = new System.Drawing.Size(214, 38);
+            this.ScheduleVisionTestToolStripMenuItem1.Text = "Schedule Vision Test";
+            this.ScheduleVisionTestToolStripMenuItem1.Click += new System.EventHandler(this.ScheduleVisionTestToolStripMenuItem1_Click);
+            // 
+            // ScheduleStreetTestToolStripMenuItem1
+            // 
+            this.ScheduleStreetTestToolStripMenuItem1.Enabled = false;
+            this.ScheduleStreetTestToolStripMenuItem1.Image = global::Drivers_and_Vehicles_License_Department__DVLD_.Properties.Resources.ic_fluent_vehicle_car_24_filled;
+            this.ScheduleStreetTestToolStripMenuItem1.Name = "ScheduleStreetTestToolStripMenuItem1";
+            this.ScheduleStreetTestToolStripMenuItem1.Size = new System.Drawing.Size(214, 38);
+            this.ScheduleStreetTestToolStripMenuItem1.Text = "Schedule Street Test";
             // 
             // toolStripSeparator6
             // 
             this.toolStripSeparator6.Name = "toolStripSeparator6";
             this.toolStripSeparator6.Size = new System.Drawing.Size(269, 6);
             // 
+            // IssueDrivingLicenseToolStripMenuItem1
+            // 
+            this.IssueDrivingLicenseToolStripMenuItem1.Enabled = false;
+            this.IssueDrivingLicenseToolStripMenuItem1.Image = global::Drivers_and_Vehicles_License_Department__DVLD_.Properties.Resources.ic_fluent_slide_add_24_filled__1_;
+            this.IssueDrivingLicenseToolStripMenuItem1.Name = "IssueDrivingLicenseToolStripMenuItem1";
+            this.IssueDrivingLicenseToolStripMenuItem1.Size = new System.Drawing.Size(272, 38);
+            this.IssueDrivingLicenseToolStripMenuItem1.Text = "Issue Driving License (First Time)";
+            // 
             // toolStripSeparator5
             // 
             this.toolStripSeparator5.Name = "toolStripSeparator5";
             this.toolStripSeparator5.Size = new System.Drawing.Size(269, 6);
             // 
+            // ShowLicenseStripToolMenuItem1
+            // 
+            this.ShowLicenseStripToolMenuItem1.Enabled = false;
+            this.ShowLicenseStripToolMenuItem1.Image = global::Drivers_and_Vehicles_License_Department__DVLD_.Properties.Resources.ic_fluent_contact_card_24_filled__1_;
+            this.ShowLicenseStripToolMenuItem1.Name = "ShowLicenseStripToolMenuItem1";
+            this.ShowLicenseStripToolMenuItem1.Size = new System.Drawing.Size(272, 38);
+            this.ShowLicenseStripToolMenuItem1.Text = "Show License";
+            // 
             // toolStripSeparator2
             // 
             this.toolStripSeparator2.Name = "toolStripSeparator2";
             this.toolStripSeparator2.Size = new System.Drawing.Size(269, 6);
+            // 
+            // ShowPersonlicenseHistoryStripMenuItem1
+            // 
+            this.ShowPersonlicenseHistoryStripMenuItem1.Image = global::Drivers_and_Vehicles_License_Department__DVLD_.Properties.Resources.ic_fluent_apps_list_detail_24_filled;
+            this.ShowPersonlicenseHistoryStripMenuItem1.Name = "ShowPersonlicenseHistoryStripMenuItem1";
+            this.ShowPersonlicenseHistoryStripMenuItem1.Size = new System.Drawing.Size(272, 38);
+            this.ShowPersonlicenseHistoryStripMenuItem1.Text = "Show Person license History";
             // 
             // txtFilter
             // 
@@ -409,92 +497,6 @@
             this.btnAddNewLocalApplication.UseAdvancedRendering = true;
             this.btnAddNewLocalApplication.UseParticles = false;
             this.btnAddNewLocalApplication.Click += new System.EventHandler(this.btnAddNewLocalApplication_Click);
-            // 
-            // ShowDetailsToolStripMenuItem1
-            // 
-            this.ShowDetailsToolStripMenuItem1.Image = global::Drivers_and_Vehicles_License_Department__DVLD_.Properties.Resources.ic_fluent_text_description_24_filled;
-            this.ShowDetailsToolStripMenuItem1.Name = "ShowDetailsToolStripMenuItem1";
-            this.ShowDetailsToolStripMenuItem1.Size = new System.Drawing.Size(272, 38);
-            this.ShowDetailsToolStripMenuItem1.Text = "Show Application Details";
-            // 
-            // EditToolStripMenuItem1
-            // 
-            this.EditToolStripMenuItem1.Image = global::Drivers_and_Vehicles_License_Department__DVLD_.Properties.Resources.ic_fluent_text_bullet_list_square_edit_24_filled;
-            this.EditToolStripMenuItem1.Name = "EditToolStripMenuItem1";
-            this.EditToolStripMenuItem1.Size = new System.Drawing.Size(272, 38);
-            this.EditToolStripMenuItem1.Text = "Edit Application";
-            // 
-            // DeleteToolStripMenuItem1
-            // 
-            this.DeleteToolStripMenuItem1.Image = global::Drivers_and_Vehicles_License_Department__DVLD_.Properties.Resources.ic_fluent_delete_24_filled;
-            this.DeleteToolStripMenuItem1.Name = "DeleteToolStripMenuItem1";
-            this.DeleteToolStripMenuItem1.Size = new System.Drawing.Size(272, 38);
-            this.DeleteToolStripMenuItem1.Text = "Delete Application";
-            // 
-            // CancelApplicationToolStripMenuItem1
-            // 
-            this.CancelApplicationToolStripMenuItem1.Image = global::Drivers_and_Vehicles_License_Department__DVLD_.Properties.Resources.ic_fluent_share_screen_stop_24_filled;
-            this.CancelApplicationToolStripMenuItem1.Name = "CancelApplicationToolStripMenuItem1";
-            this.CancelApplicationToolStripMenuItem1.Size = new System.Drawing.Size(272, 38);
-            this.CancelApplicationToolStripMenuItem1.Text = "Cancel Application";
-            this.CancelApplicationToolStripMenuItem1.Click += new System.EventHandler(this.CancelApplicationToolStripMenuItem1_Click);
-            // 
-            // ScheduleTestsToolStripMenuItem
-            // 
-            this.ScheduleTestsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.ScheduleWrittenTestToolStripMenuItem1,
-            this.ScheduleVisionTestToolStripMenuItem1,
-            this.ScheduleStreetTestToolStripMenuItem1});
-            this.ScheduleTestsToolStripMenuItem.Image = global::Drivers_and_Vehicles_License_Department__DVLD_.Properties.Resources.ic_fluent_timer_24_filled;
-            this.ScheduleTestsToolStripMenuItem.Name = "ScheduleTestsToolStripMenuItem";
-            this.ScheduleTestsToolStripMenuItem.Size = new System.Drawing.Size(272, 38);
-            this.ScheduleTestsToolStripMenuItem.Text = "Schedule Tests";
-            // 
-            // ScheduleWrittenTestToolStripMenuItem1
-            // 
-            this.ScheduleWrittenTestToolStripMenuItem1.BackgroundImage = global::Drivers_and_Vehicles_License_Department__DVLD_.Properties.Resources.ic_fluent_text_bullet_list_square_edit_24_filled;
-            this.ScheduleWrittenTestToolStripMenuItem1.Image = global::Drivers_and_Vehicles_License_Department__DVLD_.Properties.Resources.ic_fluent_eye_tracking_on_24_filled;
-            this.ScheduleWrittenTestToolStripMenuItem1.Name = "ScheduleWrittenTestToolStripMenuItem1";
-            this.ScheduleWrittenTestToolStripMenuItem1.Size = new System.Drawing.Size(214, 38);
-            this.ScheduleWrittenTestToolStripMenuItem1.Text = "Schedule Written Test";
-            // 
-            // ScheduleVisionTestToolStripMenuItem1
-            // 
-            this.ScheduleVisionTestToolStripMenuItem1.Enabled = false;
-            this.ScheduleVisionTestToolStripMenuItem1.Image = global::Drivers_and_Vehicles_License_Department__DVLD_.Properties.Resources.ic_fluent_text_bullet_list_square_edit_24_filled;
-            this.ScheduleVisionTestToolStripMenuItem1.Name = "ScheduleVisionTestToolStripMenuItem1";
-            this.ScheduleVisionTestToolStripMenuItem1.Size = new System.Drawing.Size(214, 38);
-            this.ScheduleVisionTestToolStripMenuItem1.Text = "Schedule Vision Test";
-            // 
-            // ScheduleStreetTestToolStripMenuItem1
-            // 
-            this.ScheduleStreetTestToolStripMenuItem1.Image = global::Drivers_and_Vehicles_License_Department__DVLD_.Properties.Resources.ic_fluent_vehicle_car_24_filled;
-            this.ScheduleStreetTestToolStripMenuItem1.Name = "ScheduleStreetTestToolStripMenuItem1";
-            this.ScheduleStreetTestToolStripMenuItem1.Size = new System.Drawing.Size(214, 38);
-            this.ScheduleStreetTestToolStripMenuItem1.Text = "Schedule Street Test";
-            // 
-            // IssueDrivingLicenseToolStripMenuItem1
-            // 
-            this.IssueDrivingLicenseToolStripMenuItem1.Enabled = false;
-            this.IssueDrivingLicenseToolStripMenuItem1.Image = global::Drivers_and_Vehicles_License_Department__DVLD_.Properties.Resources.ic_fluent_slide_add_24_filled__1_;
-            this.IssueDrivingLicenseToolStripMenuItem1.Name = "IssueDrivingLicenseToolStripMenuItem1";
-            this.IssueDrivingLicenseToolStripMenuItem1.Size = new System.Drawing.Size(272, 38);
-            this.IssueDrivingLicenseToolStripMenuItem1.Text = "Issue Driving License (First Time)";
-            // 
-            // ShowLicenseStripToolMenuItem1
-            // 
-            this.ShowLicenseStripToolMenuItem1.Enabled = false;
-            this.ShowLicenseStripToolMenuItem1.Image = global::Drivers_and_Vehicles_License_Department__DVLD_.Properties.Resources.ic_fluent_contact_card_24_filled__1_;
-            this.ShowLicenseStripToolMenuItem1.Name = "ShowLicenseStripToolMenuItem1";
-            this.ShowLicenseStripToolMenuItem1.Size = new System.Drawing.Size(272, 38);
-            this.ShowLicenseStripToolMenuItem1.Text = "Show License";
-            // 
-            // ShowPersonlicenseHistoryStripMenuItem1
-            // 
-            this.ShowPersonlicenseHistoryStripMenuItem1.Image = global::Drivers_and_Vehicles_License_Department__DVLD_.Properties.Resources.ic_fluent_apps_list_detail_24_filled;
-            this.ShowPersonlicenseHistoryStripMenuItem1.Name = "ShowPersonlicenseHistoryStripMenuItem1";
-            this.ShowPersonlicenseHistoryStripMenuItem1.Size = new System.Drawing.Size(272, 38);
-            this.ShowPersonlicenseHistoryStripMenuItem1.Text = "Show Person license History";
             // 
             // frmListLocalDrivingLicenseApplications
             // 

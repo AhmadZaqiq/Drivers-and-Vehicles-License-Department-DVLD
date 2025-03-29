@@ -15,6 +15,7 @@ namespace Drivers_and_Vehicles_License_Department__DVLD_.Users.Controls
     public partial class ctrlUserCard : UserControl
     {
         private clsUser _User = new clsUser();
+
         private int _UserID = -1;
 
         public ctrlUserCard()
@@ -27,7 +28,14 @@ namespace Drivers_and_Vehicles_License_Department__DVLD_.Users.Controls
             set
             {
                 _UserID = value;
-                _DisplayUserData();
+
+                if ((_UserID == -1))
+                {
+                    ctrlPersonCard1.PersonID = -1;
+                    return; // Exits only from get
+                }
+
+                _DisplayUserDetails();
             }
             get
             {
@@ -45,14 +53,8 @@ namespace Drivers_and_Vehicles_License_Department__DVLD_.Users.Controls
             _User = clsUser.GetUserByID(_UserID);
         }
 
-        private void _DisplayUserData()
+        private void _DisplayUserDetails()
         {
-            if ((UserID == -1))
-            {
-                ctrlPersonCard1.PersonID = -1;
-                return;
-            }
-
             _LoadUserData();
 
             if (_User == null)

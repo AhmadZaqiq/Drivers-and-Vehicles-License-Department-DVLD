@@ -80,7 +80,7 @@ namespace DVLD_Data_Access
             bool IsFound = false;
 
             string query = @"SELECT *
-                             FROM Applications
+                             FROM LocalDrivingLicenseApplications
                              WHERE LocalDrivingLicenseApplicationID = @LocalDrivingLicenseApplicationID";
 
             SqlCommand command = new SqlCommand(query, connection);

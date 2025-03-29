@@ -36,7 +36,7 @@ namespace Drivers_and_Vehicles_License_Department__DVLD_.Users.Forms
             clsUtil.OpenFormEffect(this);
         }
 
-        private void _FillUserInfo()
+        private void _LoadUserData()
         {
             _User.Username = txtUsername.Text;
             _User.Password = txtPassword.Text;
@@ -47,7 +47,6 @@ namespace Drivers_and_Vehicles_License_Department__DVLD_.Users.Forms
         private bool _CheckInputsValidity()
         {
             return string.IsNullOrWhiteSpace(txtUsername.Text.Trim()) ||
-                             clsUser.IsUserExists(txtUsername.Text.Trim()) ||
                              string.IsNullOrWhiteSpace(txtPassword.Text) ||
                              txtPassword.Text.Length < 4 ||
                              txtConfirmPassword.Text != txtPassword.Text;
@@ -68,11 +67,17 @@ namespace Drivers_and_Vehicles_License_Department__DVLD_.Users.Forms
 
         private void btnSave_Click(object sender, EventArgs e)
         {
-            _FillUserInfo();
+            _LoadUserData();
 
             if (_CheckInputsValidity())
             {
                 clsMessageBoxManager.ShowMessageBox("One or more inputs are invalid", "Failed", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            if (clsUser.IsUserExists(txtUsername.Text.Trim()))
+            {
+                clsMessageBoxManager.ShowMessageBox("Username already exists", "Failed", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
 
@@ -84,7 +89,7 @@ namespace Drivers_and_Vehicles_License_Department__DVLD_.Users.Forms
 
             if (!_User.Save())
             {
-                clsMessageBoxManager.ShowMessageBox("Data not Saved...", "Failed",MessageBoxButtons.OK, MessageBoxIcon.Error);
+                clsMessageBoxManager.ShowMessageBox("Data not Saved...", "Failed", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
 
@@ -92,14 +97,14 @@ namespace Drivers_and_Vehicles_License_Department__DVLD_.Users.Forms
             DataAdded?.Invoke();
         }
 
-        private void btnCancel_Click(object sender, EventArgs e)
-        {
-            clsUtil.CloseFormEffect(this);
-        }
-
         private void btnNext_Click(object sender, EventArgs e)
         {
             TabControl1.SelectedTab = tabLoginInfo;
+        }
+
+        private void btnCancel_Click(object sender, EventArgs e)
+        {
+            clsUtil.CloseFormEffect(this);
         }
 
         private void txtUsername_Validating(object sender, CancelEventArgs e)

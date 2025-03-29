@@ -150,6 +150,7 @@
             this.btnShowLicenceInfo.CornerRadiusTopRight = 10;
             this.btnShowLicenceInfo.CustomCursor = System.Windows.Forms.Cursors.Default;
             this.btnShowLicenceInfo.DisabledTextColor = System.Drawing.Color.FromArgb(((int)(((byte)(150)))), ((int)(((byte)(150)))), ((int)(((byte)(150)))));
+            this.btnShowLicenceInfo.Enabled = false;
             this.btnShowLicenceInfo.EnableLongPress = false;
             this.btnShowLicenceInfo.EnablePressAnimation = true;
             this.btnShowLicenceInfo.EnableRippleEffect = true;
@@ -559,6 +560,7 @@
             this.btnViewPersonInfo.TooltipText = null;
             this.btnViewPersonInfo.UseAdvancedRendering = true;
             this.btnViewPersonInfo.UseParticles = false;
+            this.btnViewPersonInfo.Click += new System.EventHandler(this.btnViewPersonInfo_Click);
             // 
             // siticoneLabel23
             // 
@@ -623,7 +625,7 @@
             this.lblType.ForeColor = System.Drawing.Color.Black;
             this.lblType.Location = new System.Drawing.Point(173, 129);
             this.lblType.Name = "lblType";
-            this.lblType.Size = new System.Drawing.Size(73, 23);
+            this.lblType.Size = new System.Drawing.Size(250, 23);
             this.lblType.TabIndex = 188;
             this.lblType.Text = "N\\A";
             // 
@@ -690,7 +692,7 @@
             this.lblApplicant.ForeColor = System.Drawing.Color.Black;
             this.lblApplicant.Location = new System.Drawing.Point(173, 163);
             this.lblApplicant.Name = "lblApplicant";
-            this.lblApplicant.Size = new System.Drawing.Size(73, 23);
+            this.lblApplicant.Size = new System.Drawing.Size(250, 23);
             this.lblApplicant.TabIndex = 185;
             this.lblApplicant.Text = "N\\A";
             // 
@@ -1114,7 +1116,6 @@
             this.Controls.Add(this.siticonePanel1);
             this.Name = "ctrlLocalDrivingApplicationCard";
             this.Size = new System.Drawing.Size(576, 328);
-            this.Load += new System.EventHandler(this.ctrlLocalDrivingApplicationCard_Load);
             this.siticonePanel1.ResumeLayout(false);
             this.siticonePanel2.ResumeLayout(false);
             this.ResumeLayout(false);

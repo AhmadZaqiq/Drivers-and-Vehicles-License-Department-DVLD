@@ -14,7 +14,7 @@ namespace Drivers_and_Vehicles_License_Department__DVLD_
 {
     public partial class frmShowPersonDetails : Form
     {
-        private int _PersonID = 0;
+        private int _PersonID = -1;
 
         public frmShowPersonDetails(int PersonID)
         {

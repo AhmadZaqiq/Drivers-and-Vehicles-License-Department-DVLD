@@ -15,13 +15,13 @@ namespace DVLD_Business
         public int ApplicantPersonID { get; set; }
         public DateTime ApplicationDate { get; set; }
         public int ApplicationTypeID { get; set; }
-        public int ApplicationStatus { get; set; }
+        public byte ApplicationStatus { get; set; }
         public DateTime LastStatusDate { get; set; }
         public decimal PaidFees { get; set; }
         public int CreatedByUserID { get; set; }
 
         private clsApplication(int ApplicationID, int ApplicantPersonID, DateTime ApplicationDate,
-            int ApplicationTypeID, int ApplicationStatus, DateTime LastStatusDate,
+            int ApplicationTypeID, byte ApplicationStatus, DateTime LastStatusDate,
             decimal PaidFees, int CreatedByUserID)
         {
             this.ApplicationID = ApplicationID;
@@ -40,7 +40,7 @@ namespace DVLD_Business
             this.ApplicantPersonID = -1;
             this.ApplicationDate = DateTime.Now;
             this.ApplicationTypeID = -1;
-            this.ApplicationStatus = -1;
+            this.ApplicationStatus = 0;
             this.LastStatusDate = DateTime.Now;
             this.PaidFees = -1;
             this.CreatedByUserID = -1;
@@ -56,7 +56,7 @@ namespace DVLD_Business
             int ApplicantPersonID = -1;
             DateTime ApplicationDate = DateTime.Now;
             int ApplicationTypeID = -1;
-            int ApplicationStatus = -1;
+            byte ApplicationStatus = 0;
             DateTime LastStatusDate = DateTime.Now;
             decimal PaidFees = -1;
             int CreatedByUserID = -1;

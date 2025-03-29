@@ -16,9 +16,9 @@ namespace Drivers_and_Vehicles_License_Department__DVLD_
     {
         private frmListPeople _frmPeople = new frmListPeople();
 
-        private clsPerson _Person = new clsPerson();
+        private clsPerson _Person;
 
-        private clsCountry _Country = new clsCountry();
+        private clsCountry _Country;
 
         private int _PersonID;
 
@@ -32,6 +32,13 @@ namespace Drivers_and_Vehicles_License_Department__DVLD_
             set
             {
                 _PersonID = value;
+
+                if (_PersonID == -1)
+                {
+                    _ClearPersonDetails();
+                    return; // Exits only from get
+                }
+
                 _DisplayPersonDetails();
             }
             get
@@ -61,11 +68,6 @@ namespace Drivers_and_Vehicles_License_Department__DVLD_
 
         private void _ClearPersonDetails()
         {
-            if (_PersonID != -1)
-            {
-                return;
-            }
-
             lblPersonID.Text = "N\\A";
             lblName.Text = "N\\A";
             lblNationalNO.Text = "N\\A";
@@ -86,12 +88,6 @@ namespace Drivers_and_Vehicles_License_Department__DVLD_
 
         private void _DisplayPersonDetails()
         {
-            if (_PersonID == -1)
-            {
-                _ClearPersonDetails();
-                return;
-            }
-
             _LoadPersonData();
 
             if (_Person == null)
@@ -100,7 +96,7 @@ namespace Drivers_and_Vehicles_License_Department__DVLD_
             }
 
             lblPersonID.Text = _PersonID.ToString();
-            lblName.Text = $"{_Person.FirstName} {_Person.SecondName} {_Person.ThirdName} {_Person.LastName}";
+            lblName.Text = _Person.FullName;
             lblNationalNO.Text = _Person.NationalNo;
             lblGender.Text = _ConvertGenderToText(_Person.Gender);
             lblEmail.Text = _Person.Email;
