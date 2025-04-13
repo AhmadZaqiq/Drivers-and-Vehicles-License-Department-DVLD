@@ -1,4 +1,5 @@
 ﻿using Drivers_and_Vehicles_License_Department__DVLD_.Global;
+using Drivers_and_Vehicles_License_Department__DVLD_.Test_Appointments.Forms;
 using DVLD_Business;
 using System;
 using System.Collections.Generic;
@@ -9,6 +10,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static Drivers_and_Vehicles_License_Department__DVLD_.Local_Driving_Application.frmAddAndUpdateLocalDrivingApplication;
 
 namespace Drivers_and_Vehicles_License_Department__DVLD_.Local_Driving_Application
 {
@@ -18,6 +20,8 @@ namespace Drivers_and_Vehicles_License_Department__DVLD_.Local_Driving_Applicati
         {
             InitializeComponent();
         }
+
+        private enum enTestType { Vision = 0, Written = 1, Street = 2, Completed = 3 };
 
         private void frmListLocalDrivingLicenseApplications_Load(object sender, EventArgs e)
         {
@@ -135,10 +139,36 @@ namespace Drivers_and_Vehicles_License_Department__DVLD_.Local_Driving_Applicati
         {
             DataGridViewRow SelectedRow = dgvLocalDrivingLicenseApplications.SelectedRows[0];
 
-            int ID = Convert.ToInt32(SelectedRow.Cells["LocalDrivingLicenseApplicationID"].Value);
+            int LocalApplicationID = Convert.ToInt32(SelectedRow.Cells["LocalDrivingLicenseApplicationID"].Value);
 
-            frmTest frmTest = new frmTest(ID); 
-            frmTest.ShowDialog();
+            frmTestAppointments FormTestAppointments = new frmTestAppointments(LocalApplicationID,(int)enTestType.Vision+1);
+            FormTestAppointments.ShowDialog();
         }
+
+        private void _UpdateTestScheduleAvailability(int PassedTestsCount)
+        {
+            enTestType TestType = (enTestType)PassedTestsCount;
+
+            if (TestType == enTestType.Completed)
+            {
+                ScheduleTestsToolStripMenuItem.Enabled = false;
+                return;
+            }
+
+            ScheduleTestsToolStripMenuItem.Enabled =true;
+            ScheduleVisionTestToolStripMenuItem1.Enabled = (TestType == enTestType.Vision);
+            ScheduleWrittenTestToolStripMenuItem1.Enabled = (TestType == enTestType.Written);
+            ScheduleStreetTestToolStripMenuItem1.Enabled = (TestType == enTestType.Street);
+        }
+
+        private void cmLicenseApplicationSettings_Opening(object sender, CancelEventArgs e)
+        {
+            DataGridViewRow SelectedRow = dgvLocalDrivingLicenseApplications.SelectedRows[0];
+
+            int PassedTestsCount = Convert.ToInt32(SelectedRow.Cells["PassedTests"].Value);
+
+            _UpdateTestScheduleAvailability(PassedTestsCount);
+        }
+
     }
 }

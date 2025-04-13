@@ -64,7 +64,7 @@ namespace Drivers_and_Vehicles_License_Department__DVLD_
 
         private void ManageTestTypesToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            frmManageTestType FormManageTestTypes = new frmManageTestType();
+            frmManageTestTypes FormManageTestTypes = new frmManageTestTypes();
             FormManageTestTypes.ShowDialog();
         }
 

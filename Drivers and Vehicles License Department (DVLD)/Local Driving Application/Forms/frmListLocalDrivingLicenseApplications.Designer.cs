@@ -38,8 +38,8 @@
             this.CancelApplicationToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.ScheduleTestsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.ScheduleWrittenTestToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.ScheduleVisionTestToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.ScheduleWrittenTestToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.ScheduleStreetTestToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator6 = new System.Windows.Forms.ToolStripSeparator();
             this.IssueDrivingLicenseToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
@@ -85,6 +85,7 @@
             this.ShowPersonlicenseHistoryStripMenuItem1});
             this.cmLicenseApplicationSettings.Name = "cmPersonSettings";
             this.cmLicenseApplicationSettings.Size = new System.Drawing.Size(273, 366);
+            this.cmLicenseApplicationSettings.Opening += new System.ComponentModel.CancelEventHandler(this.cmLicenseApplicationSettings_Opening);
             // 
             // ShowDetailsToolStripMenuItem1
             // 
@@ -141,6 +142,14 @@
             this.ScheduleTestsToolStripMenuItem.Size = new System.Drawing.Size(272, 38);
             this.ScheduleTestsToolStripMenuItem.Text = "Schedule Tests";
             // 
+            // ScheduleVisionTestToolStripMenuItem1
+            // 
+            this.ScheduleVisionTestToolStripMenuItem1.Image = global::Drivers_and_Vehicles_License_Department__DVLD_.Properties.Resources.ic_fluent_text_bullet_list_square_edit_24_filled;
+            this.ScheduleVisionTestToolStripMenuItem1.Name = "ScheduleVisionTestToolStripMenuItem1";
+            this.ScheduleVisionTestToolStripMenuItem1.Size = new System.Drawing.Size(214, 38);
+            this.ScheduleVisionTestToolStripMenuItem1.Text = "Schedule Vision Test";
+            this.ScheduleVisionTestToolStripMenuItem1.Click += new System.EventHandler(this.ScheduleVisionTestToolStripMenuItem1_Click);
+            // 
             // ScheduleWrittenTestToolStripMenuItem1
             // 
             this.ScheduleWrittenTestToolStripMenuItem1.BackgroundImage = global::Drivers_and_Vehicles_License_Department__DVLD_.Properties.Resources.ic_fluent_text_bullet_list_square_edit_24_filled;
@@ -149,14 +158,6 @@
             this.ScheduleWrittenTestToolStripMenuItem1.Name = "ScheduleWrittenTestToolStripMenuItem1";
             this.ScheduleWrittenTestToolStripMenuItem1.Size = new System.Drawing.Size(214, 38);
             this.ScheduleWrittenTestToolStripMenuItem1.Text = "Schedule Written Test";
-            // 
-            // ScheduleVisionTestToolStripMenuItem1
-            // 
-            this.ScheduleVisionTestToolStripMenuItem1.Image = global::Drivers_and_Vehicles_License_Department__DVLD_.Properties.Resources.ic_fluent_text_bullet_list_square_edit_24_filled;
-            this.ScheduleVisionTestToolStripMenuItem1.Name = "ScheduleVisionTestToolStripMenuItem1";
-            this.ScheduleVisionTestToolStripMenuItem1.Size = new System.Drawing.Size(214, 38);
-            this.ScheduleVisionTestToolStripMenuItem1.Text = "Schedule Vision Test";
-            this.ScheduleVisionTestToolStripMenuItem1.Click += new System.EventHandler(this.ScheduleVisionTestToolStripMenuItem1_Click);
             // 
             // ScheduleStreetTestToolStripMenuItem1
             // 

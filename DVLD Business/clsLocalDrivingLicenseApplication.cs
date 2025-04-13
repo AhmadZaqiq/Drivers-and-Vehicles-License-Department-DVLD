@@ -103,6 +103,11 @@ namespace DVLD_Business
             return clsLocalDrivingLicenseApplicationData.CancelLocalDrivingLicenseApplication(LocalDrivingLicenseApplicationID);
         }
 
+        public static int GetPassedTestsCountForLocalApplication(int LocalDrivingLicenseApplicationID, int LicenseClassID, bool IsPassed)
+        {
+            return clsLocalDrivingLicenseApplicationData.GetTestsCountForLocalApplicationData(LocalDrivingLicenseApplicationID, LicenseClassID, IsPassed);
+        }
+
 
     }
 }

@@ -14,7 +14,6 @@ namespace Drivers_and_Vehicles_License_Department__DVLD_
 {
     public partial class frmAddAndUpdatePeople : Form
     {
-        public delegate void DataBackEventHandler(object sender, int PersonID);
 
         private frmListPeople _PeopleForm;
 
@@ -26,7 +25,7 @@ namespace Drivers_and_Vehicles_License_Department__DVLD_
 
             lblTitle.Text = ctrlAddNewPerson1.Mode;
 
-            _SetPersonID(PersonID);
+            _SetPersonLabelID(PersonID);
             _PeopleForm = PeopleForm;
             ctrlAddNewPerson1.DataAdded += _PeopleForm.RefreshPeopleDataGrid;
         }
@@ -38,7 +37,7 @@ namespace Drivers_and_Vehicles_License_Department__DVLD_
             clsUtil.OpenFormEffect(this);
         }
 
-        private void _SetPersonID(int PersonID)
+        private void _SetPersonLabelID(int PersonID)
         {
             lblPersonID.Text = (PersonID == -1) ? "N/A" : PersonID.ToString();
         }

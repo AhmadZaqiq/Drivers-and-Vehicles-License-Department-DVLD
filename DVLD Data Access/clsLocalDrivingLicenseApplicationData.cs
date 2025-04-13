@@ -18,31 +18,40 @@ namespace DVLD_Data_Access
             SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString);
 
             string query = @"SELECT  
-                                 LocalDrivingLicenseApplications.LocalDrivingLicenseApplicationID, 
-                                 LicenseClasses.ClassName, 
-                                 People.NationalNo, 
-                                 FullName = People.FirstName + ' ' + 
-                                            People.SecondName + ' ' + 
-                                            CASE 
-                                                WHEN People.ThirdName IS NOT NULL THEN People.ThirdName + ' ' 
-                                                ELSE '' 
-                                            END + 
-                                            People.LastName, 
-                                 Applications.ApplicationDate, 
-                                 PassedTests = 0, 
-                                 ApplicationStatus = CASE 
-                                     WHEN Applications.ApplicationStatus = 1 THEN 'New'
-                                     WHEN Applications.ApplicationStatus = 2 THEN 'Cancelled'
-                                     WHEN Applications.ApplicationStatus = 3 THEN 'Completed'
-                                     ELSE 'Unknown' 
-                                 END
-                             FROM LocalDrivingLicenseApplications
-                             JOIN LicenseClasses 
-                                 ON LocalDrivingLicenseApplications.LicenseClassID = LicenseClasses.LicenseClassID
-                             JOIN Applications 
-                                 ON LocalDrivingLicenseApplications.ApplicationID = Applications.ApplicationID
-                             JOIN People 
-                                 ON Applications.ApplicantPersonID = People.PersonID;";
+                             LocalDrivingLicenseApplications.LocalDrivingLicenseApplicationID, 
+                             LicenseClasses.ClassName, 
+                             People.NationalNo, 
+                             FullName = People.FirstName + ' ' + 
+                                         People.SecondName + ' ' + 
+                                         CASE 
+                                             WHEN People.ThirdName IS NOT NULL THEN People.ThirdName + ' ' 
+                                             ELSE '' 
+                                         END + 
+                                         People.LastName, 
+                             Applications.ApplicationDate, 
+                             PassedTests = (
+                                 SELECT COUNT(*)
+                                 FROM TESTS T
+                                 JOIN TESTAPPOINTMENTS TA
+                                     ON T.TESTAPPOINTMENTID = TA.TESTAPPOINTMENTID
+                                 JOIN LOCALDRIVINGLICENSEAPPLICATIONS LDLA
+                                     ON TA.LOCALDRIVINGLICENSEAPPLICATIONID = LDLA.LOCALDRIVINGLICENSEAPPLICATIONID
+                                 WHERE T.TESTRESULT = 1
+                                 AND LDLA.LOCALDRIVINGLICENSEAPPLICATIONID = LocalDrivingLicenseApplications.LocalDrivingLicenseApplicationID
+                             ), 
+                             ApplicationStatus = CASE 
+                                 WHEN Applications.ApplicationStatus = 1 THEN 'New'
+                                 WHEN Applications.ApplicationStatus = 2 THEN 'Cancelled'
+                                 WHEN Applications.ApplicationStatus = 3 THEN 'Completed'
+                                 ELSE 'Unknown' 
+                             END
+                         FROM LocalDrivingLicenseApplications
+                         JOIN LicenseClasses 
+                             ON LocalDrivingLicenseApplications.LicenseClassID = LicenseClasses.LicenseClassID
+                         JOIN Applications 
+                             ON LocalDrivingLicenseApplications.ApplicationID = Applications.ApplicationID
+                         JOIN People  
+                             ON Applications.ApplicantPersonID = People.PersonID";
 
             SqlCommand command = new SqlCommand(query, connection);
 
@@ -323,6 +332,53 @@ namespace DVLD_Data_Access
             }
 
             return CancelledSuccessfully;
+        }
+
+        public static int GetTestsCountForLocalApplicationData(int LocalDrivingLicenseApplicationID, int LicenseClassID, bool IsPassed)
+        {
+            int TestsCount = -1;
+
+            SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString);
+
+            string query = @"SELECT COUNT(*)
+                             FROM Tests T
+                             JOIN TestAppointments TA
+                                 ON T.TestAppointmentID = TA.TestAppointmentID
+                             JOIN LocalDrivingLicenseApplications LDLA
+                                 ON TA.LocalDrivingLicenseApplicationID = LDLA.LocalDrivingLicenseApplicationID
+                             WHERE T.TestResult = @TestResult
+                               AND LDLA.LocalDrivingLicenseApplicationID = @LocalDrivingLicenseApplicationID
+                               AND LDLA.LicenseClassID = @LicenseClassID";
+
+            SqlCommand command = new SqlCommand(query, connection);
+
+            command.Parameters.AddWithValue("@TestResult", IsPassed ? 1 : 0);
+            command.Parameters.AddWithValue("@LocalDrivingLicenseApplicationID", LocalDrivingLicenseApplicationID);
+            command.Parameters.AddWithValue("@LicenseClassID", LicenseClassID);
+
+            try
+            {
+                connection.Open();
+
+                object result = command.ExecuteScalar();
+
+                if (result != null)
+                {
+                    TestsCount = Convert.ToInt32(result);
+                }
+            }
+
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+
+            finally
+            {
+                connection.Close();
+            }
+
+            return TestsCount;
         }
 
 

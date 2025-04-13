@@ -27,7 +27,7 @@ namespace Drivers_and_Vehicles_License_Department__DVLD_.Applications.Controls
 
         private int _ApplicationID;
 
-        public enum enStatus { New = 1, Cancelled = 2, Completed = 3 };
+        private enum enStatus { New = 1, Cancelled = 2, Completed = 3 };
 
         public ctrlLocalDrivingApplicationCard()
         {
@@ -74,7 +74,7 @@ namespace Drivers_and_Vehicles_License_Department__DVLD_.Applications.Controls
         private void _PopulateLocalApplicationDetails()
         {
             lblLocalApplicationID.Text = _LocalDrivingApplicationID.ToString();
-            lblPassedTests.Text = clsTestAppointment.GetTestAppointmentCountForPerson(_ApplicantPerson.PersonID).ToString();
+            lblPassedTests.Text = clsLocalDrivingLicenseApplication.GetPassedTestsCountForLocalApplication(_LocalDrivingApplicationID, _LocalDrivingLicenseApplication.LicenseClassID,true).ToString() + "/3";
             lblAppliedForLicence.Text = clsLicenseClass.GetLicenseClassByID(_LocalDrivingLicenseApplication.LicenseClassID).ClassName.ToString();
         }
 

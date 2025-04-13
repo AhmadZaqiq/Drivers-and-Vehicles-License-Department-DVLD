@@ -295,7 +295,7 @@ namespace Drivers_and_Vehicles_License_Department__DVLD_
 
         private void txtNationalNO_Validating(object sender, CancelEventArgs e)
         {
-            if (string.IsNullOrWhiteSpace(txtNationalNO.Text.Trim()) || !_IsValidNationalNO())
+            if (string.IsNullOrWhiteSpace(txtNationalNO.Text.Trim()))
             {
                 e.Cancel = true;
                 txtNationalNO.Focus();

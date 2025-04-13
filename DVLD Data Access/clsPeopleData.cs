@@ -286,18 +286,18 @@ namespace DVLD_Data_Access
 
             SqlCommand command = new SqlCommand(query, connection);
 
-            command.Parameters.AddWithValue("PersonID", PersonID);
-            command.Parameters.AddWithValue("NationalNo", NationalNo);
-            command.Parameters.AddWithValue("FirstName", FirstName);
-            command.Parameters.AddWithValue("SecondName", SecondName);
-            command.Parameters.AddWithValue("ThirdName", ThirdName);
-            command.Parameters.AddWithValue("LastName", LastName);
-            command.Parameters.AddWithValue("DateOfBirth", DateOfBirth);
-            command.Parameters.AddWithValue("Gender", Gender);
-            command.Parameters.AddWithValue("Address", Address);
-            command.Parameters.AddWithValue("Phone", Phone);
-            command.Parameters.AddWithValue("Email", Email);
-            command.Parameters.AddWithValue("NationalityCountryID", NationalityCountryID);
+            command.Parameters.AddWithValue("@PersonID", PersonID);
+            command.Parameters.AddWithValue("@NationalNo", NationalNo);
+            command.Parameters.AddWithValue("@FirstName", FirstName);
+            command.Parameters.AddWithValue("@SecondName", SecondName);
+            command.Parameters.AddWithValue("@ThirdName", ThirdName);
+            command.Parameters.AddWithValue("@LastName", LastName);
+            command.Parameters.AddWithValue("@DateOfBirth", DateOfBirth);
+            command.Parameters.AddWithValue("@Gender", Gender);
+            command.Parameters.AddWithValue("@Address", Address);
+            command.Parameters.AddWithValue("@Phone", Phone);
+            command.Parameters.AddWithValue("@Email", Email);
+            command.Parameters.AddWithValue("@NationalityCountryID", NationalityCountryID);
 
             if (ImagePath != "" && ImagePath != null)
             {
