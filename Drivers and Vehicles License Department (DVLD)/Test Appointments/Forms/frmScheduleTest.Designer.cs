@@ -43,18 +43,18 @@
             this.dtpTestAppointmentDate = new System.Windows.Forms.DateTimePicker();
             this.label1 = new System.Windows.Forms.Label();
             this.siticonePanel1 = new SiticoneNetFrameworkUI.SiticonePanel();
-            this.TotalFees = new SiticoneNetFrameworkUI.SiticoneLabel();
+            this.siticonePictureBox7 = new SiticoneNetFrameworkUI.SiticonePictureBox();
+            this.lblTotalFees = new SiticoneNetFrameworkUI.SiticoneLabel();
             this.lblRTestAppID = new SiticoneNetFrameworkUI.SiticoneLabel();
             this.siticoneLabel11 = new SiticoneNetFrameworkUI.SiticoneLabel();
             this.siticoneLabel9 = new SiticoneNetFrameworkUI.SiticoneLabel();
+            this.siticonePictureBox5 = new SiticoneNetFrameworkUI.SiticonePictureBox();
             this.siticoneLabel7 = new SiticoneNetFrameworkUI.SiticoneLabel();
             this.siticoneLabel5 = new SiticoneNetFrameworkUI.SiticoneLabel();
-            this.RAppFees = new SiticoneNetFrameworkUI.SiticoneLabel();
+            this.siticonePictureBox2 = new SiticoneNetFrameworkUI.SiticonePictureBox();
+            this.lblRAppFees = new SiticoneNetFrameworkUI.SiticoneLabel();
             this.btnSave = new SiticoneNetFrameworkUI.SiticoneButton();
             this.btnCancel = new SiticoneNetFrameworkUI.SiticoneButton();
-            this.siticonePictureBox7 = new SiticoneNetFrameworkUI.SiticonePictureBox();
-            this.siticonePictureBox5 = new SiticoneNetFrameworkUI.SiticonePictureBox();
-            this.siticonePictureBox2 = new SiticoneNetFrameworkUI.SiticonePictureBox();
             this.siticonePictureBox8 = new SiticoneNetFrameworkUI.SiticonePictureBox();
             this.siticonePictureBox10 = new SiticoneNetFrameworkUI.SiticonePictureBox();
             this.siticonePictureBox1 = new SiticoneNetFrameworkUI.SiticonePictureBox();
@@ -62,6 +62,7 @@
             this.siticonePictureBox6 = new SiticoneNetFrameworkUI.SiticonePictureBox();
             this.siticonePictureBox4 = new SiticoneNetFrameworkUI.SiticonePictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.lblSatWarningMessage = new System.Windows.Forms.Label();
             this.siticonePanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -187,14 +188,14 @@
             this.lblFees.TabIndex = 209;
             this.lblFees.Text = "N\\A";
             // 
-            // dtpTestDate
+            // dtpTestAppointmentDate
             // 
             this.dtpTestAppointmentDate.CalendarFont = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dtpTestAppointmentDate.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dtpTestAppointmentDate.Location = new System.Drawing.Point(180, 444);
             this.dtpTestAppointmentDate.MaxDate = new System.DateTime(2125, 1, 30, 4, 56, 0, 0);
             this.dtpTestAppointmentDate.MinDate = new System.DateTime(1910, 1, 1, 0, 0, 0, 0);
-            this.dtpTestAppointmentDate.Name = "dtpTestDate";
+            this.dtpTestAppointmentDate.Name = "dtpTestAppointmentDate";
             this.dtpTestAppointmentDate.Size = new System.Drawing.Size(202, 25);
             this.dtpTestAppointmentDate.TabIndex = 210;
             this.dtpTestAppointmentDate.Value = new System.DateTime(2025, 1, 30, 0, 0, 0, 0);
@@ -220,7 +221,7 @@
             this.siticonePanel1.BorderGradientStartColor = System.Drawing.Color.Blue;
             this.siticonePanel1.BorderThickness = 2F;
             this.siticonePanel1.Controls.Add(this.siticonePictureBox7);
-            this.siticonePanel1.Controls.Add(this.TotalFees);
+            this.siticonePanel1.Controls.Add(this.lblTotalFees);
             this.siticonePanel1.Controls.Add(this.lblRTestAppID);
             this.siticonePanel1.Controls.Add(this.siticoneLabel11);
             this.siticonePanel1.Controls.Add(this.siticoneLabel9);
@@ -228,7 +229,7 @@
             this.siticonePanel1.Controls.Add(this.siticoneLabel7);
             this.siticonePanel1.Controls.Add(this.siticoneLabel5);
             this.siticonePanel1.Controls.Add(this.siticonePictureBox2);
-            this.siticonePanel1.Controls.Add(this.RAppFees);
+            this.siticonePanel1.Controls.Add(this.lblRAppFees);
             this.siticonePanel1.CornerRadiusBottomLeft = 10F;
             this.siticonePanel1.CornerRadiusBottomRight = 10F;
             this.siticonePanel1.CornerRadiusTopLeft = 10F;
@@ -263,17 +264,62 @@
             this.siticonePanel1.UsePatternTexture = false;
             this.siticonePanel1.UseRadialGradient = false;
             // 
-            // TotalFees
+            // siticonePictureBox7
             // 
-            this.TotalFees.BackColor = System.Drawing.Color.Transparent;
-            this.TotalFees.Enabled = false;
-            this.TotalFees.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TotalFees.ForeColor = System.Drawing.Color.Black;
-            this.TotalFees.Location = new System.Drawing.Point(359, 80);
-            this.TotalFees.Name = "TotalFees";
-            this.TotalFees.Size = new System.Drawing.Size(40, 23);
-            this.TotalFees.TabIndex = 217;
-            this.TotalFees.Text = "N\\A";
+            this.siticonePictureBox7.BackColor = System.Drawing.Color.Transparent;
+            this.siticonePictureBox7.BackgroundImage = global::Drivers_and_Vehicles_License_Department__DVLD_.Properties.Resources.ic_fluent_number_symbol_square_24_filled;
+            this.siticonePictureBox7.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.siticonePictureBox7.BorderColor = System.Drawing.Color.Black;
+            this.siticonePictureBox7.BorderWidth = 1;
+            this.siticonePictureBox7.Brightness = 1F;
+            this.siticonePictureBox7.Contrast = 1F;
+            this.siticonePictureBox7.CornerRadius = 0;
+            this.siticonePictureBox7.DraggingSpeed = 3.15F;
+            this.siticonePictureBox7.EnableAsyncLoading = false;
+            this.siticonePictureBox7.EnableCaching = false;
+            this.siticonePictureBox7.EnableDragDrop = false;
+            this.siticonePictureBox7.EnableExtendedImageSources = false;
+            this.siticonePictureBox7.EnableFilters = false;
+            this.siticonePictureBox7.EnableFlipping = false;
+            this.siticonePictureBox7.EnableGlow = false;
+            this.siticonePictureBox7.EnableHighDpiSupport = false;
+            this.siticonePictureBox7.EnableMouseInteraction = false;
+            this.siticonePictureBox7.EnablePlaceholder = false;
+            this.siticonePictureBox7.EnableRotation = false;
+            this.siticonePictureBox7.EnableShadow = false;
+            this.siticonePictureBox7.EnableSlideshow = false;
+            this.siticonePictureBox7.FlipHorizontal = false;
+            this.siticonePictureBox7.FlipVertical = false;
+            this.siticonePictureBox7.ForeColor = System.Drawing.Color.Transparent;
+            this.siticonePictureBox7.Grayscale = false;
+            this.siticonePictureBox7.Image = null;
+            this.siticonePictureBox7.ImageOpacity = 1F;
+            this.siticonePictureBox7.Images = ((System.Collections.Generic.List<System.Drawing.Image>)(resources.GetObject("siticonePictureBox7.Images")));
+            this.siticonePictureBox7.InterpolationMode = System.Drawing.Drawing2D.InterpolationMode.HighQualityBicubic;
+            this.siticonePictureBox7.IsCircular = false;
+            this.siticonePictureBox7.Location = new System.Drawing.Point(132, 35);
+            this.siticonePictureBox7.MaintainAspectRatio = true;
+            this.siticonePictureBox7.Name = "siticonePictureBox7";
+            this.siticonePictureBox7.PlaceholderImage = null;
+            this.siticonePictureBox7.RotationAngle = 0F;
+            this.siticonePictureBox7.Saturation = 1F;
+            this.siticonePictureBox7.ShowBorder = true;
+            this.siticonePictureBox7.Size = new System.Drawing.Size(27, 23);
+            this.siticonePictureBox7.SizeMode = SiticoneNetFrameworkUI.Helpers.Enum.SiticonePictureBoxSizeMode.Normal;
+            this.siticonePictureBox7.TabIndex = 212;
+            this.siticonePictureBox7.Text = "siticonePictureBox7";
+            // 
+            // lblTotalFees
+            // 
+            this.lblTotalFees.BackColor = System.Drawing.Color.Transparent;
+            this.lblTotalFees.Enabled = false;
+            this.lblTotalFees.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTotalFees.ForeColor = System.Drawing.Color.Black;
+            this.lblTotalFees.Location = new System.Drawing.Point(359, 80);
+            this.lblTotalFees.Name = "lblTotalFees";
+            this.lblTotalFees.Size = new System.Drawing.Size(40, 23);
+            this.lblTotalFees.TabIndex = 217;
+            this.lblTotalFees.Text = "N\\A";
             // 
             // lblRTestAppID
             // 
@@ -290,7 +336,6 @@
             // siticoneLabel11
             // 
             this.siticoneLabel11.BackColor = System.Drawing.Color.Transparent;
-            this.siticoneLabel11.Enabled = false;
             this.siticoneLabel11.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.siticoneLabel11.ForeColor = System.Drawing.Color.Black;
             this.siticoneLabel11.Location = new System.Drawing.Point(22, 35);
@@ -310,10 +355,54 @@
             this.siticoneLabel9.TabIndex = 135;
             this.siticoneLabel9.Text = "Retake Test Info";
             // 
+            // siticonePictureBox5
+            // 
+            this.siticonePictureBox5.BackColor = System.Drawing.Color.Transparent;
+            this.siticonePictureBox5.BackgroundImage = global::Drivers_and_Vehicles_License_Department__DVLD_.Properties.Resources.attach_money_24dp_000000_FILL0_wght400_GRAD0_opsz24;
+            this.siticonePictureBox5.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.siticonePictureBox5.BorderColor = System.Drawing.Color.Black;
+            this.siticonePictureBox5.BorderWidth = 1;
+            this.siticonePictureBox5.Brightness = 1F;
+            this.siticonePictureBox5.Contrast = 1F;
+            this.siticonePictureBox5.CornerRadius = 0;
+            this.siticonePictureBox5.DraggingSpeed = 3.15F;
+            this.siticonePictureBox5.EnableAsyncLoading = false;
+            this.siticonePictureBox5.EnableCaching = false;
+            this.siticonePictureBox5.EnableDragDrop = false;
+            this.siticonePictureBox5.EnableExtendedImageSources = false;
+            this.siticonePictureBox5.EnableFilters = false;
+            this.siticonePictureBox5.EnableFlipping = false;
+            this.siticonePictureBox5.EnableGlow = false;
+            this.siticonePictureBox5.EnableHighDpiSupport = false;
+            this.siticonePictureBox5.EnableMouseInteraction = false;
+            this.siticonePictureBox5.EnablePlaceholder = false;
+            this.siticonePictureBox5.EnableRotation = false;
+            this.siticonePictureBox5.EnableShadow = false;
+            this.siticonePictureBox5.EnableSlideshow = false;
+            this.siticonePictureBox5.FlipHorizontal = false;
+            this.siticonePictureBox5.FlipVertical = false;
+            this.siticonePictureBox5.ForeColor = System.Drawing.Color.Transparent;
+            this.siticonePictureBox5.Grayscale = false;
+            this.siticonePictureBox5.Image = null;
+            this.siticonePictureBox5.ImageOpacity = 1F;
+            this.siticonePictureBox5.Images = ((System.Collections.Generic.List<System.Drawing.Image>)(resources.GetObject("siticonePictureBox5.Images")));
+            this.siticonePictureBox5.InterpolationMode = System.Drawing.Drawing2D.InterpolationMode.HighQualityBicubic;
+            this.siticonePictureBox5.IsCircular = false;
+            this.siticonePictureBox5.Location = new System.Drawing.Point(326, 80);
+            this.siticonePictureBox5.MaintainAspectRatio = true;
+            this.siticonePictureBox5.Name = "siticonePictureBox5";
+            this.siticonePictureBox5.PlaceholderImage = null;
+            this.siticonePictureBox5.RotationAngle = 0F;
+            this.siticonePictureBox5.Saturation = 1F;
+            this.siticonePictureBox5.ShowBorder = true;
+            this.siticonePictureBox5.Size = new System.Drawing.Size(27, 23);
+            this.siticonePictureBox5.SizeMode = SiticoneNetFrameworkUI.Helpers.Enum.SiticonePictureBoxSizeMode.Normal;
+            this.siticonePictureBox5.TabIndex = 215;
+            this.siticonePictureBox5.Text = "siticonePictureBox5";
+            // 
             // siticoneLabel7
             // 
             this.siticoneLabel7.BackColor = System.Drawing.Color.Transparent;
-            this.siticoneLabel7.Enabled = false;
             this.siticoneLabel7.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.siticoneLabel7.ForeColor = System.Drawing.Color.Black;
             this.siticoneLabel7.Location = new System.Drawing.Point(245, 80);
@@ -325,7 +414,6 @@
             // siticoneLabel5
             // 
             this.siticoneLabel5.BackColor = System.Drawing.Color.Transparent;
-            this.siticoneLabel5.Enabled = false;
             this.siticoneLabel5.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.siticoneLabel5.ForeColor = System.Drawing.Color.Black;
             this.siticoneLabel5.Location = new System.Drawing.Point(34, 80);
@@ -334,17 +422,62 @@
             this.siticoneLabel5.TabIndex = 213;
             this.siticoneLabel5.Text = "R. App. Fees:";
             // 
-            // RAppFees
+            // siticonePictureBox2
             // 
-            this.RAppFees.BackColor = System.Drawing.Color.Transparent;
-            this.RAppFees.Enabled = false;
-            this.RAppFees.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.RAppFees.ForeColor = System.Drawing.Color.Black;
-            this.RAppFees.Location = new System.Drawing.Point(165, 80);
-            this.RAppFees.Name = "RAppFees";
-            this.RAppFees.Size = new System.Drawing.Size(52, 23);
-            this.RAppFees.TabIndex = 214;
-            this.RAppFees.Text = "N\\A";
+            this.siticonePictureBox2.BackColor = System.Drawing.Color.Transparent;
+            this.siticonePictureBox2.BackgroundImage = global::Drivers_and_Vehicles_License_Department__DVLD_.Properties.Resources.attach_money_24dp_000000_FILL0_wght400_GRAD0_opsz24;
+            this.siticonePictureBox2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.siticonePictureBox2.BorderColor = System.Drawing.Color.Black;
+            this.siticonePictureBox2.BorderWidth = 1;
+            this.siticonePictureBox2.Brightness = 1F;
+            this.siticonePictureBox2.Contrast = 1F;
+            this.siticonePictureBox2.CornerRadius = 0;
+            this.siticonePictureBox2.DraggingSpeed = 3.15F;
+            this.siticonePictureBox2.EnableAsyncLoading = false;
+            this.siticonePictureBox2.EnableCaching = false;
+            this.siticonePictureBox2.EnableDragDrop = false;
+            this.siticonePictureBox2.EnableExtendedImageSources = false;
+            this.siticonePictureBox2.EnableFilters = false;
+            this.siticonePictureBox2.EnableFlipping = false;
+            this.siticonePictureBox2.EnableGlow = false;
+            this.siticonePictureBox2.EnableHighDpiSupport = false;
+            this.siticonePictureBox2.EnableMouseInteraction = false;
+            this.siticonePictureBox2.EnablePlaceholder = false;
+            this.siticonePictureBox2.EnableRotation = false;
+            this.siticonePictureBox2.EnableShadow = false;
+            this.siticonePictureBox2.EnableSlideshow = false;
+            this.siticonePictureBox2.FlipHorizontal = false;
+            this.siticonePictureBox2.FlipVertical = false;
+            this.siticonePictureBox2.ForeColor = System.Drawing.Color.Transparent;
+            this.siticonePictureBox2.Grayscale = false;
+            this.siticonePictureBox2.Image = null;
+            this.siticonePictureBox2.ImageOpacity = 1F;
+            this.siticonePictureBox2.Images = ((System.Collections.Generic.List<System.Drawing.Image>)(resources.GetObject("siticonePictureBox2.Images")));
+            this.siticonePictureBox2.InterpolationMode = System.Drawing.Drawing2D.InterpolationMode.HighQualityBicubic;
+            this.siticonePictureBox2.IsCircular = false;
+            this.siticonePictureBox2.Location = new System.Drawing.Point(132, 80);
+            this.siticonePictureBox2.MaintainAspectRatio = true;
+            this.siticonePictureBox2.Name = "siticonePictureBox2";
+            this.siticonePictureBox2.PlaceholderImage = null;
+            this.siticonePictureBox2.RotationAngle = 0F;
+            this.siticonePictureBox2.Saturation = 1F;
+            this.siticonePictureBox2.ShowBorder = true;
+            this.siticonePictureBox2.Size = new System.Drawing.Size(27, 23);
+            this.siticonePictureBox2.SizeMode = SiticoneNetFrameworkUI.Helpers.Enum.SiticonePictureBoxSizeMode.Normal;
+            this.siticonePictureBox2.TabIndex = 212;
+            this.siticonePictureBox2.Text = "siticonePictureBox2";
+            // 
+            // lblRAppFees
+            // 
+            this.lblRAppFees.BackColor = System.Drawing.Color.Transparent;
+            this.lblRAppFees.Enabled = false;
+            this.lblRAppFees.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblRAppFees.ForeColor = System.Drawing.Color.Black;
+            this.lblRAppFees.Location = new System.Drawing.Point(165, 80);
+            this.lblRAppFees.Name = "lblRAppFees";
+            this.lblRAppFees.Size = new System.Drawing.Size(52, 23);
+            this.lblRAppFees.TabIndex = 214;
+            this.lblRAppFees.Text = "N\\A";
             // 
             // btnSave
             // 
@@ -503,144 +636,6 @@
             this.btnCancel.UseAdvancedRendering = true;
             this.btnCancel.UseParticles = false;
             this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
-            // 
-            // siticonePictureBox7
-            // 
-            this.siticonePictureBox7.BackColor = System.Drawing.Color.Transparent;
-            this.siticonePictureBox7.BackgroundImage = global::Drivers_and_Vehicles_License_Department__DVLD_.Properties.Resources.ic_fluent_number_symbol_square_24_filled;
-            this.siticonePictureBox7.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.siticonePictureBox7.BorderColor = System.Drawing.Color.Black;
-            this.siticonePictureBox7.BorderWidth = 1;
-            this.siticonePictureBox7.Brightness = 1F;
-            this.siticonePictureBox7.Contrast = 1F;
-            this.siticonePictureBox7.CornerRadius = 0;
-            this.siticonePictureBox7.DraggingSpeed = 3.15F;
-            this.siticonePictureBox7.EnableAsyncLoading = false;
-            this.siticonePictureBox7.EnableCaching = false;
-            this.siticonePictureBox7.Enabled = false;
-            this.siticonePictureBox7.EnableDragDrop = false;
-            this.siticonePictureBox7.EnableExtendedImageSources = false;
-            this.siticonePictureBox7.EnableFilters = false;
-            this.siticonePictureBox7.EnableFlipping = false;
-            this.siticonePictureBox7.EnableGlow = false;
-            this.siticonePictureBox7.EnableHighDpiSupport = false;
-            this.siticonePictureBox7.EnableMouseInteraction = false;
-            this.siticonePictureBox7.EnablePlaceholder = false;
-            this.siticonePictureBox7.EnableRotation = false;
-            this.siticonePictureBox7.EnableShadow = false;
-            this.siticonePictureBox7.EnableSlideshow = false;
-            this.siticonePictureBox7.FlipHorizontal = false;
-            this.siticonePictureBox7.FlipVertical = false;
-            this.siticonePictureBox7.ForeColor = System.Drawing.Color.Transparent;
-            this.siticonePictureBox7.Grayscale = false;
-            this.siticonePictureBox7.Image = null;
-            this.siticonePictureBox7.ImageOpacity = 1F;
-            this.siticonePictureBox7.Images = ((System.Collections.Generic.List<System.Drawing.Image>)(resources.GetObject("siticonePictureBox7.Images")));
-            this.siticonePictureBox7.InterpolationMode = System.Drawing.Drawing2D.InterpolationMode.HighQualityBicubic;
-            this.siticonePictureBox7.IsCircular = false;
-            this.siticonePictureBox7.Location = new System.Drawing.Point(132, 35);
-            this.siticonePictureBox7.MaintainAspectRatio = true;
-            this.siticonePictureBox7.Name = "siticonePictureBox7";
-            this.siticonePictureBox7.PlaceholderImage = null;
-            this.siticonePictureBox7.RotationAngle = 0F;
-            this.siticonePictureBox7.Saturation = 1F;
-            this.siticonePictureBox7.ShowBorder = true;
-            this.siticonePictureBox7.Size = new System.Drawing.Size(27, 23);
-            this.siticonePictureBox7.SizeMode = SiticoneNetFrameworkUI.Helpers.Enum.SiticonePictureBoxSizeMode.Normal;
-            this.siticonePictureBox7.TabIndex = 212;
-            this.siticonePictureBox7.Text = "siticonePictureBox7";
-            // 
-            // siticonePictureBox5
-            // 
-            this.siticonePictureBox5.BackColor = System.Drawing.Color.Transparent;
-            this.siticonePictureBox5.BackgroundImage = global::Drivers_and_Vehicles_License_Department__DVLD_.Properties.Resources.attach_money_24dp_000000_FILL0_wght400_GRAD0_opsz24;
-            this.siticonePictureBox5.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.siticonePictureBox5.BorderColor = System.Drawing.Color.Black;
-            this.siticonePictureBox5.BorderWidth = 1;
-            this.siticonePictureBox5.Brightness = 1F;
-            this.siticonePictureBox5.Contrast = 1F;
-            this.siticonePictureBox5.CornerRadius = 0;
-            this.siticonePictureBox5.DraggingSpeed = 3.15F;
-            this.siticonePictureBox5.EnableAsyncLoading = false;
-            this.siticonePictureBox5.EnableCaching = false;
-            this.siticonePictureBox5.Enabled = false;
-            this.siticonePictureBox5.EnableDragDrop = false;
-            this.siticonePictureBox5.EnableExtendedImageSources = false;
-            this.siticonePictureBox5.EnableFilters = false;
-            this.siticonePictureBox5.EnableFlipping = false;
-            this.siticonePictureBox5.EnableGlow = false;
-            this.siticonePictureBox5.EnableHighDpiSupport = false;
-            this.siticonePictureBox5.EnableMouseInteraction = false;
-            this.siticonePictureBox5.EnablePlaceholder = false;
-            this.siticonePictureBox5.EnableRotation = false;
-            this.siticonePictureBox5.EnableShadow = false;
-            this.siticonePictureBox5.EnableSlideshow = false;
-            this.siticonePictureBox5.FlipHorizontal = false;
-            this.siticonePictureBox5.FlipVertical = false;
-            this.siticonePictureBox5.ForeColor = System.Drawing.Color.Transparent;
-            this.siticonePictureBox5.Grayscale = false;
-            this.siticonePictureBox5.Image = null;
-            this.siticonePictureBox5.ImageOpacity = 1F;
-            this.siticonePictureBox5.Images = ((System.Collections.Generic.List<System.Drawing.Image>)(resources.GetObject("siticonePictureBox5.Images")));
-            this.siticonePictureBox5.InterpolationMode = System.Drawing.Drawing2D.InterpolationMode.HighQualityBicubic;
-            this.siticonePictureBox5.IsCircular = false;
-            this.siticonePictureBox5.Location = new System.Drawing.Point(326, 80);
-            this.siticonePictureBox5.MaintainAspectRatio = true;
-            this.siticonePictureBox5.Name = "siticonePictureBox5";
-            this.siticonePictureBox5.PlaceholderImage = null;
-            this.siticonePictureBox5.RotationAngle = 0F;
-            this.siticonePictureBox5.Saturation = 1F;
-            this.siticonePictureBox5.ShowBorder = true;
-            this.siticonePictureBox5.Size = new System.Drawing.Size(27, 23);
-            this.siticonePictureBox5.SizeMode = SiticoneNetFrameworkUI.Helpers.Enum.SiticonePictureBoxSizeMode.Normal;
-            this.siticonePictureBox5.TabIndex = 215;
-            this.siticonePictureBox5.Text = "siticonePictureBox5";
-            // 
-            // siticonePictureBox2
-            // 
-            this.siticonePictureBox2.BackColor = System.Drawing.Color.Transparent;
-            this.siticonePictureBox2.BackgroundImage = global::Drivers_and_Vehicles_License_Department__DVLD_.Properties.Resources.attach_money_24dp_000000_FILL0_wght400_GRAD0_opsz24;
-            this.siticonePictureBox2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.siticonePictureBox2.BorderColor = System.Drawing.Color.Black;
-            this.siticonePictureBox2.BorderWidth = 1;
-            this.siticonePictureBox2.Brightness = 1F;
-            this.siticonePictureBox2.Contrast = 1F;
-            this.siticonePictureBox2.CornerRadius = 0;
-            this.siticonePictureBox2.DraggingSpeed = 3.15F;
-            this.siticonePictureBox2.EnableAsyncLoading = false;
-            this.siticonePictureBox2.EnableCaching = false;
-            this.siticonePictureBox2.Enabled = false;
-            this.siticonePictureBox2.EnableDragDrop = false;
-            this.siticonePictureBox2.EnableExtendedImageSources = false;
-            this.siticonePictureBox2.EnableFilters = false;
-            this.siticonePictureBox2.EnableFlipping = false;
-            this.siticonePictureBox2.EnableGlow = false;
-            this.siticonePictureBox2.EnableHighDpiSupport = false;
-            this.siticonePictureBox2.EnableMouseInteraction = false;
-            this.siticonePictureBox2.EnablePlaceholder = false;
-            this.siticonePictureBox2.EnableRotation = false;
-            this.siticonePictureBox2.EnableShadow = false;
-            this.siticonePictureBox2.EnableSlideshow = false;
-            this.siticonePictureBox2.FlipHorizontal = false;
-            this.siticonePictureBox2.FlipVertical = false;
-            this.siticonePictureBox2.ForeColor = System.Drawing.Color.Transparent;
-            this.siticonePictureBox2.Grayscale = false;
-            this.siticonePictureBox2.Image = null;
-            this.siticonePictureBox2.ImageOpacity = 1F;
-            this.siticonePictureBox2.Images = ((System.Collections.Generic.List<System.Drawing.Image>)(resources.GetObject("siticonePictureBox2.Images")));
-            this.siticonePictureBox2.InterpolationMode = System.Drawing.Drawing2D.InterpolationMode.HighQualityBicubic;
-            this.siticonePictureBox2.IsCircular = false;
-            this.siticonePictureBox2.Location = new System.Drawing.Point(132, 80);
-            this.siticonePictureBox2.MaintainAspectRatio = true;
-            this.siticonePictureBox2.Name = "siticonePictureBox2";
-            this.siticonePictureBox2.PlaceholderImage = null;
-            this.siticonePictureBox2.RotationAngle = 0F;
-            this.siticonePictureBox2.Saturation = 1F;
-            this.siticonePictureBox2.ShowBorder = true;
-            this.siticonePictureBox2.Size = new System.Drawing.Size(27, 23);
-            this.siticonePictureBox2.SizeMode = SiticoneNetFrameworkUI.Helpers.Enum.SiticonePictureBoxSizeMode.Normal;
-            this.siticonePictureBox2.TabIndex = 212;
-            this.siticonePictureBox2.Text = "siticonePictureBox2";
             // 
             // siticonePictureBox8
             // 
@@ -922,12 +917,25 @@
             this.pictureBox1.TabIndex = 68;
             this.pictureBox1.TabStop = false;
             // 
+            // lblSatWarningMessage
+            // 
+            this.lblSatWarningMessage.AutoSize = true;
+            this.lblSatWarningMessage.Font = new System.Drawing.Font("Segoe UI Semibold", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblSatWarningMessage.ForeColor = System.Drawing.Color.Red;
+            this.lblSatWarningMessage.Location = new System.Drawing.Point(48, 259);
+            this.lblSatWarningMessage.Name = "lblSatWarningMessage";
+            this.lblSatWarningMessage.Size = new System.Drawing.Size(330, 19);
+            this.lblSatWarningMessage.TabIndex = 214;
+            this.lblSatWarningMessage.Text = "Person already sat for the test, appointment locked.";
+            this.lblSatWarningMessage.Visible = false;
+            // 
             // frmScheduleTest
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(427, 734);
+            this.Controls.Add(this.lblSatWarningMessage);
             this.Controls.Add(this.btnSave);
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.siticonePanel1);
@@ -988,15 +996,16 @@
         private SiticoneNetFrameworkUI.SiticonePanel siticonePanel1;
         private SiticoneNetFrameworkUI.SiticoneLabel siticoneLabel9;
         private SiticoneNetFrameworkUI.SiticonePictureBox siticonePictureBox7;
-        private SiticoneNetFrameworkUI.SiticoneLabel TotalFees;
+        private SiticoneNetFrameworkUI.SiticoneLabel lblTotalFees;
         private SiticoneNetFrameworkUI.SiticoneLabel lblRTestAppID;
         private SiticoneNetFrameworkUI.SiticoneLabel siticoneLabel11;
         private SiticoneNetFrameworkUI.SiticonePictureBox siticonePictureBox5;
         private SiticoneNetFrameworkUI.SiticoneLabel siticoneLabel7;
         private SiticoneNetFrameworkUI.SiticoneLabel siticoneLabel5;
         private SiticoneNetFrameworkUI.SiticonePictureBox siticonePictureBox2;
-        private SiticoneNetFrameworkUI.SiticoneLabel RAppFees;
+        private SiticoneNetFrameworkUI.SiticoneLabel lblRAppFees;
         private SiticoneNetFrameworkUI.SiticoneButton btnSave;
         private SiticoneNetFrameworkUI.SiticoneButton btnCancel;
+        private System.Windows.Forms.Label lblSatWarningMessage;
     }
 }

@@ -34,7 +34,9 @@ namespace Drivers_and_Vehicles_License_Department__DVLD_.Tests.Forms
 
         private decimal _Fees;
 
-        public frmScheduleTest(int TestAppointmentID, int LocalDrivingLicenseApplication, int TestTypeNumber, frmTestAppointments FormTestAppointments)
+        private bool _IsRetakeTest = false;
+
+        public frmScheduleTest(bool IsRetakeTest, int TestAppointmentID, int LocalDrivingLicenseApplication, int TestTypeNumber, frmTestAppointments FormTestAppointments)
         {
             InitializeComponent();
 
@@ -54,6 +56,8 @@ namespace Drivers_and_Vehicles_License_Department__DVLD_.Tests.Forms
             }
 
             _Fees = clsTestType.GetTestTypeByID((int)_TestType).TestTypeFees;
+
+            _IsRetakeTest = IsRetakeTest;
         }
 
         private void frmScheduleTest_Load(object sender, EventArgs e)
@@ -65,6 +69,40 @@ namespace Drivers_and_Vehicles_License_Department__DVLD_.Tests.Forms
             clsUtil.MakeRoundedCorners(this, 30); //to make the form rounded
 
             clsUtil.OpenFormEffect(this);
+
+            _CheckIfAppointmentLocked();
+
+            _CheckIfRetakeTest();
+        }
+
+        private decimal CalculateTotalFees()
+        {
+            int RetakeDrivingTestApplicationTypeID = 7;
+
+            return _TestAppointment.PaidFees + clsApplicationType.GetApplicationTypeByID(RetakeDrivingTestApplicationTypeID).ApplicationTypeFees;
+        }
+
+        private void _CheckIfRetakeTest()
+        {
+            lblTotalFees.Text = _IsRetakeTest ? CalculateTotalFees().ToString("0.00"): "N/A";
+
+            lblRTestAppID.Enabled = _IsRetakeTest;
+            lblRAppFees.Enabled = _IsRetakeTest;
+            lblTotalFees.Enabled = _IsRetakeTest;
+        }
+
+        private void _CheckIfAppointmentLocked()
+        {
+            bool IsLocked = false;
+
+            if (_TestAppointmentID != -1)
+            {
+                IsLocked = clsTestAppointment.GetTestAppointmentByID(_TestAppointmentID).IsLocked;
+            }
+
+            lblSatWarningMessage.Visible = IsLocked;
+            btnSave.Enabled = !IsLocked;
+            dtpTestAppointmentDate.Enabled = !IsLocked;
         }
 
         private void _PopulateTestAppointmentInfo()

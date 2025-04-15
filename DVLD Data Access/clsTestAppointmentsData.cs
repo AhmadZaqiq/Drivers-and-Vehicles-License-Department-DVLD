@@ -129,7 +129,7 @@ namespace DVLD_Data_Access
             command.Parameters.AddWithValue("@CreatedByUserID", CreatedByUserID);
             command.Parameters.AddWithValue("@IsLocked", IsLocked);
 
-            if (RetakeTestApplicationID != -1) 
+            if (RetakeTestApplicationID != -1)
             {
                 command.Parameters.AddWithValue("@RetakeTestApplicationID", RetakeTestApplicationID);
             }
@@ -164,20 +164,22 @@ namespace DVLD_Data_Access
             return TestAppointmentsID;
         }
 
-        public static bool UpdateTestAppointmentData(int TestAppointmentID,DateTime AppointmentDate)
+        public static bool UpdateTestAppointmentData(int TestAppointmentID, DateTime AppointmentDate, bool IsLocked)
         {
             SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString);
 
             bool UpdatedSuccessfully = false;
 
             string query = @"UPDATE dbo.TestAppointments
-                             SET AppointmentDate = @AppointmentDate
+                             SET AppointmentDate = @AppointmentDate,
+                                 IsLocked = @IsLocked
                              WHERE TestAppointmentID = @TestAppointmentID";
 
             SqlCommand command = new SqlCommand(query, connection);
 
             command.Parameters.AddWithValue("@TestAppointmentID", TestAppointmentID);
             command.Parameters.AddWithValue("@AppointmentDate", AppointmentDate);
+            command.Parameters.AddWithValue("@IsLocked", IsLocked);
 
             try
             {
@@ -294,6 +296,48 @@ namespace DVLD_Data_Access
             SqlCommand command = new SqlCommand(query, connection);
 
             command.Parameters.AddWithValue("@TestAppointmentID", TestAppointmentID);
+
+            try
+            {
+                connection.Open();
+
+                SqlDataReader reader = command.ExecuteReader();
+
+                IsFound = reader.HasRows;
+
+                reader.Close();
+            }
+
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+
+            finally
+            {
+                connection.Close();
+            }
+
+            return IsFound;
+        }
+
+        public static bool IsRetakeTestAppointmentExistsData(int LocalDrivingLicenseApplicationID)
+        {
+            bool IsFound = false;
+
+            SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString);
+
+            string query = @"Select Found=1
+                             From TestAppointments
+                             JOIN LocalDrivingLicenseApplications
+                             ON TestAppointments.LocalDrivingLicenseApplicationID=LocalDrivingLicenseApplications.LocalDrivingLicenseApplicationID
+                             Where LocalDrivingLicenseApplications.LocalDrivingLicenseApplicationID=@LocalDrivingLicenseApplicationID
+                             AND
+                             TestAppointments.RetakeTestApplicationID IS NOT NULL;";
+
+            SqlCommand command = new SqlCommand(query, connection);
+
+            command.Parameters.AddWithValue("@LocalDrivingLicenseApplicationID", LocalDrivingLicenseApplicationID);
 
             try
             {

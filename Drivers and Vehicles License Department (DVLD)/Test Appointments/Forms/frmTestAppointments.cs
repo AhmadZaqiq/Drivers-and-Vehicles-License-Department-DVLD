@@ -59,16 +59,28 @@ namespace Drivers_and_Vehicles_License_Department__DVLD_.Test_Appointments.Forms
             clsUtil.CloseFormEffect(this);
         }
 
+        private void _OpenScheduleTestForm(bool IsRetakeTest)
+        {
+            frmScheduleTest FormScheduleTest = new frmScheduleTest(IsRetakeTest, -1, _LocalDrivingApplicationID, (int)_TestType, this);
+            FormScheduleTest.ShowDialog();
+        }
+
         private void btnAddNewAppointment_Click(object sender, EventArgs e)
         {
+
+            if(clsTestAppointment.IsRetakeTestAppointmentExists(_LocalDrivingApplicationID))
+            {
+                _OpenScheduleTestForm(true);
+                return;
+            }
+
             if (clsTestAppointment.IsAppointmentScheduledForPerson(_LocalDrivingApplicationID,clsLocalDrivingLicenseApplication.GetLocalDrivingApplicationByID(_LocalDrivingApplicationID).LicenseClassID))
             {
                 clsMessageBoxManager.ShowMessageBox("The person already has an active appointment for this test. You cannot add a new appointment", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
 
-            frmScheduleTest FormScheduleTest = new frmScheduleTest(-1,_LocalDrivingApplicationID, (int)_TestType,this);
-            FormScheduleTest.ShowDialog();
+            _OpenScheduleTestForm(false);
         }
 
         private void EditToolStripMenuItem1_Click(object sender, EventArgs e)
@@ -77,7 +89,7 @@ namespace Drivers_and_Vehicles_License_Department__DVLD_.Test_Appointments.Forms
 
             int TestAppointmentID = Convert.ToInt32(selectedRow.Cells["TestAppointmentID"].Value);
 
-            frmScheduleTest FormScheduleTest = new frmScheduleTest(TestAppointmentID, _LocalDrivingApplicationID, (int)_TestType, this);
+            frmScheduleTest FormScheduleTest = new frmScheduleTest(false, TestAppointmentID, _LocalDrivingApplicationID, (int)_TestType, this);
             FormScheduleTest.ShowDialog();
         }
 

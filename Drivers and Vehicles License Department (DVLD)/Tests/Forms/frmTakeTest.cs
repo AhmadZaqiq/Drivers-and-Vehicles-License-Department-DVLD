@@ -29,7 +29,6 @@ namespace Drivers_and_Vehicles_License_Department__DVLD_.Tests.Forms
 
         private clsTest _Test;
 
-
         private int _TestAppointmentID = -1;
 
         private int _LocalDrivingApplicationID;
@@ -64,7 +63,7 @@ namespace Drivers_and_Vehicles_License_Department__DVLD_.Tests.Forms
         {
             _PopulateTestAppointmentInfo();
 
-            rbPass.Enabled= true;
+            rbPass.Checked = true;
 
             clsUtil.MakeRoundedCorners(this, 30); //to make the form rounded
 
@@ -84,9 +83,21 @@ namespace Drivers_and_Vehicles_License_Department__DVLD_.Tests.Forms
         private void _LoadTestData()
         {
             _Test.TestAppointmentID= _TestAppointmentID;
-            _Test.TestResult = rbPass.Checked=true;
+            _Test.TestResult = rbPass.Checked;
             _Test.Notes = lblNotes.Text;
             _Test.CreatedByUserID = clsCurrentUser.CurrentUser.UserID;
+        }
+
+        private void _CheckIfPassOrFailTest()
+        {
+            if (_Test.TestResult)
+            {
+                return;
+            }
+
+            clsApplication RetakeApplication= new clsApplication();
+
+            _TestAppointment.RetakeTestApplicationID = RetakeApplication.ApplicationID;
         }
 
         private void btnSave_Click(object sender, EventArgs e)
@@ -107,10 +118,19 @@ namespace Drivers_and_Vehicles_License_Department__DVLD_.Tests.Forms
                 return;
             }
 
+            _TestAppointment.IsLocked= true;
+
+            _CheckIfPassOrFailTest();
+
+            if (!_TestAppointment.Save())
+            {
+                clsMessageBoxManager.ShowMessageBox("An error occurred while saving the data. Please try again.", "Save Failed", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
             clsMessageBoxManager.ShowMessageBox("Data Saved Successfully", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
             DataAdded?.Invoke();
 
-            _TestAppointment.IsLocked= true;
             this.Close();
         }
 
