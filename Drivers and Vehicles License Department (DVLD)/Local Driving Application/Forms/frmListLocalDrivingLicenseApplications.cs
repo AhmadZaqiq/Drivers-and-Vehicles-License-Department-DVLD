@@ -141,7 +141,7 @@ namespace Drivers_and_Vehicles_License_Department__DVLD_.Local_Driving_Applicati
 
             int LocalApplicationID = Convert.ToInt32(SelectedRow.Cells["LocalDrivingLicenseApplicationID"].Value);
 
-            frmTestAppointments FormTestAppointments = new frmTestAppointments(LocalApplicationID,(int)enTestType.Vision+1);
+            frmTestAppointments FormTestAppointments = new frmTestAppointments(LocalApplicationID,(int)enTestType.Vision+1,this);
             FormTestAppointments.ShowDialog();
         }
 
@@ -169,6 +169,7 @@ namespace Drivers_and_Vehicles_License_Department__DVLD_.Local_Driving_Applicati
 
             _UpdateTestScheduleAvailability(PassedTestsCount);
         }
+
 
     }
 }

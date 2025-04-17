@@ -36,6 +36,8 @@ namespace Drivers_and_Vehicles_License_Department__DVLD_.Tests.Forms
 
         private bool _IsRetakeTest = false;
 
+        private int _RetakeTestApplicationID = -1;
+
         public frmScheduleTest(bool IsRetakeTest, int TestAppointmentID, int LocalDrivingLicenseApplication, int TestTypeNumber, frmTestAppointments FormTestAppointments)
         {
             InitializeComponent();
@@ -46,21 +48,28 @@ namespace Drivers_and_Vehicles_License_Department__DVLD_.Tests.Forms
 
             _Application = clsApplication.GetApplicationByID(_LocalDrivingLicenseApplication.ApplicationID);
 
-            _TestAppointmentID = TestAppointmentID;
+            _TestAppointmentID = TestAppointmentID; // For Update
 
             _TestType = (enTestType)TestTypeNumber;
 
             if (FormTestAppointments != null)
             {
-                this.DataAdded += FormTestAppointments.RefreshTestAppointmentsDataGrid;
+                this.DataAdded += FormTestAppointments.FillLocalDrivingApplicationCard;
+                this.DataAdded += FormTestAppointments._RefreshTestAppointmentsDataGrid;
             }
 
             _Fees = clsTestType.GetTestTypeByID((int)_TestType).TestTypeFees;
 
             _IsRetakeTest = IsRetakeTest;
+
+            if (_TestAppointmentID != -1)
+            {
+                _RetakeTestApplicationID = clsTestAppointment.GetTestAppointmentByID(_TestAppointmentID).RetakeTestApplicationID;
+            }
+
         }
 
-        private void frmScheduleTest_Load(object sender, EventArgs e)
+        public void frmScheduleTest_Load(object sender, EventArgs e)
         {
             _PopulateTestAppointmentInfo();
 
@@ -75,27 +84,40 @@ namespace Drivers_and_Vehicles_License_Department__DVLD_.Tests.Forms
             _CheckIfRetakeTest();
         }
 
-        private decimal CalculateTotalFees()
+        private decimal _CalculateTotalFees()
         {
             int RetakeDrivingTestApplicationTypeID = 7;
 
-            return _TestAppointment.PaidFees + clsApplicationType.GetApplicationTypeByID(RetakeDrivingTestApplicationTypeID).ApplicationTypeFees;
+            return _Fees + clsApplicationType.GetApplicationTypeByID(RetakeDrivingTestApplicationTypeID).ApplicationTypeFees;
+        }
+
+        private void _PopulateRetakeTestAppointmentInfo()
+        {
+            clsApplication RetakeDrivingTestApplication = clsApplication.GetApplicationByID(_RetakeTestApplicationID);
+
+            lblRTestAppID.Text = RetakeDrivingTestApplication.ApplicationID.ToString();
+            lblRAppFees.Text = RetakeDrivingTestApplication.PaidFees.ToString();
+            lblTotalFees.Text = _IsRetakeTest ? _CalculateTotalFees().ToString("0.00") : "N/A";
         }
 
         private void _CheckIfRetakeTest()
         {
-            lblTotalFees.Text = _IsRetakeTest ? CalculateTotalFees().ToString("0.00"): "N/A";
+            if (_IsRetakeTest)
+            {
+                _PopulateRetakeTestAppointmentInfo();
+            }
 
             lblRTestAppID.Enabled = _IsRetakeTest;
             lblRAppFees.Enabled = _IsRetakeTest;
             lblTotalFees.Enabled = _IsRetakeTest;
+            lblRetakeTestInfo.Enabled = _IsRetakeTest;
         }
 
         private void _CheckIfAppointmentLocked()
         {
             bool IsLocked = false;
 
-            if (_TestAppointmentID != -1)
+            if (_TestAppointmentID != -1 && clsTestAppointment.GetTestAppointmentByID(_TestAppointmentID).RetakeTestApplicationID == -1)
             {
                 IsLocked = clsTestAppointment.GetTestAppointmentByID(_TestAppointmentID).IsLocked;
             }
@@ -122,12 +144,24 @@ namespace Drivers_and_Vehicles_License_Department__DVLD_.Tests.Forms
             _TestAppointment.PaidFees = _Fees;
             _TestAppointment.CreatedByUserID = clsCurrentUser.CurrentUser.UserID;
             _TestAppointment.IsLocked = false;
-            _TestAppointment.RetakeTestApplicationID = -1; //Do not Change -1 
+
+            if (!_IsRetakeTest)
+            {
+                _TestAppointment.RetakeTestApplicationID = -1; // Do not Change -1
+            }
         }
 
         private void btnSave_Click(object sender, EventArgs e)
         {
-            _TestAppointment = (clsTestAppointment.IsTestAppointmentExists(_TestAppointmentID)) ? clsTestAppointment.GetTestAppointmentByID(_TestAppointmentID) : new clsTestAppointment();
+            if (!_IsRetakeTest)
+            {
+                _TestAppointment = (clsTestAppointment.IsTestAppointmentExists(_TestAppointmentID)) ? clsTestAppointment.GetTestAppointmentByID(_TestAppointmentID) : new clsTestAppointment();
+            }
+
+            else
+            {
+                _TestAppointment = new clsTestAppointment();
+            }
 
             _LoadTestAppointmentData();
 
@@ -136,8 +170,6 @@ namespace Drivers_and_Vehicles_License_Department__DVLD_.Tests.Forms
                 clsMessageBoxManager.ShowMessageBox("An error occurred while saving the data. Please try again.", "Save Failed", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
-
-            _TestAppointmentID = _TestAppointment.TestAppointmentID;
 
             clsMessageBoxManager.ShowMessageBox("Data Saved Successfully", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
             DataAdded?.Invoke();

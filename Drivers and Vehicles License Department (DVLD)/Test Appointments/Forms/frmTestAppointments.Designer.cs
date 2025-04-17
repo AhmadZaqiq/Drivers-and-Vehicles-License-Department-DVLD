@@ -36,13 +36,13 @@
             this.btnCloseForm = new SiticoneNetFrameworkUI.SiticoneButton();
             this.siticonePanel1 = new SiticoneNetFrameworkUI.SiticonePanel();
             this.dgvTestAppointments = new System.Windows.Forms.DataGridView();
-            this.label2 = new System.Windows.Forms.Label();
-            this.btnAddNewAppointment = new SiticoneNetFrameworkUI.SiticoneButton();
-            this.ctrlLocalDrivingApplicationCard1 = new Drivers_and_Vehicles_License_Department__DVLD_.Applications.Controls.ctrlLocalDrivingApplicationCard();
             this.cmTestAppointmentSettings = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.toolStripSeparator4 = new System.Windows.Forms.ToolStripSeparator();
             this.EditToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.TakeTestStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.label2 = new System.Windows.Forms.Label();
+            this.btnAddNewAppointment = new SiticoneNetFrameworkUI.SiticoneButton();
+            this.ctrlLocalDrivingApplicationCard1 = new Drivers_and_Vehicles_License_Department__DVLD_.Applications.Controls.ctrlLocalDrivingApplicationCard();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.siticonePanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvTestAppointments)).BeginInit();
@@ -230,6 +230,39 @@
             this.dgvTestAppointments.Size = new System.Drawing.Size(549, 180);
             this.dgvTestAppointments.TabIndex = 1;
             // 
+            // cmTestAppointmentSettings
+            // 
+            this.cmTestAppointmentSettings.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cmTestAppointmentSettings.ImageScalingSize = new System.Drawing.Size(32, 32);
+            this.cmTestAppointmentSettings.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripSeparator4,
+            this.EditToolStripMenuItem1,
+            this.TakeTestStripMenuItem1});
+            this.cmTestAppointmentSettings.Name = "cmPersonSettings";
+            this.cmTestAppointmentSettings.Size = new System.Drawing.Size(143, 86);
+            this.cmTestAppointmentSettings.Opening += new System.ComponentModel.CancelEventHandler(this.cmTestAppointmentSettings_Opening);
+            // 
+            // toolStripSeparator4
+            // 
+            this.toolStripSeparator4.Name = "toolStripSeparator4";
+            this.toolStripSeparator4.Size = new System.Drawing.Size(139, 6);
+            // 
+            // EditToolStripMenuItem1
+            // 
+            this.EditToolStripMenuItem1.Image = global::Drivers_and_Vehicles_License_Department__DVLD_.Properties.Resources.ic_fluent_text_bullet_list_square_edit_24_filled;
+            this.EditToolStripMenuItem1.Name = "EditToolStripMenuItem1";
+            this.EditToolStripMenuItem1.Size = new System.Drawing.Size(142, 38);
+            this.EditToolStripMenuItem1.Text = "Edit";
+            this.EditToolStripMenuItem1.Click += new System.EventHandler(this.EditToolStripMenuItem1_Click);
+            // 
+            // TakeTestStripMenuItem1
+            // 
+            this.TakeTestStripMenuItem1.Image = global::Drivers_and_Vehicles_License_Department__DVLD_.Properties.Resources.ic_fluent_document_checkmark_24_filled;
+            this.TakeTestStripMenuItem1.Name = "TakeTestStripMenuItem1";
+            this.TakeTestStripMenuItem1.Size = new System.Drawing.Size(142, 38);
+            this.TakeTestStripMenuItem1.Text = "Take Test";
+            this.TakeTestStripMenuItem1.Click += new System.EventHandler(this.TakeTestStripMenuItem1_Click);
+            // 
             // label2
             // 
             this.label2.AutoSize = true;
@@ -326,38 +359,6 @@
             this.ctrlLocalDrivingApplicationCard1.Name = "ctrlLocalDrivingApplicationCard1";
             this.ctrlLocalDrivingApplicationCard1.Size = new System.Drawing.Size(576, 328);
             this.ctrlLocalDrivingApplicationCard1.TabIndex = 68;
-            // 
-            // cmTestAppointmentSettings
-            // 
-            this.cmTestAppointmentSettings.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cmTestAppointmentSettings.ImageScalingSize = new System.Drawing.Size(32, 32);
-            this.cmTestAppointmentSettings.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripSeparator4,
-            this.EditToolStripMenuItem1,
-            this.TakeTestStripMenuItem1});
-            this.cmTestAppointmentSettings.Name = "cmPersonSettings";
-            this.cmTestAppointmentSettings.Size = new System.Drawing.Size(197, 108);
-            // 
-            // toolStripSeparator4
-            // 
-            this.toolStripSeparator4.Name = "toolStripSeparator4";
-            this.toolStripSeparator4.Size = new System.Drawing.Size(193, 6);
-            // 
-            // EditToolStripMenuItem1
-            // 
-            this.EditToolStripMenuItem1.Image = global::Drivers_and_Vehicles_License_Department__DVLD_.Properties.Resources.ic_fluent_text_bullet_list_square_edit_24_filled;
-            this.EditToolStripMenuItem1.Name = "EditToolStripMenuItem1";
-            this.EditToolStripMenuItem1.Size = new System.Drawing.Size(196, 38);
-            this.EditToolStripMenuItem1.Text = "Edit";
-            this.EditToolStripMenuItem1.Click += new System.EventHandler(this.EditToolStripMenuItem1_Click);
-            // 
-            // TakeTestStripMenuItem1
-            // 
-            this.TakeTestStripMenuItem1.Image = global::Drivers_and_Vehicles_License_Department__DVLD_.Properties.Resources.ic_fluent_document_checkmark_24_filled;
-            this.TakeTestStripMenuItem1.Name = "TakeTestStripMenuItem1";
-            this.TakeTestStripMenuItem1.Size = new System.Drawing.Size(196, 38);
-            this.TakeTestStripMenuItem1.Text = "Take Test";
-            this.TakeTestStripMenuItem1.Click += new System.EventHandler(this.TakeTestStripMenuItem1_Click);
             // 
             // frmTestAppointments
             // 

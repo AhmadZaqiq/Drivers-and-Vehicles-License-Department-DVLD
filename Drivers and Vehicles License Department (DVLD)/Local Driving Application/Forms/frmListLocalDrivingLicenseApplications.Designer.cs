@@ -84,7 +84,7 @@
             this.toolStripSeparator2,
             this.ShowPersonlicenseHistoryStripMenuItem1});
             this.cmLicenseApplicationSettings.Name = "cmPersonSettings";
-            this.cmLicenseApplicationSettings.Size = new System.Drawing.Size(273, 366);
+            this.cmLicenseApplicationSettings.Size = new System.Drawing.Size(273, 344);
             this.cmLicenseApplicationSettings.Opening += new System.ComponentModel.CancelEventHandler(this.cmLicenseApplicationSettings_Opening);
             // 
             // ShowDetailsToolStripMenuItem1

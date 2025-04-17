@@ -68,7 +68,7 @@
             this.lblFees.ForeColor = System.Drawing.Color.Black;
             this.lblFees.Location = new System.Drawing.Point(177, 480);
             this.lblFees.Name = "lblFees";
-            this.lblFees.Size = new System.Drawing.Size(52, 23);
+            this.lblFees.Size = new System.Drawing.Size(77, 23);
             this.lblFees.TabIndex = 229;
             this.lblFees.Text = "N\\A";
             // 
@@ -90,7 +90,7 @@
             this.lblName.ForeColor = System.Drawing.Color.Black;
             this.lblName.Location = new System.Drawing.Point(177, 372);
             this.lblName.Name = "lblName";
-            this.lblName.Size = new System.Drawing.Size(303, 23);
+            this.lblName.Size = new System.Drawing.Size(241, 23);
             this.lblName.TabIndex = 225;
             this.lblName.Text = "N\\A";
             // 
@@ -112,7 +112,7 @@
             this.lblTrial.ForeColor = System.Drawing.Color.Black;
             this.lblTrial.Location = new System.Drawing.Point(177, 408);
             this.lblTrial.Name = "lblTrial";
-            this.lblTrial.Size = new System.Drawing.Size(37, 23);
+            this.lblTrial.Size = new System.Drawing.Size(69, 23);
             this.lblTrial.TabIndex = 213;
             this.lblTrial.Text = "N\\A";
             // 
@@ -480,7 +480,7 @@
             this.lblDate.ForeColor = System.Drawing.Color.Black;
             this.lblDate.Location = new System.Drawing.Point(177, 444);
             this.lblDate.Name = "lblDate";
-            this.lblDate.Size = new System.Drawing.Size(37, 23);
+            this.lblDate.Size = new System.Drawing.Size(238, 23);
             this.lblDate.TabIndex = 231;
             this.lblDate.Text = "N\\A";
             // 

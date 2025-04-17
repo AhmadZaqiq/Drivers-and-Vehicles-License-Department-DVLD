@@ -53,13 +53,14 @@ namespace Drivers_and_Vehicles_License_Department__DVLD_.Tests.Forms
 
             if (FormTestAppointments != null)
             {
-                this.DataAdded += FormTestAppointments.RefreshTestAppointmentsDataGrid;
+                this.DataAdded += FormTestAppointments.FillLocalDrivingApplicationCard;
+                this.DataAdded += FormTestAppointments._RefreshTestAppointmentsDataGrid;
             }
 
             _Fees = clsTestType.GetTestTypeByID((int)_TestType).TestTypeFees;
         }
 
-        private void frmTakeTest_Load(object sender, EventArgs e)
+        public void frmTakeTest_Load(object sender, EventArgs e)
         {
             _PopulateTestAppointmentInfo();
 
@@ -88,6 +89,19 @@ namespace Drivers_and_Vehicles_License_Department__DVLD_.Tests.Forms
             _Test.CreatedByUserID = clsCurrentUser.CurrentUser.UserID;
         }
 
+        private void _LoadRetakeApplicationData(clsApplication RetakeApplication)
+        {
+            int RetakeDrivingTestApplicationTypeID = 7;
+
+            RetakeApplication.ApplicantPersonID= _Application.ApplicantPersonID;
+            RetakeApplication.ApplicationDate=DateTime.Now;
+            RetakeApplication.ApplicationTypeID= _Application.ApplicationTypeID;
+            RetakeApplication.ApplicationStatus= _Application.ApplicationStatus;
+            RetakeApplication.LastStatusDate = DateTime.Now;
+            RetakeApplication.PaidFees=clsApplicationType.GetApplicationTypeByID(RetakeDrivingTestApplicationTypeID).ApplicationTypeFees;
+            RetakeApplication.CreatedByUserID= clsCurrentUser.CurrentUser.UserID;
+        }
+
         private void _CheckIfPassOrFailTest()
         {
             if (_Test.TestResult)
@@ -96,6 +110,14 @@ namespace Drivers_and_Vehicles_License_Department__DVLD_.Tests.Forms
             }
 
             clsApplication RetakeApplication= new clsApplication();
+
+            _LoadRetakeApplicationData(RetakeApplication);
+
+            if (!RetakeApplication.AddNewApplication())
+            {
+                clsMessageBoxManager.ShowMessageBox("An error occurred while saving the data. Please try again.", "Save Failed", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
 
             _TestAppointment.RetakeTestApplicationID = RetakeApplication.ApplicationID;
         }

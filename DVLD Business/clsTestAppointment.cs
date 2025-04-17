@@ -87,7 +87,7 @@ namespace DVLD_Business
 
         private bool _UpdateTestAppointment()
         {
-            return clsTestAppointmentsData.UpdateTestAppointmentData(this.TestAppointmentID, this.AppointmentDate,this.IsLocked);
+            return clsTestAppointmentsData.UpdateTestAppointmentData(this.TestAppointmentID, this.AppointmentDate,this.IsLocked,this.RetakeTestApplicationID);
         }
 
         private bool _AddNewTestAppointment()
@@ -103,9 +103,14 @@ namespace DVLD_Business
             return clsTestAppointmentsData.IsTestAppointmentExistsData(TestAppointmentID);
         }
 
-        public static bool IsRetakeTestAppointmentExists(int LocalDrivingLicenseApplicationID)
+        public static bool IsRetakeTestAppointmentExists(int LocalDrivingLicenseApplicationID, int LicenseClassID)
         {
-            return clsTestAppointmentsData.IsRetakeTestAppointmentExistsData(LocalDrivingLicenseApplicationID);
+            return clsTestAppointmentsData.IsRetakeTestAppointmentExistsData(LocalDrivingLicenseApplicationID,LicenseClassID);
+        }
+
+        public static int GetTestAppointmentIDByLocalApplicationID(int LocalDrivingLicenseApplicationID, int LicenseClassID)
+        {
+            return clsTestAppointmentsData.GetTestAppointmentIDByLocalApplicationIDData(LocalDrivingLicenseApplicationID, LicenseClassID);
         }
 
         public bool Save()

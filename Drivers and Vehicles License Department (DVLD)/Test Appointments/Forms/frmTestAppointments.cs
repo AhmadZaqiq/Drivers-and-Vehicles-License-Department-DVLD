@@ -1,4 +1,5 @@
 ﻿using Drivers_and_Vehicles_License_Department__DVLD_.Global;
+using Drivers_and_Vehicles_License_Department__DVLD_.Local_Driving_Application;
 using Drivers_and_Vehicles_License_Department__DVLD_.Tests.Forms;
 using DVLD_Business;
 using SiticoneNetFrameworkUI.Helpers.Countries;
@@ -16,19 +17,42 @@ namespace Drivers_and_Vehicles_License_Department__DVLD_.Test_Appointments.Forms
 {
     public partial class frmTestAppointments : Form
     {
+        public event Action DataAdded;
+
         private enum enTestType { Vision = 1, Written = 2, Street = 3 };
 
         private enTestType _TestType;
 
         private int _LocalDrivingApplicationID = -1;
 
-        public frmTestAppointments(int LocalDrivingApplicationID, int TestTypeNumber)
+        public frmTestAppointments(int LocalDrivingApplicationID, int TestTypeNumber, frmListLocalDrivingLicenseApplications FormListLocalDrivingLicenseApplications)
         {
             InitializeComponent();
 
             this._LocalDrivingApplicationID = LocalDrivingApplicationID;
 
             _TestType = (enTestType)TestTypeNumber;
+
+            if (FormListLocalDrivingLicenseApplications != null)
+            {
+                this.DataAdded += FormListLocalDrivingLicenseApplications.RefreshLocalDrivingApplicationsDataGrid;
+            }
+        }
+
+        public void FillLocalDrivingApplicationCard()
+        {
+            ctrlLocalDrivingApplicationCard1.LocalDrivingApplicationID = _LocalDrivingApplicationID;
+        }
+
+        private void frmTestAppointments_Load(object sender, EventArgs e)
+        {
+            FillLocalDrivingApplicationCard();
+
+            _RefreshTestAppointmentsDataGrid();
+
+            clsUtil.MakeRoundedCorners(this, 30); //to make the form rounded
+
+            clsUtil.OpenFormEffect(this);
         }
 
         private void _UpdateTestAppointmentsCount()
@@ -36,47 +60,46 @@ namespace Drivers_and_Vehicles_License_Department__DVLD_.Test_Appointments.Forms
             lblRecordsCount.Text = (dgvTestAppointments.RowCount).ToString();
         }
 
-        public void RefreshTestAppointmentsDataGrid()
+        public void _RefreshTestAppointmentsDataGrid()
         {
-            dgvTestAppointments.DataSource =clsTestAppointment.GetAllTestAppointmentsForLocalApp(_LocalDrivingApplicationID);
+            dgvTestAppointments.DataSource = clsTestAppointment.GetAllTestAppointmentsForLocalApp(_LocalDrivingApplicationID);
 
             _UpdateTestAppointmentsCount();
         }
 
-        private void frmTestAppointments_Load(object sender, EventArgs e)
-        {
-            ctrlLocalDrivingApplicationCard1.LocalDrivingApplicationID = _LocalDrivingApplicationID;
-
-            RefreshTestAppointmentsDataGrid();
-
-            clsUtil.MakeRoundedCorners(this, 30); //to make the form rounded
-
-            clsUtil.OpenFormEffect(this);
-        }
-
         private void btnCloseForm_Click(object sender, EventArgs e)
         {
+            DataAdded?.Invoke();
+
             clsUtil.CloseFormEffect(this);
         }
 
-        private void _OpenScheduleTestForm(bool IsRetakeTest)
+        private void _OpenScheduleTestForm(bool IsRetakeTest, int TestAppointmentID = -1)
         {
-            frmScheduleTest FormScheduleTest = new frmScheduleTest(IsRetakeTest, -1, _LocalDrivingApplicationID, (int)_TestType, this);
+            frmScheduleTest FormScheduleTest = new frmScheduleTest(IsRetakeTest, TestAppointmentID, _LocalDrivingApplicationID, (int)_TestType, this);
             FormScheduleTest.ShowDialog();
         }
 
         private void btnAddNewAppointment_Click(object sender, EventArgs e)
         {
+            int LicenseClassID = clsLocalDrivingLicenseApplication.GetLocalDrivingApplicationByID(_LocalDrivingApplicationID).LicenseClassID;
 
-            if(clsTestAppointment.IsRetakeTestAppointmentExists(_LocalDrivingApplicationID))
+            if (clsTestAppointment.IsAppointmentScheduledForPerson(_LocalDrivingApplicationID, LicenseClassID))
             {
-                _OpenScheduleTestForm(true);
+                clsMessageBoxManager.ShowMessageBox("The person already has an active appointment for this test. You cannot add a new appointment", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
 
-            if (clsTestAppointment.IsAppointmentScheduledForPerson(_LocalDrivingApplicationID,clsLocalDrivingLicenseApplication.GetLocalDrivingApplicationByID(_LocalDrivingApplicationID).LicenseClassID))
+            if (clsLocalDrivingLicenseApplication.GetPassedTestsCountForLocalApplication(_LocalDrivingApplicationID,
+                                                  LicenseClassID, true) == (int)_TestType)
             {
-                clsMessageBoxManager.ShowMessageBox("The person already has an active appointment for this test. You cannot add a new appointment", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                clsMessageBoxManager.ShowMessageBox("This person already passed this test before, you can only retake faild tests", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            if (clsTestAppointment.IsRetakeTestAppointmentExists(_LocalDrivingApplicationID, LicenseClassID))
+            {
+                _OpenScheduleTestForm(true, clsTestAppointment.GetTestAppointmentIDByLocalApplicationID(_LocalDrivingApplicationID, LicenseClassID));
                 return;
             }
 
@@ -99,8 +122,22 @@ namespace Drivers_and_Vehicles_License_Department__DVLD_.Test_Appointments.Forms
 
             int TestAppointmentID = Convert.ToInt32(selectedRow.Cells["TestAppointmentID"].Value);
 
-            frmTakeTest FormTakeTest = new frmTakeTest(TestAppointmentID,_LocalDrivingApplicationID, (int)_TestType,this);
+            frmTakeTest FormTakeTest = new frmTakeTest(TestAppointmentID, _LocalDrivingApplicationID, (int)_TestType, this);
             FormTakeTest.ShowDialog();
+        }
+
+        private void _UpdateTakeTestAvailability(int TestAppointmentID)
+        {
+            TakeTestStripMenuItem1.Enabled = !clsTestAppointment.GetTestAppointmentByID(TestAppointmentID).IsLocked;
+        }
+
+        private void cmTestAppointmentSettings_Opening(object sender, CancelEventArgs e)
+        {
+            DataGridViewRow selectedRow = dgvTestAppointments.SelectedRows[0];
+
+            int TestAppointmentID = Convert.ToInt32(selectedRow.Cells["TestAppointmentID"].Value);
+
+            _UpdateTakeTestAvailability(TestAppointmentID);
         }
 
 

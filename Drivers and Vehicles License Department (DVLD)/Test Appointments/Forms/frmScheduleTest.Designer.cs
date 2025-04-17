@@ -47,7 +47,7 @@
             this.lblTotalFees = new SiticoneNetFrameworkUI.SiticoneLabel();
             this.lblRTestAppID = new SiticoneNetFrameworkUI.SiticoneLabel();
             this.siticoneLabel11 = new SiticoneNetFrameworkUI.SiticoneLabel();
-            this.siticoneLabel9 = new SiticoneNetFrameworkUI.SiticoneLabel();
+            this.lblRetakeTestInfo = new SiticoneNetFrameworkUI.SiticoneLabel();
             this.siticonePictureBox5 = new SiticoneNetFrameworkUI.SiticonePictureBox();
             this.siticoneLabel7 = new SiticoneNetFrameworkUI.SiticoneLabel();
             this.siticoneLabel5 = new SiticoneNetFrameworkUI.SiticoneLabel();
@@ -224,7 +224,7 @@
             this.siticonePanel1.Controls.Add(this.lblTotalFees);
             this.siticonePanel1.Controls.Add(this.lblRTestAppID);
             this.siticonePanel1.Controls.Add(this.siticoneLabel11);
-            this.siticonePanel1.Controls.Add(this.siticoneLabel9);
+            this.siticonePanel1.Controls.Add(this.lblRetakeTestInfo);
             this.siticonePanel1.Controls.Add(this.siticonePictureBox5);
             this.siticonePanel1.Controls.Add(this.siticoneLabel7);
             this.siticonePanel1.Controls.Add(this.siticoneLabel5);
@@ -235,7 +235,6 @@
             this.siticonePanel1.CornerRadiusTopLeft = 10F;
             this.siticonePanel1.CornerRadiusTopRight = 10F;
             this.siticonePanel1.EnableAcrylicEffect = false;
-            this.siticonePanel1.Enabled = false;
             this.siticonePanel1.EnableMicaEffect = false;
             this.siticonePanel1.EnableRippleEffect = false;
             this.siticonePanel1.FillColor = System.Drawing.Color.White;
@@ -344,16 +343,15 @@
             this.siticoneLabel11.TabIndex = 213;
             this.siticoneLabel11.Text = "R. Tset App. ID:";
             // 
-            // siticoneLabel9
+            // lblRetakeTestInfo
             // 
-            this.siticoneLabel9.BackColor = System.Drawing.Color.Transparent;
-            this.siticoneLabel9.Enabled = false;
-            this.siticoneLabel9.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.siticoneLabel9.Location = new System.Drawing.Point(3, 0);
-            this.siticoneLabel9.Name = "siticoneLabel9";
-            this.siticoneLabel9.Size = new System.Drawing.Size(243, 23);
-            this.siticoneLabel9.TabIndex = 135;
-            this.siticoneLabel9.Text = "Retake Test Info";
+            this.lblRetakeTestInfo.BackColor = System.Drawing.Color.Transparent;
+            this.lblRetakeTestInfo.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblRetakeTestInfo.Location = new System.Drawing.Point(3, 0);
+            this.lblRetakeTestInfo.Name = "lblRetakeTestInfo";
+            this.lblRetakeTestInfo.Size = new System.Drawing.Size(243, 23);
+            this.lblRetakeTestInfo.TabIndex = 135;
+            this.lblRetakeTestInfo.Text = "Retake Test Info";
             // 
             // siticonePictureBox5
             // 
@@ -994,7 +992,7 @@
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Label label1;
         private SiticoneNetFrameworkUI.SiticonePanel siticonePanel1;
-        private SiticoneNetFrameworkUI.SiticoneLabel siticoneLabel9;
+        private SiticoneNetFrameworkUI.SiticoneLabel lblRetakeTestInfo;
         private SiticoneNetFrameworkUI.SiticonePictureBox siticonePictureBox7;
         private SiticoneNetFrameworkUI.SiticoneLabel lblTotalFees;
         private SiticoneNetFrameworkUI.SiticoneLabel lblRTestAppID;
