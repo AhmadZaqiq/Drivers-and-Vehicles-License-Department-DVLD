@@ -10,7 +10,7 @@ namespace DVLD_Data_Access
 {
     public class clsTestAppointmentsData
     {
-        public static DataTable GetAllTestAppointmentsForLocalAppData(int LocalDrivingLicenseApplicationID)
+        public static DataTable GetAllTestAppointmentsForLocalAppData(int LocalDrivingLicenseApplicationID, int TestTypeID)
         {
             DataTable dt = new DataTable();
 
@@ -20,11 +20,13 @@ namespace DVLD_Data_Access
                              FROM TestAppointments TA
                              JOIN LocalDrivingLicenseApplications LDLA
                              ON TA.LocalDrivingLicenseApplicationID = LDLA.LocalDrivingLicenseApplicationID
-                             WHERE LDLA.LocalDrivingLicenseApplicationID = @LocalDrivingLicenseApplicationID;";
+                             WHERE LDLA.LocalDrivingLicenseApplicationID = @LocalDrivingLicenseApplicationID
+                             AND TA.TestTypeID=@TestTypeID;";
 
             SqlCommand command = new SqlCommand(query, connection);
 
             command.Parameters.AddWithValue("@LocalDrivingLicenseApplicationID", LocalDrivingLicenseApplicationID);
+            command.Parameters.AddWithValue("@TestTypeID", TestTypeID);
 
             try
             {
@@ -102,7 +104,6 @@ namespace DVLD_Data_Access
 
             return IsFound;
         }
-
 
         public static int AddNewTestAppointmentData(int TestTypeID,
              int LocalDrivingLicenseApplicationID, DateTime AppointmentDate,
@@ -323,7 +324,7 @@ namespace DVLD_Data_Access
             return IsFound;
         }
 
-        public static bool IsRetakeTestAppointmentExistsData(int LocalDrivingLicenseApplicationID, int LicenseClassID)
+        public static bool IsRetakeTestAppointmentExistsData(int LocalDrivingLicenseApplicationID, int LicenseClassID, int TestTypeID)
         {
             bool IsFound = false;
 
@@ -333,18 +334,21 @@ namespace DVLD_Data_Access
                              From TestAppointments
                              JOIN LocalDrivingLicenseApplications
                              ON TestAppointments.LocalDrivingLicenseApplicationID=LocalDrivingLicenseApplications.LocalDrivingLicenseApplicationID
-                             Where LocalDrivingLicenseApplications.LocalDrivingLicenseApplicationID=39
+                             Where LocalDrivingLicenseApplications.LocalDrivingLicenseApplicationID=@LocalDrivingLicenseApplicationID
                              AND
                              TestAppointments.RetakeTestApplicationID IS NOT NULL
                              AND
 							 TestAppointments.IsLocked=1
 							 AND
-							 LocalDrivingLicenseApplications.LicenseClassID=@LicenseClassID;";
+							 LocalDrivingLicenseApplications.LicenseClassID=@LicenseClassID
+                             AND
+                             TestAppointments.TestTypeID=@TestTypeID;";
 
             SqlCommand command = new SqlCommand(query, connection);
 
             command.Parameters.AddWithValue("@LocalDrivingLicenseApplicationID", LocalDrivingLicenseApplicationID);
             command.Parameters.AddWithValue("@LicenseClassID", LicenseClassID);
+            command.Parameters.AddWithValue("@TestTypeID", TestTypeID);
 
             try
             {

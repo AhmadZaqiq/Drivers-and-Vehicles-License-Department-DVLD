@@ -47,7 +47,7 @@
             this.siticonePictureBox3 = new SiticoneNetFrameworkUI.SiticonePictureBox();
             this.siticonePictureBox6 = new SiticoneNetFrameworkUI.SiticonePictureBox();
             this.siticonePictureBox4 = new SiticoneNetFrameworkUI.SiticonePictureBox();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.pbTestType = new System.Windows.Forms.PictureBox();
             this.lblDate = new SiticoneNetFrameworkUI.SiticoneLabel();
             this.rbFail = new SiticoneNetFrameworkUI.SiticoneRadioButton();
             this.rbPass = new SiticoneNetFrameworkUI.SiticoneRadioButton();
@@ -57,7 +57,7 @@
             this.siticonePanel1 = new SiticoneNetFrameworkUI.SiticonePanel();
             this.btnSave = new SiticoneNetFrameworkUI.SiticoneButton();
             this.btnCancel = new SiticoneNetFrameworkUI.SiticoneButton();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbTestType)).BeginInit();
             this.siticonePanel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -463,15 +463,15 @@
             this.siticonePictureBox4.TabIndex = 219;
             this.siticonePictureBox4.Text = "siticonePictureBox4";
             // 
-            // pictureBox1
+            // pbTestType
             // 
-            this.pictureBox1.BackgroundImage = global::Drivers_and_Vehicles_License_Department__DVLD_.Properties.Resources.Eyes_rafiki;
-            this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pictureBox1.Location = new System.Drawing.Point(116, 12);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(194, 194);
-            this.pictureBox1.TabIndex = 212;
-            this.pictureBox1.TabStop = false;
+            this.pbTestType.BackgroundImage = global::Drivers_and_Vehicles_License_Department__DVLD_.Properties.Resources.Eyes_rafiki;
+            this.pbTestType.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.pbTestType.Location = new System.Drawing.Point(116, 12);
+            this.pbTestType.Name = "pbTestType";
+            this.pbTestType.Size = new System.Drawing.Size(194, 194);
+            this.pbTestType.TabIndex = 212;
+            this.pbTestType.TabStop = false;
             // 
             // lblDate
             // 
@@ -915,14 +915,14 @@
             this.Controls.Add(this.lblDLAppID);
             this.Controls.Add(this.siticoneLabel2);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.pictureBox1);
+            this.Controls.Add(this.pbTestType);
             this.Controls.Add(this.siticonePanel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "frmTakeTest";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "frmTakeTest";
             this.Load += new System.EventHandler(this.frmTakeTest_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbTestType)).EndInit();
             this.siticonePanel1.ResumeLayout(false);
             this.siticonePanel1.PerformLayout();
             this.ResumeLayout(false);
@@ -949,7 +949,7 @@
         private SiticoneNetFrameworkUI.SiticoneLabel lblDLAppID;
         private SiticoneNetFrameworkUI.SiticoneLabel siticoneLabel2;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.PictureBox pbTestType;
         private SiticoneNetFrameworkUI.SiticoneLabel lblDate;
         private SiticoneNetFrameworkUI.SiticoneRadioButton rbFail;
         private SiticoneNetFrameworkUI.SiticoneRadioButton rbPass;

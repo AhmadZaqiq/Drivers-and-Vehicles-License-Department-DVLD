@@ -29,8 +29,8 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            this.label1 = new System.Windows.Forms.Label();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.lblTestType = new System.Windows.Forms.Label();
+            this.pbTestType = new System.Windows.Forms.PictureBox();
             this.lblRecordsCount = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.btnCloseForm = new SiticoneNetFrameworkUI.SiticoneButton();
@@ -43,32 +43,32 @@
             this.label2 = new System.Windows.Forms.Label();
             this.btnAddNewAppointment = new SiticoneNetFrameworkUI.SiticoneButton();
             this.ctrlLocalDrivingApplicationCard1 = new Drivers_and_Vehicles_License_Department__DVLD_.Applications.Controls.ctrlLocalDrivingApplicationCard();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbTestType)).BeginInit();
             this.siticonePanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvTestAppointments)).BeginInit();
             this.cmTestAppointmentSettings.SuspendLayout();
             this.SuspendLayout();
             // 
-            // label1
+            // lblTestType
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Segoe UI Semibold", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.Black;
-            this.label1.Location = new System.Drawing.Point(142, 209);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(317, 37);
-            this.label1.TabIndex = 65;
-            this.label1.Text = "Vision Test Appointment";
+            this.lblTestType.AutoSize = true;
+            this.lblTestType.Font = new System.Drawing.Font("Segoe UI Semibold", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTestType.ForeColor = System.Drawing.Color.Black;
+            this.lblTestType.Location = new System.Drawing.Point(142, 209);
+            this.lblTestType.Name = "lblTestType";
+            this.lblTestType.Size = new System.Drawing.Size(317, 37);
+            this.lblTestType.TabIndex = 65;
+            this.lblTestType.Text = "Vision Test Appointment";
             // 
-            // pictureBox1
+            // pbTestType
             // 
-            this.pictureBox1.BackgroundImage = global::Drivers_and_Vehicles_License_Department__DVLD_.Properties.Resources.Eyes_rafiki;
-            this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pictureBox1.Location = new System.Drawing.Point(203, 12);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(194, 194);
-            this.pictureBox1.TabIndex = 66;
-            this.pictureBox1.TabStop = false;
+            this.pbTestType.BackgroundImage = global::Drivers_and_Vehicles_License_Department__DVLD_.Properties.Resources.Writen_Test_pic;
+            this.pbTestType.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.pbTestType.Location = new System.Drawing.Point(203, 12);
+            this.pbTestType.Name = "pbTestType";
+            this.pbTestType.Size = new System.Drawing.Size(194, 194);
+            this.pbTestType.TabIndex = 66;
+            this.pbTestType.TabStop = false;
             // 
             // lblRecordsCount
             // 
@@ -374,8 +374,8 @@
             this.Controls.Add(this.lblRecordsCount);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.ctrlLocalDrivingApplicationCard1);
-            this.Controls.Add(this.label1);
-            this.Controls.Add(this.pictureBox1);
+            this.Controls.Add(this.lblTestType);
+            this.Controls.Add(this.pbTestType);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "frmTestAppointments";
             this.ShowIcon = false;
@@ -383,7 +383,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "frmTestAppointments";
             this.Load += new System.EventHandler(this.frmTestAppointments_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbTestType)).EndInit();
             this.siticonePanel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvTestAppointments)).EndInit();
             this.cmTestAppointmentSettings.ResumeLayout(false);
@@ -394,8 +394,8 @@
 
         #endregion
 
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.Label lblTestType;
+        private System.Windows.Forms.PictureBox pbTestType;
         private Applications.Controls.ctrlLocalDrivingApplicationCard ctrlLocalDrivingApplicationCard1;
         private System.Windows.Forms.Label lblRecordsCount;
         private System.Windows.Forms.Label label3;

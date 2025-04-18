@@ -145,6 +145,26 @@ namespace Drivers_and_Vehicles_License_Department__DVLD_.Local_Driving_Applicati
             FormTestAppointments.ShowDialog();
         }
 
+        private void ScheduleWrittenTestToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            DataGridViewRow SelectedRow = dgvLocalDrivingLicenseApplications.SelectedRows[0];
+
+            int LocalApplicationID = Convert.ToInt32(SelectedRow.Cells["LocalDrivingLicenseApplicationID"].Value);
+
+            frmTestAppointments FormTestAppointments = new frmTestAppointments(LocalApplicationID, (int)enTestType.Written + 1, this);
+            FormTestAppointments.ShowDialog();
+        }
+
+        private void ScheduleStreetTestToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            DataGridViewRow SelectedRow = dgvLocalDrivingLicenseApplications.SelectedRows[0];
+
+            int LocalApplicationID = Convert.ToInt32(SelectedRow.Cells["LocalDrivingLicenseApplicationID"].Value);
+
+            frmTestAppointments FormTestAppointments = new frmTestAppointments(LocalApplicationID, (int)enTestType.Street + 1, this);
+            FormTestAppointments.ShowDialog();
+        }
+
         private void _UpdateTestScheduleAvailability(int PassedTestsCount)
         {
             enTestType TestType = (enTestType)PassedTestsCount;

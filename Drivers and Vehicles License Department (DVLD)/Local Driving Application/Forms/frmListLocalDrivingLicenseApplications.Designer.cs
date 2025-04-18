@@ -84,7 +84,7 @@
             this.toolStripSeparator2,
             this.ShowPersonlicenseHistoryStripMenuItem1});
             this.cmLicenseApplicationSettings.Name = "cmPersonSettings";
-            this.cmLicenseApplicationSettings.Size = new System.Drawing.Size(273, 344);
+            this.cmLicenseApplicationSettings.Size = new System.Drawing.Size(273, 366);
             this.cmLicenseApplicationSettings.Opening += new System.ComponentModel.CancelEventHandler(this.cmLicenseApplicationSettings_Opening);
             // 
             // ShowDetailsToolStripMenuItem1
@@ -158,6 +158,7 @@
             this.ScheduleWrittenTestToolStripMenuItem1.Name = "ScheduleWrittenTestToolStripMenuItem1";
             this.ScheduleWrittenTestToolStripMenuItem1.Size = new System.Drawing.Size(214, 38);
             this.ScheduleWrittenTestToolStripMenuItem1.Text = "Schedule Written Test";
+            this.ScheduleWrittenTestToolStripMenuItem1.Click += new System.EventHandler(this.ScheduleWrittenTestToolStripMenuItem1_Click);
             // 
             // ScheduleStreetTestToolStripMenuItem1
             // 
@@ -166,6 +167,7 @@
             this.ScheduleStreetTestToolStripMenuItem1.Name = "ScheduleStreetTestToolStripMenuItem1";
             this.ScheduleStreetTestToolStripMenuItem1.Size = new System.Drawing.Size(214, 38);
             this.ScheduleStreetTestToolStripMenuItem1.Text = "Schedule Street Test";
+            this.ScheduleStreetTestToolStripMenuItem1.Click += new System.EventHandler(this.ScheduleStreetTestToolStripMenuItem1_Click);
             // 
             // toolStripSeparator6
             // 

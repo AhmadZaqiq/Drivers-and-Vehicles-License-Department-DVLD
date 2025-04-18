@@ -333,6 +333,16 @@ namespace Drivers_and_Vehicles_License_Department__DVLD_.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Eye_Test_Pic {
+            get {
+                object obj = ResourceManager.GetObject("Eye Test Pic", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Eyes_rafiki {
             get {
                 object obj = ResourceManager.GetObject("Eyes-rafiki", resourceCulture);
@@ -1283,6 +1293,16 @@ namespace Drivers_and_Vehicles_License_Department__DVLD_.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Street_Test_Pic {
+            get {
+                object obj = ResourceManager.GetObject("Street Test Pic", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap user {
             get {
                 object obj = ResourceManager.GetObject("user", resourceCulture);
@@ -1366,6 +1386,16 @@ namespace Drivers_and_Vehicles_License_Department__DVLD_.Properties {
         internal static System.Drawing.Bitmap world_north_america {
             get {
                 object obj = ResourceManager.GetObject("world_north_america", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Writen_Test_pic {
+            get {
+                object obj = ResourceManager.GetObject("Writen Test pic", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

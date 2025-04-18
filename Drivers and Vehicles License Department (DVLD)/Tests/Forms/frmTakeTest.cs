@@ -1,4 +1,5 @@
 ﻿using Drivers_and_Vehicles_License_Department__DVLD_.Global;
+using Drivers_and_Vehicles_License_Department__DVLD_.Properties;
 using Drivers_and_Vehicles_License_Department__DVLD_.Test_Appointments.Forms;
 using DVLD_Business;
 using System;
@@ -35,7 +36,7 @@ namespace Drivers_and_Vehicles_License_Department__DVLD_.Tests.Forms
 
         private decimal _Fees;
 
-        public frmTakeTest(int TestAppointmentID, int LocalDrivingLicenseApplication, int TestTypeNumber,frmTestAppointments FormTestAppointments)
+        public frmTakeTest(int TestAppointmentID, int LocalDrivingLicenseApplication, int TestTypeNumber, frmTestAppointments FormTestAppointments)
         {
             InitializeComponent();
 
@@ -47,7 +48,7 @@ namespace Drivers_and_Vehicles_License_Department__DVLD_.Tests.Forms
 
             _TestAppointmentID = TestAppointmentID;
 
-            _TestAppointment=clsTestAppointment.GetTestAppointmentByID(_TestAppointmentID);
+            _TestAppointment = clsTestAppointment.GetTestAppointmentByID(_TestAppointmentID);
 
             _TestType = (enTestType)TestTypeNumber;
 
@@ -64,6 +65,8 @@ namespace Drivers_and_Vehicles_License_Department__DVLD_.Tests.Forms
         {
             _PopulateTestAppointmentInfo();
 
+            _UpdateTestTypeUI();
+
             rbPass.Checked = true;
 
             clsUtil.MakeRoundedCorners(this, 30); //to make the form rounded
@@ -71,19 +74,43 @@ namespace Drivers_and_Vehicles_License_Department__DVLD_.Tests.Forms
             clsUtil.OpenFormEffect(this);
         }
 
+        private void _UpdateTestTypeUI()
+        {
+            switch (_TestType)
+            {
+                case enTestType.Vision:
+
+                    pbTestType.BackgroundImage = Resources.Eye_Test_Pic;
+
+                    break;
+
+                case enTestType.Written:
+
+                    pbTestType.BackgroundImage = Resources.Writen_Test_pic;
+
+                    break;
+
+                case enTestType.Street:
+
+                    pbTestType.BackgroundImage = Resources.Street_Test_Pic;
+
+                    break;
+            }
+        }
+
         private void _PopulateTestAppointmentInfo()
         {
             lblDLAppID.Text = _LocalDrivingApplicationID.ToString();
             lblDClass.Text = clsLicenseClass.GetLicenseClassByID(_LocalDrivingLicenseApplication.LicenseClassID).ClassName.ToString();
             lblName.Text = clsPerson.GetPersonByID(_Application.ApplicantPersonID).FullName;
-            lblTrial.Text = clsLocalDrivingLicenseApplication.GetPassedTestsCountForLocalApplication(_LocalDrivingApplicationID, _LocalDrivingLicenseApplication.LicenseClassID, false).ToString();
+            lblTrial.Text = clsLocalDrivingLicenseApplication.GetTestsCountForLocalApplication(_LocalDrivingApplicationID, _LocalDrivingLicenseApplication.LicenseClassID, false).ToString();
             lblDate.Text = _TestAppointment.AppointmentDate.ToString();
             lblFees.Text = _Fees.ToString();
         }
 
         private void _LoadTestData()
         {
-            _Test.TestAppointmentID= _TestAppointmentID;
+            _Test.TestAppointmentID = _TestAppointmentID;
             _Test.TestResult = rbPass.Checked;
             _Test.Notes = lblNotes.Text;
             _Test.CreatedByUserID = clsCurrentUser.CurrentUser.UserID;
@@ -93,13 +120,13 @@ namespace Drivers_and_Vehicles_License_Department__DVLD_.Tests.Forms
         {
             int RetakeDrivingTestApplicationTypeID = 7;
 
-            RetakeApplication.ApplicantPersonID= _Application.ApplicantPersonID;
-            RetakeApplication.ApplicationDate=DateTime.Now;
-            RetakeApplication.ApplicationTypeID= _Application.ApplicationTypeID;
-            RetakeApplication.ApplicationStatus= _Application.ApplicationStatus;
+            RetakeApplication.ApplicantPersonID = _Application.ApplicantPersonID;
+            RetakeApplication.ApplicationDate = DateTime.Now;
+            RetakeApplication.ApplicationTypeID = _Application.ApplicationTypeID;
+            RetakeApplication.ApplicationStatus = _Application.ApplicationStatus;
             RetakeApplication.LastStatusDate = DateTime.Now;
-            RetakeApplication.PaidFees=clsApplicationType.GetApplicationTypeByID(RetakeDrivingTestApplicationTypeID).ApplicationTypeFees;
-            RetakeApplication.CreatedByUserID= clsCurrentUser.CurrentUser.UserID;
+            RetakeApplication.PaidFees = clsApplicationType.GetApplicationTypeByID(RetakeDrivingTestApplicationTypeID).ApplicationTypeFees;
+            RetakeApplication.CreatedByUserID = clsCurrentUser.CurrentUser.UserID;
         }
 
         private void _CheckIfPassOrFailTest()
@@ -109,7 +136,7 @@ namespace Drivers_and_Vehicles_License_Department__DVLD_.Tests.Forms
                 return;
             }
 
-            clsApplication RetakeApplication= new clsApplication();
+            clsApplication RetakeApplication = new clsApplication();
 
             _LoadRetakeApplicationData(RetakeApplication);
 
@@ -140,7 +167,7 @@ namespace Drivers_and_Vehicles_License_Department__DVLD_.Tests.Forms
                 return;
             }
 
-            _TestAppointment.IsLocked= true;
+            _TestAppointment.IsLocked = true;
 
             _CheckIfPassOrFailTest();
 

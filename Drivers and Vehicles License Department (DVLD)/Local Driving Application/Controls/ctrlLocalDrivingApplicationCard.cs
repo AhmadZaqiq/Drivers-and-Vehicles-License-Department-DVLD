@@ -74,7 +74,7 @@ namespace Drivers_and_Vehicles_License_Department__DVLD_.Applications.Controls
         private void _PopulateLocalApplicationDetails()
         {
             lblLocalApplicationID.Text = _LocalDrivingApplicationID.ToString();
-            lblPassedTests.Text = clsLocalDrivingLicenseApplication.GetPassedTestsCountForLocalApplication(_LocalDrivingApplicationID, _LocalDrivingLicenseApplication.LicenseClassID,true).ToString() + "/3";
+            lblPassedTests.Text = clsLocalDrivingLicenseApplication.GetTestsCountForLocalApplication(_LocalDrivingApplicationID, _LocalDrivingLicenseApplication.LicenseClassID,true).ToString() + "/3";
             lblAppliedForLicence.Text = clsLicenseClass.GetLicenseClassByID(_LocalDrivingLicenseApplication.LicenseClassID).ClassName.ToString();
         }
 

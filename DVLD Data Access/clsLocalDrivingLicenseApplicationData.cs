@@ -348,7 +348,7 @@ namespace DVLD_Data_Access
                                  ON TA.LocalDrivingLicenseApplicationID = LDLA.LocalDrivingLicenseApplicationID
                              WHERE T.TestResult = @TestResult
                                AND LDLA.LocalDrivingLicenseApplicationID = @LocalDrivingLicenseApplicationID
-                               AND LDLA.LicenseClassID = @LicenseClassID";
+                               AND LDLA.LicenseClassID = @LicenseClassID;";
 
             SqlCommand command = new SqlCommand(query, connection);
 

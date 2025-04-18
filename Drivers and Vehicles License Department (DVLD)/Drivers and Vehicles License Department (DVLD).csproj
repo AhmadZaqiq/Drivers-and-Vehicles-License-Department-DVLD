@@ -749,5 +749,14 @@
   <ItemGroup>
     <None Include="Resources\Eyes-rafiki.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Eye Test Pic.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Street Test Pic.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Writen Test pic.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

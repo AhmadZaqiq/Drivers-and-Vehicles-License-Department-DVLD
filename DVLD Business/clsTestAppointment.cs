@@ -50,9 +50,9 @@ namespace DVLD_Business
             this.RetakeTestApplicationID = -1;
         }
 
-        public static DataTable GetAllTestAppointmentsForLocalApp(int LocalDrivingLicenseApplicationID)
+        public static DataTable GetAllTestAppointmentsForLocalApp(int LocalDrivingLicenseApplicationID, int TestTypeID)
         {
-            return clsTestAppointmentsData.GetAllTestAppointmentsForLocalAppData(LocalDrivingLicenseApplicationID);
+            return clsTestAppointmentsData.GetAllTestAppointmentsForLocalAppData(LocalDrivingLicenseApplicationID, TestTypeID);
         }
 
         public static clsTestAppointment GetTestAppointmentByID(int TestAppointmentID)
@@ -87,7 +87,7 @@ namespace DVLD_Business
 
         private bool _UpdateTestAppointment()
         {
-            return clsTestAppointmentsData.UpdateTestAppointmentData(this.TestAppointmentID, this.AppointmentDate,this.IsLocked,this.RetakeTestApplicationID);
+            return clsTestAppointmentsData.UpdateTestAppointmentData(this.TestAppointmentID, this.AppointmentDate, this.IsLocked, this.RetakeTestApplicationID);
         }
 
         private bool _AddNewTestAppointment()
@@ -103,9 +103,9 @@ namespace DVLD_Business
             return clsTestAppointmentsData.IsTestAppointmentExistsData(TestAppointmentID);
         }
 
-        public static bool IsRetakeTestAppointmentExists(int LocalDrivingLicenseApplicationID, int LicenseClassID)
+        public static bool IsRetakeTestAppointmentExists(int LocalDrivingLicenseApplicationID, int LicenseClassID, int TestTypeID)
         {
-            return clsTestAppointmentsData.IsRetakeTestAppointmentExistsData(LocalDrivingLicenseApplicationID,LicenseClassID);
+            return clsTestAppointmentsData.IsRetakeTestAppointmentExistsData(LocalDrivingLicenseApplicationID, LicenseClassID, TestTypeID);
         }
 
         public static int GetTestAppointmentIDByLocalApplicationID(int LocalDrivingLicenseApplicationID, int LicenseClassID)

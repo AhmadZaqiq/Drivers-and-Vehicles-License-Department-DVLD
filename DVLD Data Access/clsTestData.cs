@@ -134,6 +134,55 @@ namespace DVLD_Data_Access
             return TestID;
         }
 
+        public static int GetTestAttemptsCountByTestTypeData(int LocalDrivingLicenseApplicationID, int LicenseClassID, int TestTypeID, bool IsPassed)
+        {
+            int TestsCount = -1;
+
+            SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString);
+
+            string query = @"SELECT COUNT(*)
+                             FROM Tests T
+                             JOIN TestAppointments TA
+                                 ON T.TestAppointmentID = TA.TestAppointmentID
+                             JOIN LocalDrivingLicenseApplications LDLA
+                                 ON TA.LocalDrivingLicenseApplicationID = LDLA.LocalDrivingLicenseApplicationID
+                             WHERE T.TestResult = @TestResult
+                               AND LDLA.LocalDrivingLicenseApplicationID = @LocalDrivingLicenseApplicationID
+                               AND LDLA.LicenseClassID = @LicenseClassID 
+                               AND TA.TestTypeID=@TestTypeID;";
+
+            SqlCommand command = new SqlCommand(query, connection);
+
+            command.Parameters.AddWithValue("@TestResult", IsPassed ? 1 : 0);
+            command.Parameters.AddWithValue("@LocalDrivingLicenseApplicationID", LocalDrivingLicenseApplicationID);
+            command.Parameters.AddWithValue("@LicenseClassID", LicenseClassID);
+            command.Parameters.AddWithValue("@TestTypeID", TestTypeID);
+
+            try
+            {
+                connection.Open();
+
+                object result = command.ExecuteScalar();
+
+                if (result != null)
+                {
+                    TestsCount = Convert.ToInt32(result);
+                }
+            }
+
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+
+            finally
+            {
+                connection.Close();
+            }
+
+            return TestsCount;
+        }
+
 
     }
 }

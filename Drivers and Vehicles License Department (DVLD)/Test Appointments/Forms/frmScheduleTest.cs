@@ -1,4 +1,5 @@
 ﻿using Drivers_and_Vehicles_License_Department__DVLD_.Global;
+using Drivers_and_Vehicles_License_Department__DVLD_.Properties;
 using Drivers_and_Vehicles_License_Department__DVLD_.Test_Appointments.Forms;
 using DVLD_Business;
 using SiticoneNetFrameworkUI.Helpers.Countries;
@@ -75,13 +76,42 @@ namespace Drivers_and_Vehicles_License_Department__DVLD_.Tests.Forms
 
             dtpTestAppointmentDate.MinDate = DateTime.Today.AddDays(1);
 
-            clsUtil.MakeRoundedCorners(this, 30); //to make the form rounded
-
-            clsUtil.OpenFormEffect(this);
-
             _CheckIfAppointmentLocked();
 
             _CheckIfRetakeTest();
+
+            _UpdateTestTypeUI();
+
+            clsUtil.MakeRoundedCorners(this, 30); //to make the form rounded
+
+            clsUtil.OpenFormEffect(this);
+        }
+
+        private void _UpdateTestTypeUI()
+        {
+            switch (_TestType)
+            {
+                case enTestType.Vision:
+
+                    pbTestType.BackgroundImage = Resources.Eye_Test_Pic;
+                    lblTestType.Text = "Vision Test Appointment";
+
+                    break;
+
+                case enTestType.Written:
+
+                    pbTestType.BackgroundImage = Resources.Writen_Test_pic;
+                    lblTestType.Text = "Written Test Appointment";
+
+                    break;
+
+                case enTestType.Street:
+
+                    pbTestType.BackgroundImage = Resources.Street_Test_Pic;
+                    lblTestType.Text = "Street Test Appointment";
+
+                    break;
+            }
         }
 
         private decimal _CalculateTotalFees()
@@ -132,7 +162,7 @@ namespace Drivers_and_Vehicles_License_Department__DVLD_.Tests.Forms
             lblDLAppID.Text = _LocalDrivingApplicationID.ToString();
             lblDClass.Text = clsLicenseClass.GetLicenseClassByID(_LocalDrivingLicenseApplication.LicenseClassID).ClassName.ToString();
             lblName.Text = clsPerson.GetPersonByID(_Application.ApplicantPersonID).FullName;
-            lblTrial.Text = clsLocalDrivingLicenseApplication.GetPassedTestsCountForLocalApplication(_LocalDrivingApplicationID, _LocalDrivingLicenseApplication.LicenseClassID, false).ToString();
+            lblAttempts.Text = clsTest.GetTestAttemptsCountByTestType(_LocalDrivingApplicationID, _LocalDrivingLicenseApplication.LicenseClassID, (int)_TestType, false).ToString();
             lblFees.Text = _Fees.ToString();
         }
 

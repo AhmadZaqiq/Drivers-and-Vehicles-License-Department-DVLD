@@ -1,5 +1,6 @@
 ﻿using Drivers_and_Vehicles_License_Department__DVLD_.Global;
 using Drivers_and_Vehicles_License_Department__DVLD_.Local_Driving_Application;
+using Drivers_and_Vehicles_License_Department__DVLD_.Properties;
 using Drivers_and_Vehicles_License_Department__DVLD_.Tests.Forms;
 using DVLD_Business;
 using SiticoneNetFrameworkUI.Helpers.Countries;
@@ -12,6 +13,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Net.Mime.MediaTypeNames;
 
 namespace Drivers_and_Vehicles_License_Department__DVLD_.Test_Appointments.Forms
 {
@@ -39,20 +41,49 @@ namespace Drivers_and_Vehicles_License_Department__DVLD_.Test_Appointments.Forms
             }
         }
 
-        public void FillLocalDrivingApplicationCard()
-        {
-            ctrlLocalDrivingApplicationCard1.LocalDrivingApplicationID = _LocalDrivingApplicationID;
-        }
-
         private void frmTestAppointments_Load(object sender, EventArgs e)
         {
             FillLocalDrivingApplicationCard();
 
             _RefreshTestAppointmentsDataGrid();
 
+            _UpdateTestTypeUI();
+
             clsUtil.MakeRoundedCorners(this, 30); //to make the form rounded
 
             clsUtil.OpenFormEffect(this);
+        }
+
+        public void FillLocalDrivingApplicationCard()
+        {
+            ctrlLocalDrivingApplicationCard1.LocalDrivingApplicationID = _LocalDrivingApplicationID;
+        }
+
+        private void _UpdateTestTypeUI()
+        {
+            switch (_TestType)
+            {
+                case enTestType.Vision:
+
+                    pbTestType.BackgroundImage = Resources.Eye_Test_Pic;
+                    lblTestType.Text = "Vision Test Appointment";
+
+                    break;
+
+                case enTestType.Written:
+
+                    pbTestType.BackgroundImage = Resources.Writen_Test_pic;
+                    lblTestType.Text = "Written Test Appointment";
+
+                    break;
+
+                case enTestType.Street:
+
+                    pbTestType.BackgroundImage = Resources.Street_Test_Pic;
+                    lblTestType.Text = "Street Test Appointment";
+
+                    break;
+            }
         }
 
         private void _UpdateTestAppointmentsCount()
@@ -62,7 +93,7 @@ namespace Drivers_and_Vehicles_License_Department__DVLD_.Test_Appointments.Forms
 
         public void _RefreshTestAppointmentsDataGrid()
         {
-            dgvTestAppointments.DataSource = clsTestAppointment.GetAllTestAppointmentsForLocalApp(_LocalDrivingApplicationID);
+            dgvTestAppointments.DataSource = clsTestAppointment.GetAllTestAppointmentsForLocalApp(_LocalDrivingApplicationID, (int)_TestType);
 
             _UpdateTestAppointmentsCount();
         }
@@ -90,14 +121,14 @@ namespace Drivers_and_Vehicles_License_Department__DVLD_.Test_Appointments.Forms
                 return;
             }
 
-            if (clsLocalDrivingLicenseApplication.GetPassedTestsCountForLocalApplication(_LocalDrivingApplicationID,
+            if (clsLocalDrivingLicenseApplication.GetTestsCountForLocalApplication(_LocalDrivingApplicationID,
                                                   LicenseClassID, true) == (int)_TestType)
             {
                 clsMessageBoxManager.ShowMessageBox("This person already passed this test before, you can only retake faild tests", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
 
-            if (clsTestAppointment.IsRetakeTestAppointmentExists(_LocalDrivingApplicationID, LicenseClassID))
+            if (clsTestAppointment.IsRetakeTestAppointmentExists(_LocalDrivingApplicationID, LicenseClassID, (int)_TestType))
             {
                 _OpenScheduleTestForm(true, clsTestAppointment.GetTestAppointmentIDByLocalApplicationID(_LocalDrivingApplicationID, LicenseClassID));
                 return;

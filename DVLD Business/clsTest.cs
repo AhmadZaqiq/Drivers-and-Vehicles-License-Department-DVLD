@@ -62,6 +62,9 @@ namespace DVLD_Business
             return (this.TestID != -1);
         }
 
-
+        public static int GetTestAttemptsCountByTestType(int LocalDrivingLicenseApplicationID, int LicenseClassID, int TestTypeID, bool IsPassed)
+        {
+            return clsTestData.GetTestAttemptsCountByTestTypeData(LocalDrivingLicenseApplicationID, LicenseClassID, TestTypeID, IsPassed);
+        }
     }
 }

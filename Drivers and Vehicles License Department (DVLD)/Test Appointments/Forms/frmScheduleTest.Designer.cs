@@ -32,7 +32,7 @@
             this.siticoneLabel23 = new SiticoneNetFrameworkUI.SiticoneLabel();
             this.lblName = new SiticoneNetFrameworkUI.SiticoneLabel();
             this.siticoneLabel15 = new SiticoneNetFrameworkUI.SiticoneLabel();
-            this.lblTrial = new SiticoneNetFrameworkUI.SiticoneLabel();
+            this.lblAttempts = new SiticoneNetFrameworkUI.SiticoneLabel();
             this.siticoneLabel3 = new SiticoneNetFrameworkUI.SiticoneLabel();
             this.siticoneLabel13 = new SiticoneNetFrameworkUI.SiticoneLabel();
             this.lblDClass = new SiticoneNetFrameworkUI.SiticoneLabel();
@@ -41,7 +41,7 @@
             this.siticoneLabel2 = new SiticoneNetFrameworkUI.SiticoneLabel();
             this.lblFees = new SiticoneNetFrameworkUI.SiticoneLabel();
             this.dtpTestAppointmentDate = new System.Windows.Forms.DateTimePicker();
-            this.label1 = new System.Windows.Forms.Label();
+            this.lblTestType = new System.Windows.Forms.Label();
             this.siticonePanel1 = new SiticoneNetFrameworkUI.SiticonePanel();
             this.siticonePictureBox7 = new SiticoneNetFrameworkUI.SiticonePictureBox();
             this.lblTotalFees = new SiticoneNetFrameworkUI.SiticoneLabel();
@@ -61,10 +61,10 @@
             this.siticonePictureBox3 = new SiticoneNetFrameworkUI.SiticonePictureBox();
             this.siticonePictureBox6 = new SiticoneNetFrameworkUI.SiticonePictureBox();
             this.siticonePictureBox4 = new SiticoneNetFrameworkUI.SiticonePictureBox();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.pbTestType = new System.Windows.Forms.PictureBox();
             this.lblSatWarningMessage = new System.Windows.Forms.Label();
             this.siticonePanel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbTestType)).BeginInit();
             this.SuspendLayout();
             // 
             // siticoneLabel23
@@ -100,16 +100,16 @@
             this.siticoneLabel15.TabIndex = 204;
             this.siticoneLabel15.Text = "Date:";
             // 
-            // lblTrial
+            // lblAttempts
             // 
-            this.lblTrial.BackColor = System.Drawing.Color.Transparent;
-            this.lblTrial.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTrial.ForeColor = System.Drawing.Color.Black;
-            this.lblTrial.Location = new System.Drawing.Point(177, 408);
-            this.lblTrial.Name = "lblTrial";
-            this.lblTrial.Size = new System.Drawing.Size(37, 23);
-            this.lblTrial.TabIndex = 191;
-            this.lblTrial.Text = "N\\A";
+            this.lblAttempts.BackColor = System.Drawing.Color.Transparent;
+            this.lblAttempts.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblAttempts.ForeColor = System.Drawing.Color.Black;
+            this.lblAttempts.Location = new System.Drawing.Point(177, 408);
+            this.lblAttempts.Name = "lblAttempts";
+            this.lblAttempts.Size = new System.Drawing.Size(37, 23);
+            this.lblAttempts.TabIndex = 191;
+            this.lblAttempts.Text = "N\\A";
             // 
             // siticoneLabel3
             // 
@@ -149,11 +149,11 @@
             this.siticoneLabel8.BackColor = System.Drawing.Color.Transparent;
             this.siticoneLabel8.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.siticoneLabel8.ForeColor = System.Drawing.Color.Black;
-            this.siticoneLabel8.Location = new System.Drawing.Point(99, 408);
+            this.siticoneLabel8.Location = new System.Drawing.Point(69, 408);
             this.siticoneLabel8.Name = "siticoneLabel8";
-            this.siticoneLabel8.Size = new System.Drawing.Size(39, 23);
+            this.siticoneLabel8.Size = new System.Drawing.Size(69, 23);
             this.siticoneLabel8.TabIndex = 199;
-            this.siticoneLabel8.Text = "Trial:";
+            this.siticoneLabel8.Text = "Attempts:";
             // 
             // lblDLAppID
             // 
@@ -200,16 +200,16 @@
             this.dtpTestAppointmentDate.TabIndex = 210;
             this.dtpTestAppointmentDate.Value = new System.DateTime(2025, 1, 30, 0, 0, 0, 0);
             // 
-            // label1
+            // lblTestType
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Segoe UI Semibold", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.Black;
-            this.label1.Location = new System.Drawing.Point(55, 209);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(317, 37);
-            this.label1.TabIndex = 67;
-            this.label1.Text = "Vision Test Appointment";
+            this.lblTestType.AutoSize = true;
+            this.lblTestType.Font = new System.Drawing.Font("Segoe UI Semibold", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTestType.ForeColor = System.Drawing.Color.Black;
+            this.lblTestType.Location = new System.Drawing.Point(55, 209);
+            this.lblTestType.Name = "lblTestType";
+            this.lblTestType.Size = new System.Drawing.Size(317, 37);
+            this.lblTestType.TabIndex = 67;
+            this.lblTestType.Text = "Vision Test Appointment";
             // 
             // siticonePanel1
             // 
@@ -905,15 +905,15 @@
             this.siticonePictureBox4.TabIndex = 198;
             this.siticonePictureBox4.Text = "siticonePictureBox4";
             // 
-            // pictureBox1
+            // pbTestType
             // 
-            this.pictureBox1.BackgroundImage = global::Drivers_and_Vehicles_License_Department__DVLD_.Properties.Resources.Eyes_rafiki;
-            this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pictureBox1.Location = new System.Drawing.Point(116, 12);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(194, 194);
-            this.pictureBox1.TabIndex = 68;
-            this.pictureBox1.TabStop = false;
+            this.pbTestType.BackgroundImage = global::Drivers_and_Vehicles_License_Department__DVLD_.Properties.Resources.Eyes_rafiki;
+            this.pbTestType.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.pbTestType.Location = new System.Drawing.Point(116, 12);
+            this.pbTestType.Name = "pbTestType";
+            this.pbTestType.Size = new System.Drawing.Size(194, 194);
+            this.pbTestType.TabIndex = 68;
+            this.pbTestType.TabStop = false;
             // 
             // lblSatWarningMessage
             // 
@@ -944,7 +944,7 @@
             this.Controls.Add(this.siticonePictureBox10);
             this.Controls.Add(this.lblName);
             this.Controls.Add(this.siticoneLabel15);
-            this.Controls.Add(this.lblTrial);
+            this.Controls.Add(this.lblAttempts);
             this.Controls.Add(this.siticoneLabel3);
             this.Controls.Add(this.siticonePictureBox1);
             this.Controls.Add(this.siticonePictureBox3);
@@ -955,8 +955,8 @@
             this.Controls.Add(this.siticonePictureBox4);
             this.Controls.Add(this.lblDLAppID);
             this.Controls.Add(this.siticoneLabel2);
-            this.Controls.Add(this.label1);
-            this.Controls.Add(this.pictureBox1);
+            this.Controls.Add(this.lblTestType);
+            this.Controls.Add(this.pbTestType);
             this.Cursor = System.Windows.Forms.Cursors.Default;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "frmScheduleTest";
@@ -964,7 +964,7 @@
             this.Text = "frmScheduleTest";
             this.Load += new System.EventHandler(this.frmScheduleTest_Load);
             this.siticonePanel1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbTestType)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -975,7 +975,7 @@
         private SiticoneNetFrameworkUI.SiticonePictureBox siticonePictureBox10;
         private SiticoneNetFrameworkUI.SiticoneLabel lblName;
         private SiticoneNetFrameworkUI.SiticoneLabel siticoneLabel15;
-        private SiticoneNetFrameworkUI.SiticoneLabel lblTrial;
+        private SiticoneNetFrameworkUI.SiticoneLabel lblAttempts;
         private SiticoneNetFrameworkUI.SiticoneLabel siticoneLabel3;
         private SiticoneNetFrameworkUI.SiticonePictureBox siticonePictureBox1;
         private SiticoneNetFrameworkUI.SiticonePictureBox siticonePictureBox3;
@@ -989,8 +989,8 @@
         private SiticoneNetFrameworkUI.SiticonePictureBox siticonePictureBox8;
         private SiticoneNetFrameworkUI.SiticoneLabel lblFees;
         private System.Windows.Forms.DateTimePicker dtpTestAppointmentDate;
-        private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.PictureBox pbTestType;
+        private System.Windows.Forms.Label lblTestType;
         private SiticoneNetFrameworkUI.SiticonePanel siticonePanel1;
         private SiticoneNetFrameworkUI.SiticoneLabel lblRetakeTestInfo;
         private SiticoneNetFrameworkUI.SiticonePictureBox siticonePictureBox7;
