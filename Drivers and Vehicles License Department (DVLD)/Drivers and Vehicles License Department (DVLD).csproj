@@ -97,6 +97,12 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Licenses\Forms\frmIssueDrivingLicense.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Licenses\Forms\frmIssueDrivingLicense.Designer.cs">
+      <DependentUpon>frmIssueDrivingLicense.cs</DependentUpon>
+    </Compile>
     <Compile Include="Local Driving Application\Controls\ctrlLocalDrivingApplicationCard.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -240,6 +246,9 @@
     <Compile Include="Users\Forms\frmUpdateUser.Designer.cs">
       <DependentUpon>frmUpdateUser.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Licenses\Forms\frmIssueDrivingLicense.resx">
+      <DependentUpon>frmIssueDrivingLicense.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Local Driving Application\Controls\ctrlLocalDrivingApplicationCard.resx">
       <DependentUpon>ctrlLocalDrivingApplicationCard.cs</DependentUpon>
     </EmbeddedResource>
@@ -741,6 +750,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Applications\Controls\" />
+    <Folder Include="Licenses\Controls\" />
     <Folder Include="Tests\Controls\" />
   </ItemGroup>
   <ItemGroup>
@@ -757,6 +767,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\Writen Test pic.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ID Card-amico.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

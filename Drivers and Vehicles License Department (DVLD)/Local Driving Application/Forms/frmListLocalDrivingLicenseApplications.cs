@@ -1,4 +1,5 @@
 ﻿using Drivers_and_Vehicles_License_Department__DVLD_.Global;
+using Drivers_and_Vehicles_License_Department__DVLD_.Licenses.Forms;
 using Drivers_and_Vehicles_License_Department__DVLD_.Test_Appointments.Forms;
 using DVLD_Business;
 using System;
@@ -21,7 +22,7 @@ namespace Drivers_and_Vehicles_License_Department__DVLD_.Local_Driving_Applicati
             InitializeComponent();
         }
 
-        private enum enTestType { Vision = 0, Written = 1, Street = 2, Completed = 3 };
+        private enum enTestType { Vision = 0, Written = 1, Street = 2, Finish = 3 };
 
         private void frmListLocalDrivingLicenseApplications_Load(object sender, EventArgs e)
         {
@@ -169,7 +170,7 @@ namespace Drivers_and_Vehicles_License_Department__DVLD_.Local_Driving_Applicati
         {
             enTestType TestType = (enTestType)PassedTestsCount;
 
-            if (TestType == enTestType.Completed)
+            if (TestType == enTestType.Finish)
             {
                 ScheduleTestsToolStripMenuItem.Enabled = false;
                 return;
@@ -181,6 +182,17 @@ namespace Drivers_and_Vehicles_License_Department__DVLD_.Local_Driving_Applicati
             ScheduleStreetTestToolStripMenuItem1.Enabled = (TestType == enTestType.Street);
         }
 
+        private void _UpdateIssueDrivingLicenseAvailability(int PassedTestsCount)
+        {
+            enTestType TestType = (enTestType)PassedTestsCount;
+
+            DataGridViewRow SelectedRow = dgvLocalDrivingLicenseApplications.SelectedRows[0];
+
+            string Status= SelectedRow.Cells["ApplicationStatus"].Value.ToString();
+
+            IssueDrivingLicenseToolStripMenuItem1.Enabled = (TestType == enTestType.Finish) && (Status=="New");
+        }
+
         private void cmLicenseApplicationSettings_Opening(object sender, CancelEventArgs e)
         {
             DataGridViewRow SelectedRow = dgvLocalDrivingLicenseApplications.SelectedRows[0];
@@ -188,8 +200,40 @@ namespace Drivers_and_Vehicles_License_Department__DVLD_.Local_Driving_Applicati
             int PassedTestsCount = Convert.ToInt32(SelectedRow.Cells["PassedTests"].Value);
 
             _UpdateTestScheduleAvailability(PassedTestsCount);
+
+            _UpdateIssueDrivingLicenseAvailability(PassedTestsCount);
         }
 
+        private void DeleteToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            DataGridViewRow selectedRow = dgvLocalDrivingLicenseApplications.SelectedRows[0];
 
+            if (!clsMessageBoxManager.ShowConfirmActionBox("Are You Sure you want to delete this Local Application?", "Alert", MessageBoxButtons.YesNo, MessageBoxIcon.Warning))
+            {
+                return;
+            }
+
+            int LocalDrivingLicenseApplicationID = Convert.ToInt32(selectedRow.Cells["LocalDrivingLicenseApplicationID"].Value);
+
+            if (!clsLocalDrivingLicenseApplication.DeleteLocalDrivingApplication(LocalDrivingLicenseApplicationID))
+            {
+                clsMessageBoxManager.ShowMessageBox("Local Application was not deleted because it is linked to other transactions in the system...", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            clsMessageBoxManager.ShowMessageBox("Local Application deleted successfully.", "Done", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+            RefreshLocalDrivingApplicationsDataGrid();
+        }
+
+        private void IssueDrivingLicenseToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            DataGridViewRow SelectedRow = dgvLocalDrivingLicenseApplications.SelectedRows[0];
+
+            int LocalDrivingLicenseApplicationID = Convert.ToInt32(SelectedRow.Cells["LocalDrivingLicenseApplicationID"].Value);
+
+            frmIssueDrivingLicense FormIssueDrivingLicense = new frmIssueDrivingLicense(LocalDrivingLicenseApplicationID);
+            FormIssueDrivingLicense.ShowDialog();
+        }
     }
 }

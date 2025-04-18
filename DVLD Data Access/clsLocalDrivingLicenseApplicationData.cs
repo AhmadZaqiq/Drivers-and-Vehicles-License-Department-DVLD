@@ -263,9 +263,8 @@ namespace DVLD_Data_Access
 
             SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString);
 
-            string query = "DELETE FROM" +
-                           " LocalDrivingLicenseApplications" +
-                           " WHERE LocalDrivingLicenseApplicationID = @LocalDrivingLicenseApplicationID;";
+            string query = @"DELETE FROM LocalDrivingLicenseApplications
+                             WHERE LocalDrivingLicenseApplicationID = @LocalDrivingLicenseApplicationID;";
 
             SqlCommand command = new SqlCommand(query, connection);
 

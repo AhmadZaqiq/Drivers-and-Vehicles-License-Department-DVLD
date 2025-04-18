@@ -112,6 +112,7 @@
             this.DeleteToolStripMenuItem1.Name = "DeleteToolStripMenuItem1";
             this.DeleteToolStripMenuItem1.Size = new System.Drawing.Size(272, 38);
             this.DeleteToolStripMenuItem1.Text = "Delete Application";
+            this.DeleteToolStripMenuItem1.Click += new System.EventHandler(this.DeleteToolStripMenuItem1_Click);
             // 
             // toolStripSeparator3
             // 
@@ -181,6 +182,7 @@
             this.IssueDrivingLicenseToolStripMenuItem1.Name = "IssueDrivingLicenseToolStripMenuItem1";
             this.IssueDrivingLicenseToolStripMenuItem1.Size = new System.Drawing.Size(272, 38);
             this.IssueDrivingLicenseToolStripMenuItem1.Text = "Issue Driving License (First Time)";
+            this.IssueDrivingLicenseToolStripMenuItem1.Click += new System.EventHandler(this.IssueDrivingLicenseToolStripMenuItem1_Click);
             // 
             // toolStripSeparator5
             // 

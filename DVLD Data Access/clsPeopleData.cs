@@ -107,7 +107,7 @@ namespace DVLD_Data_Access
 
         public static bool GetPersonByIDData(int PersonID, ref string NationalNo, ref string FirstName, ref string SecondName,
             ref string ThirdName, ref string LastName, ref DateTime DateOfBirth, ref int Gender, ref string Address,
-            ref string Phone, ref string Email, ref int NationalityCountryID, ref string ImagePath)
+            ref string Phone, ref string Email, ref int NationalityCountryID, ref string ImagePath)    
         {
             bool IsFound = false;
 

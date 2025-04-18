@@ -660,7 +660,7 @@
             this.lblNotes.HoverBorderColor1 = System.Drawing.Color.Yellow;
             this.lblNotes.HoverBorderColor2 = System.Drawing.Color.Yellow;
             this.lblNotes.IsEnabled = true;
-            this.lblNotes.Location = new System.Drawing.Point(73, 646);
+            this.lblNotes.Location = new System.Drawing.Point(12, 646);
             this.lblNotes.Name = "lblNotes";
             this.lblNotes.PlaceholderColor = System.Drawing.Color.Gray;
             this.lblNotes.PlaceholderText = "Notes";
@@ -673,7 +673,7 @@
             this.lblNotes.ShadowAnimationDuration = 1;
             this.lblNotes.ShadowBlur = 10;
             this.lblNotes.ShadowColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.lblNotes.Size = new System.Drawing.Size(281, 108);
+            this.lblNotes.Size = new System.Drawing.Size(403, 108);
             this.lblNotes.SolidBorderColor = System.Drawing.Color.LightSlateGray;
             this.lblNotes.SolidBorderFocusColor = System.Drawing.Color.Gold;
             this.lblNotes.SolidBorderHoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(186)))), ((int)(((byte)(0)))));
