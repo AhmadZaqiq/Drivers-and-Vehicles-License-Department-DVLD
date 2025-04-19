@@ -953,6 +953,26 @@ namespace Drivers_and_Vehicles_License_Department__DVLD_.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap ic_fluent_slide_search_24_filled {
+            get {
+                object obj = ResourceManager.GetObject("ic_fluent_slide_search_24_filled", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap ic_fluent_slide_search_24_filled__1_ {
+            get {
+                object obj = ResourceManager.GetObject("ic_fluent_slide_search_24_filled (1)", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap ic_fluent_slide_settings_24_filled {
             get {
                 object obj = ResourceManager.GetObject("ic_fluent_slide_settings_24_filled", resourceCulture);

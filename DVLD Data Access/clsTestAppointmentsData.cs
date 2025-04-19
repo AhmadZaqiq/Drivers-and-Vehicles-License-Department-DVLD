@@ -384,7 +384,7 @@ namespace DVLD_Data_Access
                              From TestAppointments
                              JOIN LocalDrivingLicenseApplications
                              ON TestAppointments.LocalDrivingLicenseApplicationID=LocalDrivingLicenseApplications.LocalDrivingLicenseApplicationID
-                             Where LocalDrivingLicenseApplications.LocalDrivingLicenseApplicationID=39
+                             Where LocalDrivingLicenseApplications.LocalDrivingLicenseApplicationID=@LocalDrivingLicenseApplicationID
                              AND
                              TestAppointments.RetakeTestApplicationID IS NOT NULL
                              AND

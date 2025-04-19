@@ -118,6 +118,9 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="ic_fluent_people_audience_24_filled" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\ic_fluent_people_audience_24_filled.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="ic_fluent_question_24_filled" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\ic_fluent_question_24_filled.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -126,6 +129,9 @@
   </data>
   <data name="Account Settings (2)" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Account Settings (2).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="ic_fluent_clipboard_24_filled" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\ic_fluent_clipboard_24_filled.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="ic_fluent_checkmark_circle_24_filled" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\ic_fluent_checkmark_circle_24_filled.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -187,8 +193,11 @@
   <data name="ic_fluent_apps_list_detail_24_filled" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\ic_fluent_apps_list_detail_24_filled.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="ic_fluent_app_generic_24_filled" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\ic_fluent_app_generic_24_filled.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="ic_fluent_slide_search_24_filled" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\ic_fluent_slide_search_24_filled.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="ID Card-amico" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\ID Card-amico.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="next-63-32" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\next-63-32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -196,8 +205,8 @@
   <data name="ic_fluent_contact_card_24_filled (1)" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\ic_fluent_contact_card_24_filled (1).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="ic_fluent_people_audience_24_filled" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\ic_fluent_people_audience_24_filled.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="Writen Test pic" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Writen Test pic.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="People (2)" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\People (2).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -346,6 +355,9 @@
   <data name="Online test-amico" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Online test-amico.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="City driver-amico" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\City driver-amico.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="ic_fluent_text_description_24_filled" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\ic_fluent_text_description_24_filled.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -409,14 +421,14 @@
   <data name="instagram_2" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\instagram_2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="ic_fluent_clipboard_24_filled" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\ic_fluent_clipboard_24_filled.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="Profile data-pana" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Profile data-pana.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Yellow Black Pastel Abstract Background Instagram Story (ملصق مستطيل الشكل (أفقي))" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Yellow Black Pastel Abstract Background Instagram Story (ملصق مستطيل الشكل (أفقي)).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="ic_fluent_timer_24_filled" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\ic_fluent_timer_24_filled.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="clinical_notes_24dp_000000_FILL0_wght400_GRAD0_opsz24" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\clinical_notes_24dp_000000_FILL0_wght400_GRAD0_opsz24.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="ic_fluent_person_delete_24_filled" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\ic_fluent_person_delete_24_filled.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -429,9 +441,6 @@
   </data>
   <data name="ic_fluent_video_person_star_24_filled" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\ic_fluent_video_person_star_24_filled.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="ID Card-amico" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\ID Card-amico.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="find-user-1-5121" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\find-user-1-5121.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -490,8 +499,8 @@
   <data name="ic_fluent_delete_24_filled" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\ic_fluent_delete_24_filled.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="clinical_notes_24dp_000000_FILL0_wght400_GRAD0_opsz24" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\clinical_notes_24dp_000000_FILL0_wght400_GRAD0_opsz24.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="ic_fluent_timer_24_filled" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\ic_fluent_timer_24_filled.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Car driving-rafiki" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Car driving-rafiki.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -514,9 +523,6 @@
   <data name="Credit card-rafiki" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Credit card-rafiki.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Profile data-pana" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Profile data-pana.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="edit" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\edit.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -532,9 +538,6 @@
   <data name="Eye Test Pic" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Eye Test Pic.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Writen Test pic" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Writen Test pic.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="Street Test Pic" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Street Test Pic.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -544,10 +547,13 @@
   <data name="ic_fluent_document_page_number_24_filled" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\ic_fluent_document_page_number_24_filled.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="ic_fluent_app_generic_24_filled" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\ic_fluent_app_generic_24_filled.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="ic_fluent_status_24_filled" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\ic_fluent_status_24_filled.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="City driver-amico" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\City driver-amico.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="ic_fluent_slide_search_24_filled (1)" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\ic_fluent_slide_search_24_filled (1).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

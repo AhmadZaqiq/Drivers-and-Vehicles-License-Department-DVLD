@@ -103,11 +103,23 @@
     <Compile Include="Drivers\Forms\frmListDrivers.Designer.cs">
       <DependentUpon>frmListDrivers.cs</DependentUpon>
     </Compile>
+    <Compile Include="International Driving Application\Forms\frmAddNewInternationalDrivingLicenseApplicaiton.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="International Driving Application\Forms\frmAddNewInternationalDrivingLicenseApplicaiton.Designer.cs">
+      <DependentUpon>frmAddNewInternationalDrivingLicenseApplicaiton.cs</DependentUpon>
+    </Compile>
     <Compile Include="Licenses\Controls\ctrlLicenseCard.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="Licenses\Controls\ctrlLicenseCard.Designer.cs">
       <DependentUpon>ctrlLicenseCard.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Licenses\Controls\ctrlLicenseCardWithFilter.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Licenses\Controls\ctrlLicenseCardWithFilter.Designer.cs">
+      <DependentUpon>ctrlLicenseCardWithFilter.cs</DependentUpon>
     </Compile>
     <Compile Include="Licenses\Forms\frmDriverLicenseInfo.cs">
       <SubType>Form</SubType>
@@ -279,8 +291,14 @@
     <EmbeddedResource Include="Drivers\Forms\frmListDrivers.resx">
       <DependentUpon>frmListDrivers.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="International Driving Application\Forms\frmAddNewInternationalDrivingLicenseApplicaiton.resx">
+      <DependentUpon>frmAddNewInternationalDrivingLicenseApplicaiton.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Licenses\Controls\ctrlLicenseCard.resx">
       <DependentUpon>ctrlLicenseCard.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Licenses\Controls\ctrlLicenseCardWithFilter.resx">
+      <DependentUpon>ctrlLicenseCardWithFilter.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Licenses\Forms\frmDriverLicenseInfo.resx">
       <DependentUpon>frmDriverLicenseInfo.cs</DependentUpon>
@@ -796,6 +814,7 @@
   <ItemGroup>
     <Folder Include="Applications\Controls\" />
     <Folder Include="Drivers\Controls\" />
+    <Folder Include="International Driving Application\Controls\" />
     <Folder Include="Tests\Controls\" />
   </ItemGroup>
   <ItemGroup>
@@ -824,6 +843,12 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\City driver-amico.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ic_fluent_slide_search_24_filled.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ic_fluent_slide_search_24_filled %281%29.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

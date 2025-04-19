@@ -110,6 +110,9 @@ namespace Drivers_and_Vehicles_License_Department__DVLD_.Applications.Controls
             FormPersonDetails.ShowDialog();
         }
 
+        private void btnShowLicenceInfo_Click(object sender, EventArgs e)
+        {
 
+        }
     }
 }

@@ -105,7 +105,7 @@
             this.drivingLicensesServicesToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI Semibold", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.drivingLicensesServicesToolStripMenuItem.Image = global::Drivers_and_Vehicles_License_Department__DVLD_.Properties.Resources.ic_fluent_contact_card_24_filled1;
             this.drivingLicensesServicesToolStripMenuItem.Name = "drivingLicensesServicesToolStripMenuItem";
-            this.drivingLicensesServicesToolStripMenuItem.Size = new System.Drawing.Size(315, 30);
+            this.drivingLicensesServicesToolStripMenuItem.Size = new System.Drawing.Size(347, 54);
             this.drivingLicensesServicesToolStripMenuItem.Text = "Driving Licenses Services";
             // 
             // newDrivingLicenseToolStripMenuItem
@@ -116,7 +116,7 @@
             this.newDrivingLicenseToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.newDrivingLicenseToolStripMenuItem.Image = global::Drivers_and_Vehicles_License_Department__DVLD_.Properties.Resources.ic_fluent_slide_add_24_filled;
             this.newDrivingLicenseToolStripMenuItem.Name = "newDrivingLicenseToolStripMenuItem";
-            this.newDrivingLicenseToolStripMenuItem.Size = new System.Drawing.Size(382, 26);
+            this.newDrivingLicenseToolStripMenuItem.Size = new System.Drawing.Size(414, 54);
             this.newDrivingLicenseToolStripMenuItem.Text = "New Driving License";
             // 
             // localLicemseToolStripMenuItem
@@ -124,7 +124,7 @@
             this.localLicemseToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.localLicemseToolStripMenuItem.Image = global::Drivers_and_Vehicles_License_Department__DVLD_.Properties.Resources.ic_fluent_home_24_filled;
             this.localLicemseToolStripMenuItem.Name = "localLicemseToolStripMenuItem";
-            this.localLicemseToolStripMenuItem.Size = new System.Drawing.Size(220, 24);
+            this.localLicemseToolStripMenuItem.Size = new System.Drawing.Size(252, 54);
             this.localLicemseToolStripMenuItem.Text = "Local License";
             this.localLicemseToolStripMenuItem.Click += new System.EventHandler(this.LocalLicemseToolStripMenuItem_Click);
             // 
@@ -133,15 +133,16 @@
             this.internationalLicenseToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.internationalLicenseToolStripMenuItem.Image = global::Drivers_and_Vehicles_License_Department__DVLD_.Properties.Resources.ic_fluent_earth_24_filled;
             this.internationalLicenseToolStripMenuItem.Name = "internationalLicenseToolStripMenuItem";
-            this.internationalLicenseToolStripMenuItem.Size = new System.Drawing.Size(220, 24);
+            this.internationalLicenseToolStripMenuItem.Size = new System.Drawing.Size(252, 54);
             this.internationalLicenseToolStripMenuItem.Text = "International License";
+            this.internationalLicenseToolStripMenuItem.Click += new System.EventHandler(this.internationalLicenseToolStripMenuItem_Click);
             // 
             // renewDrivingLicenseToolStripMenuItem
             // 
             this.renewDrivingLicenseToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.renewDrivingLicenseToolStripMenuItem.Image = global::Drivers_and_Vehicles_License_Department__DVLD_.Properties.Resources.ic_fluent_slide_multiple_arrow_right_24_filled;
             this.renewDrivingLicenseToolStripMenuItem.Name = "renewDrivingLicenseToolStripMenuItem";
-            this.renewDrivingLicenseToolStripMenuItem.Size = new System.Drawing.Size(382, 26);
+            this.renewDrivingLicenseToolStripMenuItem.Size = new System.Drawing.Size(414, 54);
             this.renewDrivingLicenseToolStripMenuItem.Text = "Renew driving license";
             // 
             // replacementForLostOrDamagedLicenseToolStripMenuItem
@@ -149,7 +150,7 @@
             this.replacementForLostOrDamagedLicenseToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.replacementForLostOrDamagedLicenseToolStripMenuItem.Image = global::Drivers_and_Vehicles_License_Department__DVLD_.Properties.Resources.ic_fluent_arrow_repeat_all_24_filled__1_;
             this.replacementForLostOrDamagedLicenseToolStripMenuItem.Name = "replacementForLostOrDamagedLicenseToolStripMenuItem";
-            this.replacementForLostOrDamagedLicenseToolStripMenuItem.Size = new System.Drawing.Size(382, 26);
+            this.replacementForLostOrDamagedLicenseToolStripMenuItem.Size = new System.Drawing.Size(414, 54);
             this.replacementForLostOrDamagedLicenseToolStripMenuItem.Text = "Replacement for lost or damaged license";
             // 
             // releaseDetainedDrivingLicenseToolStripMenuItem
@@ -157,7 +158,7 @@
             this.releaseDetainedDrivingLicenseToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.releaseDetainedDrivingLicenseToolStripMenuItem.Image = global::Drivers_and_Vehicles_License_Department__DVLD_.Properties.Resources.ic_fluent_lock_open_24_filled__1_;
             this.releaseDetainedDrivingLicenseToolStripMenuItem.Name = "releaseDetainedDrivingLicenseToolStripMenuItem";
-            this.releaseDetainedDrivingLicenseToolStripMenuItem.Size = new System.Drawing.Size(382, 26);
+            this.releaseDetainedDrivingLicenseToolStripMenuItem.Size = new System.Drawing.Size(414, 54);
             this.releaseDetainedDrivingLicenseToolStripMenuItem.Text = "Release detained driving license";
             // 
             // retakeTestToolStripMenuItem
@@ -165,13 +166,13 @@
             this.retakeTestToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.retakeTestToolStripMenuItem.Image = global::Drivers_and_Vehicles_License_Department__DVLD_.Properties.Resources.ic_fluent_arrow_counterclockwise_24_filled;
             this.retakeTestToolStripMenuItem.Name = "retakeTestToolStripMenuItem";
-            this.retakeTestToolStripMenuItem.Size = new System.Drawing.Size(382, 26);
+            this.retakeTestToolStripMenuItem.Size = new System.Drawing.Size(414, 54);
             this.retakeTestToolStripMenuItem.Text = "Retake test";
             // 
             // toolStripSeparator2
             // 
             this.toolStripSeparator2.Name = "toolStripSeparator2";
-            this.toolStripSeparator2.Size = new System.Drawing.Size(312, 6);
+            this.toolStripSeparator2.Size = new System.Drawing.Size(344, 6);
             // 
             // manageApplicationsToolStripMenuItem
             // 
@@ -181,7 +182,7 @@
             this.manageApplicationsToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI Semibold", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.manageApplicationsToolStripMenuItem.Image = global::Drivers_and_Vehicles_License_Department__DVLD_.Properties.Resources.ic_fluent_clipboard_settings_24_filled;
             this.manageApplicationsToolStripMenuItem.Name = "manageApplicationsToolStripMenuItem";
-            this.manageApplicationsToolStripMenuItem.Size = new System.Drawing.Size(315, 30);
+            this.manageApplicationsToolStripMenuItem.Size = new System.Drawing.Size(347, 54);
             this.manageApplicationsToolStripMenuItem.Text = "Manage Applications";
             // 
             // localDrivingLicenceApplicationsToolStripMenuItem
@@ -204,14 +205,14 @@
             // toolStripSeparator3
             // 
             this.toolStripSeparator3.Name = "toolStripSeparator3";
-            this.toolStripSeparator3.Size = new System.Drawing.Size(312, 6);
+            this.toolStripSeparator3.Size = new System.Drawing.Size(344, 6);
             // 
             // detainLicensesToolStripMenuItem
             // 
             this.detainLicensesToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI Semibold", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.detainLicensesToolStripMenuItem.Image = global::Drivers_and_Vehicles_License_Department__DVLD_.Properties.Resources.ic_fluent_hand_left_24_filled;
             this.detainLicensesToolStripMenuItem.Name = "detainLicensesToolStripMenuItem";
-            this.detainLicensesToolStripMenuItem.Size = new System.Drawing.Size(315, 30);
+            this.detainLicensesToolStripMenuItem.Size = new System.Drawing.Size(347, 54);
             this.detainLicensesToolStripMenuItem.Text = "Detain Licenses";
             // 
             // manageApplicationTypesToolStripMenuItem
@@ -219,7 +220,7 @@
             this.manageApplicationTypesToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI Semibold", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.manageApplicationTypesToolStripMenuItem.Image = global::Drivers_and_Vehicles_License_Department__DVLD_.Properties.Resources.ic_fluent_slide_settings_24_filled;
             this.manageApplicationTypesToolStripMenuItem.Name = "manageApplicationTypesToolStripMenuItem";
-            this.manageApplicationTypesToolStripMenuItem.Size = new System.Drawing.Size(315, 30);
+            this.manageApplicationTypesToolStripMenuItem.Size = new System.Drawing.Size(347, 54);
             this.manageApplicationTypesToolStripMenuItem.Text = "Manage Application Types";
             this.manageApplicationTypesToolStripMenuItem.Click += new System.EventHandler(this.ManageApplicationTypesToolStripMenuItem_Click);
             // 
@@ -228,7 +229,7 @@
             this.manageTestTypesToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI Semibold", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.manageTestTypesToolStripMenuItem.Image = global::Drivers_and_Vehicles_License_Department__DVLD_.Properties.Resources.ic_fluent_content_settings_24_filled__1_;
             this.manageTestTypesToolStripMenuItem.Name = "manageTestTypesToolStripMenuItem";
-            this.manageTestTypesToolStripMenuItem.Size = new System.Drawing.Size(315, 30);
+            this.manageTestTypesToolStripMenuItem.Size = new System.Drawing.Size(347, 54);
             this.manageTestTypesToolStripMenuItem.Text = "Manage Test Types";
             this.manageTestTypesToolStripMenuItem.Click += new System.EventHandler(this.ManageTestTypesToolStripMenuItem_Click);
             // 

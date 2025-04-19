@@ -98,13 +98,6 @@ namespace Drivers_and_Vehicles_License_Department__DVLD_.Test_Appointments.Forms
             _UpdateTestAppointmentsCount();
         }
 
-        private void btnCloseForm_Click(object sender, EventArgs e)
-        {
-            DataAdded?.Invoke();
-
-            clsUtil.CloseFormEffect(this);
-        }
-
         private void _OpenScheduleTestForm(bool IsRetakeTest, int TestAppointmentID = -1)
         {
             frmScheduleTest FormScheduleTest = new frmScheduleTest(IsRetakeTest, TestAppointmentID, _LocalDrivingApplicationID, (int)_TestType, this);
@@ -169,6 +162,13 @@ namespace Drivers_and_Vehicles_License_Department__DVLD_.Test_Appointments.Forms
             int TestAppointmentID = Convert.ToInt32(selectedRow.Cells["TestAppointmentID"].Value);
 
             _UpdateTakeTestAvailability(TestAppointmentID);
+        }
+
+        private void btnCloseForm_Click(object sender, EventArgs e)
+        {
+            DataAdded?.Invoke();
+
+            clsUtil.CloseFormEffect(this);
         }
 
 

@@ -246,7 +246,7 @@
             this.siticonePanel1.EnableAcrylicEffect = false;
             this.siticonePanel1.EnableMicaEffect = false;
             this.siticonePanel1.EnableRippleEffect = false;
-            this.siticonePanel1.FillColor = System.Drawing.Color.White;
+            this.siticonePanel1.FillColor = System.Drawing.Color.WhiteSmoke;
             this.siticonePanel1.GradientColors = new System.Drawing.Color[] {
         System.Drawing.Color.White,
         System.Drawing.Color.LightGray,

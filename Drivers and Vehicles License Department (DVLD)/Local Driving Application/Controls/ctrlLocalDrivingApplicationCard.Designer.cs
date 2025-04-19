@@ -203,6 +203,7 @@
             this.btnShowLicenceInfo.TooltipText = null;
             this.btnShowLicenceInfo.UseAdvancedRendering = true;
             this.btnShowLicenceInfo.UseParticles = false;
+            this.btnShowLicenceInfo.Click += new System.EventHandler(this.btnShowLicenceInfo_Click);
             // 
             // siticoneLabel6
             // 
