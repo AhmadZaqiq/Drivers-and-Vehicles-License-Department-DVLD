@@ -64,11 +64,6 @@ namespace DVLD_Business
             return (this.LocalDrivingLicenseApplicationID != -1);
         }
 
-        public static bool IsPersonDeniedForClass(int ApplicantPersonID, int ApplicationTypeID, int LicenseClassID)
-        {
-            return clsLocalDrivingLicenseApplicationData.IsPersonDeniedForClassData(ApplicantPersonID, ApplicationTypeID, LicenseClassID);
-        }
-
         public bool Save()
         {
             switch (Mode)
@@ -80,10 +75,8 @@ namespace DVLD_Business
                         Mode = enMode.Update;
                         return true;
                     }
-                    else
-                    {
-                        return false;
-                    }
+
+                    return false;
 
                 case enMode.Update:
 
@@ -91,6 +84,11 @@ namespace DVLD_Business
 
                 default: return false;
             }
+        }
+
+        public static bool IsPersonDeniedForClass(int ApplicantPersonID, int ApplicationTypeID, int LicenseClassID)
+        {
+            return clsLocalDrivingLicenseApplicationData.IsPersonDeniedForClassData(ApplicantPersonID, ApplicationTypeID, LicenseClassID);
         }
 
         public static bool DeleteLocalDrivingApplication(int LocalDrivingLicenseApplicationID)

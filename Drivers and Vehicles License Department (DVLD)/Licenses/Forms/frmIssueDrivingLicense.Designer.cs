@@ -28,99 +28,81 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.pbTestType = new System.Windows.Forms.PictureBox();
-            this.ctrlLocalDrivingApplicationCard1 = new Drivers_and_Vehicles_License_Department__DVLD_.Applications.Controls.ctrlLocalDrivingApplicationCard();
-            this.lblNotes = new SiticoneNetFrameworkUI.SiticoneTextBox();
+            this.txtNotes = new SiticoneNetFrameworkUI.SiticoneTextBox();
             this.btnSave = new SiticoneNetFrameworkUI.SiticoneButton();
             this.btnCancel = new SiticoneNetFrameworkUI.SiticoneButton();
-            this.lblTestType = new System.Windows.Forms.Label();
+            this.lblI = new System.Windows.Forms.Label();
+            this.pbTestType = new System.Windows.Forms.PictureBox();
+            this.ctrlLocalDrivingApplicationCard1 = new Drivers_and_Vehicles_License_Department__DVLD_.Applications.Controls.ctrlLocalDrivingApplicationCard();
             ((System.ComponentModel.ISupportInitialize)(this.pbTestType)).BeginInit();
             this.SuspendLayout();
             // 
-            // pbTestType
+            // txtNotes
             // 
-            this.pbTestType.BackgroundImage = global::Drivers_and_Vehicles_License_Department__DVLD_.Properties.Resources.ID_Card_amico;
-            this.pbTestType.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pbTestType.Location = new System.Drawing.Point(229, 12);
-            this.pbTestType.Name = "pbTestType";
-            this.pbTestType.Size = new System.Drawing.Size(194, 194);
-            this.pbTestType.TabIndex = 70;
-            this.pbTestType.TabStop = false;
-            // 
-            // ctrlLocalDrivingApplicationCard1
-            // 
-            this.ctrlLocalDrivingApplicationCard1.LocalDrivingApplicationID = -1;
-            this.ctrlLocalDrivingApplicationCard1.Location = new System.Drawing.Point(38, 271);
-            this.ctrlLocalDrivingApplicationCard1.Name = "ctrlLocalDrivingApplicationCard1";
-            this.ctrlLocalDrivingApplicationCard1.Size = new System.Drawing.Size(576, 328);
-            this.ctrlLocalDrivingApplicationCard1.TabIndex = 71;
-            // 
-            // lblNotes
-            // 
-            this.lblNotes.AccessibleDescription = "A customizable text input field.";
-            this.lblNotes.AccessibleName = "Text Box";
-            this.lblNotes.AccessibleRole = System.Windows.Forms.AccessibleRole.Text;
-            this.lblNotes.BackColor = System.Drawing.Color.Transparent;
-            this.lblNotes.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.lblNotes.BlinkCount = 3;
-            this.lblNotes.BlinkShadow = false;
-            this.lblNotes.BorderColor1 = System.Drawing.Color.LightSlateGray;
-            this.lblNotes.BorderColor2 = System.Drawing.Color.LightSlateGray;
-            this.lblNotes.BorderFocusColor1 = System.Drawing.Color.Gold;
-            this.lblNotes.BorderFocusColor2 = System.Drawing.Color.Gold;
-            this.lblNotes.CanShake = true;
-            this.lblNotes.ContinuousBlink = false;
-            this.lblNotes.CornerRadiusBottomLeft = 30;
-            this.lblNotes.CornerRadiusBottomRight = 30;
-            this.lblNotes.CornerRadiusTopLeft = 30;
-            this.lblNotes.CornerRadiusTopRight = 30;
-            this.lblNotes.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.lblNotes.CursorBlinkRate = 500;
-            this.lblNotes.CursorColor = System.Drawing.Color.Black;
-            this.lblNotes.CursorHeight = 26;
-            this.lblNotes.CursorOffset = 0;
-            this.lblNotes.CursorStyle = SiticoneNetFrameworkUI.Helpers.DrawingStyle.SiticoneDrawingStyle.Solid;
-            this.lblNotes.CursorWidth = 1;
-            this.lblNotes.DisabledBackColor = System.Drawing.Color.WhiteSmoke;
-            this.lblNotes.DisabledBorderColor = System.Drawing.Color.LightGray;
-            this.lblNotes.DisabledTextColor = System.Drawing.Color.Gray;
-            this.lblNotes.EnableDropShadow = false;
-            this.lblNotes.FillColor1 = System.Drawing.Color.Black;
-            this.lblNotes.FillColor2 = System.Drawing.Color.Black;
-            this.lblNotes.FillGradientMode = System.Drawing.Drawing2D.LinearGradientMode.Vertical;
-            this.lblNotes.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblNotes.ForeColor = System.Drawing.Color.Black;
-            this.lblNotes.HoverBorderColor1 = System.Drawing.Color.Yellow;
-            this.lblNotes.HoverBorderColor2 = System.Drawing.Color.Yellow;
-            this.lblNotes.IsEnabled = true;
-            this.lblNotes.Location = new System.Drawing.Point(38, 605);
-            this.lblNotes.Name = "lblNotes";
-            this.lblNotes.PlaceholderColor = System.Drawing.Color.Gray;
-            this.lblNotes.PlaceholderText = "Notes";
-            this.lblNotes.ReadOnlyBorderColor1 = System.Drawing.Color.LightGray;
-            this.lblNotes.ReadOnlyBorderColor2 = System.Drawing.Color.LightGray;
-            this.lblNotes.ReadOnlyFillColor1 = System.Drawing.Color.WhiteSmoke;
-            this.lblNotes.ReadOnlyFillColor2 = System.Drawing.Color.WhiteSmoke;
-            this.lblNotes.ReadOnlyPlaceholderColor = System.Drawing.Color.DarkGray;
-            this.lblNotes.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(77)))), ((int)(((byte)(255)))));
-            this.lblNotes.ShadowAnimationDuration = 1;
-            this.lblNotes.ShadowBlur = 10;
-            this.lblNotes.ShadowColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.lblNotes.Size = new System.Drawing.Size(576, 108);
-            this.lblNotes.SolidBorderColor = System.Drawing.Color.LightSlateGray;
-            this.lblNotes.SolidBorderFocusColor = System.Drawing.Color.Gold;
-            this.lblNotes.SolidBorderHoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(186)))), ((int)(((byte)(0)))));
-            this.lblNotes.SolidFillColor = System.Drawing.Color.White;
-            this.lblNotes.TabIndex = 239;
-            this.lblNotes.TextPadding = new System.Windows.Forms.Padding(13, 1, 13, 1);
-            this.lblNotes.ValidationErrorMessage = "Invalid input.";
-            this.lblNotes.ValidationFunction = null;
+            this.txtNotes.AccessibleDescription = "A customizable text input field.";
+            this.txtNotes.AccessibleName = "Text Box";
+            this.txtNotes.AccessibleRole = System.Windows.Forms.AccessibleRole.Text;
+            this.txtNotes.BackColor = System.Drawing.Color.Transparent;
+            this.txtNotes.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.txtNotes.BlinkCount = 3;
+            this.txtNotes.BlinkShadow = false;
+            this.txtNotes.BorderColor1 = System.Drawing.Color.LightSlateGray;
+            this.txtNotes.BorderColor2 = System.Drawing.Color.LightSlateGray;
+            this.txtNotes.BorderFocusColor1 = System.Drawing.Color.Gold;
+            this.txtNotes.BorderFocusColor2 = System.Drawing.Color.Gold;
+            this.txtNotes.CanShake = true;
+            this.txtNotes.ContinuousBlink = false;
+            this.txtNotes.CornerRadiusBottomLeft = 30;
+            this.txtNotes.CornerRadiusBottomRight = 30;
+            this.txtNotes.CornerRadiusTopLeft = 30;
+            this.txtNotes.CornerRadiusTopRight = 30;
+            this.txtNotes.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txtNotes.CursorBlinkRate = 500;
+            this.txtNotes.CursorColor = System.Drawing.Color.Black;
+            this.txtNotes.CursorHeight = 26;
+            this.txtNotes.CursorOffset = 0;
+            this.txtNotes.CursorStyle = SiticoneNetFrameworkUI.Helpers.DrawingStyle.SiticoneDrawingStyle.Solid;
+            this.txtNotes.CursorWidth = 1;
+            this.txtNotes.DisabledBackColor = System.Drawing.Color.WhiteSmoke;
+            this.txtNotes.DisabledBorderColor = System.Drawing.Color.LightGray;
+            this.txtNotes.DisabledTextColor = System.Drawing.Color.Gray;
+            this.txtNotes.EnableDropShadow = false;
+            this.txtNotes.FillColor1 = System.Drawing.Color.Black;
+            this.txtNotes.FillColor2 = System.Drawing.Color.Black;
+            this.txtNotes.FillGradientMode = System.Drawing.Drawing2D.LinearGradientMode.Vertical;
+            this.txtNotes.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtNotes.ForeColor = System.Drawing.Color.Black;
+            this.txtNotes.HoverBorderColor1 = System.Drawing.Color.Yellow;
+            this.txtNotes.HoverBorderColor2 = System.Drawing.Color.Yellow;
+            this.txtNotes.IsEnabled = true;
+            this.txtNotes.Location = new System.Drawing.Point(38, 605);
+            this.txtNotes.Name = "txtNotes";
+            this.txtNotes.PlaceholderColor = System.Drawing.Color.Gray;
+            this.txtNotes.PlaceholderText = "Notes";
+            this.txtNotes.ReadOnlyBorderColor1 = System.Drawing.Color.LightGray;
+            this.txtNotes.ReadOnlyBorderColor2 = System.Drawing.Color.LightGray;
+            this.txtNotes.ReadOnlyFillColor1 = System.Drawing.Color.WhiteSmoke;
+            this.txtNotes.ReadOnlyFillColor2 = System.Drawing.Color.WhiteSmoke;
+            this.txtNotes.ReadOnlyPlaceholderColor = System.Drawing.Color.DarkGray;
+            this.txtNotes.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(77)))), ((int)(((byte)(255)))));
+            this.txtNotes.ShadowAnimationDuration = 1;
+            this.txtNotes.ShadowBlur = 10;
+            this.txtNotes.ShadowColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.txtNotes.Size = new System.Drawing.Size(576, 108);
+            this.txtNotes.SolidBorderColor = System.Drawing.Color.LightSlateGray;
+            this.txtNotes.SolidBorderFocusColor = System.Drawing.Color.Gold;
+            this.txtNotes.SolidBorderHoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(186)))), ((int)(((byte)(0)))));
+            this.txtNotes.SolidFillColor = System.Drawing.Color.White;
+            this.txtNotes.TabIndex = 239;
+            this.txtNotes.TextPadding = new System.Windows.Forms.Padding(13, 1, 13, 1);
+            this.txtNotes.ValidationErrorMessage = "Invalid input.";
+            this.txtNotes.ValidationFunction = null;
             // 
             // btnSave
             // 
             this.btnSave.AccessibleDescription = "The default button control that accept input though the mouse, touch and keyboard" +
     "";
-            this.btnSave.AccessibleName = "Save";
+            this.btnSave.AccessibleName = "Issue";
             this.btnSave.AutoSizeBasedOnText = false;
             this.btnSave.BackColor = System.Drawing.Color.Transparent;
             this.btnSave.BadgeBackColor = System.Drawing.Color.Red;
@@ -187,13 +169,13 @@
             this.btnSave.ShakeIntensity = 5;
             this.btnSave.Size = new System.Drawing.Size(125, 39);
             this.btnSave.TabIndex = 243;
-            this.btnSave.Text = "Save";
+            this.btnSave.Text = "Issue";
             this.btnSave.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.btnSave.TextColor = System.Drawing.Color.Black;
             this.btnSave.TooltipText = null;
             this.btnSave.UseAdvancedRendering = true;
             this.btnSave.UseParticles = false;
-            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
+            this.btnSave.Click += new System.EventHandler(this.btnIssue_Click);
             // 
             // btnCancel
             // 
@@ -274,16 +256,34 @@
             this.btnCancel.UseParticles = false;
             this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 
-            // lblTestType
+            // lblI
             // 
-            this.lblTestType.AutoSize = true;
-            this.lblTestType.Font = new System.Drawing.Font("Segoe UI Semibold", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTestType.ForeColor = System.Drawing.Color.Black;
-            this.lblTestType.Location = new System.Drawing.Point(191, 209);
-            this.lblTestType.Name = "lblTestType";
-            this.lblTestType.Size = new System.Drawing.Size(271, 37);
-            this.lblTestType.TabIndex = 244;
-            this.lblTestType.Text = "Issue Driving License";
+            this.lblI.AutoSize = true;
+            this.lblI.Font = new System.Drawing.Font("Segoe UI Semibold", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblI.ForeColor = System.Drawing.Color.Black;
+            this.lblI.Location = new System.Drawing.Point(191, 209);
+            this.lblI.Name = "lblI";
+            this.lblI.Size = new System.Drawing.Size(271, 37);
+            this.lblI.TabIndex = 244;
+            this.lblI.Text = "Issue Driving License";
+            // 
+            // pbTestType
+            // 
+            this.pbTestType.BackgroundImage = global::Drivers_and_Vehicles_License_Department__DVLD_.Properties.Resources.ID_Card_amico;
+            this.pbTestType.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.pbTestType.Location = new System.Drawing.Point(229, 12);
+            this.pbTestType.Name = "pbTestType";
+            this.pbTestType.Size = new System.Drawing.Size(194, 194);
+            this.pbTestType.TabIndex = 70;
+            this.pbTestType.TabStop = false;
+            // 
+            // ctrlLocalDrivingApplicationCard1
+            // 
+            this.ctrlLocalDrivingApplicationCard1.LocalDrivingApplicationID = -1;
+            this.ctrlLocalDrivingApplicationCard1.Location = new System.Drawing.Point(38, 271);
+            this.ctrlLocalDrivingApplicationCard1.Name = "ctrlLocalDrivingApplicationCard1";
+            this.ctrlLocalDrivingApplicationCard1.Size = new System.Drawing.Size(576, 328);
+            this.ctrlLocalDrivingApplicationCard1.TabIndex = 71;
             // 
             // frmIssueDrivingLicense
             // 
@@ -291,10 +291,10 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(652, 804);
-            this.Controls.Add(this.lblTestType);
+            this.Controls.Add(this.lblI);
             this.Controls.Add(this.btnSave);
             this.Controls.Add(this.btnCancel);
-            this.Controls.Add(this.lblNotes);
+            this.Controls.Add(this.txtNotes);
             this.Controls.Add(this.ctrlLocalDrivingApplicationCard1);
             this.Controls.Add(this.pbTestType);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
@@ -311,9 +311,9 @@
         #endregion
         private System.Windows.Forms.PictureBox pbTestType;
         private Applications.Controls.ctrlLocalDrivingApplicationCard ctrlLocalDrivingApplicationCard1;
-        private SiticoneNetFrameworkUI.SiticoneTextBox lblNotes;
+        private SiticoneNetFrameworkUI.SiticoneTextBox txtNotes;
         private SiticoneNetFrameworkUI.SiticoneButton btnSave;
         private SiticoneNetFrameworkUI.SiticoneButton btnCancel;
-        private System.Windows.Forms.Label lblTestType;
+        private System.Windows.Forms.Label lblI;
     }
 }

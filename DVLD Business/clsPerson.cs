@@ -72,7 +72,6 @@ namespace DVLD_Business
             }
         }
 
-
         public static DataTable GetAllPeople()
         {
             return clsPeopleData.GetAllPeopleData();
@@ -105,8 +104,9 @@ namespace DVLD_Business
             string ImagePath = "";
 
             if (clsPeopleData.GetPersonByIDData(PersonID, ref NationalNo, ref FirstName, ref SecondName, ref ThirdName, ref LastName, ref DateOfBirth, ref Gender, ref Address, ref Phone, ref Email, ref NationalityCountryID, ref ImagePath))
+            {
                 return new clsPerson(PersonID, NationalNo, FirstName, SecondName, ThirdName, LastName, DateOfBirth, Gender, Address, Phone, Email, NationalityCountryID, ImagePath);
-
+            }
 
             return null;
         }
@@ -167,6 +167,11 @@ namespace DVLD_Business
         public static int GetPersonIDByNationalNO(string NationalNo)
         {
             return clsPeopleData.GetPersonIDByNationalNOData(NationalNo);
+        }
+
+        public static bool DoesPersonHaveLicenseForLicenseClass(int ApplicationID, int LicenseClassID)
+        {
+            return clsPeopleData.DoesPersonHaveLicenseForLicenseClassData(ApplicationID, LicenseClassID);
         }
 
 

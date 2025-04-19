@@ -689,7 +689,7 @@
             // 
             this.lblApplicant.BackColor = System.Drawing.Color.Transparent;
             this.lblApplicant.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblApplicant.ForeColor = System.Drawing.Color.Black;
+            this.lblApplicant.ForeColor = System.Drawing.Color.Red;
             this.lblApplicant.Location = new System.Drawing.Point(173, 163);
             this.lblApplicant.Name = "lblApplicant";
             this.lblApplicant.Size = new System.Drawing.Size(250, 23);
@@ -701,7 +701,7 @@
             this.siticoneLabel19.BackColor = System.Drawing.Color.Transparent;
             this.siticoneLabel19.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.siticoneLabel19.ForeColor = System.Drawing.Color.Black;
-            this.siticoneLabel19.Location = new System.Drawing.Point(276, 73);
+            this.siticoneLabel19.Location = new System.Drawing.Point(276, 95);
             this.siticoneLabel19.Name = "siticoneLabel19";
             this.siticoneLabel19.Size = new System.Drawing.Size(78, 23);
             this.siticoneLabel19.TabIndex = 184;
@@ -740,7 +740,7 @@
             this.siticonePictureBox9.Images = ((System.Collections.Generic.List<System.Drawing.Image>)(resources.GetObject("siticonePictureBox9.Images")));
             this.siticonePictureBox9.InterpolationMode = System.Drawing.Drawing2D.InterpolationMode.HighQualityBicubic;
             this.siticonePictureBox9.IsCircular = false;
-            this.siticonePictureBox9.Location = new System.Drawing.Point(396, 73);
+            this.siticonePictureBox9.Location = new System.Drawing.Point(396, 95);
             this.siticonePictureBox9.MaintainAspectRatio = true;
             this.siticonePictureBox9.Name = "siticonePictureBox9";
             this.siticonePictureBox9.PlaceholderImage = null;
@@ -757,7 +757,7 @@
             this.lblCreatedBy.BackColor = System.Drawing.Color.Transparent;
             this.lblCreatedBy.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblCreatedBy.ForeColor = System.Drawing.Color.Black;
-            this.lblCreatedBy.Location = new System.Drawing.Point(429, 73);
+            this.lblCreatedBy.Location = new System.Drawing.Point(429, 95);
             this.lblCreatedBy.Name = "lblCreatedBy";
             this.lblCreatedBy.Size = new System.Drawing.Size(135, 23);
             this.lblCreatedBy.TabIndex = 182;
@@ -768,7 +768,7 @@
             this.siticoneLabel17.BackColor = System.Drawing.Color.Transparent;
             this.siticoneLabel17.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.siticoneLabel17.ForeColor = System.Drawing.Color.Black;
-            this.siticoneLabel17.Location = new System.Drawing.Point(271, 50);
+            this.siticoneLabel17.Location = new System.Drawing.Point(271, 61);
             this.siticoneLabel17.Name = "siticoneLabel17";
             this.siticoneLabel17.Size = new System.Drawing.Size(83, 23);
             this.siticoneLabel17.TabIndex = 181;
@@ -807,7 +807,7 @@
             this.siticonePictureBox8.Images = ((System.Collections.Generic.List<System.Drawing.Image>)(resources.GetObject("siticonePictureBox8.Images")));
             this.siticonePictureBox8.InterpolationMode = System.Drawing.Drawing2D.InterpolationMode.HighQualityBicubic;
             this.siticonePictureBox8.IsCircular = false;
-            this.siticonePictureBox8.Location = new System.Drawing.Point(396, 50);
+            this.siticonePictureBox8.Location = new System.Drawing.Point(396, 61);
             this.siticonePictureBox8.MaintainAspectRatio = true;
             this.siticonePictureBox8.Name = "siticonePictureBox8";
             this.siticonePictureBox8.PlaceholderImage = null;
@@ -824,7 +824,7 @@
             this.lblStatusDate.BackColor = System.Drawing.Color.Transparent;
             this.lblStatusDate.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblStatusDate.ForeColor = System.Drawing.Color.Black;
-            this.lblStatusDate.Location = new System.Drawing.Point(429, 50);
+            this.lblStatusDate.Location = new System.Drawing.Point(429, 61);
             this.lblStatusDate.Name = "lblStatusDate";
             this.lblStatusDate.Size = new System.Drawing.Size(135, 23);
             this.lblStatusDate.TabIndex = 179;

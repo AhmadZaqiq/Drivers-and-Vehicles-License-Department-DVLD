@@ -1,4 +1,5 @@
 ﻿using Drivers_and_Vehicles_License_Department__DVLD_.Application_Types;
+using Drivers_and_Vehicles_License_Department__DVLD_.Drivers.Forms;
 using Drivers_and_Vehicles_License_Department__DVLD_.Global;
 using Drivers_and_Vehicles_License_Department__DVLD_.Local_Driving_Application;
 using Drivers_and_Vehicles_License_Department__DVLD_.Test_Types;
@@ -78,6 +79,12 @@ namespace Drivers_and_Vehicles_License_Department__DVLD_
         {
             frmListLocalDrivingLicenseApplications FormListLocalDrivingLicenseApplications=new frmListLocalDrivingLicenseApplications();
             FormListLocalDrivingLicenseApplications.ShowDialog();
+        }
+
+        private void DriversToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmListDrivers FormListDrivers= new frmListDrivers();
+            FormListDrivers.ShowDialog();
         }
 
 

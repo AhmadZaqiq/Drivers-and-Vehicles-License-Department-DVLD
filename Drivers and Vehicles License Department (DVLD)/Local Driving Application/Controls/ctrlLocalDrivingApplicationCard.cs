@@ -47,6 +47,7 @@ namespace Drivers_and_Vehicles_License_Department__DVLD_.Applications.Controls
 
                 _DisplayAllApplicationDetails();
             }
+
             get
             {
                 return _LocalDrivingApplicationID;

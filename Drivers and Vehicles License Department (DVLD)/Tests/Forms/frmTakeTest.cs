@@ -112,7 +112,7 @@ namespace Drivers_and_Vehicles_License_Department__DVLD_.Tests.Forms
         {
             _Test.TestAppointmentID = _TestAppointmentID;
             _Test.TestResult = rbPass.Checked;
-            _Test.Notes = lblNotes.Text;
+            _Test.Notes = txtNotes.Text;
             _Test.CreatedByUserID = clsCurrentUser.CurrentUser.UserID;
         }
 
@@ -140,7 +140,7 @@ namespace Drivers_and_Vehicles_License_Department__DVLD_.Tests.Forms
 
             _LoadRetakeApplicationData(RetakeApplication);
 
-            if (!RetakeApplication.AddNewApplication())
+            if (!RetakeApplication.Save())
             {
                 clsMessageBoxManager.ShowMessageBox("An error occurred while saving the data. Please try again.", "Save Failed", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;

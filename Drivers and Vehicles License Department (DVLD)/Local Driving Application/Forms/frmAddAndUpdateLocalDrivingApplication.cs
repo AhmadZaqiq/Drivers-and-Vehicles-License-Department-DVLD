@@ -108,11 +108,20 @@ namespace Drivers_and_Vehicles_License_Department__DVLD_.Local_Driving_Applicati
             int LicenseClassID = _GetLicenseClassIDFromComboBox();
             int NewLocalApplicationTypeID = clsApplicationType.GetApplicationTypeByID(1).ApplicationTypeID;
 
+            if (clsPerson.DoesPersonHaveLicenseForLicenseClass(PersonID, LicenseClassID))
+            {
+                clsMessageBoxManager.ShowMessageBox("Person already have a license with the same applied driving class, Choose different driving class", "Failed", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+
+                return;
+            }
+
             if (clsLocalDrivingLicenseApplication.IsPersonDeniedForClass(PersonID, NewLocalApplicationTypeID, LicenseClassID))
             {
-                clsMessageBoxManager.ShowMessageBox("Choose another License Class. " +
-                                "The selected person already has an active application for the selected class with ID: " + clsApplication.GetApplicationIDByApplicantPersonID(PersonID),
-                                "Failed", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                clsMessageBoxManager.ShowMessageBox($@"Choose another License Class.
+                                                     The selected person already has an active application for the selected class 
+                                                     with ID: {clsApplication.GetApplicationIDByApplicantPersonID(PersonID)}",
+                                                     "Failed", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+
                 return;
             }
 
@@ -124,7 +133,7 @@ namespace Drivers_and_Vehicles_License_Department__DVLD_.Local_Driving_Applicati
 
             _LoadApplicationData();
 
-            if (!_Application.AddNewApplication())
+            if (!_Application.Save())
             {
                 clsMessageBoxManager.ShowMessageBox("Data not Saved...", "Failed", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;

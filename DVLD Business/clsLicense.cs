@@ -57,9 +57,9 @@ namespace DVLD_Business
             this.Mode = enMode.Update;
         }
 
-        public static DataTable GetAllLicenses()
+        public static DataTable GetAllLicensesForDriver(int DriverID)
         {
-            return clsLicensesData.GetAllLicensesData();
+            return clsLicensesData.GetAllLicensesForDriverData(DriverID);
         }
 
         public static clsLicense GetLicenseByID(int LicenseID)
@@ -125,6 +125,11 @@ namespace DVLD_Business
                 default:
                     return false;
             }
+        }
+
+        public static int GetLicenseIDByApplicationID(int ApplicationID)
+        {
+            return clsLicensesData.GetLicenseIDByApplicationIDData(ApplicationID);
         }
 
 

@@ -11,6 +11,10 @@ namespace DVLD_Business
 {
     public class clsApplication
     {
+        public enum enMode { AddNew = 0, Update = 1 };
+
+        public enMode Mode = enMode.AddNew;
+
         public int ApplicationID { get; set; }
         public int ApplicantPersonID { get; set; }
         public DateTime ApplicationDate { get; set; }
@@ -32,6 +36,8 @@ namespace DVLD_Business
             this.LastStatusDate = LastStatusDate;
             this.PaidFees = PaidFees;
             this.CreatedByUserID = CreatedByUserID;
+
+            Mode = enMode.Update;
         }
 
         public clsApplication()
@@ -71,13 +77,42 @@ namespace DVLD_Business
               ApplicationStatus, LastStatusDate, PaidFees, CreatedByUserID);
         }
 
-        public bool AddNewApplication()
+        private bool _UpdateApplication()
+        {
+            return clsApplicationsData.UpdateApplicationData(this.ApplicationID,
+                this.ApplicantPersonID, this.ApplicationDate, this.ApplicationTypeID,
+                this.ApplicationStatus, this.LastStatusDate, this.PaidFees, this.CreatedByUserID);
+        }
+
+        private bool _AddNewApplication()
         {
             this.ApplicationID = clsApplicationsData.AddNewApplicationData(this.ApplicantPersonID,
                  this.ApplicationDate, this.ApplicationTypeID, this.ApplicationStatus,
                  this.LastStatusDate, this.PaidFees, this.CreatedByUserID);
 
             return (this.ApplicationID != -1);
+        }
+
+        public bool Save()
+        {
+            switch (Mode)
+            {
+                case enMode.AddNew:
+
+                    if (_AddNewApplication())
+                    {
+                        Mode = enMode.Update;
+                        return true;
+                    }
+
+                    return false;
+
+                case enMode.Update:
+
+                    return _UpdateApplication();
+
+                default: return false;
+            }
         }
 
         public static bool DeleteApplication(int ApplicationID)

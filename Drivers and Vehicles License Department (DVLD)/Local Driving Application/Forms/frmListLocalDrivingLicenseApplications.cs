@@ -1,11 +1,13 @@
 ﻿using Drivers_and_Vehicles_License_Department__DVLD_.Global;
 using Drivers_and_Vehicles_License_Department__DVLD_.Licenses.Forms;
+using Drivers_and_Vehicles_License_Department__DVLD_.Local_Driving_Application.Forms;
 using Drivers_and_Vehicles_License_Department__DVLD_.Test_Appointments.Forms;
 using DVLD_Business;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.DirectoryServices.ActiveDirectory;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -105,6 +107,16 @@ namespace Drivers_and_Vehicles_License_Department__DVLD_.Local_Driving_Applicati
             clsUtil.CloseFormEffect(this);
         }
 
+        private void ShowDetailsToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            DataGridViewRow SelectedRow = dgvLocalDrivingLicenseApplications.SelectedRows[0];
+
+            int LocalApplicationID = Convert.ToInt32(SelectedRow.Cells["LocalDrivingLicenseApplicationID"].Value);
+
+            frmShowLocalApplicationDetails FormShowLocalApplicationDetails = new frmShowLocalApplicationDetails(LocalApplicationID);
+            FormShowLocalApplicationDetails.ShowDialog();
+        }
+
         private void CancelApplicationToolStripMenuItem1_Click(object sender, EventArgs e)
         {
             DataGridViewRow SelectedRow = dgvLocalDrivingLicenseApplications.SelectedRows[0];
@@ -142,7 +154,7 @@ namespace Drivers_and_Vehicles_License_Department__DVLD_.Local_Driving_Applicati
 
             int LocalApplicationID = Convert.ToInt32(SelectedRow.Cells["LocalDrivingLicenseApplicationID"].Value);
 
-            frmTestAppointments FormTestAppointments = new frmTestAppointments(LocalApplicationID,(int)enTestType.Vision+1,this);
+            frmTestAppointments FormTestAppointments = new frmTestAppointments(LocalApplicationID, (int)enTestType.Vision + 1, this);
             FormTestAppointments.ShowDialog();
         }
 
@@ -176,7 +188,7 @@ namespace Drivers_and_Vehicles_License_Department__DVLD_.Local_Driving_Applicati
                 return;
             }
 
-            ScheduleTestsToolStripMenuItem.Enabled =true;
+            ScheduleTestsToolStripMenuItem.Enabled = true;
             ScheduleVisionTestToolStripMenuItem1.Enabled = (TestType == enTestType.Vision);
             ScheduleWrittenTestToolStripMenuItem1.Enabled = (TestType == enTestType.Written);
             ScheduleStreetTestToolStripMenuItem1.Enabled = (TestType == enTestType.Street);
@@ -188,9 +200,54 @@ namespace Drivers_and_Vehicles_License_Department__DVLD_.Local_Driving_Applicati
 
             DataGridViewRow SelectedRow = dgvLocalDrivingLicenseApplications.SelectedRows[0];
 
-            string Status= SelectedRow.Cells["ApplicationStatus"].Value.ToString();
+            string Status = SelectedRow.Cells["ApplicationStatus"].Value.ToString();
 
-            IssueDrivingLicenseToolStripMenuItem1.Enabled = (TestType == enTestType.Finish) && (Status=="New");
+            IssueDrivingLicenseToolStripMenuItem1.Enabled = (TestType == enTestType.Finish) && (Status == "New");
+        }
+
+        private void _UpdateDeleteLocalApplicationAvailability()
+        {
+            DataGridViewRow SelectedRow = dgvLocalDrivingLicenseApplications.SelectedRows[0];
+
+            string Status = SelectedRow.Cells["ApplicationStatus"].Value.ToString();
+
+            DeleteToolStripMenuItem1.Enabled = (Status != "Completed");
+        }
+
+        private void _UpdateCancelLocalApplicationAvailability()
+        {
+            DataGridViewRow SelectedRow = dgvLocalDrivingLicenseApplications.SelectedRows[0];
+
+            string Status = SelectedRow.Cells["ApplicationStatus"].Value.ToString();
+
+            CancelApplicationToolStripMenuItem1.Enabled = (Status == "New");
+        }
+
+        private void _UpdateShowLicenseAvailability()
+        {
+            DataGridViewRow SelectedRow = dgvLocalDrivingLicenseApplications.SelectedRows[0];
+
+            string Status = SelectedRow.Cells["ApplicationStatus"].Value.ToString();
+
+            ShowLicenseStripToolMenuItem1.Enabled = (Status == "Completed");
+        }
+
+        private void _UpdateEditLocalApplicationAvailability()
+        {
+            DataGridViewRow SelectedRow = dgvLocalDrivingLicenseApplications.SelectedRows[0];
+
+            string Status = SelectedRow.Cells["ApplicationStatus"].Value.ToString();
+
+            EditToolStripMenuItem1.Enabled = (Status != "Completed");
+        }
+
+        private void _UpdateShowLicenseHistoryAvailability()
+        {
+            DataGridViewRow SelectedRow = dgvLocalDrivingLicenseApplications.SelectedRows[0];
+
+            string Status = SelectedRow.Cells["ApplicationStatus"].Value.ToString();
+
+            ShowPersonlicenseHistoryStripMenuItem1.Enabled = (Status == "Completed");
         }
 
         private void cmLicenseApplicationSettings_Opening(object sender, CancelEventArgs e)
@@ -202,6 +259,16 @@ namespace Drivers_and_Vehicles_License_Department__DVLD_.Local_Driving_Applicati
             _UpdateTestScheduleAvailability(PassedTestsCount);
 
             _UpdateIssueDrivingLicenseAvailability(PassedTestsCount);
+
+            _UpdateDeleteLocalApplicationAvailability();
+
+            _UpdateCancelLocalApplicationAvailability();
+
+            _UpdateShowLicenseAvailability();
+
+            _UpdateEditLocalApplicationAvailability();
+
+            _UpdateShowLicenseHistoryAvailability();
         }
 
         private void DeleteToolStripMenuItem1_Click(object sender, EventArgs e)
@@ -232,8 +299,42 @@ namespace Drivers_and_Vehicles_License_Department__DVLD_.Local_Driving_Applicati
 
             int LocalDrivingLicenseApplicationID = Convert.ToInt32(SelectedRow.Cells["LocalDrivingLicenseApplicationID"].Value);
 
-            frmIssueDrivingLicense FormIssueDrivingLicense = new frmIssueDrivingLicense(LocalDrivingLicenseApplicationID);
+            frmIssueDrivingLicense FormIssueDrivingLicense = new frmIssueDrivingLicense(LocalDrivingLicenseApplicationID, this);
             FormIssueDrivingLicense.ShowDialog();
         }
+
+        private void ShowLicenseStripToolMenuItem1_Click(object sender, EventArgs e)
+        {
+            DataGridViewRow SelectedRow = dgvLocalDrivingLicenseApplications.SelectedRows[0];
+
+            int LocalApplicationID = Convert.ToInt32(SelectedRow.Cells["LocalDrivingLicenseApplicationID"].Value);
+
+            int ApplicationID = clsLocalDrivingLicenseApplication.GetLocalDrivingApplicationByID(LocalApplicationID).ApplicationID;
+
+            int LicenseID = clsLicense.GetLicenseIDByApplicationID(ApplicationID);
+
+            frmDriverLicenseInfo FormDriverLicenseInfo = new frmDriverLicenseInfo(LicenseID);
+            FormDriverLicenseInfo.ShowDialog();
+        }
+
+        private void ShowPersonlicenseHistoryStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            DataGridViewRow SelectedRow = dgvLocalDrivingLicenseApplications.SelectedRows[0];
+
+            int LocalApplicationID = Convert.ToInt32(SelectedRow.Cells["LocalDrivingLicenseApplicationID"].Value);
+
+            int ApplicationID = clsLocalDrivingLicenseApplication.GetLocalDrivingApplicationByID(LocalApplicationID).ApplicationID;
+
+            int LicenseID = clsLicense.GetLicenseIDByApplicationID(ApplicationID);
+
+            int DriverID = clsLicense.GetLicenseByID(LicenseID).DriverID;
+
+            int PersonID = clsApplication.GetApplicationByID(ApplicationID).ApplicantPersonID;
+
+            frmLicensesHistory FormLicensesHistory = new frmLicensesHistory(DriverID, PersonID);
+            FormLicensesHistory.ShowDialog();
+        }
+
+
     }
 }

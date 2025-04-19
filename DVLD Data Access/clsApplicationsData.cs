@@ -147,6 +147,57 @@ namespace DVLD_Data_Access
             return ApplicationID;
         }
 
+        public static bool UpdateApplicationData(int ApplicationID,
+     int ApplicantPersonID, DateTime ApplicationDate, int ApplicationTypeID,
+     byte ApplicationStatus, DateTime LastStatusDate, decimal PaidFees, int CreatedByUserID)
+        {
+            SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString);
+
+            bool UpdatedSuccessfully = false;
+
+            string query = @"UPDATE dbo.Applications 
+                     SET ApplicantPersonID = @ApplicantPersonID,
+                         ApplicationDate = @ApplicationDate,
+                         ApplicationTypeID = @ApplicationTypeID,
+                         ApplicationStatus = @ApplicationStatus,
+                         LastStatusDate = @LastStatusDate,
+                         PaidFees = @PaidFees,
+                         CreatedByUserID = @CreatedByUserID
+                     WHERE ApplicationID = @ApplicationID";
+
+            SqlCommand command = new SqlCommand(query, connection);
+
+            command.Parameters.AddWithValue("@ApplicationID", ApplicationID);
+            command.Parameters.AddWithValue("@ApplicantPersonID", ApplicantPersonID);
+            command.Parameters.AddWithValue("@ApplicationDate", ApplicationDate);
+            command.Parameters.AddWithValue("@ApplicationTypeID", ApplicationTypeID);
+            command.Parameters.AddWithValue("@ApplicationStatus", ApplicationStatus);
+            command.Parameters.AddWithValue("@LastStatusDate", LastStatusDate);
+            command.Parameters.AddWithValue("@PaidFees", PaidFees);
+            command.Parameters.AddWithValue("@CreatedByUserID", CreatedByUserID);
+
+            try
+            {
+                connection.Open();
+
+                int RowsAffected = command.ExecuteNonQuery();
+
+                UpdatedSuccessfully = (RowsAffected > 0);
+            }
+
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+
+            finally
+            {
+                connection.Close();
+            }
+
+            return UpdatedSuccessfully;
+        }
+
         public static bool DeleteApplicationData(int ApplicationID)
         {
             bool DeletedSuccessfully = false;

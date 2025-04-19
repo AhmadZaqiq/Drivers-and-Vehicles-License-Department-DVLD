@@ -183,6 +183,16 @@ namespace Drivers_and_Vehicles_License_Department__DVLD_.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap City_driver_amico {
+            get {
+                object obj = ResourceManager.GetObject("City driver-amico", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap clinical_notes_24dp_000000_FILL0_wght400_GRAD0_opsz24 {
             get {
                 object obj = ResourceManager.GetObject("clinical_notes_24dp_000000_FILL0_wght400_GRAD0_opsz24", resourceCulture);
@@ -1256,6 +1266,26 @@ namespace Drivers_and_Vehicles_License_Department__DVLD_.Properties {
         internal static System.Drawing.Bitmap phone__1_ {
             get {
                 object obj = ResourceManager.GetObject("phone (1)", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Profile_data_cuate {
+            get {
+                object obj = ResourceManager.GetObject("Profile data-cuate", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Profile_data_pana {
+            get {
+                object obj = ResourceManager.GetObject("Profile data-pana", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

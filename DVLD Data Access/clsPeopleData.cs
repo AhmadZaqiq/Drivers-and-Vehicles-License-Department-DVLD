@@ -480,6 +480,47 @@ namespace DVLD_Data_Access
             return PersonID;
         }
 
+        public static bool DoesPersonHaveLicenseForLicenseClassData(int ApplicationID,int LicenseClassID)
+        {
+            bool IsFound = false;
+
+            SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString);
+
+            string query = @"SELECT Found = 1
+                             FROM Licenses
+                             JOIN Applications ON Licenses.ApplicationID = Applications.ApplicationID
+                             WHERE Licenses.LicenseClass = @LicenseClassID
+                               AND Applications.ApplicantPersonID = @ApplicationID";
+
+            SqlCommand command = new SqlCommand(query, connection);
+
+            command.Parameters.AddWithValue("@ApplicationID", ApplicationID);
+            command.Parameters.AddWithValue("@LicenseClassID", LicenseClassID);
+
+            try
+            {
+                connection.Open();
+
+                SqlDataReader reader = command.ExecuteReader();
+
+                IsFound = reader.HasRows;
+
+                reader.Close();
+            }
+
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+
+            finally
+            {
+                connection.Close();
+            }
+
+            return IsFound;
+        }
+
 
     }
 }

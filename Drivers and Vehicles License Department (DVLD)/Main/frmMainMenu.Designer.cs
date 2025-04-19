@@ -252,6 +252,7 @@
             this.DriversToolStripMenuItem.Size = new System.Drawing.Size(163, 52);
             this.DriversToolStripMenuItem.Text = "Drivers";
             this.DriversToolStripMenuItem.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.DriversToolStripMenuItem.Click += new System.EventHandler(this.DriversToolStripMenuItem_Click);
             // 
             // UsersToolStripMenuItem
             // 

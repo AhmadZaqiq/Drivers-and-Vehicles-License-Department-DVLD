@@ -5,21 +5,25 @@ using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.ComponentModel;
 
 namespace DVLD_Data_Access
 {
     public class clsLicensesData
     {
-        public static DataTable GetAllLicensesData()
+        public static DataTable GetAllLicensesForDriverData(int DriverID)
         {
             DataTable dt = new DataTable();
 
             SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString);
 
-            string query = @"SELECT * 
-                             FROM Licenses";
+            string query = @"Select LicenseID,ApplicationID,LicenseClass,IssueDate, ExpirationDate, IsActive
+                             From Licenses
+                             Where DriverID=@DriverID;";
 
             SqlCommand command = new SqlCommand(query, connection);
+
+            command.Parameters.AddWithValue("@DriverID", DriverID);
 
             try
             {
@@ -71,8 +75,9 @@ namespace DVLD_Data_Access
                              Licenses 
                           WHERE 
                              LicenseID = @LicenseID;";
-         
+
             SqlCommand command = new SqlCommand(query, connection);
+
             command.Parameters.AddWithValue("@LicenseID", LicenseID);
 
             try
@@ -254,6 +259,47 @@ namespace DVLD_Data_Access
             }
 
             return IsFound;
+        }
+
+        public static int GetLicenseIDByApplicationIDData(int ApplicationID)
+        {
+            int LicenseID = -1;
+
+            SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString);
+
+            string query = @"SELECT Licenses.LicenseID
+                             FROM Licenses
+                             JOIN Applications
+                                 ON Licenses.ApplicationID = Applications.ApplicationID
+                             WHERE Applications.ApplicationID = @ApplicationID;";
+
+            SqlCommand command = new SqlCommand(query, connection);
+
+            command.Parameters.AddWithValue("@ApplicationID", ApplicationID);
+
+            try
+            {
+                connection.Open();
+
+                object result = command.ExecuteScalar();
+
+                if (result != null)
+                {
+                    LicenseID = Convert.ToInt32(result);
+                }
+            }
+
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+
+            finally
+            {
+                connection.Close();
+            }
+
+            return LicenseID;
         }
 
 
