@@ -1,19 +1,14 @@
 ﻿using Drivers_and_Vehicles_License_Department__DVLD_.Global;
 using DVLD_Business;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Drivers_and_Vehicles_License_Department__DVLD_.Licenses.Controls
 {
     public partial class ctrlLicenseCardWithFilter : UserControl
     {
+        public event EventHandler LicenseSelected;
+
         private int _LicenseID = -1;
 
         public ctrlLicenseCardWithFilter()
@@ -31,7 +26,7 @@ namespace Drivers_and_Vehicles_License_Department__DVLD_.Licenses.Controls
 
         private void btnFindLicense_Click(object sender, EventArgs e)
         {
-            if (String.IsNullOrEmpty((txtFilter.Text)))
+            if (String.IsNullOrEmpty(txtFilter.Text))
             {
                 return;
             }
@@ -43,13 +38,18 @@ namespace Drivers_and_Vehicles_License_Department__DVLD_.Licenses.Controls
                 clsMessageBoxManager.ShowMessageBox($"There is No License with ID: {_LicenseID}",
                                                      "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
 
-                ctrlLicenseCard1.LicenseID = -1;
+                _LicenseID = -1;
+
+                LicenseSelected?.Invoke(this, EventArgs.Empty);
 
                 return;
             }
 
             ctrlLicenseCard1.LicenseID = _LicenseID;
+
+            LicenseSelected?.Invoke(this, EventArgs.Empty);
         }
+
 
     }
 }

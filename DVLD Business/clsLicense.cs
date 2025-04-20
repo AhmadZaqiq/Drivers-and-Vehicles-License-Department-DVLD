@@ -132,6 +132,11 @@ namespace DVLD_Business
             return clsLicensesData.GetLicenseIDByApplicationIDData(ApplicationID);
         }
 
+        public static int GetPersonIDByLicenseID(int LicenseID)
+        {
+            return clsLicensesData.GetPersonIDByLicenseIDData(LicenseID);
+        }
+
 
     }
 }

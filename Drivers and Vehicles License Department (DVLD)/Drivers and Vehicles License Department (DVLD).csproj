@@ -103,11 +103,23 @@
     <Compile Include="Drivers\Forms\frmListDrivers.Designer.cs">
       <DependentUpon>frmListDrivers.cs</DependentUpon>
     </Compile>
-    <Compile Include="International Driving Application\Forms\frmAddNewInternationalDrivingLicenseApplicaiton.cs">
+    <Compile Include="International Driving Application\Controls\ctrlInternationalLicenseCard.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="International Driving Application\Controls\ctrlInternationalLicenseCard.Designer.cs">
+      <DependentUpon>ctrlInternationalLicenseCard.cs</DependentUpon>
+    </Compile>
+    <Compile Include="International Driving Application\Forms\frmDriverInternationalLicenseInfo.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="International Driving Application\Forms\frmAddNewInternationalDrivingLicenseApplicaiton.Designer.cs">
-      <DependentUpon>frmAddNewInternationalDrivingLicenseApplicaiton.cs</DependentUpon>
+    <Compile Include="International Driving Application\Forms\frmDriverInternationalLicenseInfo.Designer.cs">
+      <DependentUpon>frmDriverInternationalLicenseInfo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="International Driving Application\Forms\frmIssueInternationalDrivingLicense.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="International Driving Application\Forms\frmIssueInternationalDrivingLicense.Designer.cs">
+      <DependentUpon>frmIssueInternationalDrivingLicense.cs</DependentUpon>
     </Compile>
     <Compile Include="Licenses\Controls\ctrlLicenseCard.cs">
       <SubType>UserControl</SubType>
@@ -291,8 +303,14 @@
     <EmbeddedResource Include="Drivers\Forms\frmListDrivers.resx">
       <DependentUpon>frmListDrivers.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="International Driving Application\Forms\frmAddNewInternationalDrivingLicenseApplicaiton.resx">
-      <DependentUpon>frmAddNewInternationalDrivingLicenseApplicaiton.cs</DependentUpon>
+    <EmbeddedResource Include="International Driving Application\Controls\ctrlInternationalLicenseCard.resx">
+      <DependentUpon>ctrlInternationalLicenseCard.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="International Driving Application\Forms\frmDriverInternationalLicenseInfo.resx">
+      <DependentUpon>frmDriverInternationalLicenseInfo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="International Driving Application\Forms\frmIssueInternationalDrivingLicense.resx">
+      <DependentUpon>frmIssueInternationalDrivingLicense.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Licenses\Controls\ctrlLicenseCard.resx">
       <DependentUpon>ctrlLicenseCard.cs</DependentUpon>
@@ -814,7 +832,6 @@
   <ItemGroup>
     <Folder Include="Applications\Controls\" />
     <Folder Include="Drivers\Controls\" />
-    <Folder Include="International Driving Application\Controls\" />
     <Folder Include="Tests\Controls\" />
   </ItemGroup>
   <ItemGroup>
@@ -849,6 +866,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\ic_fluent_slide_search_24_filled %281%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Around the world-pana.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

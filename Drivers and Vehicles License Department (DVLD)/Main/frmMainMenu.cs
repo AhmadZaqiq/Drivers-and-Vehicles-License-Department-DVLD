@@ -90,7 +90,7 @@ namespace Drivers_and_Vehicles_License_Department__DVLD_
 
         private void internationalLicenseToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            frmAddNewInternationalDrivingLicenseApplicaiton FormAddNewInternationalDrivingLicenseApplicaiton = new frmAddNewInternationalDrivingLicenseApplicaiton();
+            frmIssueInternationalDrivingLicense FormAddNewInternationalDrivingLicenseApplicaiton = new frmIssueInternationalDrivingLicense();
             FormAddNewInternationalDrivingLicenseApplicaiton.ShowDialog();
         }
 

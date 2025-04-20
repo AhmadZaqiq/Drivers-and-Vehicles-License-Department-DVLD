@@ -32,6 +32,8 @@ namespace Drivers_and_Vehicles_License_Department__DVLD_.Licenses.Forms
 
             _RefreshLocalDrivingApplicationsDataGrid();
 
+            _RefreshInternationalDrivingApplicationsDataGrid();
+
             clsUtil.MakeRoundedCorners(this, 30); //to make the form rounded
 
             clsUtil.OpenFormEffect(this);
@@ -39,7 +41,12 @@ namespace Drivers_and_Vehicles_License_Department__DVLD_.Licenses.Forms
 
         private void _UpdateLocalLicensesCount()
         {
-            lblRecordsCount.Text = (dgvLocalLicenses.RowCount).ToString();
+            lblLocalRecordsCount.Text = (dgvLocalLicenses.RowCount).ToString();
+        }
+
+        private void _UpdateInternationalLicensesCount()
+        {
+            lblInternationalRecordsCount.Text = (dgvInternationalLicenses.RowCount).ToString();
         }
 
         private void _RefreshLocalDrivingApplicationsDataGrid()
@@ -49,9 +56,18 @@ namespace Drivers_and_Vehicles_License_Department__DVLD_.Licenses.Forms
             _UpdateLocalLicensesCount();
         }
 
+        private void _RefreshInternationalDrivingApplicationsDataGrid()
+        {
+            dgvInternationalLicenses.DataSource = clsInternationalLicense.GetAllInternationalLicensesForDriver(_DriverID);
+
+            _UpdateInternationalLicensesCount();
+        }
+
         private void btnCloseForm_Click(object sender, EventArgs e)
         {
             clsUtil.CloseFormEffect(this);
         }
+
+
     }
 }

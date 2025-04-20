@@ -9,55 +9,59 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace Drivers_and_Vehicles_License_Department__DVLD_.Licenses.Controls
+namespace Drivers_and_Vehicles_License_Department__DVLD_.International_Driving_Application.Controls
 {
-    public partial class ctrlLicenseCard : UserControl
+    public partial class ctrlInternationalLicenseCard : UserControl
     {
+        private clsInternationalLicense _InternationalLicense;
+
         private clsLicense _License;
 
         private clsApplication _Application;
 
         private clsPerson _Person;
 
+        private int _InternationalLicenseID;
+
         private int _LicenseID;
 
         private int _ApplicationID;
 
-        private enum enStatus { New = 1, Cancelled = 2, Completed = 3 };
-
-        private enum enIssueReason { FirstTime = 1 };
-
-        public ctrlLicenseCard()
+        public ctrlInternationalLicenseCard()
         {
             InitializeComponent();
         }
 
-        public int LicenseID
+        public int InternationalLicenseID
         {
             set
             {
-                _LicenseID = value;
+                _InternationalLicenseID = value;
 
-                if (_LicenseID == -1)
+                if (_InternationalLicenseID == -1)
                 {
-                    _ClearLicenseDetails();
+                    _ClearInternationalLicenseDetails();
                     return; // Exits only from get
                 }
 
-                _DisplayLicenseDetails();
+                _DisplayInternationalLicenseDetails();
             }
 
             get
             {
-                return _LicenseID;
+                return _InternationalLicenseID;
             }
         }
 
-        private void _LoadAllLicenseData()
+        private void _LoadAllInternationalLicenseData()
         {
-            _License = clsLicense.GetLicenseByID(_LicenseID);
+            _InternationalLicense = clsInternationalLicense.GetInternationalLicenseByID(_InternationalLicenseID);
 
-            _Application = clsApplication.GetApplicationByID(_License.ApplicationID);
+            _License = clsLicense.GetLicenseByID(_InternationalLicense.IssuedUsingLocalLicenseID);
+
+            _LicenseID = _License.LicenseID;
+
+            _Application = clsApplication.GetApplicationByID(_InternationalLicense.ApplicationID);
 
             _ApplicationID = _Application.ApplicationID;
 
@@ -69,57 +73,47 @@ namespace Drivers_and_Vehicles_License_Department__DVLD_.Licenses.Controls
             return (Gender == 0) ? "Male" : "Female";
         }
 
-        private enIssueReason GetIssueReason(int value)
+        private void _PopulateInternationalLicenseDetails()
         {
-            return (enIssueReason)value;
-        }
-
-        private void _PopulateLicenseDetails()
-        {
-            lblClass.Text = clsLicenseClass.GetLicenseClassByID(_License.LicenseClassID).ClassName;
             lblName.Text = _Person.FullName;
+            lblInternationLicenseID.Text = _InternationalLicenseID.ToString();
             lblLicenseID.Text = _LicenseID.ToString();
             lblNationalNO.Text = _Person.NationalNo;
             lblGender.Text = _GetGenderAsText(_Person.Gender);
-            lblIssueDate.Text = _License.IssueDate.ToString();
-            lblIssueReason.Text = GetIssueReason(_License.IssueReason).ToString();
-            lblNotes.Text = string.IsNullOrWhiteSpace(_License.Notes) ? "No Notes" : _License.Notes;
+            lblIssueDate.Text = _InternationalLicense.IssueDate.ToString();
+            lblApplicationID.Text = _Application.ApplicationID.ToString();
             lblIsActive.Text = _License.IsActive ? "Yes" : "No";
             lblDateOfBirth.Text = _Person.DateOfBirth.ToString();
             lblDriverID.Text = _License.DriverID.ToString();
             lblExpirationDate.Text = _License.ExpirationDate.ToString();
-            lblIsDetained.Text = "NO";
         }
 
-        private void _DisplayLicenseDetails()
+        private void _DisplayInternationalLicenseDetails()
         {
-            _LoadAllLicenseData();
+            _LoadAllInternationalLicenseData();
 
-            if (_License == null)
+            if (_InternationalLicense == null)
             {
                 return;
             }
 
-            _PopulateLicenseDetails();
+            _PopulateInternationalLicenseDetails();
         }
 
-        private void _ClearLicenseDetails()
+        private void _ClearInternationalLicenseDetails()
         {
-            lblClass.Text = "N\\A";
-            lblName.Text = "N\\A"; ;
+            lblName.Text = "N\\A";
+            lblInternationLicenseID.Text = "N\\A";
             lblLicenseID.Text = "N\\A";
             lblNationalNO.Text = "N\\A";
             lblGender.Text = "N\\A";
             lblIssueDate.Text = "N\\A";
-            lblIssueReason.Text = "N\\A";
-            lblNotes.Text = "N\\A";
+            lblApplicationID.Text = "N\\A";
             lblIsActive.Text = "N\\A";
             lblDateOfBirth.Text = "N\\A";
             lblDriverID.Text = "N\\A";
             lblExpirationDate.Text = "N\\A";
-            lblIsDetained.Text = "N\\A"; ;
         }
-
 
     }
 }

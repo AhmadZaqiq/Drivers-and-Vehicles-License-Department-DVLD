@@ -143,6 +143,16 @@ namespace Drivers_and_Vehicles_License_Department__DVLD_.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Around_the_world_pana {
+            get {
+                object obj = ResourceManager.GetObject("Around the world-pana", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap attach_money_24dp_000000_FILL0_wght400_GRAD0_opsz24 {
             get {
                 object obj = ResourceManager.GetObject("attach_money_24dp_000000_FILL0_wght400_GRAD0_opsz24", resourceCulture);

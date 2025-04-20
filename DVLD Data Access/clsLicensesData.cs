@@ -6,6 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.ComponentModel;
+using static System.Net.Mime.MediaTypeNames;
 
 namespace DVLD_Data_Access
 {
@@ -300,6 +301,49 @@ namespace DVLD_Data_Access
             }
 
             return LicenseID;
+        }
+
+        public static int GetPersonIDByLicenseIDData(int LicenseID)
+        {
+            int PersonID = -1;
+
+            SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString);
+
+            string query = @"SELECT People.PersonID
+                             FROM Licenses
+                             JOIN Applications
+                                 ON Licenses.ApplicationID = Applications.ApplicationID
+                             JOIN People
+                                 ON Applications.ApplicantPersonID = People.PersonID
+                             WHERE Licenses.LicenseID = @LicenseID;";
+
+            SqlCommand command = new SqlCommand(query, connection);
+
+            command.Parameters.AddWithValue("@LicenseID", LicenseID);
+
+            try
+            {
+                connection.Open();
+
+                object result = command.ExecuteScalar();
+
+                if (result != null)
+                {
+                    PersonID = Convert.ToInt32(result);
+                }
+            }
+
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+
+            finally
+            {
+                connection.Close();
+            }
+
+            return PersonID;
         }
 
 

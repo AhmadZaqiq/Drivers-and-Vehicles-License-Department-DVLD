@@ -28,68 +28,68 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.siticoneTabControl1 = new SiticoneNetFrameworkUI.SiticoneTabControl();
+            this.lblInternationalRecordsCount = new SiticoneNetFrameworkUI.SiticoneTabControl();
             this.tabLocal = new System.Windows.Forms.TabPage();
             this.label3 = new System.Windows.Forms.Label();
-            this.lblRecordsCount = new System.Windows.Forms.Label();
+            this.lblLocalRecordsCount = new System.Windows.Forms.Label();
             this.siticonePanel1 = new SiticoneNetFrameworkUI.SiticonePanel();
             this.dgvLocalLicenses = new System.Windows.Forms.DataGridView();
             this.tabInternational = new System.Windows.Forms.TabPage();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.siticonePanel2 = new SiticoneNetFrameworkUI.SiticonePanel();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.dgvInternationalLicenses = new System.Windows.Forms.DataGridView();
             this.btnCloseForm = new SiticoneNetFrameworkUI.SiticoneButton();
             this.ctrlPersonCard1 = new Drivers_and_Vehicles_License_Department__DVLD_.ctrlPersonCard();
-            this.siticoneTabControl1.SuspendLayout();
+            this.lblInternationalRecordsCount.SuspendLayout();
             this.tabLocal.SuspendLayout();
             this.siticonePanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvLocalLicenses)).BeginInit();
             this.tabInternational.SuspendLayout();
             this.siticonePanel2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvInternationalLicenses)).BeginInit();
             this.SuspendLayout();
             // 
-            // siticoneTabControl1
+            // lblInternationalRecordsCount
             // 
-            this.siticoneTabControl1.BorderColor = System.Drawing.Color.Transparent;
-            this.siticoneTabControl1.BorderWidth = 1;
-            this.siticoneTabControl1.CloseButtonColor = System.Drawing.Color.Gray;
-            this.siticoneTabControl1.CloseButtonHoverColor = System.Drawing.Color.Red;
-            this.siticoneTabControl1.CloseButtonSymbolPadding = 0.25F;
-            this.siticoneTabControl1.CloseButtonThickness = 1.8F;
-            this.siticoneTabControl1.ContextMenuFont = new System.Drawing.Font("Segoe UI", 10F);
-            this.siticoneTabControl1.Controls.Add(this.tabLocal);
-            this.siticoneTabControl1.Controls.Add(this.tabInternational);
-            this.siticoneTabControl1.DragIndicatorColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(118)))), ((int)(((byte)(210)))));
-            this.siticoneTabControl1.Font = new System.Drawing.Font("Segoe UI", 10F);
-            this.siticoneTabControl1.GhostBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(34)))), ((int)(((byte)(30)))), ((int)(((byte)(65)))));
-            this.siticoneTabControl1.GhostForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(180)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.siticoneTabControl1.ItemSize = new System.Drawing.Size(160, 40);
-            this.siticoneTabControl1.Location = new System.Drawing.Point(14, 668);
-            this.siticoneTabControl1.Name = "siticoneTabControl1";
-            this.siticoneTabControl1.PinIconHoverColor = System.Drawing.Color.DarkGray;
-            this.siticoneTabControl1.PinnedIconColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(136)))), ((int)(((byte)(229)))));
-            this.siticoneTabControl1.RippleColor = System.Drawing.Color.LightGray;
-            this.siticoneTabControl1.SelectedIndex = 0;
-            this.siticoneTabControl1.SelectedTabBackColor = System.Drawing.Color.Transparent;
-            this.siticoneTabControl1.SelectedTabFont = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
-            this.siticoneTabControl1.SelectedTabIndicatorColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(30)))), ((int)(((byte)(65)))));
-            this.siticoneTabControl1.SelectedTabIndicatorHeight = 3;
-            this.siticoneTabControl1.SelectedTextColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(30)))), ((int)(((byte)(65)))));
-            this.siticoneTabControl1.SeparatorLineColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.siticoneTabControl1.SeparatorLineOpacity = 0.4F;
-            this.siticoneTabControl1.Size = new System.Drawing.Size(1158, 332);
-            this.siticoneTabControl1.SizeMode = System.Windows.Forms.TabSizeMode.Fixed;
-            this.siticoneTabControl1.TabIndex = 1;
-            this.siticoneTabControl1.UnpinnedIconColor = System.Drawing.Color.Gray;
-            this.siticoneTabControl1.UnselectedTabColor = System.Drawing.Color.Transparent;
-            this.siticoneTabControl1.UnselectedTextColor = System.Drawing.Color.Gray;
+            this.lblInternationalRecordsCount.BorderColor = System.Drawing.Color.Transparent;
+            this.lblInternationalRecordsCount.BorderWidth = 1;
+            this.lblInternationalRecordsCount.CloseButtonColor = System.Drawing.Color.Gray;
+            this.lblInternationalRecordsCount.CloseButtonHoverColor = System.Drawing.Color.Red;
+            this.lblInternationalRecordsCount.CloseButtonSymbolPadding = 0.25F;
+            this.lblInternationalRecordsCount.CloseButtonThickness = 1.8F;
+            this.lblInternationalRecordsCount.ContextMenuFont = new System.Drawing.Font("Segoe UI", 10F);
+            this.lblInternationalRecordsCount.Controls.Add(this.tabLocal);
+            this.lblInternationalRecordsCount.Controls.Add(this.tabInternational);
+            this.lblInternationalRecordsCount.DragIndicatorColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(118)))), ((int)(((byte)(210)))));
+            this.lblInternationalRecordsCount.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.lblInternationalRecordsCount.GhostBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(34)))), ((int)(((byte)(30)))), ((int)(((byte)(65)))));
+            this.lblInternationalRecordsCount.GhostForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(180)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.lblInternationalRecordsCount.ItemSize = new System.Drawing.Size(160, 40);
+            this.lblInternationalRecordsCount.Location = new System.Drawing.Point(14, 668);
+            this.lblInternationalRecordsCount.Name = "lblInternationalRecordsCount";
+            this.lblInternationalRecordsCount.PinIconHoverColor = System.Drawing.Color.DarkGray;
+            this.lblInternationalRecordsCount.PinnedIconColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(136)))), ((int)(((byte)(229)))));
+            this.lblInternationalRecordsCount.RippleColor = System.Drawing.Color.LightGray;
+            this.lblInternationalRecordsCount.SelectedIndex = 0;
+            this.lblInternationalRecordsCount.SelectedTabBackColor = System.Drawing.Color.Transparent;
+            this.lblInternationalRecordsCount.SelectedTabFont = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
+            this.lblInternationalRecordsCount.SelectedTabIndicatorColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(30)))), ((int)(((byte)(65)))));
+            this.lblInternationalRecordsCount.SelectedTabIndicatorHeight = 3;
+            this.lblInternationalRecordsCount.SelectedTextColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(30)))), ((int)(((byte)(65)))));
+            this.lblInternationalRecordsCount.SeparatorLineColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.lblInternationalRecordsCount.SeparatorLineOpacity = 0.4F;
+            this.lblInternationalRecordsCount.Size = new System.Drawing.Size(1158, 332);
+            this.lblInternationalRecordsCount.SizeMode = System.Windows.Forms.TabSizeMode.Fixed;
+            this.lblInternationalRecordsCount.TabIndex = 1;
+            this.lblInternationalRecordsCount.UnpinnedIconColor = System.Drawing.Color.Gray;
+            this.lblInternationalRecordsCount.UnselectedTabColor = System.Drawing.Color.Transparent;
+            this.lblInternationalRecordsCount.UnselectedTextColor = System.Drawing.Color.Gray;
             // 
             // tabLocal
             // 
             this.tabLocal.Controls.Add(this.label3);
-            this.tabLocal.Controls.Add(this.lblRecordsCount);
+            this.tabLocal.Controls.Add(this.lblLocalRecordsCount);
             this.tabLocal.Controls.Add(this.siticonePanel1);
             this.tabLocal.Location = new System.Drawing.Point(4, 44);
             this.tabLocal.Name = "tabLocal";
@@ -109,15 +109,15 @@
             this.label3.TabIndex = 61;
             this.label3.Text = "# Records:";
             // 
-            // lblRecordsCount
+            // lblLocalRecordsCount
             // 
-            this.lblRecordsCount.AutoSize = true;
-            this.lblRecordsCount.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblRecordsCount.Location = new System.Drawing.Point(107, 248);
-            this.lblRecordsCount.Name = "lblRecordsCount";
-            this.lblRecordsCount.Size = new System.Drawing.Size(87, 21);
-            this.lblRecordsCount.TabIndex = 62;
-            this.lblRecordsCount.Text = "# Records:";
+            this.lblLocalRecordsCount.AutoSize = true;
+            this.lblLocalRecordsCount.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblLocalRecordsCount.Location = new System.Drawing.Point(107, 248);
+            this.lblLocalRecordsCount.Name = "lblLocalRecordsCount";
+            this.lblLocalRecordsCount.Size = new System.Drawing.Size(87, 21);
+            this.lblLocalRecordsCount.TabIndex = 62;
+            this.lblLocalRecordsCount.Text = "# Records:";
             // 
             // siticonePanel1
             // 
@@ -221,7 +221,7 @@
             this.siticonePanel2.BorderGradientEndColor = System.Drawing.Color.Purple;
             this.siticonePanel2.BorderGradientStartColor = System.Drawing.Color.Blue;
             this.siticonePanel2.BorderThickness = 2F;
-            this.siticonePanel2.Controls.Add(this.dataGridView1);
+            this.siticonePanel2.Controls.Add(this.dgvInternationalLicenses);
             this.siticonePanel2.CornerRadiusBottomLeft = 10F;
             this.siticonePanel2.CornerRadiusBottomRight = 10F;
             this.siticonePanel2.CornerRadiusTopLeft = 10F;
@@ -255,22 +255,22 @@
             this.siticonePanel2.UsePatternTexture = false;
             this.siticonePanel2.UseRadialGradient = false;
             // 
-            // dataGridView1
+            // dgvInternationalLicenses
             // 
-            this.dataGridView1.AllowUserToAddRows = false;
-            this.dataGridView1.AllowUserToDeleteRows = false;
-            this.dataGridView1.AllowUserToResizeColumns = false;
-            this.dataGridView1.AllowUserToResizeRows = false;
-            this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
-            this.dataGridView1.BackgroundColor = System.Drawing.Color.WhiteSmoke;
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.GridColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.dataGridView1.Location = new System.Drawing.Point(12, 12);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.ReadOnly = true;
-            this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView1.Size = new System.Drawing.Size(1114, 211);
-            this.dataGridView1.TabIndex = 1;
+            this.dgvInternationalLicenses.AllowUserToAddRows = false;
+            this.dgvInternationalLicenses.AllowUserToDeleteRows = false;
+            this.dgvInternationalLicenses.AllowUserToResizeColumns = false;
+            this.dgvInternationalLicenses.AllowUserToResizeRows = false;
+            this.dgvInternationalLicenses.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
+            this.dgvInternationalLicenses.BackgroundColor = System.Drawing.Color.WhiteSmoke;
+            this.dgvInternationalLicenses.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvInternationalLicenses.GridColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.dgvInternationalLicenses.Location = new System.Drawing.Point(12, 12);
+            this.dgvInternationalLicenses.Name = "dgvInternationalLicenses";
+            this.dgvInternationalLicenses.ReadOnly = true;
+            this.dgvInternationalLicenses.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvInternationalLicenses.Size = new System.Drawing.Size(1114, 211);
+            this.dgvInternationalLicenses.TabIndex = 1;
             // 
             // btnCloseForm
             // 
@@ -369,14 +369,14 @@
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1185, 1050);
             this.Controls.Add(this.btnCloseForm);
-            this.Controls.Add(this.siticoneTabControl1);
+            this.Controls.Add(this.lblInternationalRecordsCount);
             this.Controls.Add(this.ctrlPersonCard1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "frmLicensesHistory";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "ء";
             this.Load += new System.EventHandler(this.frmLicensesHistory_Load);
-            this.siticoneTabControl1.ResumeLayout(false);
+            this.lblInternationalRecordsCount.ResumeLayout(false);
             this.tabLocal.ResumeLayout(false);
             this.tabLocal.PerformLayout();
             this.siticonePanel1.ResumeLayout(false);
@@ -384,7 +384,7 @@
             this.tabInternational.ResumeLayout(false);
             this.tabInternational.PerformLayout();
             this.siticonePanel2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvInternationalLicenses)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -392,17 +392,17 @@
         #endregion
 
         private ctrlPersonCard ctrlPersonCard1;
-        private SiticoneNetFrameworkUI.SiticoneTabControl siticoneTabControl1;
+        private SiticoneNetFrameworkUI.SiticoneTabControl lblInternationalRecordsCount;
         private System.Windows.Forms.TabPage tabLocal;
         private System.Windows.Forms.TabPage tabInternational;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label lblRecordsCount;
+        private System.Windows.Forms.Label lblLocalRecordsCount;
         private SiticoneNetFrameworkUI.SiticonePanel siticonePanel1;
         private System.Windows.Forms.DataGridView dgvLocalLicenses;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private SiticoneNetFrameworkUI.SiticonePanel siticonePanel2;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView dgvInternationalLicenses;
         private SiticoneNetFrameworkUI.SiticoneButton btnCloseForm;
     }
 }
