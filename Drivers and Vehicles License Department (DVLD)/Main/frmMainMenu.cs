@@ -94,6 +94,12 @@ namespace Drivers_and_Vehicles_License_Department__DVLD_
             FormAddNewInternationalDrivingLicenseApplicaiton.ShowDialog();
         }
 
+        private void internationalDrivingLicenceApplicationsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmListInternationalDrivingLicenses FormListInternationalDrivingLicenses = new frmListInternationalDrivingLicenses();
+            FormListInternationalDrivingLicenses.ShowDialog();
+        }
+
 
     }
 }

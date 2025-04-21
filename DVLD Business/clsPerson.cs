@@ -169,11 +169,6 @@ namespace DVLD_Business
             return clsPeopleData.GetPersonIDByNationalNOData(NationalNo);
         }
 
-        public static bool DoesPersonHaveLicenseForLicenseClass(int ApplicationID, int LicenseClassID)
-        {
-            return clsPeopleData.DoesPersonHaveLicenseForLicenseClassData(ApplicationID, LicenseClassID);
-        }
-
 
     }
 }

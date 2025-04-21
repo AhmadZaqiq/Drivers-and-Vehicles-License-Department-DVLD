@@ -121,6 +121,12 @@
     <Compile Include="International Driving Application\Forms\frmIssueInternationalDrivingLicense.Designer.cs">
       <DependentUpon>frmIssueInternationalDrivingLicense.cs</DependentUpon>
     </Compile>
+    <Compile Include="International Driving Application\Forms\frmListInternationalDrivingLicenses.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="International Driving Application\Forms\frmListInternationalDrivingLicenses.Designer.cs">
+      <DependentUpon>frmListInternationalDrivingLicenses.cs</DependentUpon>
+    </Compile>
     <Compile Include="Licenses\Controls\ctrlLicenseCard.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -311,6 +317,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="International Driving Application\Forms\frmIssueInternationalDrivingLicense.resx">
       <DependentUpon>frmIssueInternationalDrivingLicense.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="International Driving Application\Forms\frmListInternationalDrivingLicenses.resx">
+      <DependentUpon>frmListInternationalDrivingLicenses.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Licenses\Controls\ctrlLicenseCard.resx">
       <DependentUpon>ctrlLicenseCard.cs</DependentUpon>
@@ -869,6 +878,15 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\Around the world-pana.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ic_fluent_clipboard_task_add_24_filled.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\World-amico.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\World-amico1.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

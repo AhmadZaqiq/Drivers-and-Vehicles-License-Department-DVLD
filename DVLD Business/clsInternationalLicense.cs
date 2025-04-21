@@ -46,6 +46,11 @@ namespace DVLD_Business
             this.Mode = enMode.Update;
         }
 
+        public static DataTable GetAllInternationalLicenses()
+        {
+            return clsInternationalLicensesData.GetAllInternationalLicensesData();
+        }
+
         public static DataTable GetAllInternationalLicensesForDriver(int DriverID)
         {
             return clsInternationalLicensesData.GetAllInternationalLicensesForDriverData(DriverID);

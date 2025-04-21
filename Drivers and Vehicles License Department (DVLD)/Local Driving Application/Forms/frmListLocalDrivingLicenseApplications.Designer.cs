@@ -260,7 +260,7 @@
             this.dgvLocalDrivingLicenseApplications.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvLocalDrivingLicenseApplications.ContextMenuStrip = this.cmLicenseApplicationSettings;
             this.dgvLocalDrivingLicenseApplications.GridColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.dgvLocalDrivingLicenseApplications.Location = new System.Drawing.Point(27, 4);
+            this.dgvLocalDrivingLicenseApplications.Location = new System.Drawing.Point(13, 13);
             this.dgvLocalDrivingLicenseApplications.Name = "dgvLocalDrivingLicenseApplications";
             this.dgvLocalDrivingLicenseApplications.ReadOnly = true;
             this.dgvLocalDrivingLicenseApplications.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
@@ -339,7 +339,7 @@
             this.btnAddNewLocalApplication.AccessibleName = "";
             this.btnAddNewLocalApplication.AutoSizeBasedOnText = false;
             this.btnAddNewLocalApplication.BackColor = System.Drawing.Color.Transparent;
-            this.btnAddNewLocalApplication.BackgroundImage = global::Drivers_and_Vehicles_License_Department__DVLD_.Properties.Resources.ic_fluent_people_add_24_filled;
+            this.btnAddNewLocalApplication.BackgroundImage = global::Drivers_and_Vehicles_License_Department__DVLD_.Properties.Resources.ic_fluent_clipboard_task_add_24_filled;
             this.btnAddNewLocalApplication.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.btnAddNewLocalApplication.BadgeBackColor = System.Drawing.Color.White;
             this.btnAddNewLocalApplication.BadgeFont = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Bold);
@@ -409,7 +409,7 @@
             this.btnAddNewLocalApplication.TooltipText = null;
             this.btnAddNewLocalApplication.UseAdvancedRendering = true;
             this.btnAddNewLocalApplication.UseParticles = false;
-            this.btnAddNewLocalApplication.Click += new System.EventHandler(this.btnAddNewLocalApplication_Click);
+            this.btnAddNewLocalApplication.Click += new System.EventHandler(this.DeleteToolStripMenuItem1_Click);
             // 
             // ShowDetailsToolStripMenuItem1
             // 

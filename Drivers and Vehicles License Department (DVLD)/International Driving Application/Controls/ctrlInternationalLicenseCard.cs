@@ -85,7 +85,7 @@ namespace Drivers_and_Vehicles_License_Department__DVLD_.International_Driving_A
             lblIsActive.Text = _License.IsActive ? "Yes" : "No";
             lblDateOfBirth.Text = _Person.DateOfBirth.ToString();
             lblDriverID.Text = _License.DriverID.ToString();
-            lblExpirationDate.Text = _License.ExpirationDate.ToString();
+            lblExpirationDate.Text = _InternationalLicense.ExpirationDate.ToString();
         }
 
         private void _DisplayInternationalLicenseDetails()
@@ -114,6 +114,7 @@ namespace Drivers_and_Vehicles_License_Department__DVLD_.International_Driving_A
             lblDriverID.Text = "N\\A";
             lblExpirationDate.Text = "N\\A";
         }
+
 
     }
 }

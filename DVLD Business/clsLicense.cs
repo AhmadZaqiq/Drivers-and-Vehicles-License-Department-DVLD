@@ -137,6 +137,10 @@ namespace DVLD_Business
             return clsLicensesData.GetPersonIDByLicenseIDData(LicenseID);
         }
 
+        public static bool DoesPersonHaveLicenseForLicenseClass(int ApplicationID, int LicenseClassID)
+        {
+            return clsLicensesData.DoesPersonHaveLicenseForLicenseClassData(ApplicationID, LicenseClassID);
+        }
 
     }
 }

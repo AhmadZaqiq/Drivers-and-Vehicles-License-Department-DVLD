@@ -6,6 +6,44 @@ namespace DVLD_Data_Access
 {
     public class clsInternationalLicensesData
     {
+        public static DataTable GetAllInternationalLicensesData()
+        {
+            DataTable dt = new DataTable();
+
+            SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString);
+
+            string query = @"Select InternationalLicenseID,ApplicationID,DriverID,IssuedUsingLocalLicenseID,IssueDate,ExpirationDate,IsActive
+                             From InternationalLicenses;";
+
+            SqlCommand command = new SqlCommand(query, connection);
+
+            try
+            {
+                connection.Open();
+
+                SqlDataReader reader = command.ExecuteReader();
+
+                if (reader.HasRows)
+                {
+                    dt.Load(reader);
+                }
+
+                reader.Close();
+            }
+
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+
+            finally
+            {
+                connection.Close();
+            }
+
+            return dt;
+        }
+
         public static DataTable GetAllInternationalLicensesForDriverData(int DriverID)
         {
             DataTable dt = new DataTable();

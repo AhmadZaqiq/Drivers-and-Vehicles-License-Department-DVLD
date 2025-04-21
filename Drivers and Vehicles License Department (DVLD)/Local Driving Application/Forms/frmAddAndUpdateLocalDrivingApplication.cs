@@ -108,7 +108,7 @@ namespace Drivers_and_Vehicles_License_Department__DVLD_.Local_Driving_Applicati
             int LicenseClassID = _GetLicenseClassIDFromComboBox();
             int NewLocalApplicationTypeID = clsApplicationType.GetApplicationTypeByID(1).ApplicationTypeID;
 
-            if (clsPerson.DoesPersonHaveLicenseForLicenseClass(PersonID, LicenseClassID))
+            if (clsLicense.DoesPersonHaveLicenseForLicenseClass(PersonID, LicenseClassID))
             {
                 clsMessageBoxManager.ShowMessageBox("Person already have a license with the same applied driving class, Choose different driving class", "Failed", MessageBoxButtons.OK, MessageBoxIcon.Warning);
 

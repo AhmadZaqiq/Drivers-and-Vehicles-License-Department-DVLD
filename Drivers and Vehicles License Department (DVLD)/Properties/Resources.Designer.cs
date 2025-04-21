@@ -553,6 +553,16 @@ namespace Drivers_and_Vehicles_License_Department__DVLD_.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap ic_fluent_clipboard_task_add_24_filled {
+            get {
+                object obj = ResourceManager.GetObject("ic_fluent_clipboard_task_add_24_filled", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap ic_fluent_contact_card_24_filled {
             get {
                 object obj = ResourceManager.GetObject("ic_fluent_contact_card_24_filled", resourceCulture);
@@ -1446,6 +1456,26 @@ namespace Drivers_and_Vehicles_License_Department__DVLD_.Properties {
         internal static System.Drawing.Bitmap users_69_64 {
             get {
                 object obj = ResourceManager.GetObject("users-69-64", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap World_amico {
+            get {
+                object obj = ResourceManager.GetObject("World-amico", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap World_amico1 {
+            get {
+                object obj = ResourceManager.GetObject("World-amico1", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
