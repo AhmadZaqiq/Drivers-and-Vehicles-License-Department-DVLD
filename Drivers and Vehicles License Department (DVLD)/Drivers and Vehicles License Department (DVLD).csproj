@@ -157,6 +157,12 @@
     <Compile Include="Licenses\Forms\frmLicensesHistory.Designer.cs">
       <DependentUpon>frmLicensesHistory.cs</DependentUpon>
     </Compile>
+    <Compile Include="Licenses\Forms\frmRenewLicenseApplication.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Licenses\Forms\frmRenewLicenseApplication.Designer.cs">
+      <DependentUpon>frmRenewLicenseApplication.cs</DependentUpon>
+    </Compile>
     <Compile Include="Local Driving Application\Controls\ctrlLocalDrivingApplicationCard.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -335,6 +341,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Licenses\Forms\frmLicensesHistory.resx">
       <DependentUpon>frmLicensesHistory.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Licenses\Forms\frmRenewLicenseApplication.resx">
+      <DependentUpon>frmRenewLicenseApplication.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Local Driving Application\Controls\ctrlLocalDrivingApplicationCard.resx">
       <DependentUpon>ctrlLocalDrivingApplicationCard.cs</DependentUpon>

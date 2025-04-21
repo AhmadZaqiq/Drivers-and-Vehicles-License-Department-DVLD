@@ -28,6 +28,8 @@ namespace Drivers_and_Vehicles_License_Department__DVLD_.Licenses.Forms
 
         private clsApplication _Application;
 
+        private enum enIssueReason { FirstTime = 1, Renew = 2 };
+
         public frmIssueDrivingLicense(int LocalDrivingApplicationID, frmListLocalDrivingLicenseApplications FormListLocalDrivingLicenseApplications)
         {
             InitializeComponent();
@@ -78,8 +80,6 @@ namespace Drivers_and_Vehicles_License_Department__DVLD_.Licenses.Forms
 
         private void _LoadLicenseInfo()
         {
-            const int FirstTime = 1;
-
             _License = new clsLicense();
 
             int LicenseClassID = _LocalDrivingLicenseApplication.LicenseClassID;
@@ -92,7 +92,7 @@ namespace Drivers_and_Vehicles_License_Department__DVLD_.Licenses.Forms
             _License.Notes = txtNotes.Text;
             _License.PaidFees = clsLicenseClass.GetLicenseClassByID(LicenseClassID).ClassFees;
             _License.IsActive = true;
-            _License.IssueReason = FirstTime;
+            _License.IssueReason = (int)enIssueReason.FirstTime;
             _License.CreatedByUserID = clsCurrentUser.CurrentUser.UserID;
         }
 

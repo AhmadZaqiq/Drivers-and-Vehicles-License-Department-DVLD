@@ -90,10 +90,10 @@ namespace Drivers_and_Vehicles_License_Department__DVLD_.International_Driving_A
             _InternationalApplication.CreatedByUserID = clsCurrentUser.CurrentUser.UserID;
         }
 
-        private void _DisplayIssuedInternationalLicenseInfo()
+        private void _PopulateIssuedInternationalLicenseInfo()
         {
-            lblILAppID.Text = _InternationalLicense.ApplicationID.ToString();
             lblILLicenseID.Text = _InternationalLicense.InternationalLicenseID.ToString();
+            lblILAppID.Text = _InternationalLicense.ApplicationID.ToString();
         }
 
         private void _SetControlsAfterLicenseIssued()
@@ -157,7 +157,7 @@ namespace Drivers_and_Vehicles_License_Department__DVLD_.International_Driving_A
                 return;
             }
 
-            _DisplayIssuedInternationalLicenseInfo();
+            _PopulateIssuedInternationalLicenseInfo();
 
             _SetControlsAfterLicenseIssued();
 

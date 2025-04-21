@@ -37,7 +37,7 @@
             this.dgvInternationalLicense = new System.Windows.Forms.DataGridView();
             this.cmInternationalLicenseSettings = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.ShowPersonDetailsToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.CancelApplicationToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.ShowLicenseDetailsToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.ShowPersonlicenseHistoryStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.txtFilter = new System.Windows.Forms.MaskedTextBox();
             this.btnCloseForm = new SiticoneNetFrameworkUI.SiticoneButton();
@@ -127,7 +127,7 @@
             this.cmInternationalLicenseSettings.ImageScalingSize = new System.Drawing.Size(32, 32);
             this.cmInternationalLicenseSettings.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.ShowPersonDetailsToolStripMenuItem1,
-            this.CancelApplicationToolStripMenuItem1,
+            this.ShowLicenseDetailsToolStripMenuItem1,
             this.ShowPersonlicenseHistoryStripMenuItem1});
             this.cmInternationalLicenseSettings.Name = "cmPersonSettings";
             this.cmInternationalLicenseSettings.Size = new System.Drawing.Size(252, 140);
@@ -140,13 +140,13 @@
             this.ShowPersonDetailsToolStripMenuItem1.Text = "Show Person Details";
             this.ShowPersonDetailsToolStripMenuItem1.Click += new System.EventHandler(this.ShowPersonDetailsToolStripMenuItem1_Click);
             // 
-            // CancelApplicationToolStripMenuItem1
+            // ShowLicenseDetailsToolStripMenuItem1
             // 
-            this.CancelApplicationToolStripMenuItem1.Image = global::Drivers_and_Vehicles_License_Department__DVLD_.Properties.Resources.ic_fluent_credit_card_person_24_filled;
-            this.CancelApplicationToolStripMenuItem1.Name = "CancelApplicationToolStripMenuItem1";
-            this.CancelApplicationToolStripMenuItem1.Size = new System.Drawing.Size(251, 38);
-            this.CancelApplicationToolStripMenuItem1.Text = "Show License Details";
-            this.CancelApplicationToolStripMenuItem1.Click += new System.EventHandler(this.CancelApplicationToolStripMenuItem1_Click);
+            this.ShowLicenseDetailsToolStripMenuItem1.Image = global::Drivers_and_Vehicles_License_Department__DVLD_.Properties.Resources.ic_fluent_credit_card_person_24_filled;
+            this.ShowLicenseDetailsToolStripMenuItem1.Name = "ShowLicenseDetailsToolStripMenuItem1";
+            this.ShowLicenseDetailsToolStripMenuItem1.Size = new System.Drawing.Size(251, 38);
+            this.ShowLicenseDetailsToolStripMenuItem1.Text = "Show License Details";
+            this.ShowLicenseDetailsToolStripMenuItem1.Click += new System.EventHandler(this.ShowLicenseDetailsToolStripMenuItem1_Click);
             // 
             // ShowPersonlicenseHistoryStripMenuItem1
             // 
@@ -418,7 +418,7 @@
         private System.Windows.Forms.DataGridView dgvInternationalLicense;
         private System.Windows.Forms.ContextMenuStrip cmInternationalLicenseSettings;
         private System.Windows.Forms.ToolStripMenuItem ShowPersonDetailsToolStripMenuItem1;
-        private System.Windows.Forms.ToolStripMenuItem CancelApplicationToolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem ShowLicenseDetailsToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem ShowPersonlicenseHistoryStripMenuItem1;
         private System.Windows.Forms.MaskedTextBox txtFilter;
         private SiticoneNetFrameworkUI.SiticoneButton btnCloseForm;

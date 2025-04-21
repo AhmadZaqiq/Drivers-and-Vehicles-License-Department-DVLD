@@ -1,4 +1,5 @@
 ﻿using Drivers_and_Vehicles_License_Department__DVLD_.Global;
+using Drivers_and_Vehicles_License_Department__DVLD_.International_Driving_Application.Forms;
 using DVLD_Business;
 using System;
 using System.Collections.Generic;
@@ -66,6 +67,26 @@ namespace Drivers_and_Vehicles_License_Department__DVLD_.Licenses.Forms
         private void btnCloseForm_Click(object sender, EventArgs e)
         {
             clsUtil.CloseFormEffect(this);
+        }
+
+        private void ShowLicenseDetailsToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            DataGridViewRow SelectedRow = dgvLocalLicenses.SelectedRows[0];
+
+            int LicenseID = Convert.ToInt32(SelectedRow.Cells["LicenseID"].Value);
+
+            frmDriverLicenseInfo FormDriverLicenseInfo = new frmDriverLicenseInfo(LicenseID);
+            FormDriverLicenseInfo.ShowDialog();
+        }
+
+        private void ShowInternationalLicenseInfo_Click(object sender, EventArgs e)
+        {
+            DataGridViewRow SelectedRow = dgvInternationalLicenses.SelectedRows[0];
+
+            int InternationalLicenseID = Convert.ToInt32(SelectedRow.Cells["InternationalLicenseID"].Value);
+
+            frmDriverInternationalLicenseInfo FormDriverInternationalLicenseInfo = new frmDriverInternationalLicenseInfo(InternationalLicenseID);
+            FormDriverInternationalLicenseInfo.ShowDialog();
         }
 
 

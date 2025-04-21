@@ -114,7 +114,7 @@ namespace Drivers_and_Vehicles_License_Department__DVLD_.International_Driving_A
             frmShowPersonDetails.ShowDialog();
         }
 
-        private void CancelApplicationToolStripMenuItem1_Click(object sender, EventArgs e)
+        private void ShowLicenseDetailsToolStripMenuItem1_Click(object sender, EventArgs e)
         {
             DataGridViewRow SelectedRow = dgvInternationalLicense.SelectedRows[0];
 

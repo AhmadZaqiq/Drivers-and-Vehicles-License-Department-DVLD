@@ -2,6 +2,7 @@
 using Drivers_and_Vehicles_License_Department__DVLD_.Drivers.Forms;
 using Drivers_and_Vehicles_License_Department__DVLD_.Global;
 using Drivers_and_Vehicles_License_Department__DVLD_.International_Driving_Application.Forms;
+using Drivers_and_Vehicles_License_Department__DVLD_.Licenses.Forms;
 using Drivers_and_Vehicles_License_Department__DVLD_.Local_Driving_Application;
 using Drivers_and_Vehicles_License_Department__DVLD_.Test_Types;
 using Drivers_and_Vehicles_License_Department__DVLD_.Users.Forms;
@@ -100,6 +101,16 @@ namespace Drivers_and_Vehicles_License_Department__DVLD_
             FormListInternationalDrivingLicenses.ShowDialog();
         }
 
+        private void renewDrivingLicenseToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmRenewLicenseApplication FormRenewLicenseApplication = new frmRenewLicenseApplication();
+            FormRenewLicenseApplication.ShowDialog();
+        }
 
+        private void replacementForLostOrDamagedLicenseToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmReplacementForDamagedLostLicense FormReplacementForDamagedLostLicense=new frmReplacementForDamagedLostLicense();
+            FormReplacementForDamagedLostLicense.ShowDialog();
+        }
     }
 }

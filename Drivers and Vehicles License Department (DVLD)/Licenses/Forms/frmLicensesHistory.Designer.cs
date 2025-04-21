@@ -28,26 +28,33 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.lblInternationalRecordsCount = new SiticoneNetFrameworkUI.SiticoneTabControl();
             this.tabLocal = new System.Windows.Forms.TabPage();
             this.label3 = new System.Windows.Forms.Label();
             this.lblLocalRecordsCount = new System.Windows.Forms.Label();
             this.siticonePanel1 = new SiticoneNetFrameworkUI.SiticonePanel();
             this.dgvLocalLicenses = new System.Windows.Forms.DataGridView();
+            this.cmShowlocalLicenseInfo = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.ShowLicenseDetailsToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.tabInternational = new System.Windows.Forms.TabPage();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.siticonePanel2 = new SiticoneNetFrameworkUI.SiticonePanel();
             this.dgvInternationalLicenses = new System.Windows.Forms.DataGridView();
+            this.cmShowInternationalLicenseInfo = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.ShowInternationalLicenseInfo = new System.Windows.Forms.ToolStripMenuItem();
             this.btnCloseForm = new SiticoneNetFrameworkUI.SiticoneButton();
             this.ctrlPersonCard1 = new Drivers_and_Vehicles_License_Department__DVLD_.ctrlPersonCard();
             this.lblInternationalRecordsCount.SuspendLayout();
             this.tabLocal.SuspendLayout();
             this.siticonePanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvLocalLicenses)).BeginInit();
+            this.cmShowlocalLicenseInfo.SuspendLayout();
             this.tabInternational.SuspendLayout();
             this.siticonePanel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvInternationalLicenses)).BeginInit();
+            this.cmShowInternationalLicenseInfo.SuspendLayout();
             this.SuspendLayout();
             // 
             // lblInternationalRecordsCount
@@ -171,6 +178,7 @@
             this.dgvLocalLicenses.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.dgvLocalLicenses.BackgroundColor = System.Drawing.Color.WhiteSmoke;
             this.dgvLocalLicenses.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvLocalLicenses.ContextMenuStrip = this.cmShowlocalLicenseInfo;
             this.dgvLocalLicenses.GridColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.dgvLocalLicenses.Location = new System.Drawing.Point(12, 12);
             this.dgvLocalLicenses.Name = "dgvLocalLicenses";
@@ -178,6 +186,23 @@
             this.dgvLocalLicenses.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvLocalLicenses.Size = new System.Drawing.Size(1114, 211);
             this.dgvLocalLicenses.TabIndex = 1;
+            // 
+            // cmShowlocalLicenseInfo
+            // 
+            this.cmShowlocalLicenseInfo.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cmShowlocalLicenseInfo.ImageScalingSize = new System.Drawing.Size(32, 32);
+            this.cmShowlocalLicenseInfo.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.ShowLicenseDetailsToolStripMenuItem1});
+            this.cmShowlocalLicenseInfo.Name = "cmPersonSettings";
+            this.cmShowlocalLicenseInfo.Size = new System.Drawing.Size(207, 42);
+            // 
+            // ShowLicenseDetailsToolStripMenuItem1
+            // 
+            this.ShowLicenseDetailsToolStripMenuItem1.Image = global::Drivers_and_Vehicles_License_Department__DVLD_.Properties.Resources.ic_fluent_credit_card_person_24_filled;
+            this.ShowLicenseDetailsToolStripMenuItem1.Name = "ShowLicenseDetailsToolStripMenuItem1";
+            this.ShowLicenseDetailsToolStripMenuItem1.Size = new System.Drawing.Size(206, 38);
+            this.ShowLicenseDetailsToolStripMenuItem1.Text = "Show License Details";
+            this.ShowLicenseDetailsToolStripMenuItem1.Click += new System.EventHandler(this.ShowLicenseDetailsToolStripMenuItem1_Click);
             // 
             // tabInternational
             // 
@@ -264,6 +289,7 @@
             this.dgvInternationalLicenses.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.dgvInternationalLicenses.BackgroundColor = System.Drawing.Color.WhiteSmoke;
             this.dgvInternationalLicenses.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvInternationalLicenses.ContextMenuStrip = this.cmShowInternationalLicenseInfo;
             this.dgvInternationalLicenses.GridColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.dgvInternationalLicenses.Location = new System.Drawing.Point(12, 12);
             this.dgvInternationalLicenses.Name = "dgvInternationalLicenses";
@@ -271,6 +297,23 @@
             this.dgvInternationalLicenses.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvInternationalLicenses.Size = new System.Drawing.Size(1114, 211);
             this.dgvInternationalLicenses.TabIndex = 1;
+            // 
+            // cmShowInternationalLicenseInfo
+            // 
+            this.cmShowInternationalLicenseInfo.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cmShowInternationalLicenseInfo.ImageScalingSize = new System.Drawing.Size(32, 32);
+            this.cmShowInternationalLicenseInfo.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.ShowInternationalLicenseInfo});
+            this.cmShowInternationalLicenseInfo.Name = "cmPersonSettings";
+            this.cmShowInternationalLicenseInfo.Size = new System.Drawing.Size(207, 64);
+            // 
+            // ShowInternationalLicenseInfo
+            // 
+            this.ShowInternationalLicenseInfo.Image = global::Drivers_and_Vehicles_License_Department__DVLD_.Properties.Resources.ic_fluent_credit_card_person_24_filled;
+            this.ShowInternationalLicenseInfo.Name = "ShowInternationalLicenseInfo";
+            this.ShowInternationalLicenseInfo.Size = new System.Drawing.Size(206, 38);
+            this.ShowInternationalLicenseInfo.Text = "Show License Details";
+            this.ShowInternationalLicenseInfo.Click += new System.EventHandler(this.ShowInternationalLicenseInfo_Click);
             // 
             // btnCloseForm
             // 
@@ -381,10 +424,12 @@
             this.tabLocal.PerformLayout();
             this.siticonePanel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvLocalLicenses)).EndInit();
+            this.cmShowlocalLicenseInfo.ResumeLayout(false);
             this.tabInternational.ResumeLayout(false);
             this.tabInternational.PerformLayout();
             this.siticonePanel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvInternationalLicenses)).EndInit();
+            this.cmShowInternationalLicenseInfo.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -404,5 +449,9 @@
         private SiticoneNetFrameworkUI.SiticonePanel siticonePanel2;
         private System.Windows.Forms.DataGridView dgvInternationalLicenses;
         private SiticoneNetFrameworkUI.SiticoneButton btnCloseForm;
+        private System.Windows.Forms.ContextMenuStrip cmShowlocalLicenseInfo;
+        private System.Windows.Forms.ToolStripMenuItem ShowLicenseDetailsToolStripMenuItem1;
+        private System.Windows.Forms.ContextMenuStrip cmShowInternationalLicenseInfo;
+        private System.Windows.Forms.ToolStripMenuItem ShowInternationalLicenseInfo;
     }
 }

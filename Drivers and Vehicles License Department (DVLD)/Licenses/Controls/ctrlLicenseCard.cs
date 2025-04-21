@@ -25,7 +25,7 @@ namespace Drivers_and_Vehicles_License_Department__DVLD_.Licenses.Controls
 
         private enum enStatus { New = 1, Cancelled = 2, Completed = 3 };
 
-        private enum enIssueReason { FirstTime = 1 };
+        private enum enIssueReason { FirstTime = 1, Renew = 2 };
 
         public ctrlLicenseCard()
         {
