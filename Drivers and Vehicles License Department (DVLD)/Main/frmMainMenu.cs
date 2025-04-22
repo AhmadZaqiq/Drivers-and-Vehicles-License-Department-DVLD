@@ -1,4 +1,5 @@
 ﻿using Drivers_and_Vehicles_License_Department__DVLD_.Application_Types;
+using Drivers_and_Vehicles_License_Department__DVLD_.Detained_Licenses.Forms;
 using Drivers_and_Vehicles_License_Department__DVLD_.Drivers.Forms;
 using Drivers_and_Vehicles_License_Department__DVLD_.Global;
 using Drivers_and_Vehicles_License_Department__DVLD_.International_Driving_Application.Forms;
@@ -111,6 +112,17 @@ namespace Drivers_and_Vehicles_License_Department__DVLD_
         {
             frmReplacementForDamagedLostLicense FormReplacementForDamagedLostLicense=new frmReplacementForDamagedLostLicense();
             FormReplacementForDamagedLostLicense.ShowDialog();
+        }
+
+        private void manageDetainLicensesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void detainLicenseToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmDetainLicense FormDetainLicense = new frmDetainLicense();
+            FormDetainLicense.ShowDialog();
         }
     }
 }

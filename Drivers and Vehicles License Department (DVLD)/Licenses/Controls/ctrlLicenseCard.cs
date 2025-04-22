@@ -25,7 +25,9 @@ namespace Drivers_and_Vehicles_License_Department__DVLD_.Licenses.Controls
 
         private enum enStatus { New = 1, Cancelled = 2, Completed = 3 };
 
-        private enum enIssueReason { FirstTime = 1, Renew = 2 };
+        private enum enIssueReason { FirstTime = 1, Renew = 2, Damaged = 3, Lost = 4 };
+        private enum enIsDetained { No = 0, Yes = 1 };
+
 
         public ctrlLicenseCard()
         {
@@ -88,7 +90,7 @@ namespace Drivers_and_Vehicles_License_Department__DVLD_.Licenses.Controls
             lblDateOfBirth.Text = _Person.DateOfBirth.ToString();
             lblDriverID.Text = _License.DriverID.ToString();
             lblExpirationDate.Text = _License.ExpirationDate.ToString();
-            lblIsDetained.Text = "NO";
+            lblIsDetained.Text = clsDetainedLicense.IsLicenseDetained(_LicenseID) ? enIsDetained.Yes.ToString() : enIsDetained.No.ToString();
         }
 
         private void _DisplayLicenseDetails()

@@ -25,9 +25,9 @@ namespace Drivers_and_Vehicles_License_Department__DVLD_.Licenses.Forms
 
         private decimal _RenewApplicationTypeFees;
 
-        const int RenewApplicationTypeID = 2;
+        private const int RenewApplicationTypeID = 2;
 
-        private enum enIssueReason { FirstTime = 1, Renew = 2 };
+        private enum enIssueReason { FirstTime = 1, Renew = 2, Damaged = 3, Lost = 4 };
 
         public frmRenewLicenseApplication()
         {
@@ -57,7 +57,7 @@ namespace Drivers_and_Vehicles_License_Department__DVLD_.Licenses.Forms
 
             lblOldLicenseID.Text = (_OldLicenseID == -1) ? "N\\A" : _OldLicenseID.ToString();
 
-            llblShowLicensesHistory.Enabled = (_OldLicenseID != -1);
+            lblShowLicensesHistory.Enabled = (_OldLicenseID != -1);
 
             _OldLicense = clsLicense.GetLicenseByID(_OldLicenseID);
 
@@ -71,10 +71,10 @@ namespace Drivers_and_Vehicles_License_Department__DVLD_.Licenses.Forms
 
         private void _CheckIfLicenseExpired()
         {
-            if(_OldLicense.ExpirationDate>DateTime.Now)
+            if (_OldLicense.ExpirationDate > DateTime.Now)
             {
                 btnIssue.Enabled = false;
-                clsMessageBoxManager.ShowMessageBox($"Selected license is not yet expired, it will expire on: {_OldLicense.ExpirationDate:dd/MM/yyyy}","not allowed",MessageBoxButtons.OK,MessageBoxIcon.Warning);
+                clsMessageBoxManager.ShowMessageBox($"Selected license is not yet expired, it will expire on: {_OldLicense.ExpirationDate:dd/MM/yyyy}", "not allowed", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
 
@@ -96,7 +96,6 @@ namespace Drivers_and_Vehicles_License_Department__DVLD_.Licenses.Forms
 
         private void _PopulateApplicationDetails()
         {
-
             lblRLAppID.Text = "N\\A";
             lblApplicationDate.Text = lblIssueDate.Text = DateTime.Now.ToString();
             lblAppFees.Text = _RenewApplicationTypeFees.ToString();
@@ -105,7 +104,6 @@ namespace Drivers_and_Vehicles_License_Department__DVLD_.Licenses.Forms
             lblOldLicenseID.Text = "N\\A";
             lblExpirationDate.Text = "N\\A";
             lblRenewedLicenseID.Text = "N\\A";
-            lblOldLicenseID.Text = "N\\A";
             lblCreatedBy.Text = clsCurrentUser.CurrentUser.Username;
             lblTotalFees.Text = "N\\A"; ;
         }
@@ -121,9 +119,9 @@ namespace Drivers_and_Vehicles_License_Department__DVLD_.Licenses.Forms
             _RenewedLicense.LicenseClassID = LicenseClassID;
             _RenewedLicense.IssueDate = DateTime.Now;
             _RenewedLicense.ExpirationDate = DateTime.Now.AddYears(clsLicenseClass.GetLicenseClassByID(LicenseClassID).DefaultValidityLength);
-            _RenewedLicense.Notes=txtNotes.Text;
-            _RenewedLicense.PaidFees= clsLicenseClass.GetLicenseClassByID(LicenseClassID).ClassFees;
-            _RenewedLicense.IsActive= true;
+            _RenewedLicense.Notes = txtNotes.Text;
+            _RenewedLicense.PaidFees = clsLicenseClass.GetLicenseClassByID(LicenseClassID).ClassFees;
+            _RenewedLicense.IsActive = true;
             _RenewedLicense.IssueReason = (int)enIssueReason.Renew;
             _RenewedLicense.CreatedByUserID = clsCurrentUser.CurrentUser.UserID;
         }
@@ -142,7 +140,7 @@ namespace Drivers_and_Vehicles_License_Department__DVLD_.Licenses.Forms
             _RenewApplication.CreatedByUserID = clsCurrentUser.CurrentUser.UserID;
         }
 
-        private void _PopulatRenewedLicenseInfo()
+        private void _PopulateRenewedLicenseInfo()
         {
             lblRenewedLicenseID.Text = _RenewedLicense.LicenseID.ToString();
             lblRLAppID.Text = _RenewedLicense.ApplicationID.ToString();
@@ -156,7 +154,7 @@ namespace Drivers_and_Vehicles_License_Department__DVLD_.Licenses.Forms
 
         private void _DisableOldLicense()
         {
-            _OldLicense.IsActive= false;
+            _OldLicense.IsActive = false;
         }
 
         private void btnIssue_Click(object sender, EventArgs e)
@@ -186,7 +184,7 @@ namespace Drivers_and_Vehicles_License_Department__DVLD_.Licenses.Forms
             clsMessageBoxManager.ShowMessageBox($"Renew License Issued Successfully with License ID = {_RenewedLicense.LicenseID}", "Success",
                                     MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-            _PopulatRenewedLicenseInfo();
+            _PopulateRenewedLicenseInfo();
 
             _SetControlsAfterRenew();
 
@@ -198,7 +196,7 @@ namespace Drivers_and_Vehicles_License_Department__DVLD_.Licenses.Forms
                 return;
             }
 
-            llblShowNewLicenseInfo.Enabled= true;
+            llblShowNewLicenseInfo.Enabled = true;
         }
 
         private void llblShowLicensesHistory_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)

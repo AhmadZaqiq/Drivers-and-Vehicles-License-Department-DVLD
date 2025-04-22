@@ -1,4 +1,5 @@
 ﻿using Drivers_and_Vehicles_License_Department__DVLD_.Global;
+using Drivers_and_Vehicles_License_Department__DVLD_.Licenses.Forms;
 using DVLD_Business;
 using System;
 using System.Collections.Generic;
@@ -92,6 +93,18 @@ namespace Drivers_and_Vehicles_License_Department__DVLD_.Drivers.Forms
         private void btnCloseForm_Click(object sender, EventArgs e)
         {
             clsUtil.CloseFormEffect(this);
+        }
+
+        private void ShowPersonlicenseHistoryStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            DataGridViewRow SelectedRow = dgvDrivers.SelectedRows[0];
+
+            int DriverID = Convert.ToInt32(SelectedRow.Cells["DriverID"].Value);
+
+            int PersonID = Convert.ToInt32(SelectedRow.Cells["PersonID"].Value);
+
+            frmLicensesHistory FormLicensesHistory = new frmLicensesHistory(DriverID, PersonID);
+            FormLicensesHistory.ShowDialog();
         }
 
 

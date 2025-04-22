@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.label1 = new System.Windows.Forms.Label();
             this.txtFilter = new System.Windows.Forms.MaskedTextBox();
             this.cbFilter = new System.Windows.Forms.ComboBox();
@@ -38,9 +39,12 @@
             this.lblRecordsCount = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.cmDriverSettings = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.ShowPersonlicenseHistoryStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDrivers)).BeginInit();
             this.siticonePanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.cmDriverSettings.SuspendLayout();
             this.SuspendLayout();
             // 
             // label1
@@ -95,6 +99,7 @@
             this.dgvDrivers.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.dgvDrivers.BackgroundColor = System.Drawing.Color.WhiteSmoke;
             this.dgvDrivers.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvDrivers.ContextMenuStrip = this.cmDriverSettings;
             this.dgvDrivers.GridColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.dgvDrivers.Location = new System.Drawing.Point(13, 13);
             this.dgvDrivers.Name = "dgvDrivers";
@@ -255,6 +260,23 @@
             this.pictureBox1.TabIndex = 73;
             this.pictureBox1.TabStop = false;
             // 
+            // cmDriverSettings
+            // 
+            this.cmDriverSettings.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cmDriverSettings.ImageScalingSize = new System.Drawing.Size(32, 32);
+            this.cmDriverSettings.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.ShowPersonlicenseHistoryStripMenuItem1});
+            this.cmDriverSettings.Name = "cmPersonSettings";
+            this.cmDriverSettings.Size = new System.Drawing.Size(247, 64);
+            // 
+            // ShowPersonlicenseHistoryStripMenuItem1
+            // 
+            this.ShowPersonlicenseHistoryStripMenuItem1.Image = global::Drivers_and_Vehicles_License_Department__DVLD_.Properties.Resources.ic_fluent_apps_list_detail_24_filled;
+            this.ShowPersonlicenseHistoryStripMenuItem1.Name = "ShowPersonlicenseHistoryStripMenuItem1";
+            this.ShowPersonlicenseHistoryStripMenuItem1.Size = new System.Drawing.Size(246, 38);
+            this.ShowPersonlicenseHistoryStripMenuItem1.Text = "Show Person license History";
+            this.ShowPersonlicenseHistoryStripMenuItem1.Click += new System.EventHandler(this.ShowPersonlicenseHistoryStripMenuItem1_Click);
+            // 
             // frmListDrivers
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -277,6 +299,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgvDrivers)).EndInit();
             this.siticonePanel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            this.cmDriverSettings.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -294,5 +317,7 @@
         private SiticoneNetFrameworkUI.SiticonePanel siticonePanel1;
         private System.Windows.Forms.Label lblRecordsCount;
         private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.ContextMenuStrip cmDriverSettings;
+        private System.Windows.Forms.ToolStripMenuItem ShowPersonlicenseHistoryStripMenuItem1;
     }
 }

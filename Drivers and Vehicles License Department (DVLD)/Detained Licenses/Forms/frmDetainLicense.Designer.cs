@@ -1,6 +1,6 @@
-﻿namespace Drivers_and_Vehicles_License_Department__DVLD_.Licenses.Forms
+﻿namespace Drivers_and_Vehicles_License_Department__DVLD_.Detained_Licenses.Forms
 {
-    partial class frmReplacementForDamagedLostLicense
+    partial class frmDetainLicense
     {
         /// <summary>
         /// Required designer variable.
@@ -28,40 +28,34 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             SiticoneNetFrameworkUI.SiticonePictureBox siticonePictureBox8;
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmReplacementForDamagedLostLicense));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmDetainLicense));
             this.siticonePanel2 = new SiticoneNetFrameworkUI.SiticonePanel();
+            this.txtFineFees = new SiticoneNetFrameworkUI.SiticoneTextBox();
             this.siticonePictureBox6 = new SiticoneNetFrameworkUI.SiticonePictureBox();
             this.siticonePictureBox5 = new SiticoneNetFrameworkUI.SiticonePictureBox();
             this.siticonePictureBox3 = new SiticoneNetFrameworkUI.SiticonePictureBox();
             this.siticoneLabel2 = new SiticoneNetFrameworkUI.SiticoneLabel();
-            this.siticonePictureBox2 = new SiticoneNetFrameworkUI.SiticonePictureBox();
             this.lblCreatedBy = new SiticoneNetFrameworkUI.SiticoneLabel();
-            this.siticoneLabel16 = new SiticoneNetFrameworkUI.SiticoneLabel();
-            this.lblOldLicenseID = new SiticoneNetFrameworkUI.SiticoneLabel();
             this.siticoneLabel20 = new SiticoneNetFrameworkUI.SiticoneLabel();
-            this.lblReplacementLicenseID = new SiticoneNetFrameworkUI.SiticoneLabel();
+            this.lblLicenseID = new SiticoneNetFrameworkUI.SiticoneLabel();
             this.siticoneLabel23 = new SiticoneNetFrameworkUI.SiticoneLabel();
             this.siticonePictureBox11 = new SiticoneNetFrameworkUI.SiticonePictureBox();
-            this.lblRLAppID = new SiticoneNetFrameworkUI.SiticoneLabel();
+            this.lblDetainID = new SiticoneNetFrameworkUI.SiticoneLabel();
             this.siticoneLabel21 = new SiticoneNetFrameworkUI.SiticoneLabel();
-            this.lblApplicationDate = new SiticoneNetFrameworkUI.SiticoneLabel();
-            this.siticoneLabel17 = new SiticoneNetFrameworkUI.SiticoneLabel();
-            this.lblAppFees = new SiticoneNetFrameworkUI.SiticoneLabel();
+            this.lblDetainedDate = new SiticoneNetFrameworkUI.SiticoneLabel();
             this.siticoneLabel1 = new SiticoneNetFrameworkUI.SiticoneLabel();
             this.btnCancel = new SiticoneNetFrameworkUI.SiticoneButton();
-            this.llblShowNewLicenseInfo = new System.Windows.Forms.LinkLabel();
+            this.llblShowLicenseInfo = new System.Windows.Forms.LinkLabel();
             this.llblShowLicensesHistory = new System.Windows.Forms.LinkLabel();
-            this.ctrlLicenseCardWithFilter1 = new Drivers_and_Vehicles_License_Department__DVLD_.Licenses.Controls.ctrlLicenseCardWithFilter();
+            this.btnDetain = new SiticoneNetFrameworkUI.SiticoneButton();
             this.lblTitle = new System.Windows.Forms.Label();
-            this.btnIssue = new SiticoneNetFrameworkUI.SiticoneButton();
-            this.siticonePanel1 = new SiticoneNetFrameworkUI.SiticonePanel();
-            this.rbDamagedLicense = new SiticoneNetFrameworkUI.SiticoneRadioButton();
-            this.rbLostLicense = new SiticoneNetFrameworkUI.SiticoneRadioButton();
-            this.label2 = new System.Windows.Forms.Label();
+            this.ctrlLicenseCardWithFilter1 = new Drivers_and_Vehicles_License_Department__DVLD_.Licenses.Controls.ctrlLicenseCardWithFilter();
+            this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
             siticonePictureBox8 = new SiticoneNetFrameworkUI.SiticonePictureBox();
             this.siticonePanel2.SuspendLayout();
-            this.siticonePanel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             this.SuspendLayout();
             // 
             // siticonePictureBox8
@@ -97,7 +91,7 @@
             siticonePictureBox8.Images = ((System.Collections.Generic.List<System.Drawing.Image>)(resources.GetObject("siticonePictureBox8.Images")));
             siticonePictureBox8.InterpolationMode = System.Drawing.Drawing2D.InterpolationMode.HighQualityBicubic;
             siticonePictureBox8.IsCircular = false;
-            siticonePictureBox8.Location = new System.Drawing.Point(126, 102);
+            siticonePictureBox8.Location = new System.Drawing.Point(126, 118);
             siticonePictureBox8.MaintainAspectRatio = true;
             siticonePictureBox8.Name = "siticonePictureBox8";
             siticonePictureBox8.PlaceholderImage = null;
@@ -118,24 +112,20 @@
             this.siticonePanel2.BorderGradientEndColor = System.Drawing.Color.Purple;
             this.siticonePanel2.BorderGradientStartColor = System.Drawing.Color.Blue;
             this.siticonePanel2.BorderThickness = 2F;
+            this.siticonePanel2.Controls.Add(this.txtFineFees);
             this.siticonePanel2.Controls.Add(this.siticonePictureBox6);
             this.siticonePanel2.Controls.Add(this.siticonePictureBox5);
             this.siticonePanel2.Controls.Add(this.siticonePictureBox3);
             this.siticonePanel2.Controls.Add(this.siticoneLabel2);
-            this.siticonePanel2.Controls.Add(this.siticonePictureBox2);
             this.siticonePanel2.Controls.Add(this.lblCreatedBy);
-            this.siticonePanel2.Controls.Add(this.siticoneLabel16);
-            this.siticonePanel2.Controls.Add(this.lblOldLicenseID);
             this.siticonePanel2.Controls.Add(this.siticoneLabel20);
-            this.siticonePanel2.Controls.Add(this.lblReplacementLicenseID);
+            this.siticonePanel2.Controls.Add(this.lblLicenseID);
             this.siticonePanel2.Controls.Add(this.siticoneLabel23);
             this.siticonePanel2.Controls.Add(this.siticonePictureBox11);
-            this.siticonePanel2.Controls.Add(this.lblRLAppID);
+            this.siticonePanel2.Controls.Add(this.lblDetainID);
             this.siticonePanel2.Controls.Add(this.siticoneLabel21);
-            this.siticonePanel2.Controls.Add(this.lblApplicationDate);
-            this.siticonePanel2.Controls.Add(this.siticoneLabel17);
+            this.siticonePanel2.Controls.Add(this.lblDetainedDate);
             this.siticonePanel2.Controls.Add(siticonePictureBox8);
-            this.siticonePanel2.Controls.Add(this.lblAppFees);
             this.siticonePanel2.Controls.Add(this.siticoneLabel1);
             this.siticonePanel2.CornerRadiusBottomLeft = 10F;
             this.siticonePanel2.CornerRadiusBottomRight = 10F;
@@ -162,13 +152,75 @@
             this.siticonePanel2.RippleMaxSize = 600F;
             this.siticonePanel2.RippleSpeed = 15F;
             this.siticonePanel2.ShowBorder = true;
-            this.siticonePanel2.Size = new System.Drawing.Size(836, 136);
+            this.siticonePanel2.Size = new System.Drawing.Size(836, 182);
             this.siticonePanel2.TabIndex = 260;
             this.siticonePanel2.TabStop = true;
             this.siticonePanel2.UseBorderGradient = false;
             this.siticonePanel2.UseMultiGradient = false;
             this.siticonePanel2.UsePatternTexture = false;
             this.siticonePanel2.UseRadialGradient = false;
+            // 
+            // txtFineFees
+            // 
+            this.txtFineFees.AccessibleDescription = "A customizable text input field.";
+            this.txtFineFees.AccessibleName = "Text Box";
+            this.txtFineFees.AccessibleRole = System.Windows.Forms.AccessibleRole.Text;
+            this.txtFineFees.BackColor = System.Drawing.Color.Transparent;
+            this.txtFineFees.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.txtFineFees.BlinkCount = 3;
+            this.txtFineFees.BlinkShadow = false;
+            this.txtFineFees.BorderColor1 = System.Drawing.Color.LightSlateGray;
+            this.txtFineFees.BorderColor2 = System.Drawing.Color.LightSlateGray;
+            this.txtFineFees.BorderFocusColor1 = System.Drawing.Color.Gold;
+            this.txtFineFees.BorderFocusColor2 = System.Drawing.Color.Gold;
+            this.txtFineFees.CanShake = true;
+            this.txtFineFees.ContinuousBlink = false;
+            this.txtFineFees.CornerRadiusBottomLeft = 30;
+            this.txtFineFees.CornerRadiusBottomRight = 30;
+            this.txtFineFees.CornerRadiusTopLeft = 30;
+            this.txtFineFees.CornerRadiusTopRight = 30;
+            this.txtFineFees.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txtFineFees.CursorBlinkRate = 500;
+            this.txtFineFees.CursorColor = System.Drawing.Color.Black;
+            this.txtFineFees.CursorHeight = 26;
+            this.txtFineFees.CursorOffset = 0;
+            this.txtFineFees.CursorStyle = SiticoneNetFrameworkUI.Helpers.DrawingStyle.SiticoneDrawingStyle.Solid;
+            this.txtFineFees.CursorWidth = 1;
+            this.txtFineFees.DisabledBackColor = System.Drawing.Color.WhiteSmoke;
+            this.txtFineFees.DisabledBorderColor = System.Drawing.Color.LightGray;
+            this.txtFineFees.DisabledTextColor = System.Drawing.Color.Gray;
+            this.txtFineFees.EnableDropShadow = false;
+            this.txtFineFees.FillColor1 = System.Drawing.Color.Black;
+            this.txtFineFees.FillColor2 = System.Drawing.Color.Black;
+            this.txtFineFees.FillGradientMode = System.Drawing.Drawing2D.LinearGradientMode.Vertical;
+            this.txtFineFees.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtFineFees.ForeColor = System.Drawing.Color.Black;
+            this.txtFineFees.HoverBorderColor1 = System.Drawing.Color.Yellow;
+            this.txtFineFees.HoverBorderColor2 = System.Drawing.Color.Yellow;
+            this.txtFineFees.IsEnabled = true;
+            this.txtFineFees.Location = new System.Drawing.Point(179, 112);
+            this.txtFineFees.Name = "txtFineFees";
+            this.txtFineFees.PlaceholderColor = System.Drawing.Color.Gray;
+            this.txtFineFees.PlaceholderText = "Fine Fees";
+            this.txtFineFees.ReadOnlyBorderColor1 = System.Drawing.Color.LightGray;
+            this.txtFineFees.ReadOnlyBorderColor2 = System.Drawing.Color.LightGray;
+            this.txtFineFees.ReadOnlyFillColor1 = System.Drawing.Color.WhiteSmoke;
+            this.txtFineFees.ReadOnlyFillColor2 = System.Drawing.Color.WhiteSmoke;
+            this.txtFineFees.ReadOnlyPlaceholderColor = System.Drawing.Color.DarkGray;
+            this.txtFineFees.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(77)))), ((int)(((byte)(255)))));
+            this.txtFineFees.ShadowAnimationDuration = 1;
+            this.txtFineFees.ShadowBlur = 10;
+            this.txtFineFees.ShadowColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.txtFineFees.Size = new System.Drawing.Size(276, 34);
+            this.txtFineFees.SolidBorderColor = System.Drawing.Color.LightSlateGray;
+            this.txtFineFees.SolidBorderFocusColor = System.Drawing.Color.Gold;
+            this.txtFineFees.SolidBorderHoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(186)))), ((int)(((byte)(0)))));
+            this.txtFineFees.SolidFillColor = System.Drawing.Color.White;
+            this.txtFineFees.TabIndex = 240;
+            this.txtFineFees.TextPadding = new System.Windows.Forms.Padding(13, 1, 13, 1);
+            this.txtFineFees.ValidationErrorMessage = "Invalid input.";
+            this.txtFineFees.ValidationFunction = null;
+            this.txtFineFees.Validating += new System.ComponentModel.CancelEventHandler(this.txtFineFees_Validating);
             // 
             // siticonePictureBox6
             // 
@@ -248,7 +300,7 @@
             this.siticonePictureBox5.Images = ((System.Collections.Generic.List<System.Drawing.Image>)(resources.GetObject("siticonePictureBox5.Images")));
             this.siticonePictureBox5.InterpolationMode = System.Drawing.Drawing2D.InterpolationMode.HighQualityBicubic;
             this.siticonePictureBox5.IsCircular = false;
-            this.siticonePictureBox5.Location = new System.Drawing.Point(480, 68);
+            this.siticonePictureBox5.Location = new System.Drawing.Point(452, 68);
             this.siticonePictureBox5.MaintainAspectRatio = true;
             this.siticonePictureBox5.Name = "siticonePictureBox5";
             this.siticonePictureBox5.PlaceholderImage = null;
@@ -293,7 +345,7 @@
             this.siticonePictureBox3.Images = ((System.Collections.Generic.List<System.Drawing.Image>)(resources.GetObject("siticonePictureBox3.Images")));
             this.siticonePictureBox3.InterpolationMode = System.Drawing.Drawing2D.InterpolationMode.HighQualityBicubic;
             this.siticonePictureBox3.IsCircular = false;
-            this.siticonePictureBox3.Location = new System.Drawing.Point(480, 34);
+            this.siticonePictureBox3.Location = new System.Drawing.Point(452, 34);
             this.siticonePictureBox3.MaintainAspectRatio = true;
             this.siticonePictureBox3.Name = "siticonePictureBox3";
             this.siticonePictureBox3.PlaceholderImage = null;
@@ -310,111 +362,44 @@
             this.siticoneLabel2.BackColor = System.Drawing.Color.Transparent;
             this.siticoneLabel2.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.siticoneLabel2.ForeColor = System.Drawing.Color.Black;
-            this.siticoneLabel2.Location = new System.Drawing.Point(319, 102);
+            this.siticoneLabel2.Location = new System.Drawing.Point(321, 68);
             this.siticoneLabel2.Name = "siticoneLabel2";
             this.siticoneLabel2.Size = new System.Drawing.Size(117, 23);
             this.siticoneLabel2.TabIndex = 214;
             this.siticoneLabel2.Text = "Created By:";
-            // 
-            // siticonePictureBox2
-            // 
-            this.siticonePictureBox2.BackColor = System.Drawing.Color.Transparent;
-            this.siticonePictureBox2.BackgroundImage = global::Drivers_and_Vehicles_License_Department__DVLD_.Properties.Resources.ic_fluent_person_accounts_24_filled;
-            this.siticonePictureBox2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.siticonePictureBox2.BorderColor = System.Drawing.Color.Black;
-            this.siticonePictureBox2.BorderWidth = 1;
-            this.siticonePictureBox2.Brightness = 1F;
-            this.siticonePictureBox2.Contrast = 1F;
-            this.siticonePictureBox2.CornerRadius = 0;
-            this.siticonePictureBox2.DraggingSpeed = 3.15F;
-            this.siticonePictureBox2.EnableAsyncLoading = false;
-            this.siticonePictureBox2.EnableCaching = false;
-            this.siticonePictureBox2.EnableDragDrop = false;
-            this.siticonePictureBox2.EnableExtendedImageSources = false;
-            this.siticonePictureBox2.EnableFilters = false;
-            this.siticonePictureBox2.EnableFlipping = false;
-            this.siticonePictureBox2.EnableGlow = false;
-            this.siticonePictureBox2.EnableHighDpiSupport = false;
-            this.siticonePictureBox2.EnableMouseInteraction = false;
-            this.siticonePictureBox2.EnablePlaceholder = false;
-            this.siticonePictureBox2.EnableRotation = false;
-            this.siticonePictureBox2.EnableShadow = false;
-            this.siticonePictureBox2.EnableSlideshow = false;
-            this.siticonePictureBox2.FlipHorizontal = false;
-            this.siticonePictureBox2.FlipVertical = false;
-            this.siticonePictureBox2.ForeColor = System.Drawing.Color.Transparent;
-            this.siticonePictureBox2.Grayscale = false;
-            this.siticonePictureBox2.Image = null;
-            this.siticonePictureBox2.ImageOpacity = 1F;
-            this.siticonePictureBox2.Images = ((System.Collections.Generic.List<System.Drawing.Image>)(resources.GetObject("siticonePictureBox2.Images")));
-            this.siticonePictureBox2.InterpolationMode = System.Drawing.Drawing2D.InterpolationMode.HighQualityBicubic;
-            this.siticonePictureBox2.IsCircular = false;
-            this.siticonePictureBox2.Location = new System.Drawing.Point(480, 102);
-            this.siticonePictureBox2.MaintainAspectRatio = true;
-            this.siticonePictureBox2.Name = "siticonePictureBox2";
-            this.siticonePictureBox2.PlaceholderImage = null;
-            this.siticonePictureBox2.RotationAngle = 0F;
-            this.siticonePictureBox2.Saturation = 1F;
-            this.siticonePictureBox2.ShowBorder = true;
-            this.siticonePictureBox2.Size = new System.Drawing.Size(27, 23);
-            this.siticonePictureBox2.SizeMode = SiticoneNetFrameworkUI.Helpers.Enum.SiticonePictureBoxSizeMode.Normal;
-            this.siticonePictureBox2.TabIndex = 210;
-            this.siticonePictureBox2.Text = "siticonePictureBox2";
             // 
             // lblCreatedBy
             // 
             this.lblCreatedBy.BackColor = System.Drawing.Color.Transparent;
             this.lblCreatedBy.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblCreatedBy.ForeColor = System.Drawing.Color.Black;
-            this.lblCreatedBy.Location = new System.Drawing.Point(513, 102);
+            this.lblCreatedBy.Location = new System.Drawing.Point(485, 68);
             this.lblCreatedBy.Name = "lblCreatedBy";
             this.lblCreatedBy.Size = new System.Drawing.Size(107, 23);
             this.lblCreatedBy.TabIndex = 209;
             this.lblCreatedBy.Text = "N\\A";
-            // 
-            // siticoneLabel16
-            // 
-            this.siticoneLabel16.BackColor = System.Drawing.Color.Transparent;
-            this.siticoneLabel16.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.siticoneLabel16.ForeColor = System.Drawing.Color.Black;
-            this.siticoneLabel16.Location = new System.Drawing.Point(319, 68);
-            this.siticoneLabel16.Name = "siticoneLabel16";
-            this.siticoneLabel16.Size = new System.Drawing.Size(117, 23);
-            this.siticoneLabel16.TabIndex = 199;
-            this.siticoneLabel16.Text = "Old License ID:";
-            // 
-            // lblOldLicenseID
-            // 
-            this.lblOldLicenseID.BackColor = System.Drawing.Color.Transparent;
-            this.lblOldLicenseID.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblOldLicenseID.ForeColor = System.Drawing.Color.Black;
-            this.lblOldLicenseID.Location = new System.Drawing.Point(513, 68);
-            this.lblOldLicenseID.Name = "lblOldLicenseID";
-            this.lblOldLicenseID.Size = new System.Drawing.Size(107, 23);
-            this.lblOldLicenseID.TabIndex = 197;
-            this.lblOldLicenseID.Text = "N\\A";
             // 
             // siticoneLabel20
             // 
             this.siticoneLabel20.BackColor = System.Drawing.Color.Transparent;
             this.siticoneLabel20.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.siticoneLabel20.ForeColor = System.Drawing.Color.Black;
-            this.siticoneLabel20.Location = new System.Drawing.Point(319, 34);
+            this.siticoneLabel20.Location = new System.Drawing.Point(321, 34);
             this.siticoneLabel20.Name = "siticoneLabel20";
-            this.siticoneLabel20.Size = new System.Drawing.Size(164, 23);
+            this.siticoneLabel20.Size = new System.Drawing.Size(148, 23);
             this.siticoneLabel20.TabIndex = 196;
-            this.siticoneLabel20.Text = "Replacement License ID:";
+            this.siticoneLabel20.Text = "License ID:";
             // 
-            // lblReplacementLicenseID
+            // lblLicenseID
             // 
-            this.lblReplacementLicenseID.BackColor = System.Drawing.Color.Transparent;
-            this.lblReplacementLicenseID.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblReplacementLicenseID.ForeColor = System.Drawing.Color.Black;
-            this.lblReplacementLicenseID.Location = new System.Drawing.Point(513, 34);
-            this.lblReplacementLicenseID.Name = "lblReplacementLicenseID";
-            this.lblReplacementLicenseID.Size = new System.Drawing.Size(107, 23);
-            this.lblReplacementLicenseID.TabIndex = 194;
-            this.lblReplacementLicenseID.Text = "N\\A";
+            this.lblLicenseID.BackColor = System.Drawing.Color.Transparent;
+            this.lblLicenseID.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblLicenseID.ForeColor = System.Drawing.Color.Black;
+            this.lblLicenseID.Location = new System.Drawing.Point(485, 34);
+            this.lblLicenseID.Name = "lblLicenseID";
+            this.lblLicenseID.Size = new System.Drawing.Size(107, 23);
+            this.lblLicenseID.TabIndex = 194;
+            this.lblLicenseID.Text = "N\\A";
             // 
             // siticoneLabel23
             // 
@@ -423,9 +408,9 @@
             this.siticoneLabel23.ForeColor = System.Drawing.Color.Black;
             this.siticoneLabel23.Location = new System.Drawing.Point(27, 68);
             this.siticoneLabel23.Name = "siticoneLabel23";
-            this.siticoneLabel23.Size = new System.Drawing.Size(95, 23);
+            this.siticoneLabel23.Size = new System.Drawing.Size(104, 23);
             this.siticoneLabel23.TabIndex = 190;
-            this.siticoneLabel23.Text = "App. Date:";
+            this.siticoneLabel23.Text = "Detained Date:";
             // 
             // siticonePictureBox11
             // 
@@ -472,16 +457,16 @@
             this.siticonePictureBox11.TabIndex = 189;
             this.siticonePictureBox11.Text = "siticonePictureBox11";
             // 
-            // lblRLAppID
+            // lblDetainID
             // 
-            this.lblRLAppID.BackColor = System.Drawing.Color.Transparent;
-            this.lblRLAppID.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblRLAppID.ForeColor = System.Drawing.Color.Black;
-            this.lblRLAppID.Location = new System.Drawing.Point(160, 34);
-            this.lblRLAppID.Name = "lblRLAppID";
-            this.lblRLAppID.Size = new System.Drawing.Size(108, 23);
-            this.lblRLAppID.TabIndex = 188;
-            this.lblRLAppID.Text = "N\\A";
+            this.lblDetainID.BackColor = System.Drawing.Color.Transparent;
+            this.lblDetainID.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblDetainID.ForeColor = System.Drawing.Color.Black;
+            this.lblDetainID.Location = new System.Drawing.Point(160, 34);
+            this.lblDetainID.Name = "lblDetainID";
+            this.lblDetainID.Size = new System.Drawing.Size(108, 23);
+            this.lblDetainID.TabIndex = 188;
+            this.lblDetainID.Text = "N\\A";
             // 
             // siticoneLabel21
             // 
@@ -492,40 +477,18 @@
             this.siticoneLabel21.Name = "siticoneLabel21";
             this.siticoneLabel21.Size = new System.Drawing.Size(81, 23);
             this.siticoneLabel21.TabIndex = 187;
-            this.siticoneLabel21.Text = "R.L App ID:";
+            this.siticoneLabel21.Text = "Detain ID:";
             // 
-            // lblApplicationDate
+            // lblDetainedDate
             // 
-            this.lblApplicationDate.BackColor = System.Drawing.Color.Transparent;
-            this.lblApplicationDate.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblApplicationDate.ForeColor = System.Drawing.Color.Black;
-            this.lblApplicationDate.Location = new System.Drawing.Point(159, 68);
-            this.lblApplicationDate.Name = "lblApplicationDate";
-            this.lblApplicationDate.Size = new System.Drawing.Size(109, 23);
-            this.lblApplicationDate.TabIndex = 185;
-            this.lblApplicationDate.Text = "N\\A";
-            // 
-            // siticoneLabel17
-            // 
-            this.siticoneLabel17.BackColor = System.Drawing.Color.Transparent;
-            this.siticoneLabel17.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.siticoneLabel17.ForeColor = System.Drawing.Color.Black;
-            this.siticoneLabel17.Location = new System.Drawing.Point(27, 102);
-            this.siticoneLabel17.Name = "siticoneLabel17";
-            this.siticoneLabel17.Size = new System.Drawing.Size(95, 23);
-            this.siticoneLabel17.TabIndex = 181;
-            this.siticoneLabel17.Text = "App. Fees:";
-            // 
-            // lblAppFees
-            // 
-            this.lblAppFees.BackColor = System.Drawing.Color.Transparent;
-            this.lblAppFees.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblAppFees.ForeColor = System.Drawing.Color.Black;
-            this.lblAppFees.Location = new System.Drawing.Point(160, 102);
-            this.lblAppFees.Name = "lblAppFees";
-            this.lblAppFees.Size = new System.Drawing.Size(108, 23);
-            this.lblAppFees.TabIndex = 179;
-            this.lblAppFees.Text = "N\\A";
+            this.lblDetainedDate.BackColor = System.Drawing.Color.Transparent;
+            this.lblDetainedDate.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblDetainedDate.ForeColor = System.Drawing.Color.Black;
+            this.lblDetainedDate.Location = new System.Drawing.Point(159, 68);
+            this.lblDetainedDate.Name = "lblDetainedDate";
+            this.lblDetainedDate.Size = new System.Drawing.Size(109, 23);
+            this.lblDetainedDate.TabIndex = 185;
+            this.lblDetainedDate.Text = "N\\A";
             // 
             // siticoneLabel1
             // 
@@ -587,7 +550,7 @@
             this.btnCancel.IsReadOnly = false;
             this.btnCancel.IsToggleButton = false;
             this.btnCancel.IsToggled = false;
-            this.btnCancel.Location = new System.Drawing.Point(595, 730);
+            this.btnCancel.Location = new System.Drawing.Point(595, 777);
             this.btnCancel.LongPressDurationMS = 1000;
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.NormalFontStyle = System.Drawing.FontStyle.Regular;
@@ -616,31 +579,121 @@
             this.btnCancel.UseParticles = false;
             this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 
-            // llblShowNewLicenseInfo
+            // llblShowLicenseInfo
             // 
-            this.llblShowNewLicenseInfo.AutoSize = true;
-            this.llblShowNewLicenseInfo.Enabled = false;
-            this.llblShowNewLicenseInfo.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.llblShowNewLicenseInfo.Location = new System.Drawing.Point(189, 727);
-            this.llblShowNewLicenseInfo.Name = "llblShowNewLicenseInfo";
-            this.llblShowNewLicenseInfo.Size = new System.Drawing.Size(179, 21);
-            this.llblShowNewLicenseInfo.TabIndex = 262;
-            this.llblShowNewLicenseInfo.TabStop = true;
-            this.llblShowNewLicenseInfo.Text = "Show New License Info";
-            this.llblShowNewLicenseInfo.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.llblShowNewLicenseInfo_LinkClicked);
+            this.llblShowLicenseInfo.AutoSize = true;
+            this.llblShowLicenseInfo.Enabled = false;
+            this.llblShowLicenseInfo.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.llblShowLicenseInfo.Location = new System.Drawing.Point(189, 774);
+            this.llblShowLicenseInfo.Name = "llblShowLicenseInfo";
+            this.llblShowLicenseInfo.Size = new System.Drawing.Size(142, 21);
+            this.llblShowLicenseInfo.TabIndex = 262;
+            this.llblShowLicenseInfo.TabStop = true;
+            this.llblShowLicenseInfo.Text = "Show License Info";
+            this.llblShowLicenseInfo.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.llblShowLicenseInfo_LinkClicked);
             // 
             // llblShowLicensesHistory
             // 
             this.llblShowLicensesHistory.AutoSize = true;
             this.llblShowLicensesHistory.Enabled = false;
             this.llblShowLicensesHistory.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.llblShowLicensesHistory.Location = new System.Drawing.Point(10, 727);
+            this.llblShowLicensesHistory.Location = new System.Drawing.Point(10, 774);
             this.llblShowLicensesHistory.Name = "llblShowLicensesHistory";
             this.llblShowLicensesHistory.Size = new System.Drawing.Size(173, 21);
             this.llblShowLicensesHistory.TabIndex = 261;
             this.llblShowLicensesHistory.TabStop = true;
             this.llblShowLicensesHistory.Text = "Show Licenses History";
             this.llblShowLicensesHistory.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.llblShowLicensesHistory_LinkClicked);
+            // 
+            // btnDetain
+            // 
+            this.btnDetain.AccessibleDescription = "The default button control that accept input though the mouse, touch and keyboard" +
+    "";
+            this.btnDetain.AccessibleName = "Detain";
+            this.btnDetain.AutoSizeBasedOnText = false;
+            this.btnDetain.BackColor = System.Drawing.Color.Transparent;
+            this.btnDetain.BadgeBackColor = System.Drawing.Color.Red;
+            this.btnDetain.BadgeFont = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnDetain.BadgeValue = 0;
+            this.btnDetain.BadgeValueForeColor = System.Drawing.Color.White;
+            this.btnDetain.BorderColor = System.Drawing.Color.Transparent;
+            this.btnDetain.BorderWidth = 2;
+            this.btnDetain.ButtonBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(204)))), ((int)(((byte)(0)))));
+            this.btnDetain.ButtonImage = null;
+            this.btnDetain.CanBeep = true;
+            this.btnDetain.CanGlow = false;
+            this.btnDetain.CanShake = true;
+            this.btnDetain.ContextMenuStripEx = null;
+            this.btnDetain.CornerRadiusBottomLeft = 20;
+            this.btnDetain.CornerRadiusBottomRight = 20;
+            this.btnDetain.CornerRadiusTopLeft = 20;
+            this.btnDetain.CornerRadiusTopRight = 20;
+            this.btnDetain.CustomCursor = System.Windows.Forms.Cursors.Default;
+            this.btnDetain.DisabledTextColor = System.Drawing.Color.FromArgb(((int)(((byte)(150)))), ((int)(((byte)(150)))), ((int)(((byte)(150)))));
+            this.btnDetain.EnableLongPress = false;
+            this.btnDetain.EnablePressAnimation = true;
+            this.btnDetain.EnableRippleEffect = true;
+            this.btnDetain.EnableShadow = false;
+            this.btnDetain.EnableTextWrapping = false;
+            this.btnDetain.Font = new System.Drawing.Font("Segoe UI Semibold", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnDetain.ForeColor = System.Drawing.Color.Transparent;
+            this.btnDetain.GlowColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.btnDetain.GlowIntensity = 100;
+            this.btnDetain.GlowRadius = 20F;
+            this.btnDetain.GradientBackground = false;
+            this.btnDetain.GradientColor = System.Drawing.Color.FromArgb(((int)(((byte)(114)))), ((int)(((byte)(168)))), ((int)(((byte)(255)))));
+            this.btnDetain.GradientMode = System.Drawing.Drawing2D.LinearGradientMode.Vertical;
+            this.btnDetain.HintText = null;
+            this.btnDetain.HoverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(186)))), ((int)(((byte)(0)))));
+            this.btnDetain.HoverFontStyle = System.Drawing.FontStyle.Regular;
+            this.btnDetain.HoverTextColor = System.Drawing.Color.Black;
+            this.btnDetain.HoverTransitionDuration = 250;
+            this.btnDetain.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnDetain.ImagePadding = 5;
+            this.btnDetain.ImageSize = new System.Drawing.Size(16, 16);
+            this.btnDetain.IsRadial = false;
+            this.btnDetain.IsReadOnly = false;
+            this.btnDetain.IsToggleButton = false;
+            this.btnDetain.IsToggled = false;
+            this.btnDetain.Location = new System.Drawing.Point(726, 777);
+            this.btnDetain.LongPressDurationMS = 1000;
+            this.btnDetain.Name = "btnDetain";
+            this.btnDetain.NormalFontStyle = System.Drawing.FontStyle.Regular;
+            this.btnDetain.ParticleColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(200)))), ((int)(((byte)(200)))));
+            this.btnDetain.ParticleCount = 15;
+            this.btnDetain.PressAnimationScale = 0.97F;
+            this.btnDetain.PressedBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(162)))), ((int)(((byte)(0)))));
+            this.btnDetain.PressedFontStyle = System.Drawing.FontStyle.Regular;
+            this.btnDetain.PressTransitionDuration = 150;
+            this.btnDetain.ReadOnlyTextColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(100)))), ((int)(((byte)(100)))));
+            this.btnDetain.RippleColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.btnDetain.RippleOpacity = 0.3F;
+            this.btnDetain.RippleRadiusMultiplier = 0.6F;
+            this.btnDetain.ShadowBlur = 5;
+            this.btnDetain.ShadowColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.btnDetain.ShadowOffset = new System.Drawing.Point(2, 2);
+            this.btnDetain.ShakeDuration = 500;
+            this.btnDetain.ShakeIntensity = 5;
+            this.btnDetain.Size = new System.Drawing.Size(125, 39);
+            this.btnDetain.TabIndex = 259;
+            this.btnDetain.Text = "Detain";
+            this.btnDetain.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.btnDetain.TextColor = System.Drawing.Color.Black;
+            this.btnDetain.TooltipText = null;
+            this.btnDetain.UseAdvancedRendering = true;
+            this.btnDetain.UseParticles = false;
+            this.btnDetain.Click += new System.EventHandler(this.btnDetain_Click);
+            // 
+            // lblTitle
+            // 
+            this.lblTitle.AutoSize = true;
+            this.lblTitle.Font = new System.Drawing.Font("Segoe UI Semibold", 27.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTitle.ForeColor = System.Drawing.Color.Red;
+            this.lblTitle.Location = new System.Drawing.Point(299, 8);
+            this.lblTitle.Name = "lblTitle";
+            this.lblTitle.Size = new System.Drawing.Size(266, 50);
+            this.lblTitle.TabIndex = 256;
+            this.lblTitle.Text = "Detain License";
             // 
             // ctrlLicenseCardWithFilter1
             // 
@@ -650,257 +703,30 @@
             this.ctrlLicenseCardWithFilter1.Size = new System.Drawing.Size(836, 506);
             this.ctrlLicenseCardWithFilter1.TabIndex = 257;
             // 
-            // lblTitle
+            // errorProvider1
             // 
-            this.lblTitle.AutoSize = true;
-            this.lblTitle.Font = new System.Drawing.Font("Segoe UI Semibold", 27.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTitle.ForeColor = System.Drawing.Color.Red;
-            this.lblTitle.Location = new System.Drawing.Point(91, 8);
-            this.lblTitle.Name = "lblTitle";
-            this.lblTitle.Size = new System.Drawing.Size(683, 50);
-            this.lblTitle.TabIndex = 256;
-            this.lblTitle.Text = "Replacement for Damaged Lost License";
+            this.errorProvider1.ContainerControl = this;
             // 
-            // btnIssue
-            // 
-            this.btnIssue.AccessibleDescription = "The default button control that accept input though the mouse, touch and keyboard" +
-    "";
-            this.btnIssue.AccessibleName = "Issue";
-            this.btnIssue.AutoSizeBasedOnText = false;
-            this.btnIssue.BackColor = System.Drawing.Color.Transparent;
-            this.btnIssue.BadgeBackColor = System.Drawing.Color.Red;
-            this.btnIssue.BadgeFont = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnIssue.BadgeValue = 0;
-            this.btnIssue.BadgeValueForeColor = System.Drawing.Color.White;
-            this.btnIssue.BorderColor = System.Drawing.Color.Transparent;
-            this.btnIssue.BorderWidth = 2;
-            this.btnIssue.ButtonBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(204)))), ((int)(((byte)(0)))));
-            this.btnIssue.ButtonImage = null;
-            this.btnIssue.CanBeep = true;
-            this.btnIssue.CanGlow = false;
-            this.btnIssue.CanShake = true;
-            this.btnIssue.ContextMenuStripEx = null;
-            this.btnIssue.CornerRadiusBottomLeft = 20;
-            this.btnIssue.CornerRadiusBottomRight = 20;
-            this.btnIssue.CornerRadiusTopLeft = 20;
-            this.btnIssue.CornerRadiusTopRight = 20;
-            this.btnIssue.CustomCursor = System.Windows.Forms.Cursors.Default;
-            this.btnIssue.DisabledTextColor = System.Drawing.Color.FromArgb(((int)(((byte)(150)))), ((int)(((byte)(150)))), ((int)(((byte)(150)))));
-            this.btnIssue.EnableLongPress = false;
-            this.btnIssue.EnablePressAnimation = true;
-            this.btnIssue.EnableRippleEffect = true;
-            this.btnIssue.EnableShadow = false;
-            this.btnIssue.EnableTextWrapping = false;
-            this.btnIssue.Font = new System.Drawing.Font("Segoe UI Semibold", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnIssue.ForeColor = System.Drawing.Color.Transparent;
-            this.btnIssue.GlowColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.btnIssue.GlowIntensity = 100;
-            this.btnIssue.GlowRadius = 20F;
-            this.btnIssue.GradientBackground = false;
-            this.btnIssue.GradientColor = System.Drawing.Color.FromArgb(((int)(((byte)(114)))), ((int)(((byte)(168)))), ((int)(((byte)(255)))));
-            this.btnIssue.GradientMode = System.Drawing.Drawing2D.LinearGradientMode.Vertical;
-            this.btnIssue.HintText = null;
-            this.btnIssue.HoverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(186)))), ((int)(((byte)(0)))));
-            this.btnIssue.HoverFontStyle = System.Drawing.FontStyle.Regular;
-            this.btnIssue.HoverTextColor = System.Drawing.Color.Black;
-            this.btnIssue.HoverTransitionDuration = 250;
-            this.btnIssue.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnIssue.ImagePadding = 5;
-            this.btnIssue.ImageSize = new System.Drawing.Size(16, 16);
-            this.btnIssue.IsRadial = false;
-            this.btnIssue.IsReadOnly = false;
-            this.btnIssue.IsToggleButton = false;
-            this.btnIssue.IsToggled = false;
-            this.btnIssue.Location = new System.Drawing.Point(726, 730);
-            this.btnIssue.LongPressDurationMS = 1000;
-            this.btnIssue.Name = "btnIssue";
-            this.btnIssue.NormalFontStyle = System.Drawing.FontStyle.Regular;
-            this.btnIssue.ParticleColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(200)))), ((int)(((byte)(200)))));
-            this.btnIssue.ParticleCount = 15;
-            this.btnIssue.PressAnimationScale = 0.97F;
-            this.btnIssue.PressedBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(162)))), ((int)(((byte)(0)))));
-            this.btnIssue.PressedFontStyle = System.Drawing.FontStyle.Regular;
-            this.btnIssue.PressTransitionDuration = 150;
-            this.btnIssue.ReadOnlyTextColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(100)))), ((int)(((byte)(100)))));
-            this.btnIssue.RippleColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.btnIssue.RippleOpacity = 0.3F;
-            this.btnIssue.RippleRadiusMultiplier = 0.6F;
-            this.btnIssue.ShadowBlur = 5;
-            this.btnIssue.ShadowColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.btnIssue.ShadowOffset = new System.Drawing.Point(2, 2);
-            this.btnIssue.ShakeDuration = 500;
-            this.btnIssue.ShakeIntensity = 5;
-            this.btnIssue.Size = new System.Drawing.Size(125, 39);
-            this.btnIssue.TabIndex = 259;
-            this.btnIssue.Text = "Issue";
-            this.btnIssue.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.btnIssue.TextColor = System.Drawing.Color.Black;
-            this.btnIssue.TooltipText = null;
-            this.btnIssue.UseAdvancedRendering = true;
-            this.btnIssue.UseParticles = false;
-            this.btnIssue.Click += new System.EventHandler(this.btnIssue_Click);
-            // 
-            // siticonePanel1
-            // 
-            this.siticonePanel1.AcrylicTintColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.siticonePanel1.BackColor = System.Drawing.Color.Transparent;
-            this.siticonePanel1.BorderAlignment = System.Drawing.Drawing2D.PenAlignment.Center;
-            this.siticonePanel1.BorderDashPattern = null;
-            this.siticonePanel1.BorderGradientEndColor = System.Drawing.Color.Purple;
-            this.siticonePanel1.BorderGradientStartColor = System.Drawing.Color.Blue;
-            this.siticonePanel1.BorderThickness = 2F;
-            this.siticonePanel1.Controls.Add(this.rbDamagedLicense);
-            this.siticonePanel1.Controls.Add(this.rbLostLicense);
-            this.siticonePanel1.Controls.Add(this.label2);
-            this.siticonePanel1.CornerRadiusBottomLeft = 10F;
-            this.siticonePanel1.CornerRadiusBottomRight = 10F;
-            this.siticonePanel1.CornerRadiusTopLeft = 10F;
-            this.siticonePanel1.CornerRadiusTopRight = 10F;
-            this.siticonePanel1.EnableAcrylicEffect = false;
-            this.siticonePanel1.EnableMicaEffect = false;
-            this.siticonePanel1.EnableRippleEffect = false;
-            this.siticonePanel1.FillColor = System.Drawing.Color.WhiteSmoke;
-            this.siticonePanel1.GradientColors = new System.Drawing.Color[] {
-        System.Drawing.Color.White,
-        System.Drawing.Color.LightGray,
-        System.Drawing.Color.Gray};
-            this.siticonePanel1.GradientPositions = new float[] {
-        0F,
-        0.5F,
-        1F};
-            this.siticonePanel1.Location = new System.Drawing.Point(695, 77);
-            this.siticonePanel1.Name = "siticonePanel1";
-            this.siticonePanel1.PatternStyle = System.Drawing.Drawing2D.HatchStyle.LargeGrid;
-            this.siticonePanel1.RippleAlpha = 50;
-            this.siticonePanel1.RippleAlphaDecrement = 3;
-            this.siticonePanel1.RippleColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.siticonePanel1.RippleMaxSize = 600F;
-            this.siticonePanel1.RippleSpeed = 15F;
-            this.siticonePanel1.ShowBorder = true;
-            this.siticonePanel1.Size = new System.Drawing.Size(154, 100);
-            this.siticonePanel1.TabIndex = 263;
-            this.siticonePanel1.TabStop = true;
-            this.siticonePanel1.UseBorderGradient = false;
-            this.siticonePanel1.UseMultiGradient = false;
-            this.siticonePanel1.UsePatternTexture = false;
-            this.siticonePanel1.UseRadialGradient = false;
-            // 
-            // rbDamagedLicense
-            // 
-            this.rbDamagedLicense.AccessibleRole = System.Windows.Forms.AccessibleRole.RadioButton;
-            this.rbDamagedLicense.BackColor = System.Drawing.Color.Transparent;
-            this.rbDamagedLicense.CanBeep = true;
-            this.rbDamagedLicense.CanShake = true;
-            this.rbDamagedLicense.Checked = false;
-            this.rbDamagedLicense.CheckedColor = System.Drawing.Color.Gold;
-            this.rbDamagedLicense.ContainerBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.rbDamagedLicense.ContainerBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.rbDamagedLicense.ContainerBorderWidth = 1;
-            this.rbDamagedLicense.ContainerBottomLeftRadius = 8;
-            this.rbDamagedLicense.ContainerBottomRightRadius = 8;
-            this.rbDamagedLicense.ContainerCheckedBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(56)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
-            this.rbDamagedLicense.ContainerCheckedColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(56)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
-            this.rbDamagedLicense.ContainerCheckedHoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(56)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
-            this.rbDamagedLicense.ContainerCheckedPressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(56)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
-            this.rbDamagedLicense.ContainerHoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.rbDamagedLicense.ContainerPadding = 8;
-            this.rbDamagedLicense.ContainerPressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.rbDamagedLicense.ContainerTopLeftRadius = 8;
-            this.rbDamagedLicense.ContainerTopRightRadius = 8;
-            this.rbDamagedLicense.EnableRipple = false;
-            this.rbDamagedLicense.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rbDamagedLicense.HoverCursor = System.Windows.Forms.Cursors.Hand;
-            this.rbDamagedLicense.IsContained = false;
-            this.rbDamagedLicense.IsReadOnly = false;
-            this.rbDamagedLicense.Location = new System.Drawing.Point(6, 33);
-            this.rbDamagedLicense.MinimumSize = new System.Drawing.Size(178, 24);
-            this.rbDamagedLicense.Name = "rbDamagedLicense";
-            this.rbDamagedLicense.RippleColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(215)))));
-            this.rbDamagedLicense.RippleDuration = 0.5F;
-            this.rbDamagedLicense.RippleStyle = SiticoneNetFrameworkUI.SiticoneRadioButton.RippleAnimationStyle.Standard;
-            this.rbDamagedLicense.ShakeDuration = 0.5F;
-            this.rbDamagedLicense.Size = new System.Drawing.Size(178, 24);
-            this.rbDamagedLicense.TabIndex = 265;
-            this.rbDamagedLicense.Text = "Damaged License";
-            this.rbDamagedLicense.TextColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(32)))), ((int)(((byte)(32)))));
-            this.rbDamagedLicense.ToolTipText = "";
-            this.rbDamagedLicense.UncheckedColor = System.Drawing.Color.FromArgb(((int)(((byte)(160)))), ((int)(((byte)(160)))), ((int)(((byte)(160)))));
-            this.rbDamagedLicense.CheckedChanged += new System.EventHandler(this.rb_CheckedChanged);
-            // 
-            // rbLostLicense
-            // 
-            this.rbLostLicense.AccessibleRole = System.Windows.Forms.AccessibleRole.RadioButton;
-            this.rbLostLicense.BackColor = System.Drawing.Color.Transparent;
-            this.rbLostLicense.CanBeep = true;
-            this.rbLostLicense.CanShake = true;
-            this.rbLostLicense.Checked = false;
-            this.rbLostLicense.CheckedColor = System.Drawing.Color.Gold;
-            this.rbLostLicense.ContainerBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.rbLostLicense.ContainerBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.rbLostLicense.ContainerBorderWidth = 1;
-            this.rbLostLicense.ContainerBottomLeftRadius = 8;
-            this.rbLostLicense.ContainerBottomRightRadius = 8;
-            this.rbLostLicense.ContainerCheckedBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(56)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
-            this.rbLostLicense.ContainerCheckedColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(56)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
-            this.rbLostLicense.ContainerCheckedHoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(56)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
-            this.rbLostLicense.ContainerCheckedPressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(56)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
-            this.rbLostLicense.ContainerHoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.rbLostLicense.ContainerPadding = 8;
-            this.rbLostLicense.ContainerPressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.rbLostLicense.ContainerTopLeftRadius = 8;
-            this.rbLostLicense.ContainerTopRightRadius = 8;
-            this.rbLostLicense.EnableRipple = false;
-            this.rbLostLicense.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rbLostLicense.HoverCursor = System.Windows.Forms.Cursors.Hand;
-            this.rbLostLicense.IsContained = false;
-            this.rbLostLicense.IsReadOnly = false;
-            this.rbLostLicense.Location = new System.Drawing.Point(5, 63);
-            this.rbLostLicense.MinimumSize = new System.Drawing.Size(178, 24);
-            this.rbLostLicense.Name = "rbLostLicense";
-            this.rbLostLicense.RippleColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(215)))));
-            this.rbLostLicense.RippleDuration = 0.5F;
-            this.rbLostLicense.RippleStyle = SiticoneNetFrameworkUI.SiticoneRadioButton.RippleAnimationStyle.Standard;
-            this.rbLostLicense.ShakeDuration = 0.5F;
-            this.rbLostLicense.Size = new System.Drawing.Size(178, 24);
-            this.rbLostLicense.TabIndex = 264;
-            this.rbLostLicense.Text = "Lost License";
-            this.rbLostLicense.TextColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(32)))), ((int)(((byte)(32)))));
-            this.rbLostLicense.ToolTipText = "";
-            this.rbLostLicense.UncheckedColor = System.Drawing.Color.FromArgb(((int)(((byte)(160)))), ((int)(((byte)(160)))), ((int)(((byte)(160)))));
-            this.rbLostLicense.CheckedChanged += new System.EventHandler(this.rb_CheckedChanged);
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Segoe UI Semibold", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(2, 2);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(118, 19);
-            this.label2.TabIndex = 48;
-            this.label2.Text = "Replacement For:";
-            // 
-            // frmReplacementForDamagedLostLicense
+            // frmDetainLicense
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(861, 786);
-            this.Controls.Add(this.siticonePanel1);
+            this.ClientSize = new System.Drawing.Size(861, 827);
             this.Controls.Add(this.siticonePanel2);
             this.Controls.Add(this.btnCancel);
-            this.Controls.Add(this.llblShowNewLicenseInfo);
+            this.Controls.Add(this.llblShowLicenseInfo);
             this.Controls.Add(this.llblShowLicensesHistory);
             this.Controls.Add(this.ctrlLicenseCardWithFilter1);
+            this.Controls.Add(this.btnDetain);
             this.Controls.Add(this.lblTitle);
-            this.Controls.Add(this.btnIssue);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Name = "frmReplacementForDamagedLostLicense";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
-            this.Text = "frmReplacementForDamagedLostLicense";
-            this.Load += new System.EventHandler(this.frmReplacementForDamagedLostLicense_Load);
+            this.Name = "frmDetainLicense";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "frmDetainLicense";
+            this.Load += new System.EventHandler(this.frmDetainLicense_Load);
             this.siticonePanel2.ResumeLayout(false);
-            this.siticonePanel1.ResumeLayout(false);
-            this.siticonePanel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -909,33 +735,26 @@
         #endregion
 
         private SiticoneNetFrameworkUI.SiticonePanel siticonePanel2;
+        private SiticoneNetFrameworkUI.SiticoneTextBox txtFineFees;
         private SiticoneNetFrameworkUI.SiticonePictureBox siticonePictureBox6;
         private SiticoneNetFrameworkUI.SiticonePictureBox siticonePictureBox5;
         private SiticoneNetFrameworkUI.SiticonePictureBox siticonePictureBox3;
         private SiticoneNetFrameworkUI.SiticoneLabel siticoneLabel2;
-        private SiticoneNetFrameworkUI.SiticonePictureBox siticonePictureBox2;
         private SiticoneNetFrameworkUI.SiticoneLabel lblCreatedBy;
-        private SiticoneNetFrameworkUI.SiticoneLabel siticoneLabel16;
-        private SiticoneNetFrameworkUI.SiticoneLabel lblOldLicenseID;
         private SiticoneNetFrameworkUI.SiticoneLabel siticoneLabel20;
-        private SiticoneNetFrameworkUI.SiticoneLabel lblReplacementLicenseID;
+        private SiticoneNetFrameworkUI.SiticoneLabel lblLicenseID;
         private SiticoneNetFrameworkUI.SiticoneLabel siticoneLabel23;
         private SiticoneNetFrameworkUI.SiticonePictureBox siticonePictureBox11;
-        private SiticoneNetFrameworkUI.SiticoneLabel lblRLAppID;
+        private SiticoneNetFrameworkUI.SiticoneLabel lblDetainID;
         private SiticoneNetFrameworkUI.SiticoneLabel siticoneLabel21;
-        private SiticoneNetFrameworkUI.SiticoneLabel lblApplicationDate;
-        private SiticoneNetFrameworkUI.SiticoneLabel siticoneLabel17;
-        private SiticoneNetFrameworkUI.SiticoneLabel lblAppFees;
+        private SiticoneNetFrameworkUI.SiticoneLabel lblDetainedDate;
         private SiticoneNetFrameworkUI.SiticoneLabel siticoneLabel1;
         private SiticoneNetFrameworkUI.SiticoneButton btnCancel;
-        private System.Windows.Forms.LinkLabel llblShowNewLicenseInfo;
+        private System.Windows.Forms.LinkLabel llblShowLicenseInfo;
         private System.Windows.Forms.LinkLabel llblShowLicensesHistory;
-        private Controls.ctrlLicenseCardWithFilter ctrlLicenseCardWithFilter1;
+        private Licenses.Controls.ctrlLicenseCardWithFilter ctrlLicenseCardWithFilter1;
+        private SiticoneNetFrameworkUI.SiticoneButton btnDetain;
         private System.Windows.Forms.Label lblTitle;
-        private SiticoneNetFrameworkUI.SiticoneButton btnIssue;
-        private SiticoneNetFrameworkUI.SiticonePanel siticonePanel1;
-        private System.Windows.Forms.Label label2;
-        private SiticoneNetFrameworkUI.SiticoneRadioButton rbDamagedLicense;
-        private SiticoneNetFrameworkUI.SiticoneRadioButton rbLostLicense;
+        private System.Windows.Forms.ErrorProvider errorProvider1;
     }
 }

@@ -97,6 +97,12 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Detained Licenses\Forms\frmDetainLicense.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Detained Licenses\Forms\frmDetainLicense.Designer.cs">
+      <DependentUpon>frmDetainLicense.cs</DependentUpon>
+    </Compile>
     <Compile Include="Drivers\Forms\frmListDrivers.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -162,6 +168,12 @@
     </Compile>
     <Compile Include="Licenses\Forms\frmRenewLicenseApplication.Designer.cs">
       <DependentUpon>frmRenewLicenseApplication.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Licenses\Forms\frmReplacementForDamagedLostLicense.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Licenses\Forms\frmReplacementForDamagedLostLicense.Designer.cs">
+      <DependentUpon>frmReplacementForDamagedLostLicense.cs</DependentUpon>
     </Compile>
     <Compile Include="Local Driving Application\Controls\ctrlLocalDrivingApplicationCard.cs">
       <SubType>UserControl</SubType>
@@ -312,6 +324,9 @@
     <Compile Include="Users\Forms\frmUpdateUser.Designer.cs">
       <DependentUpon>frmUpdateUser.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Detained Licenses\Forms\frmDetainLicense.resx">
+      <DependentUpon>frmDetainLicense.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Drivers\Forms\frmListDrivers.resx">
       <DependentUpon>frmListDrivers.cs</DependentUpon>
     </EmbeddedResource>
@@ -344,6 +359,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Licenses\Forms\frmRenewLicenseApplication.resx">
       <DependentUpon>frmRenewLicenseApplication.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Licenses\Forms\frmReplacementForDamagedLostLicense.resx">
+      <DependentUpon>frmReplacementForDamagedLostLicense.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Local Driving Application\Controls\ctrlLocalDrivingApplicationCard.resx">
       <DependentUpon>ctrlLocalDrivingApplicationCard.cs</DependentUpon>
@@ -849,6 +867,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Applications\Controls\" />
+    <Folder Include="Detained Licenses\Controls\" />
     <Folder Include="Drivers\Controls\" />
     <Folder Include="Tests\Controls\" />
   </ItemGroup>
@@ -896,6 +915,21 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\World-amico1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ic_fluent_lock_multiple_24_filled.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ic_fluent_lock_closed_24_filled.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ic_fluent_lock_open_24_filled.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ic_fluent_lock_open_24_filled1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ic_fluent_lock_multiple_24_filled1.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
