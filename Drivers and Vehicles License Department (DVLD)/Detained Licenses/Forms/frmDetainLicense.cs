@@ -34,7 +34,7 @@ namespace Drivers_and_Vehicles_License_Department__DVLD_.Detained_Licenses.Forms
 
             _LicenseID = ctrlLicenseCardWithFilter1.LicenseID;
 
-            llblShowLicenseInfo.Enabled = false;
+            lblShowLicenseInfo.Enabled = false;
 
             ctrlLicenseCardWithFilter1.LicenseSelected += CtrlLicenseCardWithFilter1_LicenseSelected;
         }
@@ -46,7 +46,7 @@ namespace Drivers_and_Vehicles_License_Department__DVLD_.Detained_Licenses.Forms
             lblLicenseID.Text = (_LicenseID == -1) ? "N\\A" : _LicenseID.ToString();
 
             llblShowLicensesHistory.Enabled = (_LicenseID != -1);
-            llblShowLicenseInfo.Enabled = (_LicenseID != -1);
+            lblShowLicenseInfo.Enabled = (_LicenseID != -1);
 
             _CheckIfLicenseDetained();
 
@@ -85,7 +85,7 @@ namespace Drivers_and_Vehicles_License_Department__DVLD_.Detained_Licenses.Forms
 
         }
 
-        private void _PopulateDetaineInfo()
+        private void _PopulateDetainInfo()
         {
             lblDetainID.Text = _DetainedLicense.DetainID.ToString();
             lblDetainedDate.Text = _DetainedLicense.DetainDate.ToString();
@@ -94,7 +94,7 @@ namespace Drivers_and_Vehicles_License_Department__DVLD_.Detained_Licenses.Forms
         private void _SetControlsAfterDetain()
         {
             btnDetain.Enabled = false;
-            llblShowLicenseInfo.Enabled = true;
+            lblShowLicenseInfo.Enabled = true;
         }
 
         private void btnDetain_Click(object sender, EventArgs e)
@@ -122,11 +122,9 @@ namespace Drivers_and_Vehicles_License_Department__DVLD_.Detained_Licenses.Forms
             clsMessageBoxManager.ShowMessageBox($"License Detained Successfully with  ID = {_DetainedLicense.LicenseID}", "Success",
                                     MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-            _PopulateDetaineInfo();
+            _PopulateDetainInfo();
 
             _SetControlsAfterDetain();
-
-            llblShowLicenseInfo.Enabled = true;
         }
 
         private void llblShowLicensesHistory_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)

@@ -215,7 +215,8 @@ namespace DVLD_Data_Access
 
             string query = @"SELECT Found = 1
                      FROM DetainedLicenses
-                     WHERE LicenseID = @LicenseID";
+                     WHERE LicenseID = @LicenseID
+                     AND IsReleased=0";
 
             SqlCommand command = new SqlCommand(query, connection);
             command.Parameters.AddWithValue("@LicenseID", LicenseID);
@@ -242,6 +243,46 @@ namespace DVLD_Data_Access
             }
 
             return IsFound;
+        }
+
+        public static int GetDetainIDByLicenseIDData(int LicenseID)
+        {
+            int DetainedLicenseID = -1;
+
+            SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString);
+
+            string query = @"Select DetainID
+                             From DetainedLicenses
+                             Where LicenseID=@LicenseID
+                             AND IsReleased=0;";
+
+            SqlCommand command = new SqlCommand(query, connection);
+
+            command.Parameters.AddWithValue("@LicenseID", LicenseID);
+
+            try
+            {
+                connection.Open();
+
+                object result = command.ExecuteScalar();
+
+                if (result != null)
+                {
+                    DetainedLicenseID = Convert.ToInt32(result);
+                }
+            }
+
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+
+            finally
+            {
+                connection.Close();
+            }
+
+            return DetainedLicenseID;
         }
 
 

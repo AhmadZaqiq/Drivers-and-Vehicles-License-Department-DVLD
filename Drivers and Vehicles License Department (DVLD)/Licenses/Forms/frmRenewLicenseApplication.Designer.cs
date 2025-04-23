@@ -32,7 +32,7 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmRenewLicenseApplication));
             SiticoneNetFrameworkUI.SiticonePictureBox siticonePictureBox7;
             SiticoneNetFrameworkUI.SiticonePictureBox siticonePictureBox9;
-            this.llblShowNewLicenseInfo = new System.Windows.Forms.LinkLabel();
+            this.lblShowNewLicenseInfo = new System.Windows.Forms.LinkLabel();
             this.lblShowLicensesHistory = new System.Windows.Forms.LinkLabel();
             this.ctrlLicenseCardWithFilter1 = new Drivers_and_Vehicles_License_Department__DVLD_.Licenses.Controls.ctrlLicenseCardWithFilter();
             this.siticonePictureBox6 = new SiticoneNetFrameworkUI.SiticonePictureBox();
@@ -211,16 +211,16 @@
             // 
             // llblShowNewLicenseInfo
             // 
-            this.llblShowNewLicenseInfo.AutoSize = true;
-            this.llblShowNewLicenseInfo.Enabled = false;
-            this.llblShowNewLicenseInfo.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.llblShowNewLicenseInfo.Location = new System.Drawing.Point(189, 875);
-            this.llblShowNewLicenseInfo.Name = "llblShowNewLicenseInfo";
-            this.llblShowNewLicenseInfo.Size = new System.Drawing.Size(179, 21);
-            this.llblShowNewLicenseInfo.TabIndex = 255;
-            this.llblShowNewLicenseInfo.TabStop = true;
-            this.llblShowNewLicenseInfo.Text = "Show New License Info";
-            this.llblShowNewLicenseInfo.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.llblShowNewLicenseInfo_LinkClicked);
+            this.lblShowNewLicenseInfo.AutoSize = true;
+            this.lblShowNewLicenseInfo.Enabled = false;
+            this.lblShowNewLicenseInfo.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblShowNewLicenseInfo.Location = new System.Drawing.Point(189, 875);
+            this.lblShowNewLicenseInfo.Name = "llblShowNewLicenseInfo";
+            this.lblShowNewLicenseInfo.Size = new System.Drawing.Size(179, 21);
+            this.lblShowNewLicenseInfo.TabIndex = 255;
+            this.lblShowNewLicenseInfo.TabStop = true;
+            this.lblShowNewLicenseInfo.Text = "Show New License Info";
+            this.lblShowNewLicenseInfo.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.llblShowNewLicenseInfo_LinkClicked);
             // 
             // llblShowLicensesHistory
             // 
@@ -1098,7 +1098,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(861, 923);
-            this.Controls.Add(this.llblShowNewLicenseInfo);
+            this.Controls.Add(this.lblShowNewLicenseInfo);
             this.Controls.Add(this.lblShowLicensesHistory);
             this.Controls.Add(this.ctrlLicenseCardWithFilter1);
             this.Controls.Add(this.lblTitle);
@@ -1118,7 +1118,7 @@
 
         #endregion
 
-        private System.Windows.Forms.LinkLabel llblShowNewLicenseInfo;
+        private System.Windows.Forms.LinkLabel lblShowNewLicenseInfo;
         private System.Windows.Forms.LinkLabel lblShowLicensesHistory;
         private Controls.ctrlLicenseCardWithFilter ctrlLicenseCardWithFilter1;
         private SiticoneNetFrameworkUI.SiticonePictureBox siticonePictureBox6;

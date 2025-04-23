@@ -25,7 +25,7 @@ namespace Drivers_and_Vehicles_License_Department__DVLD_.Licenses.Forms
 
         private decimal _RenewApplicationTypeFees;
 
-        private const int RenewApplicationTypeID = 2;
+        private const int _RenewApplicationTypeID = 2;
 
         private enum enIssueReason { FirstTime = 1, Renew = 2, Damaged = 3, Lost = 4 };
 
@@ -40,13 +40,13 @@ namespace Drivers_and_Vehicles_License_Department__DVLD_.Licenses.Forms
 
             clsUtil.OpenFormEffect(this);
 
-            _RenewApplicationTypeFees = clsApplicationType.GetApplicationTypeByID(RenewApplicationTypeID).ApplicationTypeFees;
+            _RenewApplicationTypeFees = clsApplicationType.GetApplicationTypeByID(_RenewApplicationTypeID).ApplicationTypeFees;
 
             _OldLicenseID = ctrlLicenseCardWithFilter1.LicenseID;
 
-            llblShowNewLicenseInfo.Enabled = false;
+            lblShowNewLicenseInfo.Enabled = false;
 
-            _PopulateApplicationDetails();
+            _PopulateRenewApplicationDetails();
 
             ctrlLicenseCardWithFilter1.LicenseSelected += CtrlLicenseCardWithFilter1_LicenseSelected;
         }
@@ -81,7 +81,7 @@ namespace Drivers_and_Vehicles_License_Department__DVLD_.Licenses.Forms
             btnIssue.Enabled = true;
         }
 
-        private decimal _CalculteTotalFees()
+        private decimal _CalculateTotalFees()
         {
             return _OldLicense.PaidFees + _RenewApplicationTypeFees;
         }
@@ -91,10 +91,10 @@ namespace Drivers_and_Vehicles_License_Department__DVLD_.Licenses.Forms
             lblLicenseFees.Text = _OldLicense.PaidFees.ToString();
             lblOldLicenseID.Text = _OldLicenseID.ToString();
             lblExpirationDate.Text = _OldLicense.ExpirationDate.ToString();
-            lblTotalFees.Text = _CalculteTotalFees().ToString();
+            lblTotalFees.Text = _CalculateTotalFees().ToString();
         }
 
-        private void _PopulateApplicationDetails()
+        private void _PopulateRenewApplicationDetails()
         {
             lblRLAppID.Text = "N\\A";
             lblApplicationDate.Text = lblIssueDate.Text = DateTime.Now.ToString();
@@ -103,7 +103,6 @@ namespace Drivers_and_Vehicles_License_Department__DVLD_.Licenses.Forms
             lblRenewedLicenseID.Text = "N\\A";
             lblOldLicenseID.Text = "N\\A";
             lblExpirationDate.Text = "N\\A";
-            lblRenewedLicenseID.Text = "N\\A";
             lblCreatedBy.Text = clsCurrentUser.CurrentUser.Username;
             lblTotalFees.Text = "N\\A"; ;
         }
@@ -133,7 +132,7 @@ namespace Drivers_and_Vehicles_License_Department__DVLD_.Licenses.Forms
 
             _RenewApplication.ApplicantPersonID = clsLicense.GetPersonIDByLicenseID(_OldLicenseID);
             _RenewApplication.ApplicationDate = DateTime.Now;
-            _RenewApplication.ApplicationTypeID = RenewApplicationTypeID;
+            _RenewApplication.ApplicationTypeID = _RenewApplicationTypeID;
             _RenewApplication.ApplicationStatus = Completed;
             _RenewApplication.LastStatusDate = DateTime.Now;
             _RenewApplication.PaidFees = _RenewApplicationTypeFees;
@@ -149,7 +148,7 @@ namespace Drivers_and_Vehicles_License_Department__DVLD_.Licenses.Forms
         private void _SetControlsAfterRenew()
         {
             btnIssue.Enabled = false;
-            llblShowNewLicenseInfo.Enabled = true;
+            lblShowNewLicenseInfo.Enabled = true;
         }
 
         private void _DisableOldLicense()
@@ -196,13 +195,7 @@ namespace Drivers_and_Vehicles_License_Department__DVLD_.Licenses.Forms
                 return;
             }
 
-            llblShowNewLicenseInfo.Enabled = true;
-        }
-
-        private void llblShowLicensesHistory_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
-        {
-            frmLicensesHistory FormLicensesHistory = new frmLicensesHistory(_OldLicense.DriverID, clsApplication.GetApplicationByID(_OldLicense.ApplicationID).ApplicantPersonID);
-            FormLicensesHistory.ShowDialog();
+            lblShowNewLicenseInfo.Enabled = true;
         }
 
         private void llblShowNewLicenseInfo_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
@@ -211,9 +204,17 @@ namespace Drivers_and_Vehicles_License_Department__DVLD_.Licenses.Forms
             FormDriverLicenseInfo.ShowDialog();
         }
 
+        private void llblShowLicensesHistory_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            frmLicensesHistory FormLicensesHistory = new frmLicensesHistory(_OldLicense.DriverID, clsApplication.GetApplicationByID(_OldLicense.ApplicationID).ApplicantPersonID);
+            FormLicensesHistory.ShowDialog();
+        }
+
         private void btnCancel_Click(object sender, EventArgs e)
         {
             clsUtil.CloseFormEffect(this);
         }
+
+
     }
 }

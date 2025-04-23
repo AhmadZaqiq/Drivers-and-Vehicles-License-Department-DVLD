@@ -124,5 +124,13 @@ namespace Drivers_and_Vehicles_License_Department__DVLD_
             frmDetainLicense FormDetainLicense = new frmDetainLicense();
             FormDetainLicense.ShowDialog();
         }
+
+        private void releaseDetainedLicenseToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmReleaseLicense FormReleaseLicense =new frmReleaseLicense();
+            FormReleaseLicense.ShowDialog();
+        }
+
+
     }
 }

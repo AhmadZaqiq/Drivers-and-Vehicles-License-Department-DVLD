@@ -103,6 +103,12 @@
     <Compile Include="Detained Licenses\Forms\frmDetainLicense.Designer.cs">
       <DependentUpon>frmDetainLicense.cs</DependentUpon>
     </Compile>
+    <Compile Include="Detained Licenses\Forms\frmReleaseLicense.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Detained Licenses\Forms\frmReleaseLicense.Designer.cs">
+      <DependentUpon>frmReleaseLicense.cs</DependentUpon>
+    </Compile>
     <Compile Include="Drivers\Forms\frmListDrivers.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -326,6 +332,9 @@
     </Compile>
     <EmbeddedResource Include="Detained Licenses\Forms\frmDetainLicense.resx">
       <DependentUpon>frmDetainLicense.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Detained Licenses\Forms\frmReleaseLicense.resx">
+      <DependentUpon>frmReleaseLicense.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Drivers\Forms\frmListDrivers.resx">
       <DependentUpon>frmListDrivers.cs</DependentUpon>

@@ -93,6 +93,11 @@ public class clsDetainedLicense
         return clsDetainedLicensesData.IsLicenseDetainedData(LicenseID);
     }
 
+    public static int GetDetainIDByLicenseID(int LicenseID)
+    {
+        return clsDetainedLicensesData.GetDetainIDByLicenseIDData(LicenseID);
+    }
+
     public bool Save()
     {
         switch (Mode)
