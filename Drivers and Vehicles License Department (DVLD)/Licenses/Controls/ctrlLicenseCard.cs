@@ -1,13 +1,13 @@
-﻿using DVLD_Business;
+﻿using Drivers_and_Vehicles_License_Department__DVLD_.Properties;
+using DVLD_Business;
 using System;
-using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.IO;
 using System.Windows.Forms;
+using Drivers_and_Vehicles_License_Department__DVLD_.Global;
+using System.Text.RegularExpressions;
 
 namespace Drivers_and_Vehicles_License_Department__DVLD_.Licenses.Controls
 {
@@ -27,7 +27,6 @@ namespace Drivers_and_Vehicles_License_Department__DVLD_.Licenses.Controls
 
         private enum enIssueReason { FirstTime = 1, Renew = 2, Damaged = 3, Lost = 4 };
         private enum enIsDetained { No = 0, Yes = 1 };
-
 
         public ctrlLicenseCard()
         {
@@ -76,6 +75,24 @@ namespace Drivers_and_Vehicles_License_Department__DVLD_.Licenses.Controls
             return (enIssueReason)value;
         }
 
+        private string _SetDefaultImage()
+        {
+            string resourcesPath = Path.Combine(Application.StartupPath, @"..\..\PersonalImages");
+
+            string fileName = (_Person.Gender == 0) ? "MaleAvatar.png" : "FemaleAvatar.png";
+
+            return Path.Combine(resourcesPath, fileName);
+        }
+
+        private void _SetPersonImage()
+        {
+            string imagePath = Path.Combine(Application.StartupPath, @"..\..\PersonalImages", _Person.ImagePath);
+
+            pbPersonalImage.BackgroundImage = File.Exists(imagePath)
+                ? Image.FromFile(imagePath)
+                : Image.FromFile(_SetDefaultImage());
+        }
+
         private void _PopulateLicenseDetails()
         {
             lblClass.Text = clsLicenseClass.GetLicenseClassByID(_License.LicenseClassID).ClassName;
@@ -91,6 +108,8 @@ namespace Drivers_and_Vehicles_License_Department__DVLD_.Licenses.Controls
             lblDriverID.Text = _License.DriverID.ToString();
             lblExpirationDate.Text = _License.ExpirationDate.ToString();
             lblIsDetained.Text = clsDetainedLicense.IsLicenseDetained(_LicenseID) ? enIsDetained.Yes.ToString() : enIsDetained.No.ToString();
+
+            _SetPersonImage();
         }
 
         private void _DisplayLicenseDetails()

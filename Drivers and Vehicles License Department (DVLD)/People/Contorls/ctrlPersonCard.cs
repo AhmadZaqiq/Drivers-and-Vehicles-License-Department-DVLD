@@ -49,16 +49,25 @@ namespace Drivers_and_Vehicles_License_Department__DVLD_
 
         private string _SetDefaultImage()
         {
-            string ResourcesPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Resources");
+            string resourcesPath = Path.Combine(Application.StartupPath, @"..\..\PersonalImages");
 
             if (_PersonID == -1)
             {
-                return Path.Combine(ResourcesPath, "MaleAvatar.png");
+                return Path.Combine(resourcesPath, "MaleAvatar.png");
             }
 
-            string FileName = (_Person.Gender == 0) ? "MaleAvatar.png" : "FemaleAvatar.png";
+            string fileName = (_Person.Gender == 0) ? "MaleAvatar.png" : "FemaleAvatar.png";
 
-            return Path.Combine(ResourcesPath, FileName);
+            return Path.Combine(resourcesPath, fileName);
+        }
+
+        private void _SetPersonImage()
+        {
+            string imagePath = Path.Combine(Application.StartupPath, @"..\..\PersonalImages", _Person.ImagePath);
+
+            pbPersonalImage.BackgroundImage = File.Exists(imagePath)
+                ? Image.FromFile(imagePath)
+                : Image.FromFile(_SetDefaultImage());
         }
 
         public string _ConvertGenderToText(int Gender)
@@ -104,6 +113,8 @@ namespace Drivers_and_Vehicles_License_Department__DVLD_
             lblPhone.Text = _Person.Phone;
             lblDateOfBirth.Text = _Person.DateOfBirth.ToString("yyyy-MM-dd");
             lblCountry.Text = _Country.CountryName;
+
+            _SetPersonImage();
         }
 
         private void btnEditInfoClick(object sender, EventArgs e)

@@ -34,11 +34,11 @@
             this.siticonePanel1 = new SiticoneNetFrameworkUI.SiticonePanel();
             this.dgvDetainedLicenses = new System.Windows.Forms.DataGridView();
             this.cmDetainLicensesSettings = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.ShowPersonlicenseHistoryStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.LicenseDetailsToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.LicenseHistryToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator5 = new System.Windows.Forms.ToolStripSeparator();
             this.ShowLicenseStripToolMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.ShowPersonlicenseHistoryStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.lblRecordsCount = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.cbFilter = new System.Windows.Forms.ComboBox();
@@ -146,7 +146,15 @@
             this.toolStripSeparator5,
             this.ShowLicenseStripToolMenuItem1});
             this.cmDetainLicensesSettings.Name = "cmPersonSettings";
-            this.cmDetainLicensesSettings.Size = new System.Drawing.Size(250, 184);
+            this.cmDetainLicensesSettings.Size = new System.Drawing.Size(250, 162);
+            // 
+            // ShowPersonlicenseHistoryStripMenuItem1
+            // 
+            this.ShowPersonlicenseHistoryStripMenuItem1.Image = global::Drivers_and_Vehicles_License_Department__DVLD_.Properties.Resources.ic_fluent_person_24_filled;
+            this.ShowPersonlicenseHistoryStripMenuItem1.Name = "ShowPersonlicenseHistoryStripMenuItem1";
+            this.ShowPersonlicenseHistoryStripMenuItem1.Size = new System.Drawing.Size(249, 38);
+            this.ShowPersonlicenseHistoryStripMenuItem1.Text = "Show Person Details";
+            this.ShowPersonlicenseHistoryStripMenuItem1.Click += new System.EventHandler(this.ShowPersonlicenseHistoryStripMenuItem1_Click);
             // 
             // LicenseDetailsToolStripMenuItem1
             // 
@@ -167,23 +175,15 @@
             // toolStripSeparator5
             // 
             this.toolStripSeparator5.Name = "toolStripSeparator5";
-            this.toolStripSeparator5.Size = new System.Drawing.Size(269, 6);
+            this.toolStripSeparator5.Size = new System.Drawing.Size(246, 6);
             // 
             // ShowLicenseStripToolMenuItem1
             // 
             this.ShowLicenseStripToolMenuItem1.Enabled = false;
             this.ShowLicenseStripToolMenuItem1.Image = global::Drivers_and_Vehicles_License_Department__DVLD_.Properties.Resources.ic_fluent_contact_card_24_filled__1_;
             this.ShowLicenseStripToolMenuItem1.Name = "ShowLicenseStripToolMenuItem1";
-            this.ShowLicenseStripToolMenuItem1.Size = new System.Drawing.Size(272, 38);
+            this.ShowLicenseStripToolMenuItem1.Size = new System.Drawing.Size(249, 38);
             this.ShowLicenseStripToolMenuItem1.Text = "Show License";
-            // 
-            // ShowPersonlicenseHistoryStripMenuItem1
-            // 
-            this.ShowPersonlicenseHistoryStripMenuItem1.Image = global::Drivers_and_Vehicles_License_Department__DVLD_.Properties.Resources.ic_fluent_person_24_filled;
-            this.ShowPersonlicenseHistoryStripMenuItem1.Name = "ShowPersonlicenseHistoryStripMenuItem1";
-            this.ShowPersonlicenseHistoryStripMenuItem1.Size = new System.Drawing.Size(249, 38);
-            this.ShowPersonlicenseHistoryStripMenuItem1.Text = "Show Person Details";
-            this.ShowPersonlicenseHistoryStripMenuItem1.Click += new System.EventHandler(this.ShowPersonlicenseHistoryStripMenuItem1_Click);
             // 
             // lblRecordsCount
             // 
@@ -480,11 +480,11 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1175, 917);
+            this.Controls.Add(this.txtFilter);
             this.Controls.Add(this.btnReleaseLicense);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.btnDetainLicense);
-            this.Controls.Add(this.txtFilter);
             this.Controls.Add(this.siticonePanel1);
             this.Controls.Add(this.lblRecordsCount);
             this.Controls.Add(this.label3);

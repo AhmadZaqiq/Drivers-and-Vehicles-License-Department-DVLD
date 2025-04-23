@@ -952,5 +952,11 @@
   <ItemGroup>
     <None Include="Resources\traffic fine-rafiki.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\woman_1000dp_000000_FILL0_wght400_GRAD0_opsz48.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\face_1000dp_000000_FILL0_wght400_GRAD0_opsz48.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

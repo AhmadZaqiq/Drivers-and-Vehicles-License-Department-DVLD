@@ -42,7 +42,6 @@
             this.siticoneButton4 = new SiticoneNetFrameworkUI.SiticoneButton();
             this.btnSave = new SiticoneNetFrameworkUI.SiticoneButton();
             this.siticoneButton2 = new SiticoneNetFrameworkUI.SiticoneButton();
-            this.pbPersonalImage = new SiticoneNetFrameworkUI.SiticonePictureBox();
             this.rbFemale = new SiticoneNetFrameworkUI.SiticoneRadioButton();
             this.rbMale = new SiticoneNetFrameworkUI.SiticoneRadioButton();
             this.txtFirstName = new SiticoneNetFrameworkUI.SiticoneTextBox();
@@ -51,6 +50,7 @@
             this.label7 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
             this.cbCountry = new System.Windows.Forms.ComboBox();
+            this.pbPersonalImage = new SiticoneNetFrameworkUI.SiticonePictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             this.Panel.SuspendLayout();
             this.SuspendLayout();
@@ -68,6 +68,7 @@
             this.Panel.BorderGradientEndColor = System.Drawing.Color.Purple;
             this.Panel.BorderGradientStartColor = System.Drawing.Color.Blue;
             this.Panel.BorderThickness = 2F;
+            this.Panel.Controls.Add(this.pbPersonalImage);
             this.Panel.Controls.Add(this.txtAddress);
             this.Panel.Controls.Add(this.txtEmail);
             this.Panel.Controls.Add(this.txtPhone);
@@ -78,7 +79,6 @@
             this.Panel.Controls.Add(this.siticoneButton4);
             this.Panel.Controls.Add(this.btnSave);
             this.Panel.Controls.Add(this.siticoneButton2);
-            this.Panel.Controls.Add(this.pbPersonalImage);
             this.Panel.Controls.Add(this.rbFemale);
             this.Panel.Controls.Add(this.rbMale);
             this.Panel.Controls.Add(this.txtFirstName);
@@ -790,49 +790,6 @@
             this.siticoneButton2.UseParticles = false;
             this.siticoneButton2.Click += new System.EventHandler(this.btnSetImage_Click);
             // 
-            // pbPersonalImage
-            // 
-            this.pbPersonalImage.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.pbPersonalImage.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.pbPersonalImage.BorderColor = System.Drawing.Color.WhiteSmoke;
-            this.pbPersonalImage.BorderWidth = 1;
-            this.pbPersonalImage.Brightness = 1F;
-            this.pbPersonalImage.Contrast = 1F;
-            this.pbPersonalImage.CornerRadius = 0;
-            this.pbPersonalImage.DraggingSpeed = 3.15F;
-            this.pbPersonalImage.EnableAsyncLoading = false;
-            this.pbPersonalImage.EnableCaching = false;
-            this.pbPersonalImage.EnableDragDrop = false;
-            this.pbPersonalImage.EnableExtendedImageSources = false;
-            this.pbPersonalImage.EnableFilters = false;
-            this.pbPersonalImage.EnableFlipping = false;
-            this.pbPersonalImage.EnableGlow = false;
-            this.pbPersonalImage.EnableHighDpiSupport = false;
-            this.pbPersonalImage.EnableMouseInteraction = false;
-            this.pbPersonalImage.EnablePlaceholder = false;
-            this.pbPersonalImage.EnableRotation = false;
-            this.pbPersonalImage.EnableShadow = false;
-            this.pbPersonalImage.EnableSlideshow = false;
-            this.pbPersonalImage.FlipHorizontal = false;
-            this.pbPersonalImage.FlipVertical = false;
-            this.pbPersonalImage.Grayscale = false;
-            this.pbPersonalImage.Image = null;
-            this.pbPersonalImage.ImageOpacity = 1F;
-            this.pbPersonalImage.Images = ((System.Collections.Generic.List<System.Drawing.Image>)(resources.GetObject("pbPersonalImage.Images")));
-            this.pbPersonalImage.InterpolationMode = System.Drawing.Drawing2D.InterpolationMode.HighQualityBicubic;
-            this.pbPersonalImage.IsCircular = false;
-            this.pbPersonalImage.Location = new System.Drawing.Point(47, 113);
-            this.pbPersonalImage.MaintainAspectRatio = true;
-            this.pbPersonalImage.Name = "pbPersonalImage";
-            this.pbPersonalImage.PlaceholderImage = null;
-            this.pbPersonalImage.RotationAngle = 0F;
-            this.pbPersonalImage.Saturation = 1F;
-            this.pbPersonalImage.ShowBorder = true;
-            this.pbPersonalImage.Size = new System.Drawing.Size(300, 300);
-            this.pbPersonalImage.SizeMode = SiticoneNetFrameworkUI.Helpers.Enum.SiticonePictureBoxSizeMode.Normal;
-            this.pbPersonalImage.TabIndex = 126;
-            this.pbPersonalImage.Text = "siticonePictureBox1";
-            // 
             // rbFemale
             // 
             this.rbFemale.AccessibleRole = System.Windows.Forms.AccessibleRole.RadioButton;
@@ -1034,6 +991,50 @@
             this.cbCountry.Name = "cbCountry";
             this.cbCountry.Size = new System.Drawing.Size(202, 29);
             this.cbCountry.TabIndex = 10;
+            // 
+            // pbPersonalImage
+            // 
+            this.pbPersonalImage.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.pbPersonalImage.BackgroundImage = global::Drivers_and_Vehicles_License_Department__DVLD_.Properties.Resources.face_1000dp_000000_FILL0_wght400_GRAD0_opsz48;
+            this.pbPersonalImage.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.pbPersonalImage.BorderColor = System.Drawing.Color.WhiteSmoke;
+            this.pbPersonalImage.BorderWidth = 1;
+            this.pbPersonalImage.Brightness = 1F;
+            this.pbPersonalImage.Contrast = 1F;
+            this.pbPersonalImage.CornerRadius = 0;
+            this.pbPersonalImage.DraggingSpeed = 3.15F;
+            this.pbPersonalImage.EnableAsyncLoading = false;
+            this.pbPersonalImage.EnableCaching = false;
+            this.pbPersonalImage.EnableDragDrop = false;
+            this.pbPersonalImage.EnableExtendedImageSources = false;
+            this.pbPersonalImage.EnableFilters = false;
+            this.pbPersonalImage.EnableFlipping = false;
+            this.pbPersonalImage.EnableGlow = false;
+            this.pbPersonalImage.EnableHighDpiSupport = false;
+            this.pbPersonalImage.EnableMouseInteraction = false;
+            this.pbPersonalImage.EnablePlaceholder = false;
+            this.pbPersonalImage.EnableRotation = false;
+            this.pbPersonalImage.EnableShadow = false;
+            this.pbPersonalImage.EnableSlideshow = false;
+            this.pbPersonalImage.FlipHorizontal = false;
+            this.pbPersonalImage.FlipVertical = false;
+            this.pbPersonalImage.Grayscale = false;
+            this.pbPersonalImage.Image = null;
+            this.pbPersonalImage.ImageOpacity = 1F;
+            this.pbPersonalImage.Images = ((System.Collections.Generic.List<System.Drawing.Image>)(resources.GetObject("pbPersonalImage.Images")));
+            this.pbPersonalImage.InterpolationMode = System.Drawing.Drawing2D.InterpolationMode.HighQualityBicubic;
+            this.pbPersonalImage.IsCircular = false;
+            this.pbPersonalImage.Location = new System.Drawing.Point(47, 113);
+            this.pbPersonalImage.MaintainAspectRatio = true;
+            this.pbPersonalImage.Name = "pbPersonalImage";
+            this.pbPersonalImage.PlaceholderImage = null;
+            this.pbPersonalImage.RotationAngle = 0F;
+            this.pbPersonalImage.Saturation = 1F;
+            this.pbPersonalImage.ShowBorder = true;
+            this.pbPersonalImage.Size = new System.Drawing.Size(300, 300);
+            this.pbPersonalImage.SizeMode = SiticoneNetFrameworkUI.Helpers.Enum.SiticonePictureBoxSizeMode.Normal;
+            this.pbPersonalImage.TabIndex = 126;
+            this.pbPersonalImage.Text = "siticonePictureBox1";
             // 
             // ctrlAddNewPerson
             // 

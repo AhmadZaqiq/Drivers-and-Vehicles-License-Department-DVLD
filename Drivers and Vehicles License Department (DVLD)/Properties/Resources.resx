@@ -205,6 +205,9 @@
   <data name="ic_fluent_contact_card_24_filled (1)" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\ic_fluent_contact_card_24_filled (1).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="ic_fluent_video_person_star_24_filled" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\ic_fluent_video_person_star_24_filled.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="Writen Test pic" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Writen Test pic.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -343,6 +346,9 @@
   <data name="ic_fluent_edit_24_filled" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\ic_fluent_edit_24_filled.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="traffic fine-rafiki" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\traffic fine-rafiki.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="patient_boy1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\patient_boy1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -466,8 +472,8 @@
   <data name="ic_fluent_home_24_filled1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\ic_fluent_home_24_filled1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="ic_fluent_video_person_star_24_filled" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\ic_fluent_video_person_star_24_filled.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="woman_1000dp_000000_FILL0_wght400_GRAD0_opsz48" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\woman_1000dp_000000_FILL0_wght400_GRAD0_opsz48.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="find-user-1-5121" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\find-user-1-5121.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -583,7 +589,7 @@
   <data name="ic_fluent_status_24_filled" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\ic_fluent_status_24_filled.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="traffic fine-rafiki" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\traffic fine-rafiki.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="face_1000dp_000000_FILL0_wght400_GRAD0_opsz48" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\face_1000dp_000000_FILL0_wght400_GRAD0_opsz48.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

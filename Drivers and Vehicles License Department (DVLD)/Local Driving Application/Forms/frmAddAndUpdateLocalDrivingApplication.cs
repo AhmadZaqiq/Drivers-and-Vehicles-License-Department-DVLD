@@ -151,6 +151,8 @@ namespace Drivers_and_Vehicles_License_Department__DVLD_.Local_Driving_Applicati
 
             clsMessageBoxManager.ShowMessageBox("Data Added Successfully", "Done", MessageBoxButtons.OK, MessageBoxIcon.Information);
             DataAdded?.Invoke();
+
+            this.Close();
         }
 
         private void btnNext_Click(object sender, EventArgs e)

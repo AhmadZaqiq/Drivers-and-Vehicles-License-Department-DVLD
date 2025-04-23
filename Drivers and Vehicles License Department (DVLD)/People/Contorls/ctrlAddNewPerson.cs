@@ -19,6 +19,11 @@ namespace Drivers_and_Vehicles_License_Department__DVLD_
 
         private clsCountry _Country;
 
+        private string _SelectedImagePath = "";
+        private string _NewImageName = "";
+        private bool _ImageRemoved = false;
+        private string _OldImageName = "";
+
         public enum enMode { AddNew = 0, Update = 1 };
 
         private enMode _Mode = enMode.AddNew;
@@ -69,22 +74,17 @@ namespace Drivers_and_Vehicles_License_Department__DVLD_
 
         private void _RefreshPersonalImage()
         {
-            if (pbPersonalImage.Tag?.ToString() == "ImageSet")
-            {
-                return;
-            }
+            string imagePath = Path.Combine(Application.StartupPath, @"..\..\PersonalImages");
 
             if (rbMale.Checked)
             {
-                pbPersonalImage.BackgroundImage = Resources.MaleAvatar;
-                pbPersonalImage.Tag = "Male";
+                pbPersonalImage.BackgroundImage = Image.FromFile(Path.Combine(imagePath, "MaleAvatar.png"));
                 return;
             }
 
             if (rbFemale.Checked)
             {
-                pbPersonalImage.BackgroundImage = Resources.FemaleAvatar;
-                pbPersonalImage.Tag = "Female";
+                pbPersonalImage.BackgroundImage = Image.FromFile(Path.Combine(imagePath, "FemaleAvatar.png"));
             }
         }
 
@@ -101,9 +101,80 @@ namespace Drivers_and_Vehicles_License_Department__DVLD_
             rbFemale.Checked = _Person.Gender == 1;
         }
 
-        private void _UpdateBackgroundImage()
+        private void _OpenImageDialog()
         {
-            clsMessageBoxManager.ShowMessageBox("This feature is currently not available :( ", "Note", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            OpenFileDialog openFileDialog = new OpenFileDialog();
+            openFileDialog.Filter = "Image Files|*.jpg;*.jpeg;*.png;*.bmp;*.gif";
+            openFileDialog.Title = "Select a Person Image";
+
+            if (openFileDialog.ShowDialog() == DialogResult.OK)
+            {
+                _SelectedImagePath = openFileDialog.FileName;
+                _GenerateGuidImageName();
+
+                pbPersonalImage.BackgroundImage = Image.FromFile(_SelectedImagePath);
+                pbPersonalImage.BackgroundImageLayout = ImageLayout.Stretch;
+
+                _ImageRemoved = false;
+            }
+        }
+
+        private void _GenerateGuidImageName()
+        {
+            string extension = Path.GetExtension(_SelectedImagePath);
+            _NewImageName = Guid.NewGuid().ToString() + extension;
+        }
+
+        private void _CopyImageToPersonalImagesFolder()
+        {
+            try
+            {
+                string imagePath = Path.Combine(Application.StartupPath, @"..\..\PersonalImages");
+
+                if (!Directory.Exists(imagePath))
+                {
+                    Directory.CreateDirectory(imagePath);
+                }
+
+                string destinationPath = Path.Combine(imagePath, _NewImageName);
+                File.Copy(_SelectedImagePath, destinationPath, true);
+            }
+            catch (Exception ex)
+            {
+                clsMessageBoxManager.ShowMessageBox("Error copying image: " + ex.Message, "Error",
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void _DeleteOldImage()
+        {
+            if (_ImageRemoved && !string.IsNullOrEmpty(_OldImageName))
+            {
+                try
+                {
+                    string imagePath = Path.Combine(Application.StartupPath, @"..\..\PersonalImages");
+                    string oldImagePath = Path.Combine(imagePath, _OldImageName);
+
+                    if (pbPersonalImage.BackgroundImage != null)
+                    {
+                        pbPersonalImage.BackgroundImage.Dispose();
+                        pbPersonalImage.BackgroundImage = null;
+                    }
+
+                    System.GC.Collect();
+                    System.GC.WaitForPendingFinalizers();
+
+                    if (File.Exists(oldImagePath))
+                    {
+                        File.Delete(oldImagePath);
+                    }
+                }
+                catch (Exception ex)
+                {
+                    clsMessageBoxManager.ShowMessageBox("Error deleting old image: " + ex.Message, "Error",
+                        MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
         }
 
         private void _PopulatePersonFieldsForUpdate()
@@ -127,6 +198,29 @@ namespace Drivers_and_Vehicles_License_Department__DVLD_
             txtPhone.Text = _Person.Phone;
             txtEmail.Text = _Person.Email;
             txtAddress.Text = _Person.Address;
+
+            if (!string.IsNullOrEmpty(_Person.ImagePath))
+            {
+                _NewImageName = _Person.ImagePath;
+                _OldImageName = _Person.ImagePath;
+
+                string imagePath = Path.Combine(Application.StartupPath, @"..\..\PersonalImages");
+                string fullImagePath = Path.Combine(imagePath, _NewImageName);
+
+                if (File.Exists(fullImagePath))
+                {
+                    pbPersonalImage.BackgroundImage = Image.FromFile(fullImagePath);
+                    pbPersonalImage.BackgroundImageLayout = ImageLayout.Stretch;
+                }
+                else
+                {
+                    _RefreshPersonalImage();
+                }
+            }
+            else
+            {
+                _RefreshPersonalImage();
+            }
         }
 
         private bool _AreAllInputsFilled()
@@ -172,7 +266,6 @@ namespace Drivers_and_Vehicles_License_Department__DVLD_
             rbMale.Checked = true;
             dtpDateOfBirth.MaxDate = DateTime.Now.AddYears(-18);
             cbCountry.Text = "Jordan";
-            pbPersonalImage.Tag = "Male";
         }
 
         private void _LoadPersonData()
@@ -188,11 +281,21 @@ namespace Drivers_and_Vehicles_License_Department__DVLD_
             _Person.Phone = txtPhone.Text.Trim();
             _Person.Email = txtEmail.Text.Trim();
             _Person.NationalityCountryID = clsCountry.GetCountryID(cbCountry.Text);
+
+            if (_ImageRemoved)
+            {
+                _Person.ImagePath = null;
+            }
+
+            else if (!string.IsNullOrEmpty(_NewImageName))
+            {
+                _Person.ImagePath = _NewImageName;
+            }
         }
 
         private void btnSetImage_Click(object sender, EventArgs e)
         {
-            _UpdateBackgroundImage();
+            _OpenImageDialog();
         }
 
         private bool _IsValidNationalNO()
@@ -229,6 +332,13 @@ namespace Drivers_and_Vehicles_License_Department__DVLD_
                 return;
             }
 
+            if (!string.IsNullOrEmpty(_SelectedImagePath) && !string.IsNullOrEmpty(_NewImageName))
+            {
+                _CopyImageToPersonalImagesFolder();
+            }
+
+            _DeleteOldImage();
+
             _LoadPersonData();
 
             if (!_Person.Save())
@@ -238,12 +348,24 @@ namespace Drivers_and_Vehicles_License_Department__DVLD_
             }
 
             clsMessageBoxManager.ShowMessageBox("Data Saved Successfully", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+            _ImageRemoved = false;
+            _OldImageName = "";
+
             DataAdded?.Invoke();
         }
 
         private void btnRemoveImage_Click(object sender, EventArgs e)
         {
-            _UpdateBackgroundImage();
+            if (!string.IsNullOrEmpty(_NewImageName))
+            {
+                _OldImageName = _NewImageName; // حفظ اسم الصورة القديمة للحذف لاحقاً
+                _ImageRemoved = true;
+            }
+
+            _NewImageName = "";
+            _SelectedImagePath = "";
+            _RefreshPersonalImage();
         }
 
         private void rb_CheckedChanged(object sender, EventArgs e)
