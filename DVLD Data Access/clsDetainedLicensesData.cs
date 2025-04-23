@@ -12,8 +12,26 @@ namespace DVLD_Data_Access
 
             SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString);
 
-            string query = @"SELECT *
-                             FROM DetainedLicenses;";
+            string query = @"SELECT 
+                             DL.DetainID,
+                             DL.LicenseID,
+                             DL.DetainDate,
+                             DL.IsReleased,
+                             DL.FineFees,
+                             DL.ReleaseDate,
+                             P.NationalNo,
+                             FullName = 
+                                 ISNULL(P.FirstName, '') + ' ' + 
+                                 ISNULL(P.SecondName, '') + ' ' + 
+                                 ISNULL(P.ThirdName + ' ', '') + 
+                                 ISNULL(P.LastName, ''),
+                             DL.ReleaseApplicationID
+                         FROM 
+                             DetainedLicenses DL
+                         LEFT JOIN 
+                             Applications A ON DL.ReleaseApplicationID = A.ApplicationID
+                         LEFT JOIN 
+                             People P ON A.ApplicantPersonID = P.PersonID;";
 
             SqlCommand command = new SqlCommand(query, connection);
 

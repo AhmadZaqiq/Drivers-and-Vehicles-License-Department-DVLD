@@ -15,6 +15,8 @@ namespace Drivers_and_Vehicles_License_Department__DVLD_.Detained_Licenses.Forms
 {
     public partial class frmReleaseLicense : Form
     {
+        public event Action DataAdded;
+
         private int _LicenseID;
 
         private int _DetainID;
@@ -29,9 +31,14 @@ namespace Drivers_and_Vehicles_License_Department__DVLD_.Detained_Licenses.Forms
 
         private const int _ReleaseLicenseApplicationTypeID = 5;
 
-        public frmReleaseLicense()
+        public frmReleaseLicense(frmListDetainedLicenses FormListDetainedLicenses = null)
         {
             InitializeComponent();
+
+            if (FormListDetainedLicenses != null)
+            {
+                this.DataAdded += FormListDetainedLicenses.RefreshDetainedLicensesDataGrid;
+            }
         }
 
         private void frmReleaseLicense_Load(object sender, EventArgs e)
@@ -175,6 +182,8 @@ namespace Drivers_and_Vehicles_License_Department__DVLD_.Detained_Licenses.Forms
             lblReleaseAppID.Text = _ReleaseLicenseApplication.ApplicationID.ToString();
 
             _SetControlsAfterRelease();
+
+            DataAdded?.Invoke();
         }
 
         private void lblShowLicenseInfo_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)

@@ -1,5 +1,6 @@
 ﻿using Drivers_and_Vehicles_License_Department__DVLD_.Global;
 using Drivers_and_Vehicles_License_Department__DVLD_.Licenses.Forms;
+using Drivers_and_Vehicles_License_Department__DVLD_.Local_Driving_Application;
 using DVLD_Business;
 using System;
 using System.Collections.Generic;
@@ -15,15 +16,22 @@ namespace Drivers_and_Vehicles_License_Department__DVLD_.Detained_Licenses.Forms
 {
     public partial class frmDetainLicense : Form
     {
+        public event Action DataAdded;
+
         private int _LicenseID;
 
         private clsLicense _License;
 
         private clsDetainedLicense _DetainedLicense;
 
-        public frmDetainLicense()
+        public frmDetainLicense(frmListDetainedLicenses FormListDetainedLicenses=null)
         {
             InitializeComponent();
+
+            if(FormListDetainedLicenses !=null)
+            {
+                this.DataAdded += FormListDetainedLicenses.RefreshDetainedLicensesDataGrid;
+            }
         }
 
         private void frmDetainLicense_Load(object sender, EventArgs e)
@@ -125,6 +133,8 @@ namespace Drivers_and_Vehicles_License_Department__DVLD_.Detained_Licenses.Forms
             _PopulateDetainInfo();
 
             _SetControlsAfterDetain();
+
+            DataAdded?.Invoke();
         }
 
         private void llblShowLicensesHistory_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)

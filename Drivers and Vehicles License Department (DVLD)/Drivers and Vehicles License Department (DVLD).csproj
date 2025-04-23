@@ -97,6 +97,12 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Detained Licenses\Forms\frmListDetainedLicenses.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Detained Licenses\Forms\frmListDetainedLicenses.Designer.cs">
+      <DependentUpon>frmListDetainedLicenses.cs</DependentUpon>
+    </Compile>
     <Compile Include="Detained Licenses\Forms\frmDetainLicense.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -330,6 +336,9 @@
     <Compile Include="Users\Forms\frmUpdateUser.Designer.cs">
       <DependentUpon>frmUpdateUser.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Detained Licenses\Forms\frmListDetainedLicenses.resx">
+      <DependentUpon>frmListDetainedLicenses.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Detained Licenses\Forms\frmDetainLicense.resx">
       <DependentUpon>frmDetainLicense.cs</DependentUpon>
     </EmbeddedResource>
@@ -939,6 +948,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\ic_fluent_lock_multiple_24_filled1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\traffic fine-rafiki.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

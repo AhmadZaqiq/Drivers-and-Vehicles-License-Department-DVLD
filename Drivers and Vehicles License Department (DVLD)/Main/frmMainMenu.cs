@@ -116,7 +116,8 @@ namespace Drivers_and_Vehicles_License_Department__DVLD_
 
         private void manageDetainLicensesToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
+            frmListDetainedLicenses FormListDetainedLicenses = new frmListDetainedLicenses();
+            FormListDetainedLicenses.ShowDialog();
         }
 
         private void detainLicenseToolStripMenuItem_Click(object sender, EventArgs e)
@@ -129,6 +130,18 @@ namespace Drivers_and_Vehicles_License_Department__DVLD_
         {
             frmReleaseLicense FormReleaseLicense =new frmReleaseLicense();
             FormReleaseLicense.ShowDialog();
+        }
+
+        private void releaseDetainedDrivingLicenseToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmReleaseLicense FormReleaseLicense = new frmReleaseLicense();
+            FormReleaseLicense.ShowDialog();
+        }
+
+        private void retakeTestToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmListLocalDrivingLicenseApplications FormListLocalDrivingLicenseApplications = new frmListLocalDrivingLicenseApplications();
+            FormListLocalDrivingLicenseApplications.ShowDialog();
         }
 
 
