@@ -76,7 +76,7 @@ namespace Drivers_and_Vehicles_License_Department__DVLD_.Login
         private bool _CheckCredentials()
         {
             string Username = txtUsername.Text.Trim();
-            string Password = txtPassword.Text;
+            string Password = clsUtil.ComputeHash(txtPassword.Text);
             _User = clsUser.GetUserByUsername(Username);
 
             if (_User == null || (_User.Password != Password))

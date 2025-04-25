@@ -39,7 +39,7 @@ namespace Drivers_and_Vehicles_License_Department__DVLD_.Users.Forms
         private void _LoadUserData()
         {
             _User.Username = txtUsername.Text;
-            _User.Password = txtPassword.Text;
+            _User.Password = clsUtil.ComputeHash(txtPassword.Text);
             _User.IsActive = chkIsActive.Checked;
             _User.PersonID = ctrlPersonCardWithFilter1.PersonID;
         }

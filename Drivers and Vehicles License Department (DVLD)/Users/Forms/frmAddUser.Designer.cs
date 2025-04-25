@@ -479,7 +479,6 @@
             this.chkIsActive.ContainerTopLeftRadius = 8;
             this.chkIsActive.ContainerTopRightRadius = 8;
             this.chkIsActive.Cursor = System.Windows.Forms.Cursors.Default;
-            this.chkIsActive.Enabled = false;
             this.chkIsActive.EnableRippleEffect = true;
             this.chkIsActive.FocusBorderWidth = 2;
             this.chkIsActive.FocusColor = System.Drawing.Color.Black;

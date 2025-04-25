@@ -6,6 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Security.Cryptography;
 
 namespace Drivers_and_Vehicles_License_Department__DVLD_.Global
 {
@@ -63,6 +64,21 @@ namespace Drivers_and_Vehicles_License_Department__DVLD_.Global
         public static string ValidGmailPattern = @"^[a-zA-Z0-9._%+-]+@gmail\.com$";
 
         public static string ValidPhonePattern = @"^\d{8,15}$";
+
+        public static string ComputeHash(string Password)
+        {
+            //SHA is Secutred Hash Algorithm.
+            // Create an instance of the SHA-256 algorithm
+            using (SHA256 sha256 = SHA256.Create())
+            {
+                // Compute the hash value from the UTF-8 encoded input string
+                byte[] hashBytes = sha256.ComputeHash(Encoding.UTF8.GetBytes(Password));
+
+
+                // Convert the byte array to a lowercase hexadecimal string
+                return BitConverter.ToString(hashBytes).Replace("-", "").ToLower();
+            }
+        }
 
 
     }

@@ -32,6 +32,7 @@
             SiticoneNetFrameworkUI.SiticonePictureBox siticonePictureBox8;
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmDetainLicense));
             this.siticonePanel2 = new SiticoneNetFrameworkUI.SiticonePanel();
+            this.siticoneLabel3 = new SiticoneNetFrameworkUI.SiticoneLabel();
             this.txtFineFees = new SiticoneNetFrameworkUI.SiticoneTextBox();
             this.siticonePictureBox6 = new SiticoneNetFrameworkUI.SiticonePictureBox();
             this.siticonePictureBox5 = new SiticoneNetFrameworkUI.SiticonePictureBox();
@@ -53,7 +54,6 @@
             this.lblTitle = new System.Windows.Forms.Label();
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
             this.ctrlLicenseCardWithFilter1 = new Drivers_and_Vehicles_License_Department__DVLD_.Licenses.Controls.ctrlLicenseCardWithFilter();
-            this.siticoneLabel3 = new SiticoneNetFrameworkUI.SiticoneLabel();
             siticonePictureBox8 = new SiticoneNetFrameworkUI.SiticonePictureBox();
             this.siticonePanel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
@@ -161,6 +161,17 @@
             this.siticonePanel2.UseMultiGradient = false;
             this.siticonePanel2.UsePatternTexture = false;
             this.siticonePanel2.UseRadialGradient = false;
+            // 
+            // siticoneLabel3
+            // 
+            this.siticoneLabel3.BackColor = System.Drawing.Color.Transparent;
+            this.siticoneLabel3.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.siticoneLabel3.ForeColor = System.Drawing.Color.Black;
+            this.siticoneLabel3.Location = new System.Drawing.Point(27, 118);
+            this.siticoneLabel3.Name = "siticoneLabel3";
+            this.siticoneLabel3.Size = new System.Drawing.Size(104, 23);
+            this.siticoneLabel3.TabIndex = 241;
+            this.siticoneLabel3.Text = "Detained Date:";
             // 
             // txtFineFees
             // 
@@ -272,7 +283,7 @@
             // siticonePictureBox5
             // 
             this.siticonePictureBox5.BackColor = System.Drawing.Color.Transparent;
-            this.siticonePictureBox5.BackgroundImage = global::Drivers_and_Vehicles_License_Department__DVLD_.Properties.Resources.ic_fluent_document_page_number_24_filled;
+            this.siticonePictureBox5.BackgroundImage = global::Drivers_and_Vehicles_License_Department__DVLD_.Properties.Resources.ic_fluent_person_accounts_24_filled;
             this.siticonePictureBox5.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.siticonePictureBox5.BorderColor = System.Drawing.Color.Black;
             this.siticonePictureBox5.BorderWidth = 1;
@@ -581,13 +592,13 @@
             this.btnCancel.UseParticles = false;
             this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 
-            // llblShowLicenseInfo
+            // lblShowLicenseInfo
             // 
             this.lblShowLicenseInfo.AutoSize = true;
             this.lblShowLicenseInfo.Enabled = false;
             this.lblShowLicenseInfo.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblShowLicenseInfo.Location = new System.Drawing.Point(189, 774);
-            this.lblShowLicenseInfo.Name = "llblShowLicenseInfo";
+            this.lblShowLicenseInfo.Name = "lblShowLicenseInfo";
             this.lblShowLicenseInfo.Size = new System.Drawing.Size(142, 21);
             this.lblShowLicenseInfo.TabIndex = 262;
             this.lblShowLicenseInfo.TabStop = true;
@@ -708,17 +719,6 @@
             this.ctrlLicenseCardWithFilter1.Name = "ctrlLicenseCardWithFilter1";
             this.ctrlLicenseCardWithFilter1.Size = new System.Drawing.Size(836, 506);
             this.ctrlLicenseCardWithFilter1.TabIndex = 257;
-            // 
-            // siticoneLabel3
-            // 
-            this.siticoneLabel3.BackColor = System.Drawing.Color.Transparent;
-            this.siticoneLabel3.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.siticoneLabel3.ForeColor = System.Drawing.Color.Black;
-            this.siticoneLabel3.Location = new System.Drawing.Point(27, 118);
-            this.siticoneLabel3.Name = "siticoneLabel3";
-            this.siticoneLabel3.Size = new System.Drawing.Size(104, 23);
-            this.siticoneLabel3.TabIndex = 241;
-            this.siticoneLabel3.Text = "Detained Date:";
             // 
             // frmDetainLicense
             // 

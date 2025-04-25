@@ -105,7 +105,7 @@ namespace Drivers_and_Vehicles_License_Department__DVLD_.Users.Forms
             string NewPassword = txtNewPassword.Text.Trim();
             string ConfirmPassword = txtConfirmPassword.Text.Trim();
 
-            if (_User.Password != CurrentPassword)
+            if (_User.Password != clsUtil.ComputeHash(CurrentPassword))
             {
                 clsMessageBoxManager.ShowMessageBox("Incorrect current password.", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return false;
@@ -141,7 +141,7 @@ namespace Drivers_and_Vehicles_License_Department__DVLD_.Users.Forms
                     return;
                 }
 
-                _User.Password = txtNewPassword.Text.Trim();
+                _User.Password = clsUtil.ComputeHash(txtNewPassword.Text.Trim());
 
                 if (!_User.Save())
                 {

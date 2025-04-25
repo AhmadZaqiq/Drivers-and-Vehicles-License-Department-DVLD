@@ -734,7 +734,7 @@
             // siticonePictureBox5
             // 
             this.siticonePictureBox5.BackColor = System.Drawing.Color.Transparent;
-            this.siticonePictureBox5.BackgroundImage = global::Drivers_and_Vehicles_License_Department__DVLD_.Properties.Resources.ic_fluent_document_page_number_24_filled;
+            this.siticonePictureBox5.BackgroundImage = global::Drivers_and_Vehicles_License_Department__DVLD_.Properties.Resources.ic_fluent_person_accounts_24_filled;
             this.siticonePictureBox5.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.siticonePictureBox5.BorderColor = System.Drawing.Color.Black;
             this.siticonePictureBox5.BorderWidth = 1;
