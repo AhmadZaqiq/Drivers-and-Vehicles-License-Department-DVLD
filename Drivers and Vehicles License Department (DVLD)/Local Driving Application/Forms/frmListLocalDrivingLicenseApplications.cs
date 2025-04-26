@@ -180,9 +180,19 @@ namespace Drivers_and_Vehicles_License_Department__DVLD_.Local_Driving_Applicati
 
         private void _UpdateTestScheduleAvailability(int PassedTestsCount)
         {
+            DataGridViewRow SelectedRow = dgvLocalDrivingLicenseApplications.SelectedRows[0];
+
+            string Status = SelectedRow.Cells["ApplicationStatus"].Value.ToString(); 
+
             enTestType TestType = (enTestType)PassedTestsCount;
 
             if (TestType == enTestType.Finish)
+            {
+                ScheduleTestsToolStripMenuItem.Enabled = false;
+                return;
+            }
+
+            if (Status == "Cancelled")
             {
                 ScheduleTestsToolStripMenuItem.Enabled = false;
                 return;

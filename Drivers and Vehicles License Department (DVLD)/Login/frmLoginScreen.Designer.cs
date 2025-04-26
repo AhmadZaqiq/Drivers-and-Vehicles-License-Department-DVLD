@@ -77,11 +77,11 @@
             this.label3.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.Color.Gray;
             this.label3.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.label3.Location = new System.Drawing.Point(65, 264);
+            this.label3.Location = new System.Drawing.Point(66, 264);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(251, 17);
+            this.label3.Size = new System.Drawing.Size(250, 17);
             this.label3.TabIndex = 35;
-            this.label3.Text = "Driving and Vehicle License Department ";
+            this.label3.Text = "Drivers and Vehicle License Department ";
             // 
             // txtUsername
             // 
