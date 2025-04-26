@@ -87,7 +87,7 @@ Watch the full project explanation on [YouTube](https://www.youtube.com/watch?v=
 
 ## DataBase Diagram
 
-![Sk Test](Sk%20Test.png)
+![Database Diagram](https://github.com/AhmadZaqiq/Drivers-and-Vehicles-License-Department-DVLD/raw/master/Database/Database%20diagram.png)
 
 ---
 
