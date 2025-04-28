@@ -140,9 +140,9 @@ Restore Database DVLD from disk='put_location_of_your_bak_file';
 |---|---------------------------------------|-------------------------------------|-----------------|
 | 1 | New License Issuance Service          | Apply for a new license             | $15             |
 | 2 | License Renewal Service               | Renew an existing license           | $5              |
-| 4 | Lost License Replacement Service      | Replace a lost license              | $10             |
-| 5 | Damaged License Replacement Service   | Replace a damaged license           | $5              |
-| 6 | License Release Service (from hold)   | Release Detained Driving Licsense   | $15             |
+| 3 | Lost License Replacement Service      | Replace a lost license              | $10             |
+| 4 | Damaged License Replacement Service   | Replace a damaged license           | $5              |
+| 5 | License Release Service (from hold)   | Release Detained Driving license    | $15             |
 | 6 | International License Issuance Service| Apply for an international license  | $50             |
 | 7 | Retest Service                        | Apply for a new test after failing  | $5              |
 
