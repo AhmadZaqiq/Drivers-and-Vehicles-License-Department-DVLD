@@ -1,5 +1,7 @@
 # Drivers and Vehicle License Department 
 
+![Block diagram](https://github.com/AhmadZaqiq/Drivers-and-Vehicles-License-Department-DVLD/raw/master/Database/Block%20diagram.png)
+
 ---
 
 ## Warning: This is not the final version of the code. 
