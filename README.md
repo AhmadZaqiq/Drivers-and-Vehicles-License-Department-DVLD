@@ -115,7 +115,7 @@ Ensure **Visual Studio 2022** is installed on your Computer, then open the proje
 In Visual Studio, open the **NuGet Package Manager** and install the **Siticone.NetFramework.UI** library.
 
 ### Step 4: Install SQL Server
-If you don’t have **SQL Server** installed, download and install it from the official [SQL Server website](https://www.microsoft.com/en-us/sql-server/sql-server-downloads).
+If you don’t have **SQL Server** installed, download and install it.
 
 ### Step 5: Update the Connection String
 In the `DVLD Data Access \ clsDataAccessSettings` file, update the `ConnectionString` with your local SQL Server instance details:
