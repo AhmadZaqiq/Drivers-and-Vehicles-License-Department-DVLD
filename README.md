@@ -87,11 +87,11 @@ Watch the full project explanation on [YouTube](https://www.youtube.com/watch?v=
 ---
 
 ## Technologies Used
-- **Microsoft .NET Framework**: Application framework for building Windows desktop apps and services. (Version: 4.8)
-- **C#**: Primary object-oriented programming language for developing business logic. (Version: 11.0)
-- **ADO.NET**: Data access technology for interacting with SQL Server. (Version: .NET 7.0)
-- - **SQL Server**: Relational database management system for storing application data. (Version: 2022)
-- **Siticone UI**: Library for creating modern, customizable user interfaces. (Version: 4.1)
+- [**Microsoft .NET Framework**](https://dotnet.microsoft.com/en-us/download/dotnet-framework): Application framework for building Windows desktop apps and services. (Version: 4.8)
+- [**C#**](https://learn.microsoft.com/en-us/dotnet/csharp/): Primary object-oriented programming language for developing business logic. (Version: 11.0)
+- [**ADO.NET**](https://learn.microsoft.com/en-us/dotnet/framework/data/adonet/): Data access technology for interacting with SQL Server. (Version: .NET 7.0)
+- [**SQL Server**](https://www.microsoft.com/en-us/sql-server/sql-server-downloads): Relational database management system for storing application data. (Version: 2022)
+- [**Siticone UI**](https://www.nuget.org/packages/Siticone.Desktop.UI/): Library for creating modern, customizable user interfaces. (Version: 4.1)
 
 ---
 
