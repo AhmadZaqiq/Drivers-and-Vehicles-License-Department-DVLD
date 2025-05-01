@@ -1,7 +1,7 @@
 # Drivers and Vehicle License Department 
 
 <p align="center">
-  <img src="https://github.com/AhmadZaqiq/Drivers-and-Vehicles-License-Department-DVLD/raw/master/Database/Block%20diagram.png" alt="Block diagram" />
+  <img src="https://github.com/AhmadZaqiq/Drivers-and-Vehicles-License-Department-DVLD/raw/master/Database/Block-diagram.png" alt="Block diagram" />
 </p>
 
 ---
@@ -103,33 +103,34 @@ Watch the full project explanation on [YouTube](https://www.youtube.com/watch?v=
 
 ## How to Run the Project
 
+---
+
 ### Step 1: Clone the Repository
-```
+```bash
 git clone https://github.com/AhmadZaqiq/Drivers-and-Vehicles-License-Department-DVLD.git
 cd Drivers-and-Vehicles-License-Department-DVLD
 ```
-### Step 2: Open the Project in Visual Studio 2022
-Ensure **Visual Studio 2022** is installed on your Computer, then open the project in **Visual Studio 2022**.
 
-### Step 3: Install the Siticone UI Library
-In Visual Studio, open the **NuGet Package Manager** and install the **Siticone.NetFramework.UI** library.
+### Step 2: Open the Project in [**Visual Studio 2022**](https://visualstudio.microsoft.com/vs/)
+Ensure **Visual Studio 2022** is installed on your computer, then open the project using it.
 
-### Step 4: Install SQL Server
-If you don’t have **SQL Server** installed, download and install it.
+### Step 3: Install the [**Siticone UI Library**](https://www.nuget.org/packages/Siticone.Desktop.UI/)
+In Visual Studio, open the **NuGet Package Manager** and install the `Siticone.NetFramework.UI` library.
+
+### Step 4: Install [**SQL Server**](https://www.microsoft.com/en-us/sql-server/sql-server-downloads)
+If you don’t have SQL Server installed, download and install it.
 
 ### Step 5: Update the Connection String
 In the `DVLD Data Access \ clsDataAccessSettings` file, update the `ConnectionString` with your local SQL Server instance details:
-```
+```csharp
 public static string ConnectionString = "Server=.;Database=DVLD;User id=YOUR_USER;Password=YOUR_PASSWORD";
 ```
 
 ### Step 6: Restore the Database
-Before running the project, ensure that the database is restored by executing the following command in **SQL Server Management Studio (SSMS)**:
-``` 
+Before running the project, ensure that the database is restored by executing the following command in [**SQL Server Management Studio (SSMS)**](https://learn.microsoft.com/en-us/sql/ssms/download-sql-server-management-studio-ssms):
+```sql
 Restore Database DVLD from disk='put_location_of_your_bak_file';
-``` 
-
-
+```
 ---
 
 ## Project explanation
