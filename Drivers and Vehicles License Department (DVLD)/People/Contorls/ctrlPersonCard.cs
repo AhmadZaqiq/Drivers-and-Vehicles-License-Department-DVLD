@@ -18,8 +18,6 @@ namespace Drivers_and_Vehicles_License_Department__DVLD_
 
         private clsPerson _Person;
 
-        private clsCountry _Country;
-
         private int _PersonID;
 
         public ctrlPersonCard()
@@ -89,15 +87,9 @@ namespace Drivers_and_Vehicles_License_Department__DVLD_
             pbPersonalImage.BackgroundImage = Image.FromFile(_SetDefaultImage());
         }
 
-        private void _LoadPersonData()
-        {
-            _Person = clsPerson.GetPersonByID(_PersonID);
-            _Country = clsCountry.GetCountryByPersonID(_PersonID);
-        }
-
         private void _DisplayPersonDetails()
         {
-            _LoadPersonData();
+            _Person = clsPerson.GetPersonByID(_PersonID);
 
             if (_Person == null)
             {
@@ -112,7 +104,7 @@ namespace Drivers_and_Vehicles_License_Department__DVLD_
             lblAddress.Text = _Person.Address;
             lblPhone.Text = _Person.Phone;
             lblDateOfBirth.Text = _Person.DateOfBirth.ToString("yyyy-MM-dd");
-            lblCountry.Text = _Country.CountryName;
+            lblCountry.Text = _Person.CountryInfo.CountryName;
 
             _SetPersonImage();
         }

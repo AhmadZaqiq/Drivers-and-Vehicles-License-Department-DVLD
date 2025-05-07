@@ -17,8 +17,6 @@ namespace Drivers_and_Vehicles_License_Department__DVLD_
 
         private clsPerson _Person;
 
-        private clsCountry _Country;
-
         private string _SelectedImagePath = "";
         private string _NewImageName = "";
         private bool _ImageRemoved = false;
@@ -185,7 +183,6 @@ namespace Drivers_and_Vehicles_License_Department__DVLD_
             }
 
             _Person = clsPerson.GetPersonByID(_PersonID);
-            _Country = clsCountry.GetCountryByPersonID(_PersonID);
 
             txtFirstName.Text = _Person.FirstName;
             txtSecondName.Text = _Person.SecondName;
@@ -194,7 +191,7 @@ namespace Drivers_and_Vehicles_License_Department__DVLD_
             txtNationalNO.Text = _Person.NationalNo;
             dtpDateOfBirth.Value = _Person.DateOfBirth;
             _UpdateGender();
-            cbCountry.Text = _Country.CountryName;
+            cbCountry.Text = _Person.CountryInfo.CountryName;
             txtPhone.Text = _Person.Phone;
             txtEmail.Text = _Person.Email;
             txtAddress.Text = _Person.Address;
@@ -280,7 +277,7 @@ namespace Drivers_and_Vehicles_License_Department__DVLD_
             _Person.Address = txtAddress.Text.Trim();
             _Person.Phone = txtPhone.Text.Trim();
             _Person.Email = txtEmail.Text.Trim();
-            _Person.NationalityCountryID = clsCountry.GetCountryID(cbCountry.Text);
+            _Person.NationalityCountryID=cbCountry.SelectedIndex+2;
 
             if (_ImageRemoved)
             {

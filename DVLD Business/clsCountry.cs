@@ -30,12 +30,11 @@ namespace DVLD_Business
             return clsCountriesData.GetAllCountriesData();
         }
 
-        public static clsCountry GetCountryByPersonID(int PersonID)
+        public static clsCountry GetCountryByID(int CountryID)
         {
-            int CountryID = 0;
             string CountryName = "";
 
-            if (clsCountriesData.GetCountryByPersonIDData(PersonID, ref CountryID, ref CountryName))
+            if (clsCountriesData.GetCountryByIDData(CountryID, ref CountryName))
             {
                 return new clsCountry(CountryID, CountryName);
             }
@@ -43,15 +42,6 @@ namespace DVLD_Business
             return null;
         }
 
-        public static string GetCountryName(int CountryID)
-        {
-            return clsCountriesData.GetCountryNameByCountryIDData(CountryID);
-        }
-
-        public static int GetCountryID(string CountryName)
-        {
-            return clsCountriesData.GetCountryIDByCountryNameData(CountryName);
-        }
 
     }
 }

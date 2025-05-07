@@ -48,21 +48,19 @@ namespace DVLD_Data_Access
             return dt;
         }
 
-        public static bool GetCountryByPersonIDData(int PersonID, ref int CountryID, ref string CountryName)
+        public static bool GetCountryByIDData(int CountryID, ref string CountryName)
         {
             bool IsFound = false;
 
             SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString);
 
-            string query = @"SELECT Countries.CountryID, Countries.CountryName 
+            string query = @"SELECT CountryName 
                              FROM Countries
-                             JOIN People 
-                             ON Countries.CountryID=People.NationalityCountryID 
-                             WHERE PersonID=@PersonID";
+                             WHERE CountryID = @CountryID";
 
             SqlCommand command = new SqlCommand(query, connection);
 
-            command.Parameters.AddWithValue("@PersonID", PersonID);
+            command.Parameters.AddWithValue("@CountryID", CountryID);
 
             try
             {
@@ -70,13 +68,12 @@ namespace DVLD_Data_Access
 
                 SqlDataReader reader = command.ExecuteReader();
 
-                while (reader.Read())
+                if (reader.Read())
                 {
                     IsFound = true;
-
-                    CountryID = (int)reader["CountryID"];
                     CountryName = (string)reader["CountryName"];
                 }
+
             }
 
             catch (Exception ex)
@@ -129,44 +126,6 @@ namespace DVLD_Data_Access
             }
 
             return CountryName;
-        }
-
-        public static int GetCountryIDByCountryNameData(string CountryName)
-        {
-            int CountryID = -1;
-
-            SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString);
-
-            string query = @"SELECT 
-                             CountryID 
-                             FROM Countries 
-                             WHERE CountryName = @CountryName";
-
-            SqlCommand command = new SqlCommand(query, connection);
-
-            command.Parameters.AddWithValue("@CountryName", CountryName);
-
-            try
-            {
-                connection.Open();
-
-                object result = command.ExecuteScalar();
-
-                if (result != null)
-                {
-                    CountryID = Convert.ToInt32(result);
-                }
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine(ex.Message);
-            }
-            finally
-            {
-                connection.Close();
-            }
-
-            return CountryID;
         }
 
 
