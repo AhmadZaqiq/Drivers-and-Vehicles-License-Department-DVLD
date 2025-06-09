@@ -64,7 +64,7 @@ namespace DVLD_Business
             this.NationalityCountryID = NationalityCountryID;
             this.ImagePath = ImagePath;
 
-            this.CountryInfo=clsCountry.GetCountryByID(NationalityCountryID);
+            this.CountryInfo=clsCountry.GetCountry(NationalityCountryID);
 
             Mode = enMode.Update;
         }
@@ -116,6 +116,36 @@ namespace DVLD_Business
             return null;
         }
 
+        public static clsPerson GetPersonByNationalNo(string NationalNo)
+        {
+            int PersonID = -1;
+            string FirstName = "",
+                   SecondName = "",
+                   ThirdName = "",
+                   LastName = "";
+
+            DateTime DateOfBirth = DateTime.Now;
+
+            int Gender = -1;
+
+            string Address = "",
+                   Phone = "",
+                   Email = "";
+
+            int NationalityCountryID = -1;
+
+            string ImagePath = "";
+
+            if (clsPeopleData.GetPersonByNationalNoData(NationalNo, ref PersonID, ref FirstName, ref SecondName, ref ThirdName, ref LastName,
+                ref DateOfBirth, ref Gender, ref Address, ref Phone, ref Email, ref NationalityCountryID, ref ImagePath))
+            {
+                return new clsPerson(PersonID, NationalNo, FirstName, SecondName, ThirdName, LastName, DateOfBirth, Gender,
+                    Address, Phone, Email, NationalityCountryID, ImagePath);
+            }
+
+            return null;
+        }
+
         private bool _UpdatePerson()
         {
             return clsPeopleData.UpdatePersonData(this.PersonID, this.NationalNo, this.FirstName, this.SecondName, this.ThirdName, this.LastName,
@@ -135,9 +165,9 @@ namespace DVLD_Business
             return clsPeopleData.IsPersonExistsData(PersonID);
         }
 
-        public static bool IsPersonExists(string NationalNo)
+        public static bool DoesPersonExist(string NationalNo)
         {
-            return clsPeopleData.IsPersonExistsData(NationalNo);
+            return clsPeopleData.DoesPersonExistData(NationalNo);
         }
 
         public bool Save()

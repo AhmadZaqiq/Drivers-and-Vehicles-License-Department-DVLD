@@ -48,7 +48,7 @@ namespace DVLD_Data_Access
             return dt;
         }
 
-        public static bool GetCountryByIDData(int CountryID, ref string CountryName)
+        public static bool GetCountryData(int CountryID, ref string CountryName)
         {
             bool IsFound = false;
 
@@ -89,32 +89,34 @@ namespace DVLD_Data_Access
             return IsFound;
         }
 
-        public static string GetCountryNameByCountryIDData(int CountryID)
+        public static bool GetCountryData(string CountryName, ref int CountryID)
         {
-            string CountryName = "";
+            bool IsFound = false;
 
             SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString);
 
-            string query = @"SELECT 
-                             CountryName 
-                             FROM Countries 
-                             WHERE CountryID = @CountryID";
-
+            string query = @"SELECT CountryID 
+                             FROM Countries
+                             WHERE CountryName = @CountryName";
+             
             SqlCommand command = new SqlCommand(query, connection);
 
-            command.Parameters.AddWithValue("@CountryID", CountryID);
+            command.Parameters.AddWithValue("@CountryName", CountryName);
 
             try
             {
                 connection.Open();
 
-                object result = command.ExecuteScalar();
+                SqlDataReader reader = command.ExecuteReader();
 
-                if (result != null)
+                if (reader.Read())
                 {
-                    CountryName = result.ToString();
+                    IsFound = true;
+                    CountryID = (int)reader["CountryID"];
                 }
+
             }
+
             catch (Exception ex)
             {
                 Console.WriteLine(ex.Message);
@@ -125,7 +127,7 @@ namespace DVLD_Data_Access
                 connection.Close();
             }
 
-            return CountryName;
+            return IsFound;
         }
 
 

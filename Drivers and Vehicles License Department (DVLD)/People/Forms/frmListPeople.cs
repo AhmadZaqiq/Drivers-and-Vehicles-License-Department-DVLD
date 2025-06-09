@@ -6,11 +6,14 @@ using System.Drawing.Drawing2D;
 using System.Drawing;
 using System.Windows.Forms;
 using Drivers_and_Vehicles_License_Department__DVLD_.Global;
+using Drivers_and_Vehicles_License_Department__DVLD_.People.Forms;
 
 namespace Drivers_and_Vehicles_License_Department__DVLD_
 {
     public partial class frmListPeople : Form
     {
+        private DataTable _PeopleTable = clsPerson.GetAllPeople();
+
         public frmListPeople()
         {
             InitializeComponent();
@@ -18,38 +21,29 @@ namespace Drivers_and_Vehicles_License_Department__DVLD_
 
         private void frmPeople_Load(object sender, EventArgs e)
         {
-            RefreshPeopleDataGrid();
-
             _FillPeopleComboBox();
 
-            clsUtil.MakeRoundedCorners(this, 30); //to make the form rounded
+            _RefreshPeopleDataGrid();
+
+            clsUtil.MakeRoundedCorners(this, 30);
 
             clsUtil.OpenFormEffect(this);
         }
 
         private void _FillPeopleComboBox()
         {
-            DataTable PeopleTable = clsPerson.GetAllPeople();
-
-            dgvPeople.DataSource = PeopleTable;
+            dgvPeople.DataSource = _PeopleTable;
 
             cbFilter.Items.Clear();
 
             cbFilter.Items.Add("None");
 
-            foreach (DataColumn column in PeopleTable.Columns)
+            foreach (DataColumn column in _PeopleTable.Columns)
             {
                 cbFilter.Items.Add(column.ColumnName);
             }
 
             cbFilter.SelectedIndex = 0;
-        }
-
-        public void RefreshPeopleDataGrid()
-        {
-            dgvPeople.DataSource = clsPerson.GetAllPeople();
-
-            _UpdatePeopleCount();
         }
 
         private void _UpdatePeopleCount()
@@ -59,22 +53,82 @@ namespace Drivers_and_Vehicles_License_Department__DVLD_
             lblRecordsCount.Text = (dgvPeople.RowCount).ToString();
         }
 
-        private void txtFilter_TextChanged(object sender, EventArgs e)
+        private void _RefreshPeopleDataGrid()
         {
-            string FilterColumn = cbFilter.SelectedItem.ToString();
-            string SearchText = txtFilter.Text;
+            dgvPeople.DataSource = _PeopleTable;
 
-            if (string.IsNullOrEmpty(SearchText))
+            _UpdatePeopleCount();
+        }
+
+        private void btnAddNewPerson_Click(object sender, EventArgs e)
+        {
+            frmAddAndUpdatePeople FormAddAndUpdatePeople=new frmAddAndUpdatePeople();
+            FormAddAndUpdatePeople.ShowDialog();
+        }
+
+        private void btnCloseForm_Click(object sender, EventArgs e)
+        {
+            clsUtil.CloseFormEffect(this);
+        }
+
+        private void ShowDetailsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            int PersonID = (int)dgvPeople.CurrentRow.Cells[0].Value;
+
+            frmShowPersonDetails FormPersonDetails = new frmShowPersonDetails(PersonID);
+            FormPersonDetails.ShowDialog();
+        }
+
+        private void AddNewPersonToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            frmAddAndUpdatePeople FormAddAndUpdatePerson = new frmAddAndUpdatePeople();
+            FormAddAndUpdatePerson.ShowDialog();
+        }
+
+        private void EditToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            int PersonID = (int)dgvPeople.CurrentRow.Cells[0].Value;
+
+            frmAddAndUpdatePeople frmAddAndUpdatePeople = new frmAddAndUpdatePeople(PersonID);
+            frmAddAndUpdatePeople.ShowDialog();
+
+            _RefreshPeopleDataGrid();
+        }
+
+        private void DeleteToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            if (!clsMessageBoxManager.ShowConfirmActionBox("Are You Sure you want to delete this Person?", "Alert", MessageBoxButtons.YesNo, MessageBoxIcon.Warning))
             {
-                RefreshPeopleDataGrid(); // Return the complete data in the table after clearing the search box.
                 return;
             }
 
-            DataView dv = new DataView(clsPerson.GetAllPeople());
-            dv.RowFilter = $"CONVERT([{FilterColumn}], System.String) LIKE '{SearchText}%'";
-            dgvPeople.DataSource = dv;
+            int PersonID = (int)dgvPeople.CurrentRow.Cells[0].Value;
 
-            _UpdatePeopleCount();
+            if (!clsPerson.DeletePerson(PersonID))
+            {
+                clsMessageBoxManager.ShowMessageBox("Person was not deleted because it is linked to other transactions in the system...", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            clsMessageBoxManager.ShowMessageBox("Person deleted successfully.", "Done", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+            _RefreshPeopleDataGrid();
+        }
+
+        private void CallToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            clsMessageBoxManager.ShowMessageBox("Coming Soon... (;", "Alert", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        }
+
+        private void SendEmailToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            DataGridViewRow selectedRow = dgvPeople.SelectedRows[0];
+
+            string emailAddress = selectedRow.Cells["Email"].Value.ToString();
+
+            string mailtoLink = $"https://mail.google.com/mail/?view=cm&fs=1&to={emailAddress}";
+
+            Process.Start(new ProcessStartInfo(mailtoLink) { UseShellExecute = true });
         }
 
         private void cbFilter_SelectedIndexChanged(object sender, EventArgs e)
@@ -93,79 +147,22 @@ namespace Drivers_and_Vehicles_License_Department__DVLD_
             txtFilter.Focus();
         }
 
-        private void btnAddNewPerson_Click(object sender, EventArgs e)
+        private void txtFilter_TextChanged(object sender, EventArgs e)
         {
-            frmAddAndUpdatePeople frmAddAndUpdatePeople = new frmAddAndUpdatePeople(-1, this);
-            frmAddAndUpdatePeople.ShowDialog();
-        }
+            string FilterColumn = cbFilter.SelectedItem.ToString();
+            string SearchText = txtFilter.Text;
 
-        private void btnCloseForm_Click(object sender, EventArgs e)
-        {
-            clsUtil.CloseFormEffect(this);
-        }
-
-        private void ShowDetailsToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            DataGridViewRow selectedRow = dgvPeople.SelectedRows[0];
-
-            int PersonID = Convert.ToInt32(selectedRow.Cells["PersonID"].Value);
-
-            frmShowPersonDetails FormPersonDetails = new frmShowPersonDetails(PersonID);
-            FormPersonDetails.ShowDialog();
-        }
-
-        private void AddNewPersonToolStripMenuItem1_Click(object sender, EventArgs e)
-        {
-            frmAddAndUpdatePeople FormAddAndUpdatePerson = new frmAddAndUpdatePeople(-1, this);
-            FormAddAndUpdatePerson.ShowDialog();
-        }
-
-        private void EditToolStripMenuItem1_Click(object sender, EventArgs e)
-        {
-            DataGridViewRow selectedRow = dgvPeople.SelectedRows[0];
-
-            int PersonID = Convert.ToInt32(selectedRow.Cells["PersonID"].Value);
-
-            frmAddAndUpdatePeople frmAddAndUpdatePeople = new frmAddAndUpdatePeople(PersonID, this);
-            frmAddAndUpdatePeople.ShowDialog();
-        }
-
-        private void DeleteToolStripMenuItem1_Click(object sender, EventArgs e)
-        {
-            DataGridViewRow selectedRow = dgvPeople.SelectedRows[0];
-
-            if (!clsMessageBoxManager.ShowConfirmActionBox("Are You Sure you want to delete this Person?", "Alert", MessageBoxButtons.YesNo, MessageBoxIcon.Warning))
+            if (string.IsNullOrEmpty(SearchText))
             {
+                _RefreshPeopleDataGrid(); // Return the complete data in the table after clearing the search box.
                 return;
             }
 
-            int PersonID = Convert.ToInt32(selectedRow.Cells["PersonID"].Value);
+            DataView dv = new DataView(clsPerson.GetAllPeople());
+            dv.RowFilter = $"CONVERT([{FilterColumn}], System.String) LIKE '{SearchText}%'";
+            dgvPeople.DataSource = dv;
 
-            if (!clsPerson.DeletePerson(PersonID))
-            {
-                clsMessageBoxManager.ShowMessageBox("Person was not deleted because it is linked to other transactions in the system...", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                return;
-            }
-
-            clsMessageBoxManager.ShowMessageBox("Person deleted successfully.", "Done", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
-            RefreshPeopleDataGrid();
-        }
-
-        private void CallToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            clsMessageBoxManager.ShowMessageBox("Coming Soon... (;", "Alert", MessageBoxButtons.OK, MessageBoxIcon.Information);
-        }
-
-        private void SendEmailToolStripMenuItem1_Click(object sender, EventArgs e)
-        {
-            DataGridViewRow selectedRow = dgvPeople.SelectedRows[0];
-
-            string emailAddress = selectedRow.Cells["Email"].Value.ToString();
-
-            string mailtoLink = $"https://mail.google.com/mail/?view=cm&fs=1&to={emailAddress}";
-
-            Process.Start(new ProcessStartInfo(mailtoLink) { UseShellExecute = true });
+            _UpdatePeopleCount();
         }
 
         private void dgvPeople_MouseEnter(object sender, EventArgs e)

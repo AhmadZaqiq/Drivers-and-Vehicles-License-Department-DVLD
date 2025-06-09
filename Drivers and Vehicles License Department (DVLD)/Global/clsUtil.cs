@@ -7,6 +7,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Security.Cryptography;
+using System.IO;
 
 namespace Drivers_and_Vehicles_License_Department__DVLD_.Global
 {
@@ -61,13 +62,8 @@ namespace Drivers_and_Vehicles_License_Department__DVLD_.Global
             timer.Start();
         }
 
-        public static string ValidGmailPattern = @"^[a-zA-Z0-9._%+-]+@gmail\.com$";
-
-        public static string ValidPhonePattern = @"^\d{8,15}$";
-
         public static string ComputeHash(string Password)
         {
-            //SHA is Secutred Hash Algorithm.
             // Create an instance of the SHA-256 algorithm
             using (SHA256 sha256 = SHA256.Create())
             {
@@ -78,6 +74,66 @@ namespace Drivers_and_Vehicles_License_Department__DVLD_.Global
                 // Convert the byte array to a lowercase hexadecimal string
                 return BitConverter.ToString(hashBytes).Replace("-", "").ToLower();
             }
+        }
+
+        public static string GenerateGUID()
+        {
+            return Guid.NewGuid().ToString();
+        }
+
+        public static bool CreateFolderIfDoesNotExist(string FolderPath)
+        {
+            if (!Directory.Exists(FolderPath))
+            {
+                try
+                {
+                    Directory.CreateDirectory(FolderPath);
+                    return true;
+                }
+
+                catch (Exception ex)
+                {
+                    return false;
+                }
+            }
+
+            return true;
+
+        }
+
+        public static string ReplaceFileNameWithGUID(string SourceFile)
+        {
+            string FileName = SourceFile;
+
+            FileInfo Fi = new FileInfo(FileName);
+
+            return GenerateGUID() + Fi.Extension;
+        }
+
+        public static bool CopyImageToProjectImagesFolder(ref string SourceFile)
+        {
+            string DestinationFolder = Path.Combine(Application.StartupPath, @"..\..\PersonalImages");
+
+            if (!CreateFolderIfDoesNotExist(DestinationFolder))
+            {
+                return false;
+            }
+
+            string FestinationFile = DestinationFolder + ReplaceFileNameWithGUID(SourceFile);
+
+            try
+            {
+                File.Copy(SourceFile, FestinationFile, true);
+            }
+
+            catch (IOException iox)
+            {
+                return false;
+            }
+
+            SourceFile = FestinationFile;
+
+            return true;
         }
 
 

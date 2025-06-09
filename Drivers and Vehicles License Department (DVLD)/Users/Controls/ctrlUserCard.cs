@@ -31,7 +31,7 @@ namespace Drivers_and_Vehicles_License_Department__DVLD_.Users.Controls
 
                 if ((_UserID == -1))
                 {
-                    ctrlPersonCard1.PersonID = -1;
+                    ctrlPersonCard1.LoadPersonInfo(-1);
                     return; // Exits only from get
                 }
 
@@ -65,7 +65,7 @@ namespace Drivers_and_Vehicles_License_Department__DVLD_.Users.Controls
             lblUserID.Text = _User.UserID.ToString();
             lblUsername.Text = _User.Username.ToString();
             lblIsAcitve.Text = _ConvertActiveStatusToText();
-            ctrlPersonCard1.PersonID = _User.PersonID;
+            ctrlPersonCard1.LoadPersonInfo(_User.PersonID);
         }
 
 

@@ -14,20 +14,24 @@ namespace Drivers_and_Vehicles_License_Department__DVLD_
 {
     public partial class frmShowPersonDetails : Form
     {
-        private int _PersonID = -1;
 
         public frmShowPersonDetails(int PersonID)
         {
             InitializeComponent();
 
-            this._PersonID = PersonID;
+            ctrlPersonDetails1.LoadPersonInfo(PersonID);
+        }
+
+        public frmShowPersonDetails(string NationalNo)
+        {
+            InitializeComponent();
+
+            ctrlPersonDetails1.LoadPersonInfo(NationalNo);
         }
 
         private void frmShowPersonDetails_Load(object sender, EventArgs e)
         {
-            ctrlPersonDetails1.PersonID = _PersonID;
-
-            clsUtil.MakeRoundedCorners(this, 30); //to make the form rounded
+            clsUtil.MakeRoundedCorners(this, 30);
 
             clsUtil.OpenFormEffect(this);
         }

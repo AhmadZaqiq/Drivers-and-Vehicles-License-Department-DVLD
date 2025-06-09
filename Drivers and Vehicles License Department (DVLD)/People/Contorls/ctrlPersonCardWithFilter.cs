@@ -9,12 +9,55 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Drivers_and_Vehicles_License_Department__DVLD_.Global;
+using Drivers_and_Vehicles_License_Department__DVLD_.People.Forms;
 
 namespace Drivers_and_Vehicles_License_Department__DVLD_.People.Contorls
 {
     public partial class ctrlPersonCardWithFilter : UserControl
     {
-        private int _PersonID=-1;
+        public event Action<int> OnPersonSelected;  // Custom event handler delegate with parameters
+
+        protected virtual void PersonSelected(int PersonID) // Method to raise the event with a parameter
+        {
+            Action<int> handler = OnPersonSelected;
+            if (handler != null)
+            {
+                handler(PersonID); // Raise the event with the parameter
+            }
+        }
+
+        private bool _ShowAddPerson = true;
+
+        public bool ShowAddPerson
+        {
+            get
+            {
+                return _ShowAddPerson;
+            }
+
+            set
+            {
+                _ShowAddPerson = value;
+                btnAddNewPerson.Visible = _ShowAddPerson;
+            }
+        }
+
+        private bool _FilterEnabled = true;
+
+        public bool FilterEnabled
+        {
+            get
+            {
+                return _FilterEnabled;
+            }
+
+            set
+            {
+                _FilterEnabled = value;
+                gbFilters.Enabled = _FilterEnabled;
+            }
+        }
+
 
         private frmListPeople _frmPeople = new frmListPeople();
 
@@ -27,13 +70,23 @@ namespace Drivers_and_Vehicles_License_Department__DVLD_.People.Contorls
         {
             get
             {
-                return _PersonID;
+                return ctrlPersonCard1.PersonID;
+            }
+        }
+
+        public clsPerson SelectedPersonInfo
+        {
+            get
+            {
+                return ctrlPersonCard1.SelectedPersonInfo;
             }
         }
 
         private void ctrlPersonCardWithFilter_Load(object sender, EventArgs e)
         {
             _FillComboBox();
+
+            txtFilter.Focus();
         }
 
         private void _FillComboBox()
@@ -47,91 +100,96 @@ namespace Drivers_and_Vehicles_License_Department__DVLD_.People.Contorls
             cbFilter.SelectedIndex = 0;
         }
 
-        private void _GetPersonDetailsByID()
+        private void _FindNow()
         {
-            if (String.IsNullOrEmpty((txtFilter.Text)))
+            string FilterValue = txtFilter.Text.Trim();
+
+            switch (cbFilter.Text)
             {
-                return;
+                case "PersonID":
+                    ctrlPersonCard1.LoadPersonInfo(int.Parse(FilterValue));
+                    break;
+
+                case "NationalNO.":
+                    ctrlPersonCard1.LoadPersonInfo(FilterValue);
+                    break;
+
+                default:
+                    break;
             }
 
-            _PersonID = Convert.ToInt32(txtFilter.Text.Trim());
-
-            if (!clsPerson.IsPersonExists(_PersonID))
+            if (OnPersonSelected != null && FilterEnabled)
             {
-                clsMessageBoxManager.ShowMessageBox($"There is No Person with ID: {_PersonID}",
-                                                     "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-
-                ctrlShowPersonDetails1.PersonID = -1;
-
-                return;
+                OnPersonSelected(ctrlPersonCard1.PersonID); // Raise the event with a parameter
             }
-
-            ctrlShowPersonDetails1.PersonID = _PersonID;
         }
 
-        private void _GetPersonDetailsByNationalNo()
+        public void LoadPersonInfo(int PersonID)
         {
-            if (String.IsNullOrEmpty((txtFilter.Text)))
-                return;
+            cbFilter.SelectedIndex = 1;
+            txtFilter.Text = PersonID.ToString();
+            _FindNow();
+        }
 
-            string NationalNo = txtFilter.Text.Trim();
+        private void _DataBackEvent(object sender, int PersonID)
+        {
+            // Handle the data received
 
-            if (!clsPerson.IsPersonExists(NationalNo))
-            {
-                clsMessageBoxManager.ShowMessageBox($"There is No Person with NationalNo: {NationalNo}",
-                                                     "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-
-                ctrlShowPersonDetails1.PersonID = -1;
-
-                return;
-            }
-
-            _PersonID = clsPerson.GetPersonIDByNationalNO(NationalNo);
-            ctrlShowPersonDetails1.PersonID = _PersonID;
+            cbFilter.SelectedIndex = 1;
+            txtFilter.Text = PersonID.ToString();
+            ctrlPersonCard1.LoadPersonInfo(PersonID);
         }
 
         private void btnFindPerson_Click(object sender, EventArgs e)
         {
-            string SelectedFilter = cbFilter.SelectedItem.ToString();
-
-            switch (SelectedFilter)
+            if (!this.ValidateChildren())
             {
-                case "PersonID":
-                    _GetPersonDetailsByID();
-                    break;
-
-                case "NationalNO.":
-                    _GetPersonDetailsByNationalNo();
-                    break;
-
-                default:
-                    clsMessageBoxManager.ShowMessageBox("Invalid filter selection.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    break;
+                clsMessageBoxManager.ShowMessageBox("Some fileds are not valide!, put the mouse over the red icon(s) to see the erro", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
             }
+
+            _FindNow();
         }
 
         private void btnAddNewPerson_Click(object sender, EventArgs e)
         {
-            frmAddAndUpdatePeople AddNewPersonForm = new frmAddAndUpdatePeople(-1, _frmPeople);
-            AddNewPersonForm.ShowDialog();
+            frmAddAndUpdatePeople FormAddAndUpdatePeople = new frmAddAndUpdatePeople();
+
+            FormAddAndUpdatePeople.DataBack += _DataBackEvent;
+
+            FormAddAndUpdatePeople.ShowDialog();
         }
 
         private void cbFilter_SelectedIndexChanged(object sender, EventArgs e)
         {
-            txtFilter.Visible = cbFilter.SelectedItem.ToString() != "None";
-
-            if (cbFilter.SelectedItem.ToString() == "PersonID")
-            {
-                txtFilter.Mask = "0000000000";
-                txtFilter.PromptChar = ' ';
-            }
-
-            else
-            {
-                txtFilter.Mask = "";
-            }
-
+            txtFilter.Mask = "";
             txtFilter.Focus();
+        }
+
+        private void txtFilter_Validating(object sender, CancelEventArgs e)
+        {
+            if (string.IsNullOrWhiteSpace(txtFilter.Text))
+            {
+                e.Cancel = true;
+                errorProvider1.SetError(txtFilter, "This field is required!");
+                return;
+            }
+
+            errorProvider1.SetError(txtFilter, null);
+        }
+
+        private void txtFilter_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == (char)13) //Check if the perssed key is enter (13 in ASCII)
+            {
+                btnFindPerson.PerformClick();
+            }
+
+            //this will allow only digits if person id is selected
+            if (cbFilter.Text == "PersonID")
+            {
+                e.Handled = !char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar);
+            }
         }
 
 

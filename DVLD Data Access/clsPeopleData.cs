@@ -107,7 +107,7 @@ namespace DVLD_Data_Access
 
         public static bool GetPersonByIDData(int PersonID, ref string NationalNo, ref string FirstName, ref string SecondName,
             ref string ThirdName, ref string LastName, ref DateTime DateOfBirth, ref int Gender, ref string Address,
-            ref string Phone, ref string Email, ref int NationalityCountryID, ref string ImagePath)    
+            ref string Phone, ref string Email, ref int NationalityCountryID, ref string ImagePath)
         {
             bool IsFound = false;
 
@@ -158,20 +158,84 @@ namespace DVLD_Data_Access
                     Email = (string)reader["Email"];
                     NationalityCountryID = (int)reader["NationalityCountryID"];
 
-                    if (reader["ImagePath"] != null)
-                    {
-                        ImagePath = (string)reader["ImagePath"];
-                    }
+                    ImagePath = reader["ImagePath"] != DBNull.Value ? (string)reader["ImagePath"] : "";
 
-                    else
-                    {
-                        ImagePath = "";
-                    }
                 }
 
                 else
                 {
                     IsFound = false;
+                }
+
+                reader.Close();
+            }
+
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+
+            finally
+            {
+                connection.Close();
+            }
+
+            return IsFound;
+        }
+
+        public static bool GetPersonByNationalNoData(string NationalNo, ref int PersonID, ref string FirstName, ref string SecondName,
+            ref string ThirdName, ref string LastName, ref DateTime DateOfBirth, ref int Gender, ref string Address,
+            ref string Phone, ref string Email, ref int NationalityCountryID, ref string ImagePath)
+        {
+            bool IsFound = false;
+
+            SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString);
+
+            string query = @"SELECT 
+                             PersonID,
+                             FirstName, 
+                             SecondName, 
+                             ThirdName, 
+                             LastName, 
+                             DateOfBirth, 
+                             Gender, 
+                             Address, 
+                             Phone, 
+                             Email, 
+                             NationalityCountryID, 
+                             ImagePath 
+                         FROM 
+                             People 
+                         WHERE 
+                             NationalNo = @NationalNo;";
+
+            SqlCommand command = new SqlCommand(query, connection);
+
+            command.Parameters.AddWithValue("@NationalNo", NationalNo);
+
+            try
+            {
+                connection.Open();
+
+                SqlDataReader reader = command.ExecuteReader();
+
+                if (reader.Read())
+                {
+                    IsFound = true;
+
+                    PersonID = (int)reader["PersonID"];
+                    FirstName = (string)reader["FirstName"];
+                    SecondName = (string)reader["SecondName"];
+                    ThirdName = (string)reader["ThirdName"];
+                    LastName = (string)reader["LastName"];
+                    DateOfBirth = (DateTime)reader["DateOfBirth"];
+                    Gender = (byte)reader["Gender"];
+                    Address = (string)reader["Address"];
+                    Phone = (string)reader["Phone"];
+                    Email = (string)reader["Email"];
+                    NationalityCountryID = (int)reader["NationalityCountryID"];
+
+                    ImagePath = reader["ImagePath"] != DBNull.Value ? (string)reader["ImagePath"] : "";
                 }
 
                 reader.Close();
@@ -369,7 +433,7 @@ namespace DVLD_Data_Access
             return IsFound;
         }
 
-        public static bool IsPersonExistsData(string NationalNo)
+        public static bool DoesPersonExistData(string NationalNo)
         {
             bool IsFound = false;
 

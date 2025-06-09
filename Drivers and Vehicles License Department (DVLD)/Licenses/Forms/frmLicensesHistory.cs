@@ -29,13 +29,13 @@ namespace Drivers_and_Vehicles_License_Department__DVLD_.Licenses.Forms
 
         private void frmLicensesHistory_Load(object sender, EventArgs e)
         {
-            ctrlPersonCard1.PersonID= _PersonID;
+            ctrlPersonCard1.LoadPersonInfo(_PersonID);
 
             _RefreshLocalDrivingApplicationsDataGrid();
 
             _RefreshInternationalDrivingApplicationsDataGrid();
 
-            clsUtil.MakeRoundedCorners(this, 30); //to make the form rounded
+            clsUtil.MakeRoundedCorners(this, 30);
 
             clsUtil.OpenFormEffect(this);
         }

@@ -28,14 +28,17 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.label2 = new System.Windows.Forms.Label();
             this.cbFilter = new System.Windows.Forms.ComboBox();
             this.txtFilter = new System.Windows.Forms.MaskedTextBox();
             this.btnAddNewPerson = new SiticoneNetFrameworkUI.SiticoneButton();
             this.btnFindPerson = new SiticoneNetFrameworkUI.SiticoneButton();
-            this.siticonePanel1 = new SiticoneNetFrameworkUI.SiticonePanel();
-            this.ctrlShowPersonDetails1 = new Drivers_and_Vehicles_License_Department__DVLD_.ctrlPersonCard();
-            this.siticonePanel1.SuspendLayout();
+            this.gbFilters = new SiticoneNetFrameworkUI.SiticonePanel();
+            this.ctrlPersonCard1 = new Drivers_and_Vehicles_License_Department__DVLD_.ctrlPersonCard();
+            this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
+            this.gbFilters.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             this.SuspendLayout();
             // 
             // label2
@@ -66,6 +69,8 @@
             this.txtFilter.Name = "txtFilter";
             this.txtFilter.Size = new System.Drawing.Size(273, 20);
             this.txtFilter.TabIndex = 50;
+            this.txtFilter.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtFilter_KeyPress);
+            this.txtFilter.Validating += new System.ComponentModel.CancelEventHandler(this.txtFilter_Validating);
             // 
             // btnAddNewPerson
             // 
@@ -225,63 +230,66 @@
             this.btnFindPerson.UseParticles = false;
             this.btnFindPerson.Click += new System.EventHandler(this.btnFindPerson_Click);
             // 
-            // siticonePanel1
+            // gbFilters
             // 
-            this.siticonePanel1.AcrylicTintColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.siticonePanel1.BackColor = System.Drawing.Color.Transparent;
-            this.siticonePanel1.BorderAlignment = System.Drawing.Drawing2D.PenAlignment.Center;
-            this.siticonePanel1.BorderDashPattern = null;
-            this.siticonePanel1.BorderGradientEndColor = System.Drawing.Color.Purple;
-            this.siticonePanel1.BorderGradientStartColor = System.Drawing.Color.Blue;
-            this.siticonePanel1.BorderThickness = 2F;
-            this.siticonePanel1.Controls.Add(this.btnFindPerson);
-            this.siticonePanel1.Controls.Add(this.btnAddNewPerson);
-            this.siticonePanel1.Controls.Add(this.txtFilter);
-            this.siticonePanel1.Controls.Add(this.cbFilter);
-            this.siticonePanel1.Controls.Add(this.label2);
-            this.siticonePanel1.CornerRadiusBottomLeft = 10F;
-            this.siticonePanel1.CornerRadiusBottomRight = 10F;
-            this.siticonePanel1.CornerRadiusTopLeft = 10F;
-            this.siticonePanel1.CornerRadiusTopRight = 10F;
-            this.siticonePanel1.EnableAcrylicEffect = false;
-            this.siticonePanel1.EnableMicaEffect = false;
-            this.siticonePanel1.EnableRippleEffect = false;
-            this.siticonePanel1.FillColor = System.Drawing.Color.WhiteSmoke;
-            this.siticonePanel1.GradientColors = new System.Drawing.Color[] {
+            this.gbFilters.AcrylicTintColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.gbFilters.BackColor = System.Drawing.Color.Transparent;
+            this.gbFilters.BorderAlignment = System.Drawing.Drawing2D.PenAlignment.Center;
+            this.gbFilters.BorderDashPattern = null;
+            this.gbFilters.BorderGradientEndColor = System.Drawing.Color.Purple;
+            this.gbFilters.BorderGradientStartColor = System.Drawing.Color.Blue;
+            this.gbFilters.BorderThickness = 2F;
+            this.gbFilters.Controls.Add(this.btnFindPerson);
+            this.gbFilters.Controls.Add(this.btnAddNewPerson);
+            this.gbFilters.Controls.Add(this.txtFilter);
+            this.gbFilters.Controls.Add(this.cbFilter);
+            this.gbFilters.Controls.Add(this.label2);
+            this.gbFilters.CornerRadiusBottomLeft = 10F;
+            this.gbFilters.CornerRadiusBottomRight = 10F;
+            this.gbFilters.CornerRadiusTopLeft = 10F;
+            this.gbFilters.CornerRadiusTopRight = 10F;
+            this.gbFilters.EnableAcrylicEffect = false;
+            this.gbFilters.EnableMicaEffect = false;
+            this.gbFilters.EnableRippleEffect = false;
+            this.gbFilters.FillColor = System.Drawing.Color.WhiteSmoke;
+            this.gbFilters.GradientColors = new System.Drawing.Color[] {
         System.Drawing.Color.White,
         System.Drawing.Color.LightGray,
         System.Drawing.Color.Gray};
-            this.siticonePanel1.GradientPositions = new float[] {
+            this.gbFilters.GradientPositions = new float[] {
         0F,
         0.5F,
         1F};
-            this.siticonePanel1.Location = new System.Drawing.Point(3, 3);
-            this.siticonePanel1.Name = "siticonePanel1";
-            this.siticonePanel1.PatternStyle = System.Drawing.Drawing2D.HatchStyle.LargeGrid;
-            this.siticonePanel1.RippleAlpha = 50;
-            this.siticonePanel1.RippleAlphaDecrement = 3;
-            this.siticonePanel1.RippleColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.siticonePanel1.RippleMaxSize = 600F;
-            this.siticonePanel1.RippleSpeed = 15F;
-            this.siticonePanel1.ShowBorder = true;
-            this.siticonePanel1.Size = new System.Drawing.Size(1158, 100);
-            this.siticonePanel1.TabIndex = 49;
-            this.siticonePanel1.TabStop = true;
-            this.siticonePanel1.UseBorderGradient = false;
-            this.siticonePanel1.UseMultiGradient = false;
-            this.siticonePanel1.UsePatternTexture = false;
-            this.siticonePanel1.UseRadialGradient = false;
+            this.gbFilters.Location = new System.Drawing.Point(3, 3);
+            this.gbFilters.Name = "gbFilters";
+            this.gbFilters.PatternStyle = System.Drawing.Drawing2D.HatchStyle.LargeGrid;
+            this.gbFilters.RippleAlpha = 50;
+            this.gbFilters.RippleAlphaDecrement = 3;
+            this.gbFilters.RippleColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.gbFilters.RippleMaxSize = 600F;
+            this.gbFilters.RippleSpeed = 15F;
+            this.gbFilters.ShowBorder = true;
+            this.gbFilters.Size = new System.Drawing.Size(1158, 100);
+            this.gbFilters.TabIndex = 49;
+            this.gbFilters.TabStop = true;
+            this.gbFilters.UseBorderGradient = false;
+            this.gbFilters.UseMultiGradient = false;
+            this.gbFilters.UsePatternTexture = false;
+            this.gbFilters.UseRadialGradient = false;
             // 
-            // ctrlShowPersonDetails1
+            // ctrlPersonCard1
             // 
-            this.ctrlShowPersonDetails1.BackColor = System.Drawing.Color.White;
-            this.ctrlShowPersonDetails1.Font = new System.Drawing.Font("Segoe UI Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ctrlShowPersonDetails1.Location = new System.Drawing.Point(3, 123);
-            this.ctrlShowPersonDetails1.Margin = new System.Windows.Forms.Padding(5);
-            this.ctrlShowPersonDetails1.Name = "ctrlShowPersonDetails1";
-            this.ctrlShowPersonDetails1.PersonID = 0;
-            this.ctrlShowPersonDetails1.Size = new System.Drawing.Size(1158, 646);
-            this.ctrlShowPersonDetails1.TabIndex = 48;
+            this.ctrlPersonCard1.BackColor = System.Drawing.Color.White;
+            this.ctrlPersonCard1.Font = new System.Drawing.Font("Segoe UI Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ctrlPersonCard1.Location = new System.Drawing.Point(3, 123);
+            this.ctrlPersonCard1.Margin = new System.Windows.Forms.Padding(5);
+            this.ctrlPersonCard1.Name = "ctrlPersonCard1";
+            this.ctrlPersonCard1.Size = new System.Drawing.Size(1158, 646);
+            this.ctrlPersonCard1.TabIndex = 48;
+            // 
+            // errorProvider1
+            // 
+            this.errorProvider1.ContainerControl = this;
             // 
             // ctrlPersonCardWithFilter
             // 
@@ -289,13 +297,14 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.BackColor = System.Drawing.Color.White;
-            this.Controls.Add(this.siticonePanel1);
-            this.Controls.Add(this.ctrlShowPersonDetails1);
+            this.Controls.Add(this.gbFilters);
+            this.Controls.Add(this.ctrlPersonCard1);
             this.Name = "ctrlPersonCardWithFilter";
             this.Size = new System.Drawing.Size(1163, 769);
             this.Load += new System.EventHandler(this.ctrlPersonCardWithFilter_Load);
-            this.siticonePanel1.ResumeLayout(false);
-            this.siticonePanel1.PerformLayout();
+            this.gbFilters.ResumeLayout(false);
+            this.gbFilters.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -307,7 +316,8 @@
         private System.Windows.Forms.MaskedTextBox txtFilter;
         private SiticoneNetFrameworkUI.SiticoneButton btnAddNewPerson;
         private SiticoneNetFrameworkUI.SiticoneButton btnFindPerson;
-        private SiticoneNetFrameworkUI.SiticonePanel siticonePanel1;
-        private ctrlPersonCard ctrlShowPersonDetails1;
+        private SiticoneNetFrameworkUI.SiticonePanel gbFilters;
+        private ctrlPersonCard ctrlPersonCard1;
+        private System.Windows.Forms.ErrorProvider errorProvider1;
     }
 }

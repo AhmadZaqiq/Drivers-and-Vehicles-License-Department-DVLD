@@ -30,6 +30,16 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ctrlPersonCard));
             this.Panel = new SiticoneNetFrameworkUI.SiticonePanel();
+            this.siticoneLabel10 = new SiticoneNetFrameworkUI.SiticoneLabel();
+            this.siticonePictureBox9 = new SiticoneNetFrameworkUI.SiticonePictureBox();
+            this.siticonePictureBox5 = new SiticoneNetFrameworkUI.SiticonePictureBox();
+            this.siticonePictureBox6 = new SiticoneNetFrameworkUI.SiticonePictureBox();
+            this.siticonePictureBox7 = new SiticoneNetFrameworkUI.SiticonePictureBox();
+            this.siticonePictureBox8 = new SiticoneNetFrameworkUI.SiticonePictureBox();
+            this.siticonePictureBox4 = new SiticoneNetFrameworkUI.SiticonePictureBox();
+            this.siticonePictureBox3 = new SiticoneNetFrameworkUI.SiticonePictureBox();
+            this.siticonePictureBox1 = new SiticoneNetFrameworkUI.SiticonePictureBox();
+            this.siticonePictureBox2 = new SiticoneNetFrameworkUI.SiticonePictureBox();
             this.btnEditInfo = new SiticoneNetFrameworkUI.SiticoneButton();
             this.lblPersonID = new SiticoneNetFrameworkUI.SiticoneLabel();
             this.lblAddress = new SiticoneNetFrameworkUI.SiticoneLabel();
@@ -49,18 +59,9 @@
             this.siticoneLabel3 = new SiticoneNetFrameworkUI.SiticoneLabel();
             this.siticoneLabel2 = new SiticoneNetFrameworkUI.SiticoneLabel();
             this.siticoneLabel1 = new SiticoneNetFrameworkUI.SiticoneLabel();
-            this.pbPersonalImage = new SiticoneNetFrameworkUI.SiticonePictureBox();
-            this.siticonePictureBox9 = new SiticoneNetFrameworkUI.SiticonePictureBox();
-            this.siticonePictureBox5 = new SiticoneNetFrameworkUI.SiticonePictureBox();
-            this.siticonePictureBox6 = new SiticoneNetFrameworkUI.SiticonePictureBox();
-            this.siticonePictureBox7 = new SiticoneNetFrameworkUI.SiticonePictureBox();
-            this.siticonePictureBox8 = new SiticoneNetFrameworkUI.SiticonePictureBox();
-            this.siticonePictureBox4 = new SiticoneNetFrameworkUI.SiticonePictureBox();
-            this.siticonePictureBox3 = new SiticoneNetFrameworkUI.SiticonePictureBox();
-            this.siticonePictureBox1 = new SiticoneNetFrameworkUI.SiticonePictureBox();
-            this.siticonePictureBox2 = new SiticoneNetFrameworkUI.SiticonePictureBox();
-            this.siticoneLabel10 = new SiticoneNetFrameworkUI.SiticoneLabel();
+            this.pbPersonImage = new System.Windows.Forms.PictureBox();
             this.Panel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pbPersonImage)).BeginInit();
             this.SuspendLayout();
             // 
             // Panel
@@ -72,6 +73,7 @@
             this.Panel.BorderGradientEndColor = System.Drawing.Color.Purple;
             this.Panel.BorderGradientStartColor = System.Drawing.Color.Blue;
             this.Panel.BorderThickness = 2F;
+            this.Panel.Controls.Add(this.pbPersonImage);
             this.Panel.Controls.Add(this.siticoneLabel10);
             this.Panel.Controls.Add(this.siticonePictureBox9);
             this.Panel.Controls.Add(this.siticonePictureBox5);
@@ -101,7 +103,6 @@
             this.Panel.Controls.Add(this.siticoneLabel3);
             this.Panel.Controls.Add(this.siticoneLabel2);
             this.Panel.Controls.Add(this.siticoneLabel1);
-            this.Panel.Controls.Add(this.pbPersonalImage);
             this.Panel.CornerRadiusBottomLeft = 10F;
             this.Panel.CornerRadiusBottomRight = 10F;
             this.Panel.CornerRadiusTopLeft = 10F;
@@ -135,316 +136,15 @@
             this.Panel.UsePatternTexture = false;
             this.Panel.UseRadialGradient = false;
             // 
-            // btnEditInfo
+            // siticoneLabel10
             // 
-            this.btnEditInfo.AccessibleDescription = "The default button control that accept input though the mouse, touch and keyboard" +
-    "";
-            this.btnEditInfo.AccessibleName = "Edit Info";
-            this.btnEditInfo.AutoSizeBasedOnText = false;
-            this.btnEditInfo.BackColor = System.Drawing.Color.Transparent;
-            this.btnEditInfo.BadgeBackColor = System.Drawing.Color.Red;
-            this.btnEditInfo.BadgeFont = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnEditInfo.BadgeValue = 0;
-            this.btnEditInfo.BadgeValueForeColor = System.Drawing.Color.White;
-            this.btnEditInfo.BorderColor = System.Drawing.Color.Transparent;
-            this.btnEditInfo.BorderWidth = 2;
-            this.btnEditInfo.ButtonBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(204)))), ((int)(((byte)(0)))));
-            this.btnEditInfo.ButtonImage = null;
-            this.btnEditInfo.CanBeep = true;
-            this.btnEditInfo.CanGlow = false;
-            this.btnEditInfo.CanShake = true;
-            this.btnEditInfo.ContextMenuStripEx = null;
-            this.btnEditInfo.CornerRadiusBottomLeft = 20;
-            this.btnEditInfo.CornerRadiusBottomRight = 20;
-            this.btnEditInfo.CornerRadiusTopLeft = 20;
-            this.btnEditInfo.CornerRadiusTopRight = 20;
-            this.btnEditInfo.CustomCursor = System.Windows.Forms.Cursors.Default;
-            this.btnEditInfo.DisabledTextColor = System.Drawing.Color.FromArgb(((int)(((byte)(150)))), ((int)(((byte)(150)))), ((int)(((byte)(150)))));
-            this.btnEditInfo.EnableLongPress = false;
-            this.btnEditInfo.EnablePressAnimation = true;
-            this.btnEditInfo.EnableRippleEffect = true;
-            this.btnEditInfo.EnableShadow = false;
-            this.btnEditInfo.EnableTextWrapping = false;
-            this.btnEditInfo.Font = new System.Drawing.Font("Segoe UI Semibold", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnEditInfo.ForeColor = System.Drawing.Color.Transparent;
-            this.btnEditInfo.GlowColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.btnEditInfo.GlowIntensity = 100;
-            this.btnEditInfo.GlowRadius = 20F;
-            this.btnEditInfo.GradientBackground = false;
-            this.btnEditInfo.GradientColor = System.Drawing.Color.FromArgb(((int)(((byte)(114)))), ((int)(((byte)(168)))), ((int)(((byte)(255)))));
-            this.btnEditInfo.GradientMode = System.Drawing.Drawing2D.LinearGradientMode.Vertical;
-            this.btnEditInfo.HintText = null;
-            this.btnEditInfo.HoverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(186)))), ((int)(((byte)(0)))));
-            this.btnEditInfo.HoverFontStyle = System.Drawing.FontStyle.Regular;
-            this.btnEditInfo.HoverTextColor = System.Drawing.Color.Black;
-            this.btnEditInfo.HoverTransitionDuration = 250;
-            this.btnEditInfo.ImageAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.btnEditInfo.ImagePadding = 5;
-            this.btnEditInfo.ImageSize = new System.Drawing.Size(16, 16);
-            this.btnEditInfo.IsRadial = false;
-            this.btnEditInfo.IsReadOnly = false;
-            this.btnEditInfo.IsToggleButton = false;
-            this.btnEditInfo.IsToggled = false;
-            this.btnEditInfo.Location = new System.Drawing.Point(467, 584);
-            this.btnEditInfo.LongPressDurationMS = 1000;
-            this.btnEditInfo.Name = "btnEditInfo";
-            this.btnEditInfo.NormalFontStyle = System.Drawing.FontStyle.Regular;
-            this.btnEditInfo.ParticleColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(200)))), ((int)(((byte)(200)))));
-            this.btnEditInfo.ParticleCount = 15;
-            this.btnEditInfo.PressAnimationScale = 0.97F;
-            this.btnEditInfo.PressedBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(162)))), ((int)(((byte)(0)))));
-            this.btnEditInfo.PressedFontStyle = System.Drawing.FontStyle.Regular;
-            this.btnEditInfo.PressTransitionDuration = 150;
-            this.btnEditInfo.ReadOnlyTextColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(100)))), ((int)(((byte)(100)))));
-            this.btnEditInfo.RippleColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.btnEditInfo.RippleOpacity = 0.3F;
-            this.btnEditInfo.RippleRadiusMultiplier = 0.6F;
-            this.btnEditInfo.ShadowBlur = 5;
-            this.btnEditInfo.ShadowColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.btnEditInfo.ShadowOffset = new System.Drawing.Point(2, 2);
-            this.btnEditInfo.ShakeDuration = 500;
-            this.btnEditInfo.ShakeIntensity = 5;
-            this.btnEditInfo.Size = new System.Drawing.Size(219, 39);
-            this.btnEditInfo.TabIndex = 148;
-            this.btnEditInfo.Text = "Edit Info";
-            this.btnEditInfo.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.btnEditInfo.TextColor = System.Drawing.Color.Black;
-            this.btnEditInfo.TooltipText = null;
-            this.btnEditInfo.UseAdvancedRendering = true;
-            this.btnEditInfo.UseParticles = false;
-            this.btnEditInfo.Click += new System.EventHandler(this.btnEditInfoClick);
-            // 
-            // lblPersonID
-            // 
-            this.lblPersonID.BackColor = System.Drawing.Color.Transparent;
-            this.lblPersonID.Font = new System.Drawing.Font("Segoe UI Semibold", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPersonID.ForeColor = System.Drawing.Color.Black;
-            this.lblPersonID.Location = new System.Drawing.Point(552, 277);
-            this.lblPersonID.Name = "lblPersonID";
-            this.lblPersonID.Size = new System.Drawing.Size(101, 23);
-            this.lblPersonID.TabIndex = 147;
-            this.lblPersonID.Text = "N\\A";
-            // 
-            // lblAddress
-            // 
-            this.lblAddress.BackColor = System.Drawing.Color.Transparent;
-            this.lblAddress.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblAddress.ForeColor = System.Drawing.Color.Black;
-            this.lblAddress.Location = new System.Drawing.Point(901, 514);
-            this.lblAddress.Name = "lblAddress";
-            this.lblAddress.Size = new System.Drawing.Size(219, 109);
-            this.lblAddress.TabIndex = 146;
-            this.lblAddress.Text = "N\\A";
-            // 
-            // lblEmail
-            // 
-            this.lblEmail.BackColor = System.Drawing.Color.Transparent;
-            this.lblEmail.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblEmail.ForeColor = System.Drawing.Color.Black;
-            this.lblEmail.Location = new System.Drawing.Point(901, 444);
-            this.lblEmail.Name = "lblEmail";
-            this.lblEmail.Size = new System.Drawing.Size(248, 23);
-            this.lblEmail.TabIndex = 145;
-            this.lblEmail.Text = "N\\A";
-            // 
-            // lblDateOfBirth
-            // 
-            this.lblDateOfBirth.BackColor = System.Drawing.Color.Transparent;
-            this.lblDateOfBirth.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblDateOfBirth.ForeColor = System.Drawing.Color.Black;
-            this.lblDateOfBirth.Location = new System.Drawing.Point(901, 374);
-            this.lblDateOfBirth.Name = "lblDateOfBirth";
-            this.lblDateOfBirth.Size = new System.Drawing.Size(248, 23);
-            this.lblDateOfBirth.TabIndex = 144;
-            this.lblDateOfBirth.Text = "N\\A";
-            // 
-            // lblGender
-            // 
-            this.lblGender.BackColor = System.Drawing.Color.Transparent;
-            this.lblGender.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblGender.ForeColor = System.Drawing.Color.Black;
-            this.lblGender.Location = new System.Drawing.Point(901, 304);
-            this.lblGender.Name = "lblGender";
-            this.lblGender.Size = new System.Drawing.Size(108, 23);
-            this.lblGender.TabIndex = 143;
-            this.lblGender.Text = "N\\A";
-            // 
-            // lblCountry
-            // 
-            this.lblCountry.BackColor = System.Drawing.Color.Transparent;
-            this.lblCountry.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCountry.ForeColor = System.Drawing.Color.Black;
-            this.lblCountry.Location = new System.Drawing.Point(265, 513);
-            this.lblCountry.Name = "lblCountry";
-            this.lblCountry.Size = new System.Drawing.Size(286, 23);
-            this.lblCountry.TabIndex = 140;
-            this.lblCountry.Text = "N\\A";
-            // 
-            // lblPhone
-            // 
-            this.lblPhone.BackColor = System.Drawing.Color.Transparent;
-            this.lblPhone.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPhone.ForeColor = System.Drawing.Color.Black;
-            this.lblPhone.Location = new System.Drawing.Point(265, 444);
-            this.lblPhone.Name = "lblPhone";
-            this.lblPhone.Size = new System.Drawing.Size(286, 23);
-            this.lblPhone.TabIndex = 139;
-            this.lblPhone.Text = "N\\A";
-            // 
-            // lblNationalNO
-            // 
-            this.lblNationalNO.BackColor = System.Drawing.Color.Transparent;
-            this.lblNationalNO.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblNationalNO.ForeColor = System.Drawing.Color.Black;
-            this.lblNationalNO.Location = new System.Drawing.Point(265, 374);
-            this.lblNationalNO.Name = "lblNationalNO";
-            this.lblNationalNO.Size = new System.Drawing.Size(286, 23);
-            this.lblNationalNO.TabIndex = 138;
-            this.lblNationalNO.Text = "N\\A";
-            // 
-            // lblName
-            // 
-            this.lblName.BackColor = System.Drawing.Color.Transparent;
-            this.lblName.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblName.ForeColor = System.Drawing.Color.Red;
-            this.lblName.Location = new System.Drawing.Point(265, 304);
-            this.lblName.Name = "lblName";
-            this.lblName.Size = new System.Drawing.Size(286, 23);
-            this.lblName.TabIndex = 137;
-            this.lblName.Text = "N\\A";
-            // 
-            // siticoneLabel6
-            // 
-            this.siticoneLabel6.BackColor = System.Drawing.Color.Transparent;
-            this.siticoneLabel6.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.siticoneLabel6.Location = new System.Drawing.Point(723, 514);
-            this.siticoneLabel6.Name = "siticoneLabel6";
-            this.siticoneLabel6.Size = new System.Drawing.Size(108, 23);
-            this.siticoneLabel6.TabIndex = 136;
-            this.siticoneLabel6.Text = "Address:";
-            // 
-            // siticoneLabel7
-            // 
-            this.siticoneLabel7.BackColor = System.Drawing.Color.Transparent;
-            this.siticoneLabel7.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.siticoneLabel7.Location = new System.Drawing.Point(723, 374);
-            this.siticoneLabel7.Name = "siticoneLabel7";
-            this.siticoneLabel7.Size = new System.Drawing.Size(135, 23);
-            this.siticoneLabel7.TabIndex = 135;
-            this.siticoneLabel7.Text = "Date Of Birth:";
-            // 
-            // siticoneLabel8
-            // 
-            this.siticoneLabel8.BackColor = System.Drawing.Color.Transparent;
-            this.siticoneLabel8.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.siticoneLabel8.Location = new System.Drawing.Point(723, 444);
-            this.siticoneLabel8.Name = "siticoneLabel8";
-            this.siticoneLabel8.Size = new System.Drawing.Size(108, 23);
-            this.siticoneLabel8.TabIndex = 134;
-            this.siticoneLabel8.Text = "Email:";
-            // 
-            // siticoneLabel9
-            // 
-            this.siticoneLabel9.BackColor = System.Drawing.Color.Transparent;
-            this.siticoneLabel9.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.siticoneLabel9.Location = new System.Drawing.Point(87, 374);
-            this.siticoneLabel9.Name = "siticoneLabel9";
-            this.siticoneLabel9.Size = new System.Drawing.Size(135, 23);
-            this.siticoneLabel9.TabIndex = 133;
-            this.siticoneLabel9.Text = "National NO. :";
-            // 
-            // siticoneLabel5
-            // 
-            this.siticoneLabel5.BackColor = System.Drawing.Color.Transparent;
-            this.siticoneLabel5.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.siticoneLabel5.Location = new System.Drawing.Point(87, 509);
-            this.siticoneLabel5.Name = "siticoneLabel5";
-            this.siticoneLabel5.Size = new System.Drawing.Size(108, 30);
-            this.siticoneLabel5.TabIndex = 132;
-            this.siticoneLabel5.Text = "Country:";
-            // 
-            // siticoneLabel4
-            // 
-            this.siticoneLabel4.BackColor = System.Drawing.Color.Transparent;
-            this.siticoneLabel4.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.siticoneLabel4.Location = new System.Drawing.Point(87, 444);
-            this.siticoneLabel4.Name = "siticoneLabel4";
-            this.siticoneLabel4.Size = new System.Drawing.Size(108, 23);
-            this.siticoneLabel4.TabIndex = 131;
-            this.siticoneLabel4.Text = "Phone:";
-            // 
-            // siticoneLabel3
-            // 
-            this.siticoneLabel3.BackColor = System.Drawing.Color.Transparent;
-            this.siticoneLabel3.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.siticoneLabel3.Location = new System.Drawing.Point(723, 304);
-            this.siticoneLabel3.Name = "siticoneLabel3";
-            this.siticoneLabel3.Size = new System.Drawing.Size(81, 23);
-            this.siticoneLabel3.TabIndex = 130;
-            this.siticoneLabel3.Text = "Gender:";
-            // 
-            // siticoneLabel2
-            // 
-            this.siticoneLabel2.BackColor = System.Drawing.Color.Transparent;
-            this.siticoneLabel2.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.siticoneLabel2.Location = new System.Drawing.Point(87, 304);
-            this.siticoneLabel2.Name = "siticoneLabel2";
-            this.siticoneLabel2.Size = new System.Drawing.Size(108, 23);
-            this.siticoneLabel2.TabIndex = 129;
-            this.siticoneLabel2.Text = "Name:";
-            // 
-            // siticoneLabel1
-            // 
-            this.siticoneLabel1.BackColor = System.Drawing.Color.Transparent;
-            this.siticoneLabel1.Font = new System.Drawing.Font("Segoe UI Semibold", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.siticoneLabel1.Location = new System.Drawing.Point(522, 233);
-            this.siticoneLabel1.Name = "siticoneLabel1";
-            this.siticoneLabel1.Size = new System.Drawing.Size(108, 23);
-            this.siticoneLabel1.TabIndex = 128;
-            this.siticoneLabel1.Text = "Person ID:-";
-            // 
-            // pbPersonalImage
-            // 
-            this.pbPersonalImage.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.pbPersonalImage.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.pbPersonalImage.BorderColor = System.Drawing.Color.Transparent;
-            this.pbPersonalImage.BorderWidth = 1;
-            this.pbPersonalImage.Brightness = 1F;
-            this.pbPersonalImage.Contrast = 1F;
-            this.pbPersonalImage.CornerRadius = 0;
-            this.pbPersonalImage.DraggingSpeed = 3.15F;
-            this.pbPersonalImage.EnableAsyncLoading = false;
-            this.pbPersonalImage.EnableCaching = false;
-            this.pbPersonalImage.EnableDragDrop = false;
-            this.pbPersonalImage.EnableExtendedImageSources = false;
-            this.pbPersonalImage.EnableFilters = false;
-            this.pbPersonalImage.EnableFlipping = false;
-            this.pbPersonalImage.EnableGlow = false;
-            this.pbPersonalImage.EnableHighDpiSupport = false;
-            this.pbPersonalImage.EnableMouseInteraction = false;
-            this.pbPersonalImage.EnablePlaceholder = false;
-            this.pbPersonalImage.EnableRotation = false;
-            this.pbPersonalImage.EnableShadow = false;
-            this.pbPersonalImage.EnableSlideshow = false;
-            this.pbPersonalImage.FlipHorizontal = false;
-            this.pbPersonalImage.FlipVertical = false;
-            this.pbPersonalImage.Grayscale = false;
-            this.pbPersonalImage.Image = null;
-            this.pbPersonalImage.ImageOpacity = 1F;
-            this.pbPersonalImage.Images = ((System.Collections.Generic.List<System.Drawing.Image>)(resources.GetObject("pbPersonalImage.Images")));
-            this.pbPersonalImage.InterpolationMode = System.Drawing.Drawing2D.InterpolationMode.HighQualityBicubic;
-            this.pbPersonalImage.IsCircular = false;
-            this.pbPersonalImage.Location = new System.Drawing.Point(476, 18);
-            this.pbPersonalImage.MaintainAspectRatio = true;
-            this.pbPersonalImage.Name = "pbPersonalImage";
-            this.pbPersonalImage.PlaceholderImage = null;
-            this.pbPersonalImage.RotationAngle = 0F;
-            this.pbPersonalImage.Saturation = 1F;
-            this.pbPersonalImage.ShowBorder = true;
-            this.pbPersonalImage.Size = new System.Drawing.Size(200, 200);
-            this.pbPersonalImage.SizeMode = SiticoneNetFrameworkUI.Helpers.Enum.SiticonePictureBoxSizeMode.Normal;
-            this.pbPersonalImage.TabIndex = 127;
-            this.pbPersonalImage.Text = "siticonePictureBox1";
+            this.siticoneLabel10.BackColor = System.Drawing.Color.Transparent;
+            this.siticoneLabel10.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.siticoneLabel10.Location = new System.Drawing.Point(3, 0);
+            this.siticoneLabel10.Name = "siticoneLabel10";
+            this.siticoneLabel10.Size = new System.Drawing.Size(192, 23);
+            this.siticoneLabel10.TabIndex = 158;
+            this.siticoneLabel10.Text = "Person information";
             // 
             // siticonePictureBox9
             // 
@@ -851,15 +551,284 @@
             this.siticonePictureBox2.TabIndex = 149;
             this.siticonePictureBox2.Text = "siticonePictureBox2";
             // 
-            // siticoneLabel10
+            // btnEditInfo
             // 
-            this.siticoneLabel10.BackColor = System.Drawing.Color.Transparent;
-            this.siticoneLabel10.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.siticoneLabel10.Location = new System.Drawing.Point(3, 0);
-            this.siticoneLabel10.Name = "siticoneLabel10";
-            this.siticoneLabel10.Size = new System.Drawing.Size(192, 23);
-            this.siticoneLabel10.TabIndex = 158;
-            this.siticoneLabel10.Text = "Person information";
+            this.btnEditInfo.AccessibleDescription = "The default button control that accept input though the mouse, touch and keyboard" +
+    "";
+            this.btnEditInfo.AccessibleName = "Edit Info";
+            this.btnEditInfo.AutoSizeBasedOnText = false;
+            this.btnEditInfo.BackColor = System.Drawing.Color.Transparent;
+            this.btnEditInfo.BadgeBackColor = System.Drawing.Color.Red;
+            this.btnEditInfo.BadgeFont = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnEditInfo.BadgeValue = 0;
+            this.btnEditInfo.BadgeValueForeColor = System.Drawing.Color.White;
+            this.btnEditInfo.BorderColor = System.Drawing.Color.Transparent;
+            this.btnEditInfo.BorderWidth = 2;
+            this.btnEditInfo.ButtonBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(204)))), ((int)(((byte)(0)))));
+            this.btnEditInfo.ButtonImage = null;
+            this.btnEditInfo.CanBeep = true;
+            this.btnEditInfo.CanGlow = false;
+            this.btnEditInfo.CanShake = true;
+            this.btnEditInfo.ContextMenuStripEx = null;
+            this.btnEditInfo.CornerRadiusBottomLeft = 20;
+            this.btnEditInfo.CornerRadiusBottomRight = 20;
+            this.btnEditInfo.CornerRadiusTopLeft = 20;
+            this.btnEditInfo.CornerRadiusTopRight = 20;
+            this.btnEditInfo.CustomCursor = System.Windows.Forms.Cursors.Default;
+            this.btnEditInfo.DisabledTextColor = System.Drawing.Color.FromArgb(((int)(((byte)(150)))), ((int)(((byte)(150)))), ((int)(((byte)(150)))));
+            this.btnEditInfo.EnableLongPress = false;
+            this.btnEditInfo.EnablePressAnimation = true;
+            this.btnEditInfo.EnableRippleEffect = true;
+            this.btnEditInfo.EnableShadow = false;
+            this.btnEditInfo.EnableTextWrapping = false;
+            this.btnEditInfo.Font = new System.Drawing.Font("Segoe UI Semibold", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnEditInfo.ForeColor = System.Drawing.Color.Transparent;
+            this.btnEditInfo.GlowColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.btnEditInfo.GlowIntensity = 100;
+            this.btnEditInfo.GlowRadius = 20F;
+            this.btnEditInfo.GradientBackground = false;
+            this.btnEditInfo.GradientColor = System.Drawing.Color.FromArgb(((int)(((byte)(114)))), ((int)(((byte)(168)))), ((int)(((byte)(255)))));
+            this.btnEditInfo.GradientMode = System.Drawing.Drawing2D.LinearGradientMode.Vertical;
+            this.btnEditInfo.HintText = null;
+            this.btnEditInfo.HoverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(186)))), ((int)(((byte)(0)))));
+            this.btnEditInfo.HoverFontStyle = System.Drawing.FontStyle.Regular;
+            this.btnEditInfo.HoverTextColor = System.Drawing.Color.Black;
+            this.btnEditInfo.HoverTransitionDuration = 250;
+            this.btnEditInfo.ImageAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.btnEditInfo.ImagePadding = 5;
+            this.btnEditInfo.ImageSize = new System.Drawing.Size(16, 16);
+            this.btnEditInfo.IsRadial = false;
+            this.btnEditInfo.IsReadOnly = false;
+            this.btnEditInfo.IsToggleButton = false;
+            this.btnEditInfo.IsToggled = false;
+            this.btnEditInfo.Location = new System.Drawing.Point(467, 584);
+            this.btnEditInfo.LongPressDurationMS = 1000;
+            this.btnEditInfo.Name = "btnEditInfo";
+            this.btnEditInfo.NormalFontStyle = System.Drawing.FontStyle.Regular;
+            this.btnEditInfo.ParticleColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(200)))), ((int)(((byte)(200)))));
+            this.btnEditInfo.ParticleCount = 15;
+            this.btnEditInfo.PressAnimationScale = 0.97F;
+            this.btnEditInfo.PressedBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(162)))), ((int)(((byte)(0)))));
+            this.btnEditInfo.PressedFontStyle = System.Drawing.FontStyle.Regular;
+            this.btnEditInfo.PressTransitionDuration = 150;
+            this.btnEditInfo.ReadOnlyTextColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(100)))), ((int)(((byte)(100)))));
+            this.btnEditInfo.RippleColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.btnEditInfo.RippleOpacity = 0.3F;
+            this.btnEditInfo.RippleRadiusMultiplier = 0.6F;
+            this.btnEditInfo.ShadowBlur = 5;
+            this.btnEditInfo.ShadowColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.btnEditInfo.ShadowOffset = new System.Drawing.Point(2, 2);
+            this.btnEditInfo.ShakeDuration = 500;
+            this.btnEditInfo.ShakeIntensity = 5;
+            this.btnEditInfo.Size = new System.Drawing.Size(219, 39);
+            this.btnEditInfo.TabIndex = 148;
+            this.btnEditInfo.Text = "Edit Info";
+            this.btnEditInfo.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.btnEditInfo.TextColor = System.Drawing.Color.Black;
+            this.btnEditInfo.TooltipText = null;
+            this.btnEditInfo.UseAdvancedRendering = true;
+            this.btnEditInfo.UseParticles = false;
+            this.btnEditInfo.Click += new System.EventHandler(this.btnEditInfoClick);
+            // 
+            // lblPersonID
+            // 
+            this.lblPersonID.BackColor = System.Drawing.Color.Transparent;
+            this.lblPersonID.Font = new System.Drawing.Font("Segoe UI Semibold", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblPersonID.ForeColor = System.Drawing.Color.Black;
+            this.lblPersonID.Location = new System.Drawing.Point(552, 277);
+            this.lblPersonID.Name = "lblPersonID";
+            this.lblPersonID.Size = new System.Drawing.Size(101, 23);
+            this.lblPersonID.TabIndex = 147;
+            this.lblPersonID.Text = "N\\A";
+            // 
+            // lblAddress
+            // 
+            this.lblAddress.BackColor = System.Drawing.Color.Transparent;
+            this.lblAddress.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblAddress.ForeColor = System.Drawing.Color.Black;
+            this.lblAddress.Location = new System.Drawing.Point(901, 514);
+            this.lblAddress.Name = "lblAddress";
+            this.lblAddress.Size = new System.Drawing.Size(219, 109);
+            this.lblAddress.TabIndex = 146;
+            this.lblAddress.Text = "N\\A";
+            // 
+            // lblEmail
+            // 
+            this.lblEmail.BackColor = System.Drawing.Color.Transparent;
+            this.lblEmail.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblEmail.ForeColor = System.Drawing.Color.Black;
+            this.lblEmail.Location = new System.Drawing.Point(901, 444);
+            this.lblEmail.Name = "lblEmail";
+            this.lblEmail.Size = new System.Drawing.Size(248, 23);
+            this.lblEmail.TabIndex = 145;
+            this.lblEmail.Text = "N\\A";
+            // 
+            // lblDateOfBirth
+            // 
+            this.lblDateOfBirth.BackColor = System.Drawing.Color.Transparent;
+            this.lblDateOfBirth.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblDateOfBirth.ForeColor = System.Drawing.Color.Black;
+            this.lblDateOfBirth.Location = new System.Drawing.Point(901, 374);
+            this.lblDateOfBirth.Name = "lblDateOfBirth";
+            this.lblDateOfBirth.Size = new System.Drawing.Size(248, 23);
+            this.lblDateOfBirth.TabIndex = 144;
+            this.lblDateOfBirth.Text = "N\\A";
+            // 
+            // lblGender
+            // 
+            this.lblGender.BackColor = System.Drawing.Color.Transparent;
+            this.lblGender.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblGender.ForeColor = System.Drawing.Color.Black;
+            this.lblGender.Location = new System.Drawing.Point(901, 304);
+            this.lblGender.Name = "lblGender";
+            this.lblGender.Size = new System.Drawing.Size(108, 23);
+            this.lblGender.TabIndex = 143;
+            this.lblGender.Text = "N\\A";
+            // 
+            // lblCountry
+            // 
+            this.lblCountry.BackColor = System.Drawing.Color.Transparent;
+            this.lblCountry.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCountry.ForeColor = System.Drawing.Color.Black;
+            this.lblCountry.Location = new System.Drawing.Point(265, 513);
+            this.lblCountry.Name = "lblCountry";
+            this.lblCountry.Size = new System.Drawing.Size(286, 23);
+            this.lblCountry.TabIndex = 140;
+            this.lblCountry.Text = "N\\A";
+            // 
+            // lblPhone
+            // 
+            this.lblPhone.BackColor = System.Drawing.Color.Transparent;
+            this.lblPhone.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblPhone.ForeColor = System.Drawing.Color.Black;
+            this.lblPhone.Location = new System.Drawing.Point(265, 444);
+            this.lblPhone.Name = "lblPhone";
+            this.lblPhone.Size = new System.Drawing.Size(286, 23);
+            this.lblPhone.TabIndex = 139;
+            this.lblPhone.Text = "N\\A";
+            // 
+            // lblNationalNO
+            // 
+            this.lblNationalNO.BackColor = System.Drawing.Color.Transparent;
+            this.lblNationalNO.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblNationalNO.ForeColor = System.Drawing.Color.Black;
+            this.lblNationalNO.Location = new System.Drawing.Point(265, 374);
+            this.lblNationalNO.Name = "lblNationalNO";
+            this.lblNationalNO.Size = new System.Drawing.Size(286, 23);
+            this.lblNationalNO.TabIndex = 138;
+            this.lblNationalNO.Text = "N\\A";
+            // 
+            // lblName
+            // 
+            this.lblName.BackColor = System.Drawing.Color.Transparent;
+            this.lblName.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblName.ForeColor = System.Drawing.Color.Red;
+            this.lblName.Location = new System.Drawing.Point(265, 304);
+            this.lblName.Name = "lblName";
+            this.lblName.Size = new System.Drawing.Size(286, 23);
+            this.lblName.TabIndex = 137;
+            this.lblName.Text = "N\\A";
+            // 
+            // siticoneLabel6
+            // 
+            this.siticoneLabel6.BackColor = System.Drawing.Color.Transparent;
+            this.siticoneLabel6.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.siticoneLabel6.Location = new System.Drawing.Point(723, 514);
+            this.siticoneLabel6.Name = "siticoneLabel6";
+            this.siticoneLabel6.Size = new System.Drawing.Size(108, 23);
+            this.siticoneLabel6.TabIndex = 136;
+            this.siticoneLabel6.Text = "Address:";
+            // 
+            // siticoneLabel7
+            // 
+            this.siticoneLabel7.BackColor = System.Drawing.Color.Transparent;
+            this.siticoneLabel7.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.siticoneLabel7.Location = new System.Drawing.Point(723, 374);
+            this.siticoneLabel7.Name = "siticoneLabel7";
+            this.siticoneLabel7.Size = new System.Drawing.Size(135, 23);
+            this.siticoneLabel7.TabIndex = 135;
+            this.siticoneLabel7.Text = "Date Of Birth:";
+            // 
+            // siticoneLabel8
+            // 
+            this.siticoneLabel8.BackColor = System.Drawing.Color.Transparent;
+            this.siticoneLabel8.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.siticoneLabel8.Location = new System.Drawing.Point(723, 444);
+            this.siticoneLabel8.Name = "siticoneLabel8";
+            this.siticoneLabel8.Size = new System.Drawing.Size(108, 23);
+            this.siticoneLabel8.TabIndex = 134;
+            this.siticoneLabel8.Text = "Email:";
+            // 
+            // siticoneLabel9
+            // 
+            this.siticoneLabel9.BackColor = System.Drawing.Color.Transparent;
+            this.siticoneLabel9.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.siticoneLabel9.Location = new System.Drawing.Point(87, 374);
+            this.siticoneLabel9.Name = "siticoneLabel9";
+            this.siticoneLabel9.Size = new System.Drawing.Size(135, 23);
+            this.siticoneLabel9.TabIndex = 133;
+            this.siticoneLabel9.Text = "National NO. :";
+            // 
+            // siticoneLabel5
+            // 
+            this.siticoneLabel5.BackColor = System.Drawing.Color.Transparent;
+            this.siticoneLabel5.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.siticoneLabel5.Location = new System.Drawing.Point(87, 509);
+            this.siticoneLabel5.Name = "siticoneLabel5";
+            this.siticoneLabel5.Size = new System.Drawing.Size(108, 30);
+            this.siticoneLabel5.TabIndex = 132;
+            this.siticoneLabel5.Text = "Country:";
+            // 
+            // siticoneLabel4
+            // 
+            this.siticoneLabel4.BackColor = System.Drawing.Color.Transparent;
+            this.siticoneLabel4.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.siticoneLabel4.Location = new System.Drawing.Point(87, 444);
+            this.siticoneLabel4.Name = "siticoneLabel4";
+            this.siticoneLabel4.Size = new System.Drawing.Size(108, 23);
+            this.siticoneLabel4.TabIndex = 131;
+            this.siticoneLabel4.Text = "Phone:";
+            // 
+            // siticoneLabel3
+            // 
+            this.siticoneLabel3.BackColor = System.Drawing.Color.Transparent;
+            this.siticoneLabel3.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.siticoneLabel3.Location = new System.Drawing.Point(723, 304);
+            this.siticoneLabel3.Name = "siticoneLabel3";
+            this.siticoneLabel3.Size = new System.Drawing.Size(81, 23);
+            this.siticoneLabel3.TabIndex = 130;
+            this.siticoneLabel3.Text = "Gender:";
+            // 
+            // siticoneLabel2
+            // 
+            this.siticoneLabel2.BackColor = System.Drawing.Color.Transparent;
+            this.siticoneLabel2.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.siticoneLabel2.Location = new System.Drawing.Point(87, 304);
+            this.siticoneLabel2.Name = "siticoneLabel2";
+            this.siticoneLabel2.Size = new System.Drawing.Size(108, 23);
+            this.siticoneLabel2.TabIndex = 129;
+            this.siticoneLabel2.Text = "Name:";
+            // 
+            // siticoneLabel1
+            // 
+            this.siticoneLabel1.BackColor = System.Drawing.Color.Transparent;
+            this.siticoneLabel1.Font = new System.Drawing.Font("Segoe UI Semibold", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.siticoneLabel1.Location = new System.Drawing.Point(522, 233);
+            this.siticoneLabel1.Name = "siticoneLabel1";
+            this.siticoneLabel1.Size = new System.Drawing.Size(108, 23);
+            this.siticoneLabel1.TabIndex = 128;
+            this.siticoneLabel1.Text = "Person ID:-";
+            // 
+            // pbPersonImage
+            // 
+            this.pbPersonImage.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.pbPersonImage.Image = global::Drivers_and_Vehicles_License_Department__DVLD_.Properties.Resources.face_1000dp_000000_FILL0_wght400_GRAD0_opsz48;
+            this.pbPersonImage.Location = new System.Drawing.Point(476, 13);
+            this.pbPersonImage.Name = "pbPersonImage";
+            this.pbPersonImage.Size = new System.Drawing.Size(200, 200);
+            this.pbPersonImage.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pbPersonImage.TabIndex = 160;
+            this.pbPersonImage.TabStop = false;
             // 
             // ctrlPersonCard
             // 
@@ -872,6 +841,7 @@
             this.Name = "ctrlPersonCard";
             this.Size = new System.Drawing.Size(1158, 646);
             this.Panel.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pbPersonImage)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -879,7 +849,6 @@
         #endregion
 
         private SiticoneNetFrameworkUI.SiticonePanel Panel;
-        private SiticoneNetFrameworkUI.SiticonePictureBox pbPersonalImage;
         private SiticoneNetFrameworkUI.SiticoneLabel lblPersonID;
         private SiticoneNetFrameworkUI.SiticoneLabel lblAddress;
         private SiticoneNetFrameworkUI.SiticoneLabel lblEmail;
@@ -909,5 +878,6 @@
         private SiticoneNetFrameworkUI.SiticonePictureBox siticonePictureBox1;
         private SiticoneNetFrameworkUI.SiticonePictureBox siticonePictureBox2;
         private SiticoneNetFrameworkUI.SiticoneLabel siticoneLabel10;
+        private System.Windows.Forms.PictureBox pbPersonImage;
     }
 }

@@ -1,4 +1,5 @@
-﻿using DVLD_Business;
+﻿using Drivers_and_Vehicles_License_Department__DVLD_.People.Forms;
+using DVLD_Business;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -14,11 +15,10 @@ namespace Drivers_and_Vehicles_License_Department__DVLD_
 {
     public partial class ctrlPersonCard : UserControl
     {
-        private frmListPeople _frmPeople = new frmListPeople();
 
         private clsPerson _Person;
 
-        private int _PersonID;
+        private int _PersonID = -1;
 
         public ctrlPersonCard()
         {
@@ -27,79 +27,39 @@ namespace Drivers_and_Vehicles_License_Department__DVLD_
 
         public int PersonID
         {
-            set
-            {
-                _PersonID = value;
-
-                if (_PersonID == -1)
-                {
-                    _ClearPersonDetails();
-                    return; // Exits only from get
-                }
-
-                _DisplayPersonDetails();
-            }
             get
             {
                 return _PersonID;
             }
         }
 
-        private string _SetDefaultImage()
+        public clsPerson SelectedPersonInfo
         {
-            string resourcesPath = Path.Combine(Application.StartupPath, @"..\..\PersonalImages");
-
-            if (_PersonID == -1)
-            {
-                return Path.Combine(resourcesPath, "MaleAvatar.png");
-            }
-
-            string fileName = (_Person.Gender == 0) ? "MaleAvatar.png" : "FemaleAvatar.png";
-
-            return Path.Combine(resourcesPath, fileName);
+            get { return _Person; }
         }
 
         private void _SetPersonImage()
         {
-            string imagePath = Path.Combine(Application.StartupPath, @"..\..\PersonalImages", _Person.ImagePath);
+            string ImagePath = _Person.ImagePath;
 
-            pbPersonalImage.BackgroundImage = File.Exists(imagePath)
-                ? Image.FromFile(imagePath)
-                : Image.FromFile(_SetDefaultImage());
-        }
-
-        public string _ConvertGenderToText(int Gender)
-        {
-            return (Gender == 0) ? "Male" : "Female";
-        }
-
-        private void _ClearPersonDetails()
-        {
-            lblPersonID.Text = "N\\A";
-            lblName.Text = "N\\A";
-            lblNationalNO.Text = "N\\A";
-            lblGender.Text = "N\\A";
-            lblEmail.Text = "N\\A";
-            lblAddress.Text = "N\\A";
-            lblPhone.Text = "N\\A";
-            lblDateOfBirth.Text = "N\\A";
-            lblCountry.Text = "N\\A";
-            pbPersonalImage.BackgroundImage = Image.FromFile(_SetDefaultImage());
-        }
-
-        private void _DisplayPersonDetails()
-        {
-            _Person = clsPerson.GetPersonByID(_PersonID);
-
-            if (_Person == null)
+            if (string.IsNullOrEmpty(ImagePath) || !File.Exists(ImagePath))
             {
-                return;
+                ImagePath = _SetDefaultImage();
             }
+
+            pbPersonImage.ImageLocation = ImagePath;
+        }
+
+        private void _FillPersonInfo()
+        {
+            btnEditInfo.Enabled = true;
+
+            _PersonID = _Person.PersonID;
 
             lblPersonID.Text = _PersonID.ToString();
             lblName.Text = _Person.FullName;
             lblNationalNO.Text = _Person.NationalNo;
-            lblGender.Text = _ConvertGenderToText(_Person.Gender);
+            lblGender.Text = (_Person.Gender == 0) ? "Male" : "Female";
             lblEmail.Text = _Person.Email;
             lblAddress.Text = _Person.Address;
             lblPhone.Text = _Person.Phone;
@@ -109,15 +69,72 @@ namespace Drivers_and_Vehicles_License_Department__DVLD_
             _SetPersonImage();
         }
 
-        private void btnEditInfoClick(object sender, EventArgs e)
+        private string _SetDefaultImage()
         {
+            string ResourcesPath = Path.Combine(Application.StartupPath, @"..\..\PersonalImages");
+
+            if (_PersonID == -1)
+            {
+                return Path.Combine(ResourcesPath, "MaleAvatar.png");
+            }
+
+            string fileName = (_Person.Gender == 0) ? "MaleAvatar.png" : "FemaleAvatar.png";
+
+            return Path.Combine(ResourcesPath, fileName);
+        }
+
+        private void _ResetPersonInfo()
+        {
+            btnEditInfo.Enabled = false;
+
+            _PersonID = -1;
+
+            lblPersonID.Text = "N/A";
+            lblName.Text = "N/A";
+            lblNationalNO.Text = "N/A";
+            lblGender.Text = "N/A";
+            lblEmail.Text = "N/A";
+            lblAddress.Text = "N/A";
+            lblPhone.Text = "N/A";
+            lblDateOfBirth.Text = "N/A";
+            lblCountry.Text = "N/A";
+
+            pbPersonImage.Image = null;
+            pbPersonImage.ImageLocation = _SetDefaultImage();
+        }
+
+        public void LoadPersonInfo(int PersonID)
+        {
+            _Person = clsPerson.GetPersonByID(PersonID);
+
             if (_Person == null)
             {
+                _ResetPersonInfo();
                 return;
             }
 
-            frmAddAndUpdatePeople frmAddAndUpdatePeople = new frmAddAndUpdatePeople(_Person.PersonID, _frmPeople);
-            frmAddAndUpdatePeople.ShowDialog();
+            _FillPersonInfo();
+        }
+
+        public void LoadPersonInfo(string NationalNo)
+        {
+            _Person = clsPerson.GetPersonByNationalNo(NationalNo);
+
+            if (_Person == null)
+            {
+                _ResetPersonInfo();
+                return;
+            }
+
+            _FillPersonInfo();
+        }
+
+        private void btnEditInfoClick(object sender, EventArgs e)
+        {
+            frmAddAndUpdatePeople FormAddAndUpdatePeople = new frmAddAndUpdatePeople(_Person.PersonID);
+            FormAddAndUpdatePeople.ShowDialog();
+
+            LoadPersonInfo(_PersonID);
         }
 
 

@@ -145,6 +145,7 @@
     <Compile Include="Applications\International Driving Application\Forms\frmListInternationalDrivingLicenses.Designer.cs">
       <DependentUpon>frmListInternationalDrivingLicenses.cs</DependentUpon>
     </Compile>
+    <Compile Include="Global\clsValidatoin.cs" />
     <Compile Include="Licenses\Controls\ctrlLicenseCard.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -232,12 +233,6 @@
     <Compile Include="Login\frmLoginScreen.Designer.cs">
       <DependentUpon>frmLoginScreen.cs</DependentUpon>
     </Compile>
-    <Compile Include="People\Contorls\ctrlAddNewPerson.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="People\Contorls\ctrlAddNewPerson.Designer.cs">
-      <DependentUpon>ctrlAddNewPerson.cs</DependentUpon>
-    </Compile>
     <Compile Include="People\Contorls\ctrlPersonCardWithFilter.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -250,17 +245,17 @@
     <Compile Include="People\Contorls\ctrlPersonCard.Designer.cs">
       <DependentUpon>ctrlPersonCard.cs</DependentUpon>
     </Compile>
-    <Compile Include="People\Forms\frmAddAndUpdatePeople.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="People\Forms\frmAddAndUpdatePeople.Designer.cs">
-      <DependentUpon>frmAddAndUpdatePeople.cs</DependentUpon>
-    </Compile>
     <Compile Include="Main\frmMainMenu.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Main\frmMainMenu.Designer.cs">
       <DependentUpon>frmMainMenu.cs</DependentUpon>
+    </Compile>
+    <Compile Include="People\Forms\frmAddAndUpdatePeople.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="People\Forms\frmAddAndUpdatePeople.Designer.cs">
+      <DependentUpon>frmAddAndUpdatePeople.cs</DependentUpon>
     </Compile>
     <Compile Include="People\Forms\frmListPeople.cs">
       <SubType>Form</SubType>
@@ -402,20 +397,17 @@
     <EmbeddedResource Include="Login\frmLoginScreen.resx">
       <DependentUpon>frmLoginScreen.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="People\Contorls\ctrlAddNewPerson.resx">
-      <DependentUpon>ctrlAddNewPerson.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="People\Contorls\ctrlPersonCardWithFilter.resx">
       <DependentUpon>ctrlPersonCardWithFilter.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="People\Contorls\ctrlPersonCard.resx">
       <DependentUpon>ctrlPersonCard.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="People\Forms\frmAddAndUpdatePeople.resx">
-      <DependentUpon>frmAddAndUpdatePeople.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Main\frmMainMenu.resx">
       <DependentUpon>frmMainMenu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="People\Forms\frmAddAndUpdatePeople.resx">
+      <DependentUpon>frmAddAndUpdatePeople.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="People\Forms\frmListPeople.resx">
       <DependentUpon>frmListPeople.cs</DependentUpon>
