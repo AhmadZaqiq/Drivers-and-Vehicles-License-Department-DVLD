@@ -31,7 +31,7 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ctrlUserCard));
             this.siticonePanel1 = new SiticoneNetFrameworkUI.SiticonePanel();
             this.siticoneLabel10 = new SiticoneNetFrameworkUI.SiticoneLabel();
-            this.lblIsAcitve = new SiticoneNetFrameworkUI.SiticoneLabel();
+            this.lblIsActive = new SiticoneNetFrameworkUI.SiticoneLabel();
             this.siticoneLabel4 = new SiticoneNetFrameworkUI.SiticoneLabel();
             this.lblUsername = new SiticoneNetFrameworkUI.SiticoneLabel();
             this.siticoneLabel3 = new SiticoneNetFrameworkUI.SiticoneLabel();
@@ -57,7 +57,7 @@
             this.siticonePanel1.Controls.Add(this.siticonePictureBox3);
             this.siticonePanel1.Controls.Add(this.siticonePictureBox1);
             this.siticonePanel1.Controls.Add(this.siticonePictureBox2);
-            this.siticonePanel1.Controls.Add(this.lblIsAcitve);
+            this.siticonePanel1.Controls.Add(this.lblIsActive);
             this.siticonePanel1.Controls.Add(this.siticoneLabel4);
             this.siticonePanel1.Controls.Add(this.lblUsername);
             this.siticonePanel1.Controls.Add(this.siticoneLabel3);
@@ -108,14 +108,14 @@
             // 
             // lblIsAcitve
             // 
-            this.lblIsAcitve.BackColor = System.Drawing.Color.Transparent;
-            this.lblIsAcitve.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblIsAcitve.ForeColor = System.Drawing.Color.Black;
-            this.lblIsAcitve.Location = new System.Drawing.Point(885, 34);
-            this.lblIsAcitve.Name = "lblIsAcitve";
-            this.lblIsAcitve.Size = new System.Drawing.Size(108, 23);
-            this.lblIsAcitve.TabIndex = 149;
-            this.lblIsAcitve.Text = "N\\A";
+            this.lblIsActive.BackColor = System.Drawing.Color.Transparent;
+            this.lblIsActive.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblIsActive.ForeColor = System.Drawing.Color.Black;
+            this.lblIsActive.Location = new System.Drawing.Point(885, 34);
+            this.lblIsActive.Name = "lblIsAcitve";
+            this.lblIsActive.Size = new System.Drawing.Size(108, 23);
+            this.lblIsActive.TabIndex = 149;
+            this.lblIsActive.Text = "N\\A";
             // 
             // siticoneLabel4
             // 
@@ -331,7 +331,7 @@
 
         private ctrlPersonCard ctrlPersonCard1;
         private SiticoneNetFrameworkUI.SiticonePanel siticonePanel1;
-        private SiticoneNetFrameworkUI.SiticoneLabel lblIsAcitve;
+        private SiticoneNetFrameworkUI.SiticoneLabel lblIsActive;
         private SiticoneNetFrameworkUI.SiticoneLabel siticoneLabel4;
         private SiticoneNetFrameworkUI.SiticoneLabel lblUsername;
         private SiticoneNetFrameworkUI.SiticoneLabel siticoneLabel3;

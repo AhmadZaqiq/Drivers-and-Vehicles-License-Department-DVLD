@@ -60,7 +60,7 @@ namespace DVLD_Data_Access
 
             string query = @"Select *
                              FROM Users
-                             WHERE UserID =@UserID";
+                             WHERE UserID = @UserID";
 
             SqlCommand command = new SqlCommand(query, connection);
 
@@ -145,6 +145,97 @@ namespace DVLD_Data_Access
             catch (Exception ex)
             {
                 Console.WriteLine(ex.Message);
+            }
+
+            finally
+            {
+                connection.Close();
+            }
+
+            return IsFound;
+        }
+
+        public static bool GetUserInfoByUsernameAndPasswordData(string UserName, string Password, ref int UserID, ref int PersonID, ref bool IsActive)
+        {
+            bool isFound = false;
+
+            SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString);
+
+            string query = @"SELECT *
+                             FROM Users
+                             WHERE Username = @Username
+                             and
+                                   Password=@Password;";
+
+            SqlCommand command = new SqlCommand(query, connection);
+
+            command.Parameters.AddWithValue("@Username", UserName);
+            command.Parameters.AddWithValue("@Password", Password);
+
+            try
+            {
+                connection.Open();
+
+                SqlDataReader reader = command.ExecuteReader();
+
+                if (reader.Read())
+                {
+                    isFound = true;
+                    UserID = (int)reader["UserID"];
+                    PersonID = (int)reader["PersonID"];
+                    UserName = (string)reader["UserName"];
+                    Password = (string)reader["Password"];
+                    IsActive = (bool)reader["IsActive"];
+                }
+                else
+                {
+                    isFound = false;
+                }
+
+                reader.Close();
+            }
+
+            catch (Exception ex)
+            {
+                Console.WriteLine("Error: " + ex.Message);
+            }
+
+            finally
+            {
+                connection.Close();
+            }
+
+            return isFound;
+        }
+
+        public static bool IsUserExistForPersonIDData(int PersonID)
+        {
+            bool IsFound = false;
+
+            SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString);
+
+            string query = @"SELECT Found=1
+                             FROM Users
+                             WHERE PersonID = @PersonID";
+
+            SqlCommand command = new SqlCommand(query, connection);
+
+            command.Parameters.AddWithValue("@PersonID", PersonID);
+
+            try
+            {
+                connection.Open();
+
+                SqlDataReader reader = command.ExecuteReader();
+
+                IsFound = reader.HasRows;
+
+                reader.Close();
+            }
+
+            catch (Exception ex)
+            {
+                Console.WriteLine("Error: " + ex.Message);
             }
 
             finally

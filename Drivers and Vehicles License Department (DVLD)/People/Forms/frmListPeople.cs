@@ -111,7 +111,6 @@ namespace Drivers_and_Vehicles_License_Department__DVLD_
             }
 
             clsMessageBoxManager.ShowMessageBox("Person deleted successfully.", "Done", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
             _RefreshPeopleDataGrid();
         }
 
@@ -122,13 +121,13 @@ namespace Drivers_and_Vehicles_License_Department__DVLD_
 
         private void SendEmailToolStripMenuItem1_Click(object sender, EventArgs e)
         {
-            DataGridViewRow selectedRow = dgvPeople.SelectedRows[0];
+            DataGridViewRow SelectedRow = dgvPeople.SelectedRows[0];
 
-            string emailAddress = selectedRow.Cells["Email"].Value.ToString();
+            string EmailAddress = SelectedRow.Cells["Email"].Value.ToString();
 
-            string mailtoLink = $"https://mail.google.com/mail/?view=cm&fs=1&to={emailAddress}";
+            string MailtoLink = $"https://mail.google.com/mail/?view=cm&fs=1&to={EmailAddress}";
 
-            Process.Start(new ProcessStartInfo(mailtoLink) { UseShellExecute = true });
+            Process.Start(new ProcessStartInfo(MailtoLink) { UseShellExecute = true });
         }
 
         private void cbFilter_SelectedIndexChanged(object sender, EventArgs e)

@@ -83,7 +83,7 @@ namespace Drivers_and_Vehicles_License_Department__DVLD_
             return Path.Combine(ResourcesPath, fileName);
         }
 
-        private void _ResetPersonInfo()
+        public void ResetPersonInfo()
         {
             btnEditInfo.Enabled = false;
 
@@ -109,7 +109,7 @@ namespace Drivers_and_Vehicles_License_Department__DVLD_
 
             if (_Person == null)
             {
-                _ResetPersonInfo();
+                ResetPersonInfo();
                 return;
             }
 
@@ -122,7 +122,7 @@ namespace Drivers_and_Vehicles_License_Department__DVLD_
 
             if (_Person == null)
             {
-                _ResetPersonInfo();
+                ResetPersonInfo();
                 return;
             }
 

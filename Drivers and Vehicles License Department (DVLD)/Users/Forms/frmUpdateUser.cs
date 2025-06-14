@@ -1,4 +1,5 @@
 ﻿using Drivers_and_Vehicles_License_Department__DVLD_.Global;
+using Drivers_and_Vehicles_License_Department__DVLD_.Users.Controls;
 using DVLD_Business;
 using System;
 using System.Collections.Generic;
@@ -15,45 +16,28 @@ namespace Drivers_and_Vehicles_License_Department__DVLD_.Users.Forms
 {
     public partial class frmUpdateUsername : Form
     {
-        public event Action DataAdded;
-
         clsUser _User;
         int _UserID;
+
         private bool _IsChangingPassword = false;
 
-
-        public frmUpdateUsername(int UserID, bool IsChangingPassword, frmManageUsers FormManageUsers)
+        public frmUpdateUsername(int UserID, bool IsChangingPassword)
         {
             InitializeComponent();
 
             _UserID = UserID;
-
             _User = clsUser.GetUserByID(_UserID);
 
             _IsChangingPassword = IsChangingPassword;
-
-            if (FormManageUsers != null)
-            {
-                this.DataAdded += FormManageUsers.RefreshUsersDataGrid;
-            }
         }
 
         private void frmUpdateUser_Load(object sender, EventArgs e)
         {
-            _SetDefaultValues();
+            _ResetDefaultValues();
 
-            clsUtil.MakeRoundedCorners(this, 30); //to make the form rounded
+            clsUtil.MakeRoundedCorners(this, 30);
 
             clsUtil.OpenFormEffect(this);
-        }
-
-        private void _SetDefaultValues()
-        {
-            ctrlUserCard1.UserID = _UserID;
-
-            lblTitle.Text = (_IsChangingPassword ? "Change Password" : "Update User");
-
-            _UpdateVisibility();
         }
 
         private void _PopulateUserFields()
@@ -73,74 +57,39 @@ namespace Drivers_and_Vehicles_License_Department__DVLD_.Users.Forms
                 lblUsername.Visible = false;
                 txtUsername.Visible = false;
                 chkIsActive.Visible = false;
+
+                return;
             }
 
-            else
-            {
-                lblUsername.Visible = true;
-                txtUsername.Visible = true;
-                chkIsActive.Visible = true;
-                _PopulateUserFields();
+            lblUsername.Visible = true;
+            txtUsername.Visible = true;
+            chkIsActive.Visible = true;
+            _PopulateUserFields();
 
-                txtCurrentPassword.Visible = false;
-                txtNewPassword.Visible = false;
-                txtConfirmPassword.Visible = false;
-            }
+            txtCurrentPassword.Visible = false;
+            txtNewPassword.Visible = false;
+            txtConfirmPassword.Visible = false;
         }
 
-        private bool _IsUsernameValid()
+        private void _ResetDefaultValues()
         {
-            if (string.IsNullOrWhiteSpace(txtUsername.Text.Trim()))
-            {
-                clsMessageBoxManager.ShowMessageBox("Username cannot be empty.", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                return false;
-            }
+            ctrlUserCard1.LoadUserData(_UserID);
 
-            return true;
-        }
+            lblTitle.Text = (_IsChangingPassword ? "Change Password" : "Update User");
 
-        private bool _IsPasswordValid()
-        {
-            string CurrentPassword = txtCurrentPassword.Text.Trim();
-            string NewPassword = txtNewPassword.Text.Trim();
-            string ConfirmPassword = txtConfirmPassword.Text.Trim();
-
-            if (_User.Password != clsUtil.ComputeHash(CurrentPassword))
-            {
-                clsMessageBoxManager.ShowMessageBox("Incorrect current password.", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                return false;
-            }
-
-            if (string.IsNullOrWhiteSpace(NewPassword))
-            {
-                clsMessageBoxManager.ShowMessageBox("Password cannot be blank.", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                return false;
-            }
-
-            if (NewPassword == CurrentPassword)
-            {
-                clsMessageBoxManager.ShowMessageBox("The new password cannot be the same as the current password.", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                return false;
-            }
-
-            if (ConfirmPassword != NewPassword)
-            {
-                clsMessageBoxManager.ShowMessageBox("The confirmation password does not match the new password.", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                return false;
-            }
-
-            return true;
+            _UpdateVisibility();
         }
 
         private void btnSave_Click(object sender, EventArgs e)
         {
+            if (!this.ValidateChildren())
+            {
+                clsMessageBoxManager.ShowMessageBox("Some fields are not valid, Put the mouse over the red icon to see the error.", "Save Failed", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
             if (_IsChangingPassword)
             {
-                if (!_IsPasswordValid())
-                {
-                    return;
-                }
-
                 _User.Password = clsUtil.ComputeHash(txtNewPassword.Text.Trim());
 
                 if (!_User.Save())
@@ -150,16 +99,10 @@ namespace Drivers_and_Vehicles_License_Department__DVLD_.Users.Forms
                 }
 
                 clsMessageBoxManager.ShowMessageBox("Password updated successfully", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                DataAdded?.Invoke();
             }
 
             else
             {
-                if (!_IsUsernameValid())
-                {
-                    return;
-                }
-
                 _User.Username = txtUsername.Text.Trim();
                 _User.IsActive = chkIsActive.Checked;
 
@@ -170,7 +113,6 @@ namespace Drivers_and_Vehicles_License_Department__DVLD_.Users.Forms
                 }
 
                 clsMessageBoxManager.ShowMessageBox("Updated successfully", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                DataAdded?.Invoke();
             }
         }
 
@@ -181,40 +123,84 @@ namespace Drivers_and_Vehicles_License_Department__DVLD_.Users.Forms
 
         private void txtUsername_Validating(object sender, CancelEventArgs e)
         {
-            string username = txtUsername.Text.Trim();
+            if (_IsChangingPassword)
+            {
+                return;
+            }
 
-            if (string.IsNullOrWhiteSpace(username))
+            string Username = txtUsername.Text.Trim();
+
+            if (string.IsNullOrWhiteSpace(Username))
             {
                 e.Cancel = true;
                 errorProvider1.SetError(txtUsername, "Error, Username cannot be blank");
                 return;
             }
 
-            if (clsUser.IsUserExists(username))
+            if (clsUser.IsUserExists(Username))
             {
                 e.Cancel = true;
-                errorProvider1.SetError(txtUsername, $"Error, {username} exists");
+                errorProvider1.SetError(txtUsername, $"Error, {Username} exists");
                 return;
             }
 
             errorProvider1.SetError(txtUsername, "");
         }
 
+        private void txtCurrentPassword_Validating(object sender, CancelEventArgs e)
+        {
+            if (!_IsChangingPassword)
+            {
+                return;
+            }
+
+            string CurrentPassword = txtCurrentPassword.Text.Trim();
+
+            if (string.IsNullOrWhiteSpace(CurrentPassword))
+            {
+                e.Cancel = true;
+                errorProvider1.SetError(txtCurrentPassword, "Error, Please enter current password");
+                return;
+            }
+
+            if (_User.Password != clsUtil.ComputeHash(CurrentPassword))
+            {
+                e.Cancel = true;
+                errorProvider1.SetError(txtCurrentPassword, "Error, Incorrect current password");
+                return;
+            }
+
+            errorProvider1.SetError(txtCurrentPassword, "");
+        }
+
         private void txtNewPassword_Validating(object sender, CancelEventArgs e)
         {
-            string password = txtNewPassword.Text.Trim();
+            if (!_IsChangingPassword)
+            {
+                return;
+            }
 
-            if (string.IsNullOrWhiteSpace(password))
+            string CurrentPassword = txtCurrentPassword.Text.Trim();
+            string NewPassword = txtNewPassword.Text.Trim();
+
+            if (string.IsNullOrWhiteSpace(NewPassword))
             {
                 e.Cancel = true;
                 errorProvider1.SetError(txtNewPassword, "Error, Please enter a password");
                 return;
             }
 
-            if (password.Length < 4)
+            if (NewPassword.Length < 4)
             {
                 e.Cancel = true;
                 errorProvider1.SetError(txtNewPassword, "Error, Password must be at least 4 characters long");
+                return;
+            }
+
+            if (NewPassword == CurrentPassword)
+            {
+                e.Cancel = true;
+                errorProvider1.SetError(txtNewPassword, "Error, The new password cannot be the same as the current password");
                 return;
             }
 
@@ -223,6 +209,11 @@ namespace Drivers_and_Vehicles_License_Department__DVLD_.Users.Forms
 
         private void txtConfirmPassword_Validating(object sender, CancelEventArgs e)
         {
+            if (!_IsChangingPassword)
+            {
+                return;
+            }
+
             if (txtConfirmPassword.Text.Trim() != txtNewPassword.Text.Trim())
             {
                 e.Cancel = true;

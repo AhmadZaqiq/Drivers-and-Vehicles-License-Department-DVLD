@@ -214,13 +214,12 @@
             this.btnCancel.UseParticles = false;
             this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 
-            // ctrlUserDetails1
+            // ctrlUserCard1
             // 
             this.ctrlUserCard1.Location = new System.Drawing.Point(17, 91);
-            this.ctrlUserCard1.Name = "ctrlUserDetails1";
+            this.ctrlUserCard1.Name = "ctrlUserCard1";
             this.ctrlUserCard1.Size = new System.Drawing.Size(1157, 740);
             this.ctrlUserCard1.TabIndex = 55;
-            this.ctrlUserCard1.UserID = -1;
             // 
             // siticonePanel1
             // 
@@ -331,6 +330,7 @@
             this.txtCurrentPassword.ValidationErrorMessage = "Invalid input.";
             this.txtCurrentPassword.ValidationFunction = null;
             this.txtCurrentPassword.Visible = false;
+            this.txtCurrentPassword.Validating += new System.ComponentModel.CancelEventHandler(this.txtCurrentPassword_Validating);
             // 
             // txtConfirmPassword
             // 

@@ -14,7 +14,7 @@ namespace Drivers_and_Vehicles_License_Department__DVLD_.Users.Controls
 {
     public partial class ctrlUserCard : UserControl
     {
-        private clsUser _User = new clsUser();
+        private clsUser _User;
 
         private int _UserID = -1;
 
@@ -25,47 +25,39 @@ namespace Drivers_and_Vehicles_License_Department__DVLD_.Users.Controls
 
         public int UserID
         {
-            set
-            {
-                _UserID = value;
-
-                if ((_UserID == -1))
-                {
-                    ctrlPersonCard1.LoadPersonInfo(-1);
-                    return; // Exits only from get
-                }
-
-                _DisplayUserDetails();
-            }
             get
             {
                 return _UserID;
             }
         }
 
-        private string _ConvertActiveStatusToText()
+        private void _ResetPersonInfo()
         {
-            return _User.IsActive == true ? "Yes" : "No";
+            ctrlPersonCard1.ResetPersonInfo();
+            lblUserID.Text = "N/A";
+            lblUsername.Text = "N/A";
+            lblIsActive.Text = "N/A";
         }
 
-        private void _LoadUserData()
+        private void _FillUserInfo()
         {
-            _User = clsUser.GetUserByID(_UserID);
+            lblUserID.Text = _User.UserID.ToString();
+            lblUsername.Text = _User.Username.ToString();
+            lblIsActive.Text = (_User.IsActive == true) ? "Yes" : "No";
+            ctrlPersonCard1.LoadPersonInfo(_User.PersonID);
         }
 
-        private void _DisplayUserDetails()
+        public void LoadUserData(int UserID)
         {
-            _LoadUserData();
+            _User = clsUser.GetUserByID(UserID);
 
             if (_User == null)
             {
+                _ResetPersonInfo();
                 return;
             }
 
-            lblUserID.Text = _User.UserID.ToString();
-            lblUsername.Text = _User.Username.ToString();
-            lblIsAcitve.Text = _ConvertActiveStatusToText();
-            ctrlPersonCard1.LoadPersonInfo(_User.PersonID);
+            _FillUserInfo();
         }
 
 

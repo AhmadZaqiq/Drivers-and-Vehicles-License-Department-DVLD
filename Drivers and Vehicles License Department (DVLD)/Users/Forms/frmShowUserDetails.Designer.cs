@@ -117,7 +117,6 @@
             this.ctrlUserDetails1.Name = "ctrlUserDetails1";
             this.ctrlUserDetails1.Size = new System.Drawing.Size(1157, 740);
             this.ctrlUserDetails1.TabIndex = 0;
-            this.ctrlUserDetails1.UserID = -1;
             // 
             // frmShowUserDetails
             // 

@@ -14,27 +14,57 @@ using System.Windows.Forms;
 
 namespace Drivers_and_Vehicles_License_Department__DVLD_.Users.Forms
 {
-    public partial class frmManageUsers : Form
+    public partial class frmListUsers : Form
     {
-        public frmManageUsers()
+        private DataTable _UsersTable = clsUser.GetAllUsers();
+
+        public frmListUsers()
         {
             InitializeComponent();
         }
 
         private void frmManageUsers_Load(object sender, EventArgs e)
         {
-            RefreshUsersDataGrid();
-
             _FillUsersFilterComboBox();
 
-            clsUtil.MakeRoundedCorners(this, 30); //to make the form rounded
+            _RefreshUsersDataGrid();
+
+            clsUtil.MakeRoundedCorners(this, 30);
 
             clsUtil.OpenFormEffect(this);
         }
 
+        private void _FillUsersFilterComboBox()
+        {
+            dgvUsers.DataSource = _UsersTable;
+
+            cbFilter.Items.Clear();
+
+            cbFilter.Items.Add("None");
+
+            foreach (DataColumn Column in _UsersTable.Columns)
+            {
+                cbFilter.Items.Add(Column.ColumnName);
+            }
+
+            cbFilter.SelectedIndex = 0;
+        }
+
+        private void _UpdateUsersCount()
+        {
+            lblRecordsCount.Text = (dgvUsers.RowCount).ToString();
+        }
+
+        private void _RefreshUsersDataGrid()
+        {
+            dgvUsers.DataSource = _UsersTable;
+
+            _UpdateUsersCount();
+        }
+
         private void _FillIsActiveComboBox()
         {
-            dgvUsers.DataSource = clsUser.GetAllUsers();
+            dgvUsers.DataSource = _UsersTable;
 
             cbIsActive.Items.Clear();
 
@@ -45,34 +75,6 @@ namespace Drivers_and_Vehicles_License_Department__DVLD_.Users.Forms
             cbIsActive.SelectedIndex = 0;
         }
 
-        private void _FillUsersFilterComboBox()
-        {
-            dgvUsers.DataSource = clsUser.GetAllUsers();
-
-            cbFilter.Items.Clear();
-
-            cbFilter.Items.Add("None");
-
-            foreach (DataColumn Column in clsUser.GetAllUsers().Columns)
-            {
-                cbFilter.Items.Add(Column.ColumnName);
-            }
-
-            cbFilter.SelectedIndex = 0;
-        }
-
-        public void RefreshUsersDataGrid()
-        {
-            dgvUsers.DataSource = clsUser.GetAllUsers();
-
-            _UpdateUsersCount();
-        }
-
-        private void _UpdateUsersCount()
-        {
-            lblRecordsCount.Text = (dgvUsers.RowCount).ToString();
-        }
-
         private void txtFilter_TextChanged(object sender, EventArgs e)
         {
             string FilterColumn = cbFilter.SelectedItem?.ToString();
@@ -80,7 +82,7 @@ namespace Drivers_and_Vehicles_License_Department__DVLD_.Users.Forms
 
             if (string.IsNullOrWhiteSpace(SearchText))
             {
-                RefreshUsersDataGrid(); // Return the complete data in the table after clearing the search box.
+                _RefreshUsersDataGrid(); // Return the complete data in the table after clearing the search box.
                 return;
             }
 
@@ -93,7 +95,7 @@ namespace Drivers_and_Vehicles_License_Department__DVLD_.Users.Forms
 
         private void cbFilter_SelectedIndexChanged(object sender, EventArgs e)
         {
-            RefreshUsersDataGrid();
+            _RefreshUsersDataGrid();
 
             string FilterColumn = cbFilter.SelectedItem.ToString();
 
@@ -150,8 +152,10 @@ namespace Drivers_and_Vehicles_License_Department__DVLD_.Users.Forms
 
         private void btnAddNewPerson_Click(object sender, EventArgs e)
         {
-            frmAddUser AddNewUserForm = new frmAddUser(this);
+            frmAddUser AddNewUserForm = new frmAddUser();
             AddNewUserForm.ShowDialog();
+
+            _RefreshUsersDataGrid();
         }
 
         private void btnCloseForm_Click(object sender, EventArgs e)
@@ -161,49 +165,48 @@ namespace Drivers_and_Vehicles_License_Department__DVLD_.Users.Forms
 
         private void ShowDetailsToolStripMenuItem1_Click(object sender, EventArgs e)
         {
-            DataGridViewRow selectedRow = dgvUsers.SelectedRows[0];
-
-            int UserID = Convert.ToInt32(selectedRow.Cells["UserID"].Value);
+            int UserID = (int)dgvUsers.CurrentRow.Cells[0].Value;
 
             frmShowUserDetails FormUserDetails = new frmShowUserDetails(UserID);
             FormUserDetails.ShowDialog();
+
+            _RefreshUsersDataGrid();
         }
 
         private void AddNewPersonToolStripMenuItem1_Click(object sender, EventArgs e)
         {
-            frmAddUser FormAddandUpdateUser = new frmAddUser(this);
+            frmAddUser FormAddandUpdateUser = new frmAddUser();
             FormAddandUpdateUser.ShowDialog();
+
+            _RefreshUsersDataGrid();
         }
 
         private void EditUsernameToolStripMenuItem1_Click(object sender, EventArgs e)
         {
-            DataGridViewRow selectedRow = dgvUsers.SelectedRows[0];
-            int UserID = Convert.ToInt32(selectedRow.Cells["UserID"].Value);
+            int UserID = (int)dgvUsers.CurrentRow.Cells[0].Value;
 
-            frmUpdateUsername FormUpdateUsername = new frmUpdateUsername(UserID, false, this);
+            frmUpdateUsername FormUpdateUsername = new frmUpdateUsername(UserID, false);
             FormUpdateUsername.ShowDialog();
+
+            _RefreshUsersDataGrid();
         }
 
         private void ChangePasswordStripMenuItem1_Click(object sender, EventArgs e)
         {
-            DataGridViewRow selectedRow = dgvUsers.SelectedRows[0];
+            int UserID = (int)dgvUsers.CurrentRow.Cells[0].Value;
 
-            int UserID = Convert.ToInt32(selectedRow.Cells["UserID"].Value);
-
-            frmUpdateUsername FormUpdateUsername = new frmUpdateUsername(UserID, true, this);
+            frmUpdateUsername FormUpdateUsername = new frmUpdateUsername(UserID, true);
             FormUpdateUsername.ShowDialog();
         }
 
         private void DeleteToolStripMenuItem1_Click(object sender, EventArgs e)
         {
-            DataGridViewRow selectedRow = dgvUsers.SelectedRows[0];
-
             if (!clsMessageBoxManager.ShowConfirmActionBox("Are You Sure you want to delete this User?", "Warning", MessageBoxButtons.YesNo, MessageBoxIcon.Question))
             {
                 return;
             }
 
-            int UserID = Convert.ToInt32(selectedRow.Cells["UserID"].Value);
+            int UserID = (int)dgvUsers.CurrentRow.Cells[0].Value;
 
             if (UserID == clsCurrentUser.CurrentUser.UserID)
             {
@@ -218,20 +221,20 @@ namespace Drivers_and_Vehicles_License_Department__DVLD_.Users.Forms
             }
 
             clsMessageBoxManager.ShowMessageBox("User deleted successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            RefreshUsersDataGrid();
+            _RefreshUsersDataGrid();
         }
 
         private void SendEmailToolStripMenuItem1_Click(object sender, EventArgs e)
         {
-            DataGridViewRow selectedRow = dgvUsers.SelectedRows[0];
+            DataGridViewRow SelectedRow = dgvUsers.SelectedRows[0];
 
-            int PersonID = Convert.ToInt32(selectedRow.Cells["PersonID"].Value);
+            int PersonID = Convert.ToInt32(SelectedRow.Cells["PersonID"].Value);
 
             clsPerson Person1 = clsPerson.GetPersonByID(PersonID);
 
-            string mailtoLink = $"https://mail.google.com/mail/?view=cm&fs=1&to={Person1.Email}";
+            string MailtoLink = $"https://mail.google.com/mail/?view=cm&fs=1&to={Person1.Email}";
 
-            Process.Start(new ProcessStartInfo(mailtoLink) { UseShellExecute = true });
+            Process.Start(new ProcessStartInfo(MailtoLink) { UseShellExecute = true });
         }
 
         private void CallToolStripMenuItem_Click(object sender, EventArgs e)

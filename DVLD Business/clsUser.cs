@@ -18,6 +18,8 @@ namespace DVLD_Business
 
         public int UserID { get; set; }
         public int PersonID { get; set; }
+
+        public clsPerson PersonInfo { get; set; }
         public string Username { get; set; }
         public string Password { get; set; }
         public bool IsActive { get; set; }
@@ -35,6 +37,7 @@ namespace DVLD_Business
         {
             this.UserID = UserID;
             this.PersonID = PersonID;
+            this.PersonInfo = clsPerson.GetPersonByID(PersonID);
             this.Username = Username;
             this.Password = Password;
             this.IsActive = IsActive;
@@ -74,6 +77,21 @@ namespace DVLD_Business
             if (clsUsersData.GetUserByUsernameData(Username, ref UserID, ref PersonID, ref Password, ref IsActive))
             {
                 return new clsUser(UserID, PersonID, Username, Password, IsActive);
+            }
+
+            return null;
+        }
+
+        public static clsUser FindByUsernameAndPassword(string UserName, string Password)
+        {
+            int UserID = -1;
+            int PersonID = -1;
+
+            bool IsActive = false;
+
+            if (clsUsersData.GetUserInfoByUsernameAndPasswordData(UserName, Password, ref UserID, ref PersonID, ref IsActive))
+            {
+                return new clsUser(UserID, PersonID, UserName, Password, IsActive);
             }
 
             return null;
@@ -141,6 +159,10 @@ namespace DVLD_Business
             return clsUsersData.IsUserExistData(Username);
         }
 
+        public static bool IsUserExistForPersonID(int PersonID)
+        {
+            return clsUsersData.IsUserExistForPersonIDData(PersonID);
+        }
 
     }
 }

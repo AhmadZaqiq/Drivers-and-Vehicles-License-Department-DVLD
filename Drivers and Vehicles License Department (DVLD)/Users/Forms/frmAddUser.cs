@@ -16,27 +16,21 @@ namespace Drivers_and_Vehicles_License_Department__DVLD_.Users.Forms
 {
     public partial class frmAddUser : Form
     {
-        public event Action DataAdded;
-
-        private frmListPeople _frmPeople = new frmListPeople();
-
         private clsUser _User = new clsUser(); //Unlike with 'People Addition', here we only create the object because there is no 'Update User' operation here.
 
-        public frmAddUser(frmManageUsers FormManageUsers)
+        public frmAddUser()
         {
             InitializeComponent();
-
-            this.DataAdded += FormManageUsers.RefreshUsersDataGrid;
         }
 
         private void frmAddNewUser_Load(object sender, EventArgs e)
         {
-            clsUtil.MakeRoundedCorners(this, 30); //to make the form rounded
+            clsUtil.MakeRoundedCorners(this, 30);
 
             clsUtil.OpenFormEffect(this);
         }
 
-        private void _LoadUserData()
+        private void _CollectUserInfoFromForm()
         {
             _User.Username = txtUsername.Text;
             _User.Password = clsUtil.ComputeHash(txtPassword.Text);
@@ -44,17 +38,9 @@ namespace Drivers_and_Vehicles_License_Department__DVLD_.Users.Forms
             _User.PersonID = ctrlPersonCardWithFilter1.PersonID;
         }
 
-        private bool _CheckInputsValidity()
-        {
-            return string.IsNullOrWhiteSpace(txtUsername.Text.Trim()) ||
-                             string.IsNullOrWhiteSpace(txtPassword.Text) ||
-                             txtPassword.Text.Length < 4 ||
-                             txtConfirmPassword.Text != txtPassword.Text;
-        }
-
         private void btnShowHidePassword_Click(object sender, EventArgs e)
         {
-            bool IsPasswordHidden = txtPassword.PasswordChar == '*';
+            bool IsPasswordHidden = (txtPassword.PasswordChar == '*');
 
             txtPassword.UseSystemPasswordChar = !IsPasswordHidden;
             txtConfirmPassword.UseSystemPasswordChar = !IsPasswordHidden;
@@ -67,11 +53,15 @@ namespace Drivers_and_Vehicles_License_Department__DVLD_.Users.Forms
 
         private void btnSave_Click(object sender, EventArgs e)
         {
-            _LoadUserData();
-
-            if (_CheckInputsValidity())
+            if (!this.ValidateChildren())
             {
-                clsMessageBoxManager.ShowMessageBox("One or more inputs are invalid", "Failed", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Some fileds are not valid!, put the mouse over the red icon(s) to see the erro", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            if (clsUser.IsUserExistForPersonID(ctrlPersonCardWithFilter1.PersonID))
+            {
+                MessageBox.Show("Selected Person already has a user, choose another one.", "Select another Person", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
 
@@ -87,6 +77,8 @@ namespace Drivers_and_Vehicles_License_Department__DVLD_.Users.Forms
                 return;
             }
 
+            _CollectUserInfoFromForm();
+
             if (!_User.Save())
             {
                 clsMessageBoxManager.ShowMessageBox("Data not Saved...", "Failed", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -94,7 +86,7 @@ namespace Drivers_and_Vehicles_License_Department__DVLD_.Users.Forms
             }
 
             clsMessageBoxManager.ShowMessageBox("User Added Successfully", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            DataAdded?.Invoke();
+            this.Close();
         }
 
         private void btnNext_Click(object sender, EventArgs e)

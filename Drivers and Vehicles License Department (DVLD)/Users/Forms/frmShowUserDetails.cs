@@ -25,9 +25,9 @@ namespace Drivers_and_Vehicles_License_Department__DVLD_.Users.Forms
 
         private void frmShowUserDetails_Load(object sender, EventArgs e)
         {
-            ctrlUserDetails1.UserID = _UserID;
+            ctrlUserDetails1.LoadUserData(_UserID);
 
-            clsUtil.MakeRoundedCorners(this, 30); //to make the form rounded
+            clsUtil.MakeRoundedCorners(this, 30);
 
             clsUtil.OpenFormEffect(this);
         }
@@ -36,5 +36,7 @@ namespace Drivers_and_Vehicles_License_Department__DVLD_.Users.Forms
         {
             clsUtil.CloseFormEffect(this);
         }
+
+
     }
 }

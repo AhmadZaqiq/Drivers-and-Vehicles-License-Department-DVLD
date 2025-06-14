@@ -46,7 +46,7 @@ namespace Drivers_and_Vehicles_License_Department__DVLD_
 
         private void UsersToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            frmManageUsers ManageUsersForm = new frmManageUsers();
+            frmListUsers ManageUsersForm = new frmListUsers();
             ManageUsersForm.ShowDialog();
         }
 
@@ -58,7 +58,7 @@ namespace Drivers_and_Vehicles_License_Department__DVLD_
 
         private void ChangePasswordToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            frmUpdateUsername FormChangePassword = new frmUpdateUsername(clsCurrentUser.CurrentUser.UserID, true, null);
+            frmUpdateUsername FormChangePassword = new frmUpdateUsername(clsCurrentUser.CurrentUser.UserID, true);
             FormChangePassword.ShowDialog();
         }
 

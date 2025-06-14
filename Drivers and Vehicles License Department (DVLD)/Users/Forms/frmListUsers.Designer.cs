@@ -1,6 +1,6 @@
 ﻿namespace Drivers_and_Vehicles_License_Department__DVLD_.Users.Forms
 {
-    partial class frmManageUsers
+    partial class frmListUsers
     {
         /// <summary>
         /// Required designer variable.
@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmManageUsers));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmListUsers));
             this.label1 = new System.Windows.Forms.Label();
             this.txtFilter = new System.Windows.Forms.MaskedTextBox();
             this.lblRecordsCount = new System.Windows.Forms.Label();
