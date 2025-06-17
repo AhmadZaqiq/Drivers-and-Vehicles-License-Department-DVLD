@@ -210,13 +210,13 @@ namespace DVLD_Data_Access
 
         public static bool IsUserExistForPersonIDData(int PersonID)
         {
-            bool IsFound = false;
+            bool isFound = false;
 
             SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString);
 
             string query = @"SELECT Found=1
                              FROM Users
-                             WHERE PersonID = @PersonID";
+                WHERE PersonID = @PersonID";
 
             SqlCommand command = new SqlCommand(query, connection);
 
@@ -225,25 +225,23 @@ namespace DVLD_Data_Access
             try
             {
                 connection.Open();
-
                 SqlDataReader reader = command.ExecuteReader();
 
-                IsFound = reader.HasRows;
+                isFound = reader.HasRows;
 
                 reader.Close();
             }
-
             catch (Exception ex)
             {
-                Console.WriteLine("Error: " + ex.Message);
+                //Console.WriteLine("Error: " + ex.Message);
+                isFound = false;
             }
-
             finally
             {
                 connection.Close();
             }
 
-            return IsFound;
+            return isFound;
         }
 
         public static int AddNewUserData(int PersonID, string UserName, string Password, bool IsActive)

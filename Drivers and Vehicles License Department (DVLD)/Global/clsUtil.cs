@@ -13,6 +13,8 @@ namespace Drivers_and_Vehicles_License_Department__DVLD_.Global
 {
     public class clsUtil
     {
+        public static string UserSessionFileName = "UserSession.txt";
+
         private clsUtil() { }
 
         public static void MakeRoundedCorners(Form form, int borderRadius)
@@ -134,6 +136,39 @@ namespace Drivers_and_Vehicles_License_Department__DVLD_.Global
             SourceFile = FestinationFile;
 
             return true;
+        }
+
+        public static void SaveValuesOnFile(string Username, string Password,string Separator= "#%%#")
+        {
+            try
+            {
+                string Data = Username + Separator + Password;
+                File.WriteAllText(UserSessionFileName, Data);
+            }
+
+            catch (Exception ex)
+            {
+                Console.WriteLine("Error saving session data: " + ex.Message);
+            }
+        }
+
+        public static void LoadValuesFromFile(ref string Username, ref string Password, string Separator = "#%%#")
+        {
+            if (!File.Exists(UserSessionFileName))
+            {
+                return;
+            }
+
+            string Data = File.ReadAllText(UserSessionFileName);
+            string[] Parts = Data.Split(new string[] { Separator }, StringSplitOptions.None);
+
+            if (Parts.Length != 2)
+            {
+                return;
+            }
+
+            Username = Parts[0];
+            Password = Parts[1];
         }
 
 

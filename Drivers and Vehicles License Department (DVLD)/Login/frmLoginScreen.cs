@@ -21,8 +21,6 @@ namespace Drivers_and_Vehicles_License_Department__DVLD_.Login
 
         private clsUser _User;
 
-        static string UserSessionFileName = "UserSession.txt";
-
         public frmLoginScreen()
         {
             InitializeComponent();
@@ -30,56 +28,30 @@ namespace Drivers_and_Vehicles_License_Department__DVLD_.Login
 
         private void frmLoginScreen_Load(object sender, EventArgs e)
         {
-            _LoadValuesFromFile();
+            _GetStoredCredentials();
 
-            clsUtil.MakeRoundedCorners(this, 30); //to make the form rounded
+            clsUtil.MakeRoundedCorners(this, 30);
 
             clsUtil.OpenFormEffect(this);
         }
 
-        private void _SaveUserSession()
+        private void _GetStoredCredentials()
         {
-            if (!chkRememberMe.Checked)
-            {
-                _SaveValuesOnFile("", "");
-                return;
-            }
+            string Username = "", Password = "";
 
-            _SaveValuesOnFile(txtUsername.Text, txtPassword.Text);
-        }
-
-        private void _SaveValuesOnFile(string Username, string Password)
-        {
-            string Data = Username + "#%%#" + Password;
-            File.WriteAllText(UserSessionFileName, Data);
-        }
-
-        private void _LoadValuesFromFile()
-        {
-            if (!File.Exists(UserSessionFileName))
-            {
-                return;
-            }
-
-            string data = File.ReadAllText(UserSessionFileName);
-            string[] parts = data.Split(new string[] { "#%%#" }, StringSplitOptions.None);
-
-            if (parts.Length != 2)
-            {
-                return;
-            }
-
-            txtUsername.Text = parts[0];
-            txtPassword.Text = parts[1];
+            clsUtil.LoadValuesFromFile(ref Username, ref Password);
+            txtUsername.Text = Username;
+            txtPassword.Text = Password;
         }
 
         private bool _CheckCredentials()
         {
             string Username = txtUsername.Text.Trim();
-            string Password = clsUtil.ComputeHash(txtPassword.Text);
-            _User = clsUser.GetUserByUsername(Username);
+            string passwordHash = clsUtil.ComputeHash(txtPassword.Text);
 
-            if (_User == null || (_User.Password != Password))
+            _User = clsUser.FindByUsernameAndPassword(Username, passwordHash);
+
+            if (_User == null)
             {
                 clsMessageBoxManager.ShowMessageBox("Invalid Username/Password", "Wrong Credentials", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return false;
@@ -92,6 +64,21 @@ namespace Drivers_and_Vehicles_License_Department__DVLD_.Login
             }
 
             return true;
+        }
+
+        private void _StoreCredentials()
+        {
+            // ⚠ WARNING: This example is for demonstration and educational purposes only.
+            // Storing plaintext passwords or even hashes in a file is insecure and not recommended in real applications.
+            // This implementation is intended to illustrate the basic idea of storing user credentials.
+
+            if (!chkRememberMe.Checked)
+            {
+                clsUtil.SaveValuesOnFile("", "");
+                return;
+            }
+
+            clsUtil.SaveValuesOnFile(txtUsername.Text, txtPassword.Text);
         }
 
         private void btnFacebook_Click(object sender, EventArgs e)
@@ -134,7 +121,7 @@ namespace Drivers_and_Vehicles_License_Department__DVLD_.Login
                 return;
             }
 
-            _SaveUserSession();
+            _StoreCredentials();
             clsCurrentUser.CurrentUser = _User;
 
             frmMainMenu FormMainMenu = new frmMainMenu();
