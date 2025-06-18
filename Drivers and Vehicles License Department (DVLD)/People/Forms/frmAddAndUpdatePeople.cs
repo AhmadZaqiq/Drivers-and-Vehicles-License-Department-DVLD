@@ -270,7 +270,9 @@ namespace Drivers_and_Vehicles_License_Department__DVLD_.People.Forms
         private void txtEmail_Validating(object sender, CancelEventArgs e)
         {
             if (txtEmail.Text.Trim() == "")
+            {
                 return;
+            }
 
             if (!clsValidatoin.ValidateEmail(txtEmail.Text))
             {

@@ -53,6 +53,46 @@ namespace DVLD_Data_Access
             return dt;
         }
 
+        public static int AddApplicationTypeData(string ApplicationTypeTitle, decimal ApplicationFees)
+        {
+            int ApplicationTypeID = -1;
+
+            SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString);
+
+            string query = @"INSERT INTO ApplicationTypes (ApplicationTypeTitle, ApplicationFees)
+                             VALUES (@ApplicationTypeTitle, @ApplicationFees);
+                             SELECT SCOPE_IDENTITY();";
+
+            SqlCommand command = new SqlCommand(query, connection);
+
+            command.Parameters.AddWithValue("@ApplicationTypeTitle", ApplicationTypeTitle);
+            command.Parameters.AddWithValue("@ApplicationFees", ApplicationFees);
+
+            try
+            {
+                connection.Open();
+
+                object result = command.ExecuteScalar();
+
+                if (result != null && int.TryParse(result.ToString(), out int insertedID))
+                {
+                    ApplicationTypeID = insertedID;
+                }
+            }
+
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+
+            finally
+            {
+                connection.Close();
+            }
+
+            return ApplicationTypeID;
+        }
+
         public static bool UpdateApplicationTypeData(int ApplicationTypeID, string ApplicationTypeTitle, decimal ApplicationFees)
         {
             SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString);
@@ -92,7 +132,7 @@ namespace DVLD_Data_Access
             return UpdatedSuccessfully;
         }
 
-        public static bool GetApplicationTypeByIDData(int ApplicationTypeID, ref string ApplicationTypeTitle, ref decimal ApplicationFees)
+        public static bool GetApplicationTypeInfoByIDData(int ApplicationTypeID, ref string ApplicationTypeTitle, ref decimal ApplicationFees)
         {
             SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString);
 

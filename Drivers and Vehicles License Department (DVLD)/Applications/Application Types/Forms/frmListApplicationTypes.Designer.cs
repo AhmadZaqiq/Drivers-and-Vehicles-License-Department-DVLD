@@ -1,6 +1,6 @@
 ﻿namespace Drivers_and_Vehicles_License_Department__DVLD_.Application_Types
 {
-    partial class frmManageApplicationTypes
+    partial class frmListApplicationTypes
     {
         /// <summary>
         /// Required designer variable.
@@ -33,11 +33,11 @@
             this.siticonePanel1 = new SiticoneNetFrameworkUI.SiticonePanel();
             this.dgvApplicationTypes = new System.Windows.Forms.DataGridView();
             this.cmApplicationTypeSettings = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.editApplicationTypeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.btnCloseForm = new SiticoneNetFrameworkUI.SiticoneButton();
             this.label3 = new System.Windows.Forms.Label();
             this.lblRecordsCount = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.editApplicationTypeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.siticonePanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvApplicationTypes)).BeginInit();
             this.cmApplicationTypeSettings.SuspendLayout();
@@ -49,11 +49,11 @@
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Segoe UI Semibold", 27.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.Black;
-            this.label1.Location = new System.Drawing.Point(168, 334);
+            this.label1.Location = new System.Drawing.Point(207, 334);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(465, 50);
+            this.label1.Size = new System.Drawing.Size(386, 50);
             this.label1.TabIndex = 2;
-            this.label1.Text = "Manage Application Types";
+            this.label1.Text = "List Application Types";
             // 
             // siticonePanel1
             // 
@@ -122,6 +122,15 @@
             this.editApplicationTypeToolStripMenuItem});
             this.cmApplicationTypeSettings.Name = "cmApplicationTypeSettings";
             this.cmApplicationTypeSettings.Size = new System.Drawing.Size(231, 30);
+            // 
+            // editApplicationTypeToolStripMenuItem
+            // 
+            this.editApplicationTypeToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.editApplicationTypeToolStripMenuItem.Image = global::Drivers_and_Vehicles_License_Department__DVLD_.Properties.Resources.ic_fluent_edit_settings_24_filled;
+            this.editApplicationTypeToolStripMenuItem.Name = "editApplicationTypeToolStripMenuItem";
+            this.editApplicationTypeToolStripMenuItem.Size = new System.Drawing.Size(230, 26);
+            this.editApplicationTypeToolStripMenuItem.Text = "Edit Application type";
+            this.editApplicationTypeToolStripMenuItem.Click += new System.EventHandler(this.EditApplicationTypeToolStripMenuItem_Click);
             // 
             // btnCloseForm
             // 
@@ -232,16 +241,7 @@
             this.pictureBox1.TabIndex = 57;
             this.pictureBox1.TabStop = false;
             // 
-            // editApplicationTypeToolStripMenuItem
-            // 
-            this.editApplicationTypeToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.editApplicationTypeToolStripMenuItem.Image = global::Drivers_and_Vehicles_License_Department__DVLD_.Properties.Resources.ic_fluent_edit_settings_24_filled;
-            this.editApplicationTypeToolStripMenuItem.Name = "editApplicationTypeToolStripMenuItem";
-            this.editApplicationTypeToolStripMenuItem.Size = new System.Drawing.Size(230, 26);
-            this.editApplicationTypeToolStripMenuItem.Text = "Edit Application type";
-            this.editApplicationTypeToolStripMenuItem.Click += new System.EventHandler(this.EditApplicationTypeToolStripMenuItem_Click);
-            // 
-            // frmManageApplicationTypes
+            // frmListApplicationTypes
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -256,7 +256,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
-            this.Name = "frmManageApplicationTypes";
+            this.Name = "frmListApplicationTypes";
             this.ShowIcon = false;
             this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;

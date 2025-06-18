@@ -16,6 +16,9 @@ namespace DVLD_Business
 {
     public class clsApplicationType
     {
+        public enum enMode { AddNew = 0, Update = 1 };
+        public enMode Mode = enMode.AddNew;
+
         public int ApplicationTypeID { get; set; }
         public string ApplicationTypeTitle { get; set; }
         public decimal ApplicationTypeFees { get; set; }
@@ -25,6 +28,8 @@ namespace DVLD_Business
             ApplicationTypeID = -1;
             ApplicationTypeTitle = "";
             ApplicationTypeFees = -1;
+
+            Mode = enMode.AddNew;
         }
 
         private clsApplicationType(int ApplicationTypeID, string ApplicationTypeTitle, decimal ApplicationFees)
@@ -32,6 +37,8 @@ namespace DVLD_Business
             this.ApplicationTypeID = ApplicationTypeID;
             this.ApplicationTypeTitle = ApplicationTypeTitle;
             this.ApplicationTypeFees = ApplicationFees;
+
+            Mode = enMode.Update;
         }
 
         public static DataTable GetAllApplicationTypes()
@@ -44,15 +51,47 @@ namespace DVLD_Business
             string ApplicationTypeTitle = "";
             decimal ApplicationFees= 0;
 
-            if (!clsApplicationTypesData.GetApplicationTypeByIDData(ApplicationTypeID, ref ApplicationTypeTitle, ref ApplicationFees))
+            if (!clsApplicationTypesData.GetApplicationTypeInfoByIDData(ApplicationTypeID, ref ApplicationTypeTitle, ref ApplicationFees))
                 return null;
 
                 return new clsApplicationType(ApplicationTypeID,ApplicationTypeTitle,ApplicationFees);
         }
 
-        public bool UpdateApplicationType()
+        private bool _AddNewApplicationType()
+        {
+            this.ApplicationTypeID = clsApplicationTypesData.AddApplicationTypeData(this.ApplicationTypeTitle, this.ApplicationTypeFees);
+
+            return (this.ApplicationTypeID != -1);
+        }
+
+        public bool _UpdateApplicationType()
         {
             return clsApplicationTypesData.UpdateApplicationTypeData(this.ApplicationTypeID,this.ApplicationTypeTitle,this.ApplicationTypeFees);
+        }
+
+        public bool Save()
+        {
+            switch (Mode)
+            {
+                case enMode.AddNew:
+                    if (_AddNewApplicationType())
+                    {
+
+                        Mode = enMode.Update;
+                        return true;
+                    }
+
+                    else
+                    {
+                        return false;
+                    }
+
+                case enMode.Update:
+
+                    return _UpdateApplicationType();
+            }
+
+            return false;
         }
 
 

@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmUpdateApplicationType));
             this.btnSave = new SiticoneNetFrameworkUI.SiticoneButton();
             this.btnCancel = new SiticoneNetFrameworkUI.SiticoneButton();
@@ -35,11 +36,13 @@
             this.txtApplicationTypeFees = new SiticoneNetFrameworkUI.SiticoneTextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.lblID = new System.Windows.Forms.Label();
+            this.lblApplicationTypeID = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.siticonePictureBox2 = new SiticoneNetFrameworkUI.SiticonePictureBox();
             this.siticonePictureBox1 = new SiticoneNetFrameworkUI.SiticonePictureBox();
+            this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             this.SuspendLayout();
             // 
             // btnSave
@@ -260,6 +263,7 @@
             this.txtApplicationTypeTitle.TextPadding = new System.Windows.Forms.Padding(13, 1, 13, 1);
             this.txtApplicationTypeTitle.ValidationErrorMessage = "Invalid input.";
             this.txtApplicationTypeTitle.ValidationFunction = null;
+            this.txtApplicationTypeTitle.Validating += new System.ComponentModel.CancelEventHandler(this.txtApplicationTypeTitle_Validating);
             // 
             // txtApplicationTypeFees
             // 
@@ -321,6 +325,7 @@
             this.txtApplicationTypeFees.TextPadding = new System.Windows.Forms.Padding(13, 1, 13, 1);
             this.txtApplicationTypeFees.ValidationErrorMessage = "Invalid input.";
             this.txtApplicationTypeFees.ValidationFunction = null;
+            this.txtApplicationTypeFees.Validating += new System.ComponentModel.CancelEventHandler(this.txtApplicationTypeFees_Validating);
             // 
             // label2
             // 
@@ -342,16 +347,16 @@
             this.label3.TabIndex = 78;
             this.label3.Text = "Title:";
             // 
-            // lblID
+            // lblApplicationTypeID
             // 
-            this.lblID.AutoSize = true;
-            this.lblID.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblID.Location = new System.Drawing.Point(155, 105);
-            this.lblID.Name = "lblID";
-            this.lblID.Size = new System.Drawing.Size(32, 25);
-            this.lblID.TabIndex = 80;
-            this.lblID.Text = "ID";
-            this.lblID.Visible = false;
+            this.lblApplicationTypeID.AutoSize = true;
+            this.lblApplicationTypeID.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblApplicationTypeID.Location = new System.Drawing.Point(155, 105);
+            this.lblApplicationTypeID.Name = "lblApplicationTypeID";
+            this.lblApplicationTypeID.Size = new System.Drawing.Size(32, 25);
+            this.lblApplicationTypeID.TabIndex = 80;
+            this.lblApplicationTypeID.Text = "ID";
+            this.lblApplicationTypeID.Visible = false;
             // 
             // label5
             // 
@@ -465,6 +470,10 @@
             this.siticonePictureBox1.TabIndex = 77;
             this.siticonePictureBox1.Text = "siticonePictureBox1";
             // 
+            // errorProvider1
+            // 
+            this.errorProvider1.ContainerControl = this;
+            // 
             // frmUpdateApplicationType
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 17F);
@@ -473,7 +482,7 @@
             this.ClientSize = new System.Drawing.Size(584, 361);
             this.ControlBox = false;
             this.Controls.Add(this.label5);
-            this.Controls.Add(this.lblID);
+            this.Controls.Add(this.lblApplicationTypeID);
             this.Controls.Add(this.siticonePictureBox2);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.siticonePictureBox1);
@@ -492,6 +501,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "frmUpdateApplicationType";
             this.Load += new System.EventHandler(this.frmUpdateApplicationType_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -507,8 +517,9 @@
         private SiticoneNetFrameworkUI.SiticonePictureBox siticonePictureBox1;
         private SiticoneNetFrameworkUI.SiticonePictureBox siticonePictureBox2;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label lblID;
+        private System.Windows.Forms.Label lblApplicationTypeID;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.ErrorProvider errorProvider1;
     }
 }

@@ -64,7 +64,7 @@ namespace Drivers_and_Vehicles_License_Department__DVLD_
 
         private void ManageApplicationTypesToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            frmManageApplicationTypes FormManageApplicationTypes = new frmManageApplicationTypes();
+            frmListApplicationTypes FormManageApplicationTypes = new frmListApplicationTypes();
             FormManageApplicationTypes.ShowDialog();
         }
 

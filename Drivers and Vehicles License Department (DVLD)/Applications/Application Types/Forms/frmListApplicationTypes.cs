@@ -13,9 +13,11 @@ using System.Windows.Forms;
 
 namespace Drivers_and_Vehicles_License_Department__DVLD_.Application_Types
 {
-    public partial class frmManageApplicationTypes : Form
+    public partial class frmListApplicationTypes : Form
     {
-        public frmManageApplicationTypes()
+        private DataTable _dtAllApplicationTypes= clsApplicationType.GetAllApplicationTypes();
+
+        public frmListApplicationTypes()
         {
             InitializeComponent();
         }
@@ -24,14 +26,14 @@ namespace Drivers_and_Vehicles_License_Department__DVLD_.Application_Types
         {
             RefreshApplicationTypesDataGrid();
 
-            clsUtil.MakeRoundedCorners(this, 30); //to make the form rounded
+            clsUtil.MakeRoundedCorners(this, 30);
 
             clsUtil.OpenFormEffect(this);
         }
 
         public void RefreshApplicationTypesDataGrid()
         {
-            dgvApplicationTypes.DataSource = clsApplicationType.GetAllApplicationTypes();
+            dgvApplicationTypes.DataSource = _dtAllApplicationTypes;
 
             _UpdateApplicationTypesCount();
         }
@@ -48,12 +50,12 @@ namespace Drivers_and_Vehicles_License_Department__DVLD_.Application_Types
 
         private void EditApplicationTypeToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            DataGridViewRow selectedRow = dgvApplicationTypes.SelectedRows[0];
+            int ApplicationTypeID = ((int)dgvApplicationTypes.CurrentRow.Cells[0].Value);
 
-            int ApplicationTypeID = Convert.ToInt32(selectedRow.Cells["ApplicationTypeID"].Value);
-
-            frmUpdateApplicationType FormUpdateApplicationType = new frmUpdateApplicationType(ApplicationTypeID, this);
+            frmUpdateApplicationType FormUpdateApplicationType = new frmUpdateApplicationType(ApplicationTypeID);
             FormUpdateApplicationType.ShowDialog();
+
+            RefreshApplicationTypesDataGrid();
         }
 
 

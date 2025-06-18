@@ -194,11 +194,11 @@
     <Compile Include="Applications\Local Driving Application\Controls\ctrlLocalDrivingApplicationCard.Designer.cs">
       <DependentUpon>ctrlLocalDrivingApplicationCard.cs</DependentUpon>
     </Compile>
-    <Compile Include="Applications\Application Types\Forms\frmManageApplicationTypes.cs">
+    <Compile Include="Applications\Application Types\Forms\frmListApplicationTypes.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Applications\Application Types\Forms\frmManageApplicationTypes.Designer.cs">
-      <DependentUpon>frmManageApplicationTypes.cs</DependentUpon>
+    <Compile Include="Applications\Application Types\Forms\frmListApplicationTypes.Designer.cs">
+      <DependentUpon>frmListApplicationTypes.cs</DependentUpon>
     </Compile>
     <Compile Include="Applications\Application Types\Forms\frmUpdateApplicationType.cs">
       <SubType>Form</SubType>
@@ -379,8 +379,8 @@
     <EmbeddedResource Include="Applications\Local Driving Application\Controls\ctrlLocalDrivingApplicationCard.resx">
       <DependentUpon>ctrlLocalDrivingApplicationCard.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Applications\Application Types\Forms\frmManageApplicationTypes.resx">
-      <DependentUpon>frmManageApplicationTypes.cs</DependentUpon>
+    <EmbeddedResource Include="Applications\Application Types\Forms\frmListApplicationTypes.resx">
+      <DependentUpon>frmListApplicationTypes.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Applications\Application Types\Forms\frmUpdateApplicationType.resx">
       <DependentUpon>frmUpdateApplicationType.cs</DependentUpon>
