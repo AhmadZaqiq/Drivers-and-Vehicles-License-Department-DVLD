@@ -116,7 +116,7 @@ namespace Drivers_and_Vehicles_License_Department__DVLD_.People.Forms
                 return;
             }
 
-            lblPersonID.Text = _Person.PersonID.ToString();
+            lblPersonID.Text = _Person.ID.ToString();
             txtFirstName.Text = _Person.FirstName;
             txtSecondName.Text = _Person.SecondName;
             txtThirdName.Text = _Person.ThirdName;
@@ -124,7 +124,7 @@ namespace Drivers_and_Vehicles_License_Department__DVLD_.People.Forms
             txtNationalNO.Text = _Person.NationalNo;
             dtpDateOfBirth.Value = _Person.DateOfBirth;
             _UpdateGender();
-            cbCountry.Text = _Person.CountryInfo.CountryName;
+            cbCountry.Text = _Person.CountryInfo.Name;
             txtPhone.Text = _Person.Phone;
             txtEmail.Text = _Person.Email;
             txtAddress.Text = _Person.Address;
@@ -191,7 +191,7 @@ namespace Drivers_and_Vehicles_License_Department__DVLD_.People.Forms
             _Person.Address = txtAddress.Text.Trim();
             _Person.Phone = txtPhone.Text.Trim();
             _Person.Email = txtEmail.Text.Trim();
-            _Person.NationalityCountryID = clsCountry.GetCountry(cbCountry.Text).CountryID;
+            _Person.NationalityCountryID = clsCountry.GetCountry(cbCountry.Text).ID;
 
             // If no image is selected, the default behavior will store a null value in the database.
             if (pbPersonImage.ImageLocation != null)
@@ -222,11 +222,11 @@ namespace Drivers_and_Vehicles_License_Department__DVLD_.People.Forms
                 return;
             }
 
-            lblPersonID.Text = _Person.PersonID.ToString();
+            lblPersonID.Text = _Person.ID.ToString();
             _Mode = enMode.Update;
             lblTitle.Text = "Update Person";
 
-            DataBack?.Invoke(this, _Person.PersonID);
+            DataBack?.Invoke(this, _Person.ID);
 
             clsMessageBoxManager.ShowMessageBox("Data Saved Successfully", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
 

@@ -52,13 +52,13 @@ namespace Drivers_and_Vehicles_License_Department__DVLD_
 
         private void CurrentUserInfoToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            frmShowUserDetails FormShowUserDetails = new frmShowUserDetails(clsCurrentUser.CurrentUser.UserID);
+            frmShowUserDetails FormShowUserDetails = new frmShowUserDetails(clsCurrentUser.CurrentUser.ID);
             FormShowUserDetails.ShowDialog();
         }
 
         private void ChangePasswordToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            frmUpdateUsername FormChangePassword = new frmUpdateUsername(clsCurrentUser.CurrentUser.UserID, true);
+            frmUpdateUsername FormChangePassword = new frmUpdateUsername(clsCurrentUser.CurrentUser.ID, true);
             FormChangePassword.ShowDialog();
         }
 
@@ -70,7 +70,7 @@ namespace Drivers_and_Vehicles_License_Department__DVLD_
 
         private void ManageTestTypesToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            frmManageTestTypes FormManageTestTypes = new frmManageTestTypes();
+            frmListTestTypes FormManageTestTypes = new frmListTestTypes();
             FormManageTestTypes.ShowDialog();
         }
 

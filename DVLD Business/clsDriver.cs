@@ -7,17 +7,16 @@ namespace DVLD_Business
     public class clsDriver
     {
         public enum enMode { AddNew = 0, Update = 1 }
-
         public enMode Mode = enMode.AddNew;
 
-        public int DriverID { get; set; }
+        public int ID { get; set; }
         public int PersonID { get; set; }
         public int CreatedByUserID { get; set; }
         public DateTime CreatedDate { get; set; }
 
         public clsDriver()
         {
-            this.DriverID = -1;
+            this.ID = -1;
             this.PersonID = -1;
             this.CreatedByUserID = -1;
             this.CreatedDate = DateTime.Now;
@@ -25,12 +24,12 @@ namespace DVLD_Business
             this.Mode = enMode.AddNew;
         }
 
-        private clsDriver(int driverID, int personID, int createdByUserID, DateTime createdDate)
+        private clsDriver(int ID, int PersonID, int CreatedByUserID, DateTime CreatedDate)
         {
-            this.DriverID = driverID;
-            this.PersonID = personID;
-            this.CreatedByUserID = createdByUserID;
-            this.CreatedDate = createdDate;
+            this.ID = ID;
+            this.PersonID = PersonID;
+            this.CreatedByUserID = CreatedByUserID;
+            this.CreatedDate = CreatedDate;
 
             this.Mode = enMode.Update;
         }
@@ -42,27 +41,27 @@ namespace DVLD_Business
 
         public static clsDriver GetDriverByID(int DriverID)
         {
-            int personID = -1;
-            int createdByUserID = -1;
-            DateTime createdDate = DateTime.Now;
+            int PersonID = -1;
+            int CreatedByUserID = -1;
+            DateTime CreatedDate = DateTime.Now;
 
-            if (clsDriversData.GetDriverByIDData(DriverID, ref personID, ref createdByUserID, ref createdDate))
+            if (!clsDriversData.GetDriverByIDData(DriverID, ref PersonID, ref CreatedByUserID, ref CreatedDate))
             {
-                return new clsDriver(DriverID, personID, createdByUserID, createdDate);
+                return null;
             }
 
-            return null;
-        }
-
-        private bool _UpdateDriver()
-        {
-            return clsDriversData.UpdateDriverData(this.DriverID, this.PersonID, this.CreatedByUserID, this.CreatedDate);
+            return new clsDriver(DriverID, PersonID, CreatedByUserID, CreatedDate);
         }
 
         private bool _AddNewDriver()
         {
-            this.DriverID = clsDriversData.AddNewDriverData(this.PersonID, this.CreatedByUserID, this.CreatedDate);
-            return (this.DriverID != -1);
+            this.ID = clsDriversData.AddNewDriverData(this.PersonID, this.CreatedByUserID, this.CreatedDate);
+            return (this.ID != -1);
+        }
+
+        private bool _UpdateDriver()
+        {
+            return clsDriversData.UpdateDriverData(this.ID, this.PersonID, this.CreatedByUserID, this.CreatedDate);
         }
 
         public bool Save()
@@ -83,9 +82,7 @@ namespace DVLD_Business
 
                     return _UpdateDriver();
 
-                default:
-
-                    return false;
+                default: return false;
             }
         }
 
@@ -103,5 +100,7 @@ namespace DVLD_Business
         {
             return clsDriversData.GetDriverIDByPersonIDData(PersonID);
         }
+
+
     }
 }

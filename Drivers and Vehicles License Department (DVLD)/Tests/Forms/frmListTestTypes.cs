@@ -14,9 +14,9 @@ using System.Windows.Forms;
 
 namespace Drivers_and_Vehicles_License_Department__DVLD_.Test_Types
 {
-    public partial class frmManageTestTypes : Form
+    public partial class frmListTestTypes : Form
     {
-        public frmManageTestTypes()
+        public frmListTestTypes()
         {
             InitializeComponent();
         }
@@ -25,7 +25,7 @@ namespace Drivers_and_Vehicles_License_Department__DVLD_.Test_Types
         {
             RefreshTestTypesDataGrid();
 
-            clsUtil.MakeRoundedCorners(this, 30); //to make the form rounded
+            clsUtil.MakeRoundedCorners(this, 30);
 
             clsUtil.OpenFormEffect(this);
         }
@@ -55,6 +55,8 @@ namespace Drivers_and_Vehicles_License_Department__DVLD_.Test_Types
 
             frmUpdateTestType FormUpdateTestType = new frmUpdateTestType(TestTypeID, this);
             FormUpdateTestType.ShowDialog();
+
+            RefreshTestTypesDataGrid();
         }
 
 

@@ -10,31 +10,31 @@ namespace DVLD_Business
 {
     public class clsLicenseClass
     {
-        public int LicenseClassID { get; set; }
-        public string ClassName { get; set; }
-        public string ClassDescription { get; set; }
+        public int ID { get; set; }
+        public string Name { get; set; }
+        public string Description { get; set; }
         public byte MinimumAllowedAge { get; set; }
         public byte DefaultValidityLength { get; set; }
-        public decimal ClassFees { get; set; }
+        public decimal Fees { get; set; }
 
         public clsLicenseClass()
         {
-            this.LicenseClassID = 0;
-            this.ClassName = "";
-            this.ClassDescription = "";
+            this.ID = 0;
+            this.Name = "";
+            this.Description = "";
             this.MinimumAllowedAge = 0;
             this.DefaultValidityLength = 0;
-            this.ClassFees = 0;
+            this.Fees = 0;
         }
 
-        private clsLicenseClass(int LicenseClassID, string ClassName, string ClassDescription, byte MinimumAllowedAge, byte DefaultValidityLength, decimal ClassFees)
+        private clsLicenseClass(int ID, string Name, string Description, byte MinimumAllowedAge, byte DefaultValidityLength, decimal Fees)
         {
-            this.LicenseClassID = LicenseClassID;
-            this.ClassName = ClassName;
-            this.ClassDescription = ClassDescription;
+            this.ID = ID;
+            this.Name = Name;
+            this.Description = Description;
             this.MinimumAllowedAge = MinimumAllowedAge;
             this.DefaultValidityLength = DefaultValidityLength;
-            this.ClassFees = ClassFees;
+            this.Fees = Fees;
         }
 
         public static DataTable GetAllLicenseClasses()
@@ -44,16 +44,18 @@ namespace DVLD_Business
 
         public static clsLicenseClass GetLicenseClassByID(int LicenseClassID)
         {
-            string ClassName = "";
-            string ClassDescription = "";
+            string Name = "";
+            string Description = "";
             byte MinimumAllowedAge = 0;
             byte DefaultValidityLength = 0;
-            decimal ClassFees = 0;
+            decimal Fees = 0;
 
-            if (!clsLicenseClassesData.GetLicenseClassDataByIDData(LicenseClassID, ref ClassName, ref ClassDescription, ref MinimumAllowedAge, ref DefaultValidityLength, ref ClassFees))
+            if (!clsLicenseClassesData.GetLicenseClassDataByIDData(LicenseClassID, ref Name, ref Description, ref MinimumAllowedAge, ref DefaultValidityLength, ref Fees))
+            {
                 return null;
+            }
 
-            return new clsLicenseClass(LicenseClassID, ClassName, ClassDescription, MinimumAllowedAge, DefaultValidityLength, ClassFees);
+            return new clsLicenseClass(LicenseClassID, Name, Description, MinimumAllowedAge, DefaultValidityLength, Fees);
         }
 
 

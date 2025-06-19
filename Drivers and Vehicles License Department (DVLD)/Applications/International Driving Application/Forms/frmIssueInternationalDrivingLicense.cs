@@ -65,13 +65,13 @@ namespace Drivers_and_Vehicles_License_Department__DVLD_.International_Driving_A
         {
             _InternationalLicense = new clsInternationalLicense();
 
-            _InternationalLicense.ApplicationID = _InternationalApplication.ApplicationID;
+            _InternationalLicense.ApplicationID = _InternationalApplication.ID;
             _InternationalLicense.DriverID = _License.DriverID;
             _InternationalLicense.IssuedUsingLocalLicenseID = _LicenseID;
             _InternationalLicense.IssueDate = DateTime.Now;
             _InternationalLicense.ExpirationDate = DateTime.Now.AddYears(1);
             _InternationalLicense.IsActive = true;
-            _InternationalLicense.CreatedByUserID = clsCurrentUser.CurrentUser.UserID;
+            _InternationalLicense.CreatedByUserID = clsCurrentUser.CurrentUser.ID;
         }
 
         private void _LoadInternationalApplicationData()
@@ -82,17 +82,17 @@ namespace Drivers_and_Vehicles_License_Department__DVLD_.International_Driving_A
             _InternationalApplication = new clsApplication();
 
             _InternationalApplication.ApplicantPersonID = clsLicense.GetPersonIDByLicenseID(_LicenseID);
-            _InternationalApplication.ApplicationDate = DateTime.Now;
-            _InternationalApplication.ApplicationTypeID = InternationalApplicationType.ApplicationTypeID;
-            _InternationalApplication.ApplicationStatus = Completed;
+            _InternationalApplication.Date = DateTime.Now;
+            _InternationalApplication.TypeID = InternationalApplicationType.ApplicationTypeID;
+            _InternationalApplication.Status = Completed;
             _InternationalApplication.LastStatusDate = DateTime.Now;
             _InternationalApplication.PaidFees = InternationalApplicationType.ApplicationTypeFees;
-            _InternationalApplication.CreatedByUserID = clsCurrentUser.CurrentUser.UserID;
+            _InternationalApplication.CreatedByUserID = clsCurrentUser.CurrentUser.ID;
         }
 
         private void _PopulateIssuedInternationalLicenseInfo()
         {
-            lblILLicenseID.Text = _InternationalLicense.InternationalLicenseID.ToString();
+            lblILLicenseID.Text = _InternationalLicense.ID.ToString();
             lblILAppID.Text = _InternationalLicense.ApplicationID.ToString();
         }
 
@@ -112,7 +112,7 @@ namespace Drivers_and_Vehicles_License_Department__DVLD_.International_Driving_A
                 return;
             }
 
-            if (_License.LicenseClassID != clsLicenseClass.GetLicenseClassByID(OrdinaryDrivingLicense).LicenseClassID)
+            if (_License.LicenseClassID != clsLicenseClass.GetLicenseClassByID(OrdinaryDrivingLicense).ID)
             {
                 clsMessageBoxManager.ShowMessageBox("The selected license is not an ordinary driving license.", "Failed", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
@@ -161,7 +161,7 @@ namespace Drivers_and_Vehicles_License_Department__DVLD_.International_Driving_A
 
             _SetControlsAfterLicenseIssued();
 
-            clsMessageBoxManager.ShowMessageBox($"International License Issued Successfully with License ID = {_InternationalLicense.InternationalLicenseID}", "Success",
+            clsMessageBoxManager.ShowMessageBox($"International License Issued Successfully with License ID = {_InternationalLicense.ID}", "Success",
                                                 MessageBoxButtons.OK, MessageBoxIcon.Information);
 
             llblShowInternationalLicenseInfo.Enabled = true;
@@ -175,7 +175,7 @@ namespace Drivers_and_Vehicles_License_Department__DVLD_.International_Driving_A
 
         private void llblShowInternationalLicenseInfo_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            frmDriverInternationalLicenseInfo FormDriverInternationalLicenseInfo = new frmDriverInternationalLicenseInfo(_InternationalLicense.InternationalLicenseID);
+            frmDriverInternationalLicenseInfo FormDriverInternationalLicenseInfo = new frmDriverInternationalLicenseInfo(_InternationalLicense.ID);
             FormDriverInternationalLicenseInfo.ShowDialog();
         }
 

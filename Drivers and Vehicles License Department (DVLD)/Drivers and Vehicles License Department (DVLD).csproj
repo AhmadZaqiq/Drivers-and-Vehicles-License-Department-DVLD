@@ -277,11 +277,11 @@
     <Compile Include="Test Appointments\Forms\frmTestAppointments.Designer.cs">
       <DependentUpon>frmTestAppointments.cs</DependentUpon>
     </Compile>
-    <Compile Include="Tests\Forms\frmManageTestTypes.cs">
+    <Compile Include="Tests\Forms\frmListTestTypes.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Tests\Forms\frmManageTestTypes.Designer.cs">
-      <DependentUpon>frmManageTestTypes.cs</DependentUpon>
+    <Compile Include="Tests\Forms\frmListTestTypes.Designer.cs">
+      <DependentUpon>frmListTestTypes.cs</DependentUpon>
     </Compile>
     <Compile Include="Test Appointments\Forms\frmScheduleTest.cs">
       <SubType>Form</SubType>
@@ -423,8 +423,8 @@
     <EmbeddedResource Include="Test Appointments\Forms\frmTestAppointments.resx">
       <DependentUpon>frmTestAppointments.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Tests\Forms\frmManageTestTypes.resx">
-      <DependentUpon>frmManageTestTypes.cs</DependentUpon>
+    <EmbeddedResource Include="Tests\Forms\frmListTestTypes.resx">
+      <DependentUpon>frmListTestTypes.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Test Appointments\Forms\frmScheduleTest.resx">
       <DependentUpon>frmScheduleTest.cs</DependentUpon>

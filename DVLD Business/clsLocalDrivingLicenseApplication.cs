@@ -11,16 +11,15 @@ namespace DVLD_Business
     public class clsLocalDrivingLicenseApplication
     {
         public enum enMode { AddNew = 0, Update = 1 };
-
         public enMode Mode = enMode.AddNew;
 
-        public int LocalDrivingLicenseApplicationID { get; set; }
+        public int ID { get; set; }
         public int ApplicationID { get; set; }
         public int LicenseClassID { get; set; }
 
-        private clsLocalDrivingLicenseApplication(int LocalDrivingLicenseApplicationID, int ApplicationID, int LicenseClassID)
+        private clsLocalDrivingLicenseApplication(int ID, int ApplicationID, int LicenseClassID)
         {
-            this.LocalDrivingLicenseApplicationID = LocalDrivingLicenseApplicationID;
+            this.ID = ID;
             this.ApplicationID = ApplicationID;
             this.LicenseClassID = LicenseClassID;
 
@@ -29,7 +28,7 @@ namespace DVLD_Business
 
         public clsLocalDrivingLicenseApplication()
         {
-            this.LocalDrivingLicenseApplicationID = -1;
+            this.ID = -1;
             this.ApplicationID = -1;
             this.LicenseClassID = -1;
         }
@@ -45,23 +44,25 @@ namespace DVLD_Business
             int LicenseClassID = -1;
 
             if (!clsLocalDrivingLicenseApplicationData.GetLocalDrivingLicenseApplicationByIDData(LocalDrivingLicenseApplicationID, ref ApplicationID, ref LicenseClassID))
+            {
                 return null;
+            }
 
             return new clsLocalDrivingLicenseApplication(LocalDrivingLicenseApplicationID, ApplicationID, LicenseClassID);
+        }
+
+        private bool _AddNewLocalDrivingApplication()
+        {
+            this.ID = clsLocalDrivingLicenseApplicationData.AddNewLocalDrivingLicenseApplicationData
+                (this.ApplicationID, this.LicenseClassID);
+
+            return (this.ID != -1);
         }
 
         private bool _UpdateLocalDrivingApplication()
         {
             return clsLocalDrivingLicenseApplicationData.UpdateLocalDrivingLicenseApplicationData
-                (this.LocalDrivingLicenseApplicationID, this.ApplicationID, this.LicenseClassID);
-        }
-
-        private bool _AddNewLocalDrivingApplication()
-        {
-            this.LocalDrivingLicenseApplicationID = clsLocalDrivingLicenseApplicationData.AddNewLocalDrivingLicenseApplicationData
-                (this.ApplicationID, this.LicenseClassID);
-
-            return (this.LocalDrivingLicenseApplicationID != -1);
+                (this.ID, this.ApplicationID, this.LicenseClassID);
         }
 
         public bool Save()

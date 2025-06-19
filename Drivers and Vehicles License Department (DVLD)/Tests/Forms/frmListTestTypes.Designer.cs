@@ -1,6 +1,6 @@
 ﻿namespace Drivers_and_Vehicles_License_Department__DVLD_.Test_Types
 {
-    partial class frmManageTestTypes
+    partial class frmListTestTypes
     {
         /// <summary>
         /// Required designer variable.
@@ -37,8 +37,8 @@
             this.siticonePanel1 = new SiticoneNetFrameworkUI.SiticonePanel();
             this.dgvTestTypes = new System.Windows.Forms.DataGridView();
             this.cmTestTypeSettings = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.EditTestTypeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.siticonePanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvTestTypes)).BeginInit();
             this.cmTestTypeSettings.SuspendLayout();
@@ -50,11 +50,11 @@
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Segoe UI Semibold", 27.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.Black;
-            this.label1.Location = new System.Drawing.Point(230, 347);
+            this.label1.Location = new System.Drawing.Point(270, 347);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(338, 50);
+            this.label1.Size = new System.Drawing.Size(259, 50);
             this.label1.TabIndex = 3;
-            this.label1.Text = "Manage Test Types";
+            this.label1.Text = "List Test Types";
             // 
             // label3
             // 
@@ -230,6 +230,15 @@
             this.cmTestTypeSettings.Name = "cmApplicationTypeSettings";
             this.cmTestTypeSettings.Size = new System.Drawing.Size(176, 30);
             // 
+            // EditTestTypeToolStripMenuItem
+            // 
+            this.EditTestTypeToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.EditTestTypeToolStripMenuItem.Image = global::Drivers_and_Vehicles_License_Department__DVLD_.Properties.Resources.ic_fluent_edit_settings_24_filled;
+            this.EditTestTypeToolStripMenuItem.Name = "EditTestTypeToolStripMenuItem";
+            this.EditTestTypeToolStripMenuItem.Size = new System.Drawing.Size(175, 26);
+            this.EditTestTypeToolStripMenuItem.Text = "Edit Test type";
+            this.EditTestTypeToolStripMenuItem.Click += new System.EventHandler(this.EditTestTypeToolStripMenuItem_Click);
+            // 
             // pictureBox1
             // 
             this.pictureBox1.BackgroundImage = global::Drivers_and_Vehicles_License_Department__DVLD_.Properties.Resources.Online_test_pana;
@@ -240,16 +249,7 @@
             this.pictureBox1.TabIndex = 60;
             this.pictureBox1.TabStop = false;
             // 
-            // EditTestTypeToolStripMenuItem
-            // 
-            this.EditTestTypeToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.EditTestTypeToolStripMenuItem.Image = global::Drivers_and_Vehicles_License_Department__DVLD_.Properties.Resources.ic_fluent_edit_settings_24_filled;
-            this.EditTestTypeToolStripMenuItem.Name = "EditTestTypeToolStripMenuItem";
-            this.EditTestTypeToolStripMenuItem.Size = new System.Drawing.Size(175, 26);
-            this.EditTestTypeToolStripMenuItem.Text = "Edit Test type";
-            this.EditTestTypeToolStripMenuItem.Click += new System.EventHandler(this.EditTestTypeToolStripMenuItem_Click);
-            // 
-            // frmManageTestType
+            // frmListTestTypes
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -264,7 +264,7 @@
             this.Controls.Add(this.btnCloseForm);
             this.Controls.Add(this.siticonePanel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Name = "frmManageTestType";
+            this.Name = "frmListTestTypes";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "frmManageTestType";
             this.Load += new System.EventHandler(this.frmManageTestType_Load);

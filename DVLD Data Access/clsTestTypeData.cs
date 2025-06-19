@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace DVLD_Data_Access
 {
-    public class clsTestTypesData
+    public class clsTestTypeData
     {
         public static DataTable GetAllTestTypesData()
         {
@@ -46,6 +46,47 @@ namespace DVLD_Data_Access
             }
 
             return dt;
+        }
+
+        public static int AddTestTypeData(string TestTypeTitle, string TestTypeDescription, decimal TestTypeFees)
+        {
+            int TestTypeID = -1;
+
+            SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString);
+
+            string query = @"INSERT INTO TestTypes (TestTypeTitle, TestTypeDescription, TestTypeFees)
+                             VALUES (@TestTypeTitle, @TestTypeDescription, @TestTypeFees);
+                             SELECT SCOPE_IDENTITY();";
+
+            SqlCommand command = new SqlCommand(query, connection);
+
+            command.Parameters.AddWithValue("@TestTypeTitle", TestTypeTitle);
+            command.Parameters.AddWithValue("@TestTypeDescription", TestTypeDescription);
+            command.Parameters.AddWithValue("@TestTypeFees", TestTypeFees);
+
+            try
+            {
+                connection.Open();
+
+                object result = command.ExecuteScalar();
+
+                if (result != null && int.TryParse(result.ToString(), out int insertedID))
+                {
+                    TestTypeID = insertedID;
+                }
+            }
+
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+
+            finally
+            {
+                connection.Close();
+            }
+
+            return TestTypeID;
         }
 
         public static bool UpdateTestTypeData(int TestTypeID, string TestTypeTitle, string TestTypeDescription, decimal TestTypeFees)

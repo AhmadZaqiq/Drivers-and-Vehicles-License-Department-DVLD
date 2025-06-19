@@ -43,18 +43,20 @@ namespace DVLD_Business
 
         public static DataTable GetAllApplicationTypes()
         {
-            return  clsApplicationTypesData.GetAllApplicationTypesData();
+            return clsApplicationTypesData.GetAllApplicationTypesData();
         }
 
         public static clsApplicationType GetApplicationTypeByID(int ApplicationTypeID)
-        {        
+        {
             string ApplicationTypeTitle = "";
-            decimal ApplicationFees= 0;
+            decimal ApplicationFees = 0;
 
             if (!clsApplicationTypesData.GetApplicationTypeInfoByIDData(ApplicationTypeID, ref ApplicationTypeTitle, ref ApplicationFees))
+            {
                 return null;
+            }
 
-                return new clsApplicationType(ApplicationTypeID,ApplicationTypeTitle,ApplicationFees);
+            return new clsApplicationType(ApplicationTypeID, ApplicationTypeTitle, ApplicationFees);
         }
 
         private bool _AddNewApplicationType()
@@ -66,7 +68,7 @@ namespace DVLD_Business
 
         public bool _UpdateApplicationType()
         {
-            return clsApplicationTypesData.UpdateApplicationTypeData(this.ApplicationTypeID,this.ApplicationTypeTitle,this.ApplicationTypeFees);
+            return clsApplicationTypesData.UpdateApplicationTypeData(this.ApplicationTypeID, this.ApplicationTypeTitle, this.ApplicationTypeFees);
         }
 
         public bool Save()
@@ -74,24 +76,21 @@ namespace DVLD_Business
             switch (Mode)
             {
                 case enMode.AddNew:
+
                     if (_AddNewApplicationType())
                     {
-
                         Mode = enMode.Update;
                         return true;
                     }
 
-                    else
-                    {
-                        return false;
-                    }
+                    return false;
 
                 case enMode.Update:
 
                     return _UpdateApplicationType();
-            }
 
-            return false;
+                default: return false;
+            }
         }
 
 

@@ -131,15 +131,15 @@ namespace Drivers_and_Vehicles_License_Department__DVLD_.Licenses.Forms
 
             int LicenseClassID = _OldLicense.LicenseClassID;
 
-            _ReplacementLicense.ApplicationID = _ReplacementApplication.ApplicationID;
+            _ReplacementLicense.ApplicationID = _ReplacementApplication.ID;
             _ReplacementLicense.DriverID = _OldLicense.DriverID;
             _ReplacementLicense.LicenseClassID = LicenseClassID;
             _ReplacementLicense.IssueDate = DateTime.Now;
             _ReplacementLicense.ExpirationDate = DateTime.Now.AddYears(clsLicenseClass.GetLicenseClassByID(LicenseClassID).DefaultValidityLength);
-            _ReplacementLicense.PaidFees = clsLicenseClass.GetLicenseClassByID(LicenseClassID).ClassFees;
+            _ReplacementLicense.PaidFees = clsLicenseClass.GetLicenseClassByID(LicenseClassID).Fees;
             _ReplacementLicense.IsActive = true;
-            _ReplacementLicense.IssueReason = IsDamagedApp ? (byte)enIssueReason.Damaged : (byte)enIssueReason.Lost;
-            _ReplacementLicense.CreatedByUserID = clsCurrentUser.CurrentUser.UserID;
+            _ReplacementLicense.IssueReasonCode = IsDamagedApp ? (byte)enIssueReason.Damaged : (byte)enIssueReason.Lost;
+            _ReplacementLicense.CreatedByUserID = clsCurrentUser.CurrentUser.ID;
         }
 
         private void _LoadReplacementApplicationData()
@@ -148,17 +148,17 @@ namespace Drivers_and_Vehicles_License_Department__DVLD_.Licenses.Forms
             _ReplacementApplication = new clsApplication();
 
             _ReplacementApplication.ApplicantPersonID = clsLicense.GetPersonIDByLicenseID(_OldLicenseID);
-            _ReplacementApplication.ApplicationDate = DateTime.Now;
-            _ReplacementApplication.ApplicationTypeID = IsDamagedApp ? (int)enApplicationType.DamageApplication : (int)enApplicationType.LostApplication;
-            _ReplacementApplication.ApplicationStatus = Completed;
+            _ReplacementApplication.Date = DateTime.Now;
+            _ReplacementApplication.TypeID = IsDamagedApp ? (int)enApplicationType.DamageApplication : (int)enApplicationType.LostApplication;
+            _ReplacementApplication.Status = Completed;
             _ReplacementApplication.LastStatusDate = DateTime.Now;
             _ReplacementApplication.PaidFees = IsDamagedApp ? _ReplacementDamageApplicationFees : _ReplacementLostApplicationFees;
-            _ReplacementApplication.CreatedByUserID = clsCurrentUser.CurrentUser.UserID;
+            _ReplacementApplication.CreatedByUserID = clsCurrentUser.CurrentUser.ID;
         }
 
         private void _PopulateReplacementLicenseInfo()
         {
-            lblReplacementLicenseID.Text = _ReplacementLicense.LicenseID.ToString();
+            lblReplacementLicenseID.Text = _ReplacementLicense.ID.ToString();
             lblRLAppID.Text = _ReplacementLicense.ApplicationID.ToString();
         }
 
@@ -197,7 +197,7 @@ namespace Drivers_and_Vehicles_License_Department__DVLD_.Licenses.Forms
                 return;
             }
 
-            clsMessageBoxManager.ShowMessageBox($"Replacement License Issued Successfully with License ID = {_ReplacementLicense.LicenseID}", "Success",
+            clsMessageBoxManager.ShowMessageBox($"Replacement License Issued Successfully with License ID = {_ReplacementLicense.ID}", "Success",
                         MessageBoxButtons.OK, MessageBoxIcon.Information);
 
             _PopulateReplacementLicenseInfo();
@@ -223,7 +223,7 @@ namespace Drivers_and_Vehicles_License_Department__DVLD_.Licenses.Forms
 
         private void llblShowNewLicenseInfo_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            frmDriverLicenseInfo FormDriverLicenseInfo = new frmDriverLicenseInfo(_ReplacementLicense.LicenseID);
+            frmDriverLicenseInfo FormDriverLicenseInfo = new frmDriverLicenseInfo(_ReplacementLicense.ID);
             FormDriverLicenseInfo.ShowDialog();
         }
 

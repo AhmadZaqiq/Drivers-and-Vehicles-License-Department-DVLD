@@ -16,9 +16,8 @@ namespace DVLD_Business
 
         public enMode Mode = enMode.AddNew;
 
-        public int UserID { get; set; }
+        public int ID { get; set; }
         public int PersonID { get; set; }
-
         public clsPerson PersonInfo { get; set; }
         public string Username { get; set; }
         public string Password { get; set; }
@@ -26,16 +25,16 @@ namespace DVLD_Business
 
         public clsUser()
         {
-            this.UserID = -1;
+            this.ID = -1;
             this.PersonID = -1;
             this.Username = "";
             this.Password = "";
             this.IsActive = false;
         }
 
-        private clsUser(int UserID, int PersonID, string Username, string Password, bool IsActive)
+        private clsUser(int ID, int PersonID, string Username, string Password, bool IsActive)
         {
-            this.UserID = UserID;
+            this.ID = ID;
             this.PersonID = PersonID;
             this.PersonInfo = clsPerson.GetPersonByID(PersonID);
             this.Username = Username;
@@ -58,12 +57,12 @@ namespace DVLD_Business
             bool IsActive = false;
 
 
-            if (clsUsersData.GetUserByIDData(UserID, ref PersonID, ref Username, ref Password, ref IsActive))
+            if (!clsUsersData.GetUserByIDData(UserID, ref PersonID, ref Username, ref Password, ref IsActive))
             {
-                return new clsUser(UserID, PersonID, Username, Password, IsActive);
+                return null;
             }
 
-            return null;
+            return new clsUser(UserID, PersonID, Username, Password, IsActive);
         }
 
         public static clsUser GetUserByUsername(string Username)
@@ -74,12 +73,12 @@ namespace DVLD_Business
             bool IsActive = false;
 
 
-            if (clsUsersData.GetUserByUsernameData(Username, ref UserID, ref PersonID, ref Password, ref IsActive))
+            if (!clsUsersData.GetUserByUsernameData(Username, ref UserID, ref PersonID, ref Password, ref IsActive))
             {
-                return new clsUser(UserID, PersonID, Username, Password, IsActive);
+                return null;
             }
 
-            return null;
+            return new clsUser(UserID, PersonID, Username, Password, IsActive);
         }
 
         public static clsUser FindByUsernameAndPassword(string UserName, string Password)
@@ -89,19 +88,19 @@ namespace DVLD_Business
 
             bool IsActive = false;
 
-            if (clsUsersData.GetUserInfoByUsernameAndPasswordData(UserName, Password, ref UserID, ref PersonID, ref IsActive))
+            if (!clsUsersData.GetUserInfoByUsernameAndPasswordData(UserName, Password, ref UserID, ref PersonID, ref IsActive))
             {
-                return new clsUser(UserID, PersonID, UserName, Password, IsActive);
+                return null;
             }
 
-            return null;
+            return new clsUser(UserID, PersonID, UserName, Password, IsActive);
         }
 
         private bool _AddNewUser()
         {
-            this.UserID = clsUsersData.AddNewUserData(this.PersonID, this.Username, this.Password, this.IsActive);
+            this.ID = clsUsersData.AddNewUserData(this.PersonID, this.Username, this.Password, this.IsActive);
 
-            return (this.UserID != -1);
+            return (this.ID != -1);
         }
 
         private bool _UpdateUser()
@@ -121,25 +120,13 @@ namespace DVLD_Business
                         return true;
                     }
 
-                    else
-                    {
-                        return false;
-                    }
+                    return false;
 
                 case enMode.Update:
 
-                    if (_UpdateUser())
-                    {
-                        return true;
-                    }
+                    return _UpdateUser();
 
-                    else
-                    {
-                        return false;
-                    }
-
-                default:
-                    return false;
+                default: return false;
             }
 
         }
@@ -163,6 +150,7 @@ namespace DVLD_Business
         {
             return clsUsersData.IsUserExistForPersonIDData(PersonID);
         }
+
 
     }
 }

@@ -88,17 +88,17 @@ namespace Drivers_and_Vehicles_License_Department__DVLD_.Local_Driving_Applicati
         private void _LoadApplicationData()
         {
             _Application.ApplicantPersonID = ctrlPersonCardWithFilter1.PersonID;
-            _Application.ApplicationDate = DateTime.Now;
-            _Application.ApplicationTypeID = _NewLocalDrivingLicenseServies.ApplicationTypeID;
-            _Application.ApplicationStatus = _SetStatusID();
+            _Application.Date = DateTime.Now;
+            _Application.TypeID = _NewLocalDrivingLicenseServies.ApplicationTypeID;
+            _Application.Status = _SetStatusID();
             _Application.LastStatusDate = _ApplicationLastStatusDate;
             _Application.PaidFees = _NewLocalDrivingLicenseServies.ApplicationTypeFees;
-            _Application.CreatedByUserID = clsCurrentUser.CurrentUser.UserID;
+            _Application.CreatedByUserID = clsCurrentUser.CurrentUser.ID;
         }
 
         private void _LoadLocalApplicationData()
         {
-            _ApplicationLocal.ApplicationID = _Application.ApplicationID;
+            _ApplicationLocal.ApplicationID = _Application.ID;
             _ApplicationLocal.LicenseClassID = _GetLicenseClassIDFromComboBox();
         }
 

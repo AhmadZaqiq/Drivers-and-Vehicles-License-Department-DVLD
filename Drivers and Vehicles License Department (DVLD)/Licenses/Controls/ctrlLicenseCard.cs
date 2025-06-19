@@ -60,7 +60,7 @@ namespace Drivers_and_Vehicles_License_Department__DVLD_.Licenses.Controls
 
             _Application = clsApplication.GetApplicationByID(_License.ApplicationID);
 
-            _ApplicationID = _Application.ApplicationID;
+            _ApplicationID = _Application.ID;
 
             _Person = clsPerson.GetPersonByID(_Application.ApplicantPersonID);
         }
@@ -95,13 +95,13 @@ namespace Drivers_and_Vehicles_License_Department__DVLD_.Licenses.Controls
 
         private void _PopulateLicenseDetails()
         {
-            lblClass.Text = clsLicenseClass.GetLicenseClassByID(_License.LicenseClassID).ClassName;
+            lblClass.Text = clsLicenseClass.GetLicenseClassByID(_License.LicenseClassID).Name;
             lblName.Text = _Person.FullName;
             lblLicenseID.Text = _LicenseID.ToString();
             lblNationalNO.Text = _Person.NationalNo;
             lblGender.Text = _GetGenderAsText(_Person.Gender);
             lblIssueDate.Text = _License.IssueDate.ToString();
-            lblIssueReason.Text = GetIssueReason(_License.IssueReason).ToString();
+            lblIssueReason.Text = GetIssueReason(_License.IssueReasonCode).ToString();
             lblNotes.Text = string.IsNullOrWhiteSpace(_License.Notes) ? "No Notes" : _License.Notes;
             lblIsActive.Text = _License.IsActive ? "Yes" : "No";
             lblDateOfBirth.Text = _Person.DateOfBirth.ToString();

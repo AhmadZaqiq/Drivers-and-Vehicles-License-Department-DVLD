@@ -10,26 +10,26 @@ namespace DVLD_Business
 {
     public class clsTest
     {
-        public int TestID { get; set; }
+        public int ID { get; set; }
         public int TestAppointmentID { get; set; }
-        public bool TestResult { get; set; }
+        public bool Result { get; set; }
         public string Notes { get; set; }
         public int CreatedByUserID { get; set; }
 
-        private clsTest(int TestID, int TestAppointmentID, bool TestResult, string Notes, int CreatedByUserID)
+        private clsTest(int ID, int TestAppointmentID, bool Result, string Notes, int CreatedByUserID)
         {
-            this.TestID = TestID;
+            this.ID = ID;
             this.TestAppointmentID = TestAppointmentID;
-            this.TestResult = TestResult;
+            this.Result = Result;
             this.Notes = Notes;
             this.CreatedByUserID = CreatedByUserID;
         }
 
         public clsTest()
         {
-            this.TestID = -1;
+            this.ID = -1;
             this.TestAppointmentID = -1;
-            this.TestResult = false;
+            this.Result = false;
             this.Notes = string.Empty;
             this.CreatedByUserID = -1;
         }
@@ -56,15 +56,17 @@ namespace DVLD_Business
 
         public bool AddNewTest()
         {
-            this.TestID = clsTestData.AddNewTestData(this.TestAppointmentID,
-                this.TestResult, this.Notes, this.CreatedByUserID);
+            this.ID = clsTestData.AddNewTestData(this.TestAppointmentID,
+                this.Result, this.Notes, this.CreatedByUserID);
 
-            return (this.TestID != -1);
+            return (this.ID != -1);
         }
 
         public static int GetTestAttemptsCountByTestType(int LocalDrivingLicenseApplicationID, int LicenseClassID, int TestTypeID, bool IsPassed)
         {
             return clsTestData.GetTestAttemptsCountByTestTypeData(LocalDrivingLicenseApplicationID, LicenseClassID, TestTypeID, IsPassed);
         }
+
+
     }
 }

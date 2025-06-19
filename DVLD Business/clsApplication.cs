@@ -15,24 +15,24 @@ namespace DVLD_Business
 
         public enMode Mode = enMode.AddNew;
 
-        public int ApplicationID { get; set; }
+        public int ID { get; set; }
         public int ApplicantPersonID { get; set; }
-        public DateTime ApplicationDate { get; set; }
-        public int ApplicationTypeID { get; set; }
-        public byte ApplicationStatus { get; set; }
+        public DateTime Date { get; set; }
+        public int TypeID { get; set; }
+        public byte Status { get; set; }
         public DateTime LastStatusDate { get; set; }
         public decimal PaidFees { get; set; }
         public int CreatedByUserID { get; set; }
 
-        private clsApplication(int ApplicationID, int ApplicantPersonID, DateTime ApplicationDate,
-            int ApplicationTypeID, byte ApplicationStatus, DateTime LastStatusDate,
+        private clsApplication(int ID, int ApplicantPersonID, DateTime Date,
+            int TypeID, byte Status, DateTime LastStatusDate,
             decimal PaidFees, int CreatedByUserID)
         {
-            this.ApplicationID = ApplicationID;
+            this.ID = ID;
             this.ApplicantPersonID = ApplicantPersonID;
-            this.ApplicationDate = ApplicationDate;
-            this.ApplicationTypeID = ApplicationTypeID;
-            this.ApplicationStatus = ApplicationStatus;
+            this.Date = Date;
+            this.TypeID = TypeID;
+            this.Status = Status;
             this.LastStatusDate = LastStatusDate;
             this.PaidFees = PaidFees;
             this.CreatedByUserID = CreatedByUserID;
@@ -42,11 +42,11 @@ namespace DVLD_Business
 
         public clsApplication()
         {
-            this.ApplicationID = -1;
+            this.ID = -1;
             this.ApplicantPersonID = -1;
-            this.ApplicationDate = DateTime.Now;
-            this.ApplicationTypeID = -1;
-            this.ApplicationStatus = 0;
+            this.Date = DateTime.Now;
+            this.TypeID = -1;
+            this.Status = 0;
             this.LastStatusDate = DateTime.Now;
             this.PaidFees = -1;
             this.CreatedByUserID = -1;
@@ -60,37 +60,37 @@ namespace DVLD_Business
         public static clsApplication GetApplicationByID(int ApplicationID)
         {
             int ApplicantPersonID = -1;
-            DateTime ApplicationDate = DateTime.Now;
-            int ApplicationTypeID = -1;
-            byte ApplicationStatus = 0;
+            DateTime Date = DateTime.Now;
+            int TypeID = -1;
+            byte Status = 0;
             DateTime LastStatusDate = DateTime.Now;
             decimal PaidFees = -1;
             int CreatedByUserID = -1;
 
-            if (!clsApplicationsData.GetApplicationByIDData(ApplicationID, ref ApplicantPersonID, ref ApplicationDate, ref ApplicationTypeID,
-             ref ApplicationStatus, ref LastStatusDate, ref PaidFees, ref CreatedByUserID))
+            if (!clsApplicationsData.GetApplicationByIDData(ApplicationID, ref ApplicantPersonID, ref Date, ref TypeID,
+             ref Status, ref LastStatusDate, ref PaidFees, ref CreatedByUserID))
             {
                 return null;
             }
 
-            return new clsApplication(ApplicationID, ApplicantPersonID, ApplicationDate, ApplicationTypeID,
-              ApplicationStatus, LastStatusDate, PaidFees, CreatedByUserID);
-        }
-
-        private bool _UpdateApplication()
-        {
-            return clsApplicationsData.UpdateApplicationData(this.ApplicationID,
-                this.ApplicantPersonID, this.ApplicationDate, this.ApplicationTypeID,
-                this.ApplicationStatus, this.LastStatusDate, this.PaidFees, this.CreatedByUserID);
+            return new clsApplication(ApplicationID, ApplicantPersonID, Date, TypeID,
+              Status, LastStatusDate, PaidFees, CreatedByUserID);
         }
 
         private bool _AddNewApplication()
         {
-            this.ApplicationID = clsApplicationsData.AddNewApplicationData(this.ApplicantPersonID,
-                 this.ApplicationDate, this.ApplicationTypeID, this.ApplicationStatus,
+            this.ID = clsApplicationsData.AddNewApplicationData(this.ApplicantPersonID,
+                 this.Date, this.TypeID, this.Status,
                  this.LastStatusDate, this.PaidFees, this.CreatedByUserID);
 
-            return (this.ApplicationID != -1);
+            return (this.ID != -1);
+        }
+
+        private bool _UpdateApplication()
+        {
+            return clsApplicationsData.UpdateApplicationData(this.ID,
+                this.ApplicantPersonID, this.Date, this.TypeID,
+                this.Status, this.LastStatusDate, this.PaidFees, this.CreatedByUserID);
         }
 
         public bool Save()

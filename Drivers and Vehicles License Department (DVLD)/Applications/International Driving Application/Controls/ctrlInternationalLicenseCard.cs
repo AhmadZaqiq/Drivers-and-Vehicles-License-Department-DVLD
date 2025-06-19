@@ -78,11 +78,11 @@ namespace Drivers_and_Vehicles_License_Department__DVLD_.International_Driving_A
 
             _License = clsLicense.GetLicenseByID(_InternationalLicense.IssuedUsingLocalLicenseID);
 
-            _LicenseID = _License.LicenseID;
+            _LicenseID = _License.ID;
 
             _Application = clsApplication.GetApplicationByID(_InternationalLicense.ApplicationID);
 
-            _ApplicationID = _Application.ApplicationID;
+            _ApplicationID = _Application.ID;
 
             _Person = clsPerson.GetPersonByID(_Application.ApplicantPersonID);
         }
@@ -100,7 +100,7 @@ namespace Drivers_and_Vehicles_License_Department__DVLD_.International_Driving_A
             lblNationalNO.Text = _Person.NationalNo;
             lblGender.Text = _GetGenderAsText(_Person.Gender);
             lblIssueDate.Text = _InternationalLicense.IssueDate.ToString();
-            lblApplicationID.Text = _Application.ApplicationID.ToString();
+            lblApplicationID.Text = _Application.ID.ToString();
             lblIsActive.Text = _License.IsActive ? "Yes" : "No";
             lblDateOfBirth.Text = _Person.DateOfBirth.ToString();
             lblDriverID.Text = _License.DriverID.ToString();

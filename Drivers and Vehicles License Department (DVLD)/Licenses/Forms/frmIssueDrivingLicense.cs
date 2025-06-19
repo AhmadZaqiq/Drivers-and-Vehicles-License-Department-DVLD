@@ -85,15 +85,15 @@ namespace Drivers_and_Vehicles_License_Department__DVLD_.Licenses.Forms
             int LicenseClassID = _LocalDrivingLicenseApplication.LicenseClassID;
 
             _License.ApplicationID = _LocalDrivingLicenseApplication.ApplicationID;
-            _License.DriverID = _Driver.DriverID;
+            _License.DriverID = _Driver.ID;
             _License.LicenseClassID = LicenseClassID;
             _License.IssueDate = DateTime.Now;
             _License.ExpirationDate = DateTime.Now.AddYears(clsLicenseClass.GetLicenseClassByID(LicenseClassID).DefaultValidityLength);
             _License.Notes = txtNotes.Text;
-            _License.PaidFees = clsLicenseClass.GetLicenseClassByID(LicenseClassID).ClassFees;
+            _License.PaidFees = clsLicenseClass.GetLicenseClassByID(LicenseClassID).Fees;
             _License.IsActive = true;
-            _License.IssueReason = (int)enIssueReason.FirstTime;
-            _License.CreatedByUserID = clsCurrentUser.CurrentUser.UserID;
+            _License.IssueReasonCode = (int)enIssueReason.FirstTime;
+            _License.CreatedByUserID = clsCurrentUser.CurrentUser.ID;
         }
 
         private void _UpdateApplicationStatus()
@@ -101,7 +101,7 @@ namespace Drivers_and_Vehicles_License_Department__DVLD_.Licenses.Forms
             const int Completed = 3;
 
             _Application.LastStatusDate = DateTime.Now;
-            _Application.ApplicationStatus = Completed;
+            _Application.Status = Completed;
 
             if (!_Application.Save())
             {
@@ -122,7 +122,7 @@ namespace Drivers_and_Vehicles_License_Department__DVLD_.Licenses.Forms
                 return;
             }
 
-            clsMessageBoxManager.ShowMessageBox($"License Issued Successfully with License ID = {_License.LicenseID}", "Success",
+            clsMessageBoxManager.ShowMessageBox($"License Issued Successfully with License ID = {_License.ID}", "Success",
                                                 MessageBoxButtons.OK, MessageBoxIcon.Information);
 
             _UpdateApplicationStatus();

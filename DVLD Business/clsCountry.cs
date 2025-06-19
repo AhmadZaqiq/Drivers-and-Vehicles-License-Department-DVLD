@@ -10,19 +10,19 @@ namespace DVLD_Business
 {
     public class clsCountry
     {
-        public int CountryID { get; set; }
-        public string CountryName { get; set; }
+        public int ID { get; set; }
+        public string Name { get; set; }
 
         public clsCountry()
         {
-            this.CountryID = 0;
-            this.CountryName = "";
+            this.ID = 0;
+            this.Name = "";
         }
 
-        private clsCountry(int CountryID, string CountryName)
+        private clsCountry(int ID, string Name)
         {
-            this.CountryID = CountryID;
-            this.CountryName = CountryName;
+            this.ID = ID;
+            this.Name = Name;
         }
 
         public static DataTable GetAllCountries()
@@ -32,28 +32,28 @@ namespace DVLD_Business
 
         public static clsCountry GetCountry(int CountryID)
         {
-            string CountryName = "";
+            string Name = "";
 
-            if (clsCountriesData.GetCountryData(CountryID, ref CountryName))
+            if (!clsCountriesData.GetCountryData(CountryID, ref Name))
             {
-                return new clsCountry(CountryID, CountryName);
+                return null;
             }
 
-            return null;
+            return new clsCountry(CountryID, Name);
         }
 
         public static clsCountry GetCountry(string CountryName)
         {
-            int CountryID = -1;
+            int ID = -1;
 
-            if (clsCountriesData.GetCountryData(CountryName, ref CountryID))
+            if (!clsCountriesData.GetCountryData(CountryName, ref ID))
             {
-                return new clsCountry(CountryID, CountryName);
+                return null;
             }
 
-            return null;
+            return new clsCountry(ID, CountryName);
         }
-
+   
 
     }
 }

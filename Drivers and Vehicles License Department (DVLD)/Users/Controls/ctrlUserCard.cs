@@ -41,7 +41,7 @@ namespace Drivers_and_Vehicles_License_Department__DVLD_.Users.Controls
 
         private void _FillUserInfo()
         {
-            lblUserID.Text = _User.UserID.ToString();
+            lblUserID.Text = _User.ID.ToString();
             lblUsername.Text = _User.Username.ToString();
             lblIsActive.Text = (_User.IsActive == true) ? "Yes" : "No";
             ctrlPersonCard1.LoadPersonInfo(_User.PersonID);

@@ -208,7 +208,7 @@ namespace Drivers_and_Vehicles_License_Department__DVLD_.Users.Forms
 
             int UserID = (int)dgvUsers.CurrentRow.Cells[0].Value;
 
-            if (UserID == clsCurrentUser.CurrentUser.UserID)
+            if (UserID == clsCurrentUser.CurrentUser.ID)
             {
                 clsMessageBoxManager.ShowMessageBox("You cannot delete the account you are currently logged into.", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;

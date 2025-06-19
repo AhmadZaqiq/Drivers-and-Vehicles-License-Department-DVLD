@@ -113,16 +113,16 @@ namespace Drivers_and_Vehicles_License_Department__DVLD_.Licenses.Forms
 
             int LicenseClassID = _OldLicense.LicenseClassID;
 
-            _RenewedLicense.ApplicationID = _RenewApplication.ApplicationID;
+            _RenewedLicense.ApplicationID = _RenewApplication.ID;
             _RenewedLicense.DriverID = _OldLicense.DriverID;
             _RenewedLicense.LicenseClassID = LicenseClassID;
             _RenewedLicense.IssueDate = DateTime.Now;
             _RenewedLicense.ExpirationDate = DateTime.Now.AddYears(clsLicenseClass.GetLicenseClassByID(LicenseClassID).DefaultValidityLength);
             _RenewedLicense.Notes = txtNotes.Text;
-            _RenewedLicense.PaidFees = clsLicenseClass.GetLicenseClassByID(LicenseClassID).ClassFees;
+            _RenewedLicense.PaidFees = clsLicenseClass.GetLicenseClassByID(LicenseClassID).Fees;
             _RenewedLicense.IsActive = true;
-            _RenewedLicense.IssueReason = (int)enIssueReason.Renew;
-            _RenewedLicense.CreatedByUserID = clsCurrentUser.CurrentUser.UserID;
+            _RenewedLicense.IssueReasonCode = (int)enIssueReason.Renew;
+            _RenewedLicense.CreatedByUserID = clsCurrentUser.CurrentUser.ID;
         }
 
         private void _LoadRenewApplicationData()
@@ -131,17 +131,17 @@ namespace Drivers_and_Vehicles_License_Department__DVLD_.Licenses.Forms
             _RenewApplication = new clsApplication();
 
             _RenewApplication.ApplicantPersonID = clsLicense.GetPersonIDByLicenseID(_OldLicenseID);
-            _RenewApplication.ApplicationDate = DateTime.Now;
-            _RenewApplication.ApplicationTypeID = _RenewApplicationTypeID;
-            _RenewApplication.ApplicationStatus = Completed;
+            _RenewApplication.Date = DateTime.Now;
+            _RenewApplication.TypeID = _RenewApplicationTypeID;
+            _RenewApplication.Status = Completed;
             _RenewApplication.LastStatusDate = DateTime.Now;
             _RenewApplication.PaidFees = _RenewApplicationTypeFees;
-            _RenewApplication.CreatedByUserID = clsCurrentUser.CurrentUser.UserID;
+            _RenewApplication.CreatedByUserID = clsCurrentUser.CurrentUser.ID;
         }
 
         private void _PopulateRenewedLicenseInfo()
         {
-            lblRenewedLicenseID.Text = _RenewedLicense.LicenseID.ToString();
+            lblRenewedLicenseID.Text = _RenewedLicense.ID.ToString();
             lblRLAppID.Text = _RenewedLicense.ApplicationID.ToString();
         }
 
@@ -180,7 +180,7 @@ namespace Drivers_and_Vehicles_License_Department__DVLD_.Licenses.Forms
                 return;
             }
 
-            clsMessageBoxManager.ShowMessageBox($"Renew License Issued Successfully with License ID = {_RenewedLicense.LicenseID}", "Success",
+            clsMessageBoxManager.ShowMessageBox($"Renew License Issued Successfully with License ID = {_RenewedLicense.ID}", "Success",
                                     MessageBoxButtons.OK, MessageBoxIcon.Information);
 
             _PopulateRenewedLicenseInfo();
@@ -200,7 +200,7 @@ namespace Drivers_and_Vehicles_License_Department__DVLD_.Licenses.Forms
 
         private void llblShowNewLicenseInfo_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            frmDriverLicenseInfo FormDriverLicenseInfo = new frmDriverLicenseInfo(_RenewedLicense.LicenseID);
+            frmDriverLicenseInfo FormDriverLicenseInfo = new frmDriverLicenseInfo(_RenewedLicense.ID);
             FormDriverLicenseInfo.ShowDialog();
         }
 

@@ -119,7 +119,7 @@ namespace Drivers_and_Vehicles_License_Department__DVLD_.Detained_Licenses.Forms
         private void _PopulateDetainedLicenseDetails()
         {
             lblFineFees.Text = _DetainedLicense.FineFees.ToString();
-            lblDetainID.Text = _DetainedLicense.DetainID.ToString();
+            lblDetainID.Text = _DetainedLicense.ID.ToString();
             lblDetainedDate.Text = _DetainedLicense.DetainDate.ToString();
             lblTotalFees.Text = _CalculateTotalFees().ToString();
         }
@@ -128,8 +128,8 @@ namespace Drivers_and_Vehicles_License_Department__DVLD_.Detained_Licenses.Forms
         {
             _DetainedLicense.IsReleased= true;
             _DetainedLicense.ReleaseDate = DateTime.Now;
-            _DetainedLicense.ReleasedByUserID=clsCurrentUser.CurrentUser.UserID;
-            _DetainedLicense.ReleaseApplicationID = _ReleaseLicenseApplication.ApplicationID;
+            _DetainedLicense.ReleasedByUserID=clsCurrentUser.CurrentUser.ID;
+            _DetainedLicense.ReleaseApplicationID = _ReleaseLicenseApplication.ID;
         }
 
         private void _LoadReleaseApplicationData()
@@ -138,12 +138,12 @@ namespace Drivers_and_Vehicles_License_Department__DVLD_.Detained_Licenses.Forms
             _ReleaseLicenseApplication = new clsApplication();
 
             _ReleaseLicenseApplication.ApplicantPersonID = clsLicense.GetPersonIDByLicenseID(_LicenseID);
-            _ReleaseLicenseApplication.ApplicationDate = DateTime.Now;
-            _ReleaseLicenseApplication.ApplicationTypeID = _ReleaseLicenseApplicationTypeID;
-            _ReleaseLicenseApplication.ApplicationStatus = Completed;
+            _ReleaseLicenseApplication.Date = DateTime.Now;
+            _ReleaseLicenseApplication.TypeID = _ReleaseLicenseApplicationTypeID;
+            _ReleaseLicenseApplication.Status = Completed;
             _ReleaseLicenseApplication.LastStatusDate = DateTime.Now;
             _ReleaseLicenseApplication.PaidFees = _ReleaseLicensApplicationTypeFees;
-            _ReleaseLicenseApplication.CreatedByUserID = clsCurrentUser.CurrentUser.UserID;
+            _ReleaseLicenseApplication.CreatedByUserID = clsCurrentUser.CurrentUser.ID;
         }
 
         private void _SetControlsAfterRelease()
@@ -179,7 +179,7 @@ namespace Drivers_and_Vehicles_License_Department__DVLD_.Detained_Licenses.Forms
             clsMessageBoxManager.ShowMessageBox($"License with  ID = {_DetainedLicense.LicenseID} Released Successfully", "Success",
                         MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-            lblReleaseAppID.Text = _ReleaseLicenseApplication.ApplicationID.ToString();
+            lblReleaseAppID.Text = _ReleaseLicenseApplication.ID.ToString();
 
             _SetControlsAfterRelease();
 
@@ -188,7 +188,7 @@ namespace Drivers_and_Vehicles_License_Department__DVLD_.Detained_Licenses.Forms
 
         private void lblShowLicenseInfo_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            frmDriverLicenseInfo FormDriverLicenseInfo = new frmDriverLicenseInfo(_License.LicenseID);
+            frmDriverLicenseInfo FormDriverLicenseInfo = new frmDriverLicenseInfo(_License.ID);
             FormDriverLicenseInfo.ShowDialog();
         }
 

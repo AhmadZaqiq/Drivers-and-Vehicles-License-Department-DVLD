@@ -11,49 +11,89 @@ namespace DVLD_Business
 {
     public class clsTestType
     {
-        public int TestTypeID { get; set; }
-        public string TestTypeTitle { get; set; }
-        public string TestTypeDescription { get; set; }
-        public decimal TestTypeFees { get; set; }
+        public enum enMode { AddNew = 0, Update = 1 };
+        public enMode Mode = enMode.AddNew;
+
+        public enum enTestType { VisionTest = 1, WrittenTest = 2, StreetTest = 3 };
+
+        public clsTestType.enTestType ID { get; set; }
+        public string Title { get; set; }
+        public string Description { get; set; }
+        public decimal Fees { get; set; }
 
         public clsTestType()
         {
-            TestTypeID = -1;
-            TestTypeTitle = "";
-            TestTypeDescription = "";
-            TestTypeFees = -1;
+            ID = clsTestType.enTestType.VisionTest;
+            Title = "";
+            Description = "";
+            Fees = -1;
+
+            Mode = enMode.AddNew;
         }
 
-        private clsTestType(int TestTypeID, string TestTypeTitle, string TestTypeDescription, decimal TestTypeFees)
+        private clsTestType(clsTestType.enTestType ID, string Title, string Description, decimal Fees)
         {
-            this.TestTypeID = TestTypeID;
-            this.TestTypeTitle = TestTypeTitle;
-            this.TestTypeDescription = TestTypeDescription;
-            this.TestTypeFees = TestTypeFees;
+            this.ID = ID;
+            this.Title = Title;
+            this.Description = Description;
+            this.Fees = Fees;
+
+            Mode = enMode.Update;
         }
 
         public static DataTable GetAllTestTypes()
         {
-            return clsTestTypesData.GetAllTestTypesData();
+            return clsTestTypeData.GetAllTestTypesData();
         }
 
-        public static clsTestType GetTestTypeByID(int TestTypeID)
+        public static clsTestType GetTestTypeByID(clsTestType.enTestType ID)
         {
-            string TestTypeTitle = "";
-            string TestTypeDescription = "";
-            decimal TestTypeFees = -1;
+            string Title = "";
+            string Description = "";
+            decimal Fees = -1;
 
-            if (!clsTestTypesData.GetTestTypeByID(TestTypeID, ref TestTypeTitle, ref TestTypeDescription, ref TestTypeFees))
+            if (!clsTestTypeData.GetTestTypeByID((int)ID, ref Title, ref Description, ref Fees))
+            {
                 return null;
+            }
 
-            return new clsTestType(TestTypeID, TestTypeTitle, TestTypeDescription, TestTypeFees);
+            return new clsTestType(ID, Title, Description, Fees);
         }
 
-        public bool UpdateTestType()
+        private bool _AddNewTestType()
         {
-            return clsTestTypesData.UpdateTestTypeData(this.TestTypeID, this.TestTypeTitle, this.TestTypeDescription, this.TestTypeFees);
+            this.ID = (clsTestType.enTestType)clsTestTypeData.AddTestTypeData(this.Title, this.Description, this.Fees);
+
+            return (this.Title != "");
         }
- 
-    
+
+        private bool _UpdateTestType()
+        {
+            return clsTestTypeData.UpdateTestTypeData((int)this.ID, this.Title, this.Description, this.Fees);
+        }
+
+        public bool Save()
+        {
+            switch (Mode)
+            {
+                case enMode.AddNew:
+
+                    if (_AddNewTestType())
+                    {
+                        Mode = enMode.Update;
+                        return true;
+                    }
+
+                    return false;
+
+                case enMode.Update:
+
+                    return _UpdateTestType();
+
+                default: return false;
+            }
+        }
+
+
     }
 }

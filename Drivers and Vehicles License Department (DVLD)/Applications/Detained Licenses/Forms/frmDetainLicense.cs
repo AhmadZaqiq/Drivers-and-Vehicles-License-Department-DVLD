@@ -85,7 +85,7 @@ namespace Drivers_and_Vehicles_License_Department__DVLD_.Detained_Licenses.Forms
             _DetainedLicense.LicenseID= _LicenseID;
             _DetainedLicense.DetainDate = DateTime.Now;
             _DetainedLicense.FineFees = Decimal.Parse(txtFineFees.Text);
-            _DetainedLicense.CreatedByUserID = clsCurrentUser.CurrentUser.UserID;
+            _DetainedLicense.CreatedByUserID = clsCurrentUser.CurrentUser.ID;
             _DetainedLicense.IsReleased = false;
             _DetainedLicense.ReleaseDate = DateTime.MinValue;
             _DetainedLicense.ReleasedByUserID = -1;
@@ -95,7 +95,7 @@ namespace Drivers_and_Vehicles_License_Department__DVLD_.Detained_Licenses.Forms
 
         private void _PopulateDetainInfo()
         {
-            lblDetainID.Text = _DetainedLicense.DetainID.ToString();
+            lblDetainID.Text = _DetainedLicense.ID.ToString();
             lblDetainedDate.Text = _DetainedLicense.DetainDate.ToString();
         }
 

@@ -76,17 +76,17 @@ namespace Drivers_and_Vehicles_License_Department__DVLD_.Applications.Controls
         {
             lblLocalApplicationID.Text = _LocalDrivingApplicationID.ToString();
             lblPassedTests.Text = clsLocalDrivingLicenseApplication.GetTestsCountForLocalApplication(_LocalDrivingApplicationID, _LocalDrivingLicenseApplication.LicenseClassID,true).ToString() + "/3";
-            lblAppliedForLicence.Text = clsLicenseClass.GetLicenseClassByID(_LocalDrivingLicenseApplication.LicenseClassID).ClassName.ToString();
+            lblAppliedForLicence.Text = clsLicenseClass.GetLicenseClassByID(_LocalDrivingLicenseApplication.LicenseClassID).Name.ToString();
         }
 
         private void _PopulateApplicationBasicDetails()
         {
             lblApplicationID.Text = _ApplicationID.ToString();
-            lblStatus.Text = _SetStatus(_Application.ApplicationStatus).ToString();
+            lblStatus.Text = _SetStatus(_Application.Status).ToString();
             lblFees.Text = _Application.PaidFees.ToString();
-            lblType.Text = clsApplicationType.GetApplicationTypeByID(_Application.ApplicationTypeID).ApplicationTypeTitle.ToString();
+            lblType.Text = clsApplicationType.GetApplicationTypeByID(_Application.TypeID).ApplicationTypeTitle.ToString();
             lblApplicant.Text = _ApplicantPerson.FullName.ToString();
-            lblDate.Text = _Application.ApplicationDate.ToString();
+            lblDate.Text = _Application.Date.ToString();
             lblStatusDate.Text = _Application.LastStatusDate.ToString();
             lblCreatedBy.Text = _CreatedByUser.Username.ToString();
         }
@@ -106,7 +106,7 @@ namespace Drivers_and_Vehicles_License_Department__DVLD_.Applications.Controls
 
         private void btnViewPersonInfo_Click(object sender, EventArgs e)
         {
-            frmShowPersonDetails FormPersonDetails = new frmShowPersonDetails(_ApplicantPerson.PersonID);
+            frmShowPersonDetails FormPersonDetails = new frmShowPersonDetails(_ApplicantPerson.ID);
             FormPersonDetails.ShowDialog();
         }
 

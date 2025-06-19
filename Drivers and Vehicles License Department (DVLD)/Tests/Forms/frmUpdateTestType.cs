@@ -22,7 +22,7 @@ namespace Drivers_and_Vehicles_License_Department__DVLD_.Test_Types
 
         private clsTestType _TestType;
 
-        public frmUpdateTestType(int TestTypeID, frmManageTestTypes FormManageTestTypes)
+        public frmUpdateTestType(int TestTypeID, frmListTestTypes FormManageTestTypes)
         {
             InitializeComponent();
 
@@ -50,9 +50,9 @@ namespace Drivers_and_Vehicles_License_Department__DVLD_.Test_Types
             }
 
             lblID.Text = _TestTypeID.ToString();
-            txtTestTypeTitle.Text = _TestType.TestTypeTitle.ToString();
-            txtTestTypeDescription.Text = _TestType.TestTypeDescription.ToString();
-            txtTestTypeFees.Text = _TestType.TestTypeFees.ToString();
+            txtTestTypeTitle.Text = _TestType.Title.ToString();
+            txtTestTypeDescription.Text = _TestType.Description.ToString();
+            txtTestTypeFees.Text = _TestType.Fees.ToString();
         }
 
         private bool _ValidateAndSetTestTypeData()
@@ -71,9 +71,9 @@ namespace Drivers_and_Vehicles_License_Department__DVLD_.Test_Types
                 return false;
             }
 
-            _TestType.TestTypeTitle = TestTypeTitle;
-            _TestType.TestTypeDescription = TestTypeDescription;
-            _TestType.TestTypeFees = TestTypeFees;
+            _TestType.Title = TestTypeTitle;
+            _TestType.Description = TestTypeDescription;
+            _TestType.Fees = TestTypeFees;
             return true;
         }
 

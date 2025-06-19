@@ -54,7 +54,7 @@ namespace Drivers_and_Vehicles_License_Department__DVLD_
         {
             btnEditInfo.Enabled = true;
 
-            _PersonID = _Person.PersonID;
+            _PersonID = _Person.ID;
 
             lblPersonID.Text = _PersonID.ToString();
             lblName.Text = _Person.FullName;
@@ -64,7 +64,7 @@ namespace Drivers_and_Vehicles_License_Department__DVLD_
             lblAddress.Text = _Person.Address;
             lblPhone.Text = _Person.Phone;
             lblDateOfBirth.Text = _Person.DateOfBirth.ToString("yyyy-MM-dd");
-            lblCountry.Text = _Person.CountryInfo.CountryName;
+            lblCountry.Text = _Person.CountryInfo.Name;
 
             _SetPersonImage();
         }
@@ -131,7 +131,7 @@ namespace Drivers_and_Vehicles_License_Department__DVLD_
 
         private void btnEditInfoClick(object sender, EventArgs e)
         {
-            frmAddAndUpdatePeople FormAddAndUpdatePeople = new frmAddAndUpdatePeople(_Person.PersonID);
+            frmAddAndUpdatePeople FormAddAndUpdatePeople = new frmAddAndUpdatePeople(_Person.ID);
             FormAddAndUpdatePeople.ShowDialog();
 
             LoadPersonInfo(_PersonID);
