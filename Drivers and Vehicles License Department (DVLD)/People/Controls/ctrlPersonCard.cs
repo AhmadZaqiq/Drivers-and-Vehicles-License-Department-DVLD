@@ -35,7 +35,10 @@ namespace Drivers_and_Vehicles_License_Department__DVLD_
 
         public clsPerson SelectedPersonInfo
         {
-            get { return _Person; }
+            get
+            {
+                return _Person;
+            }
         }
 
         private void _SetPersonImage()

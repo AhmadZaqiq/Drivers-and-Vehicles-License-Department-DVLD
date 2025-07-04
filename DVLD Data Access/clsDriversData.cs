@@ -105,6 +105,51 @@ namespace DVLD_Data_Access
             return IsFound;
         }
 
+        public static bool GetDriverByPersonIDData(int PersonID, ref int DriverID, ref int CreatedByUserID, ref DateTime CreatedDate)
+        {
+            bool IsFound = false;
+
+            SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString);
+
+            string query = @"SELECT *
+                             FROM Drivers
+                             WHERE PersonID = @PersonID";
+
+            SqlCommand command = new SqlCommand(query, connection);
+
+            command.Parameters.AddWithValue("@PersonID", PersonID);
+
+            try 
+            {
+                connection.Open();
+
+                SqlDataReader reader = command.ExecuteReader();
+
+                if (reader.Read())
+                {
+                    IsFound = true;
+
+                    DriverID = (int)reader["DriverID"];
+                    CreatedByUserID = (int)reader["CreatedByUserID"];
+                    CreatedDate = (DateTime)reader["CreatedDate"];
+                }
+
+                reader.Close();
+            }
+
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+
+            finally
+            {
+                connection.Close();
+            }
+
+            return IsFound;
+        }
+
         public static int AddNewDriverData(int PersonID, int CreatedByUserID, DateTime CreatedDate)
         {
             int DriverID = -1;
@@ -218,88 +263,6 @@ namespace DVLD_Data_Access
             }
 
             return DeletedSuccessfully;
-        }
-
-        public static bool IsDriverExistsByPersonIDData(int PersonID)
-        {
-            bool IsFound = false;
-
-            SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString);
-
-            string query = @"SELECT 1
-                             FROM Drivers
-                             JOIN People
-                             ON Drivers.PersonID=People.PersonID
-                             WHERE Drivers.PersonID = @PersonID;";
-
-            SqlCommand command = new SqlCommand(query, connection);
-
-            command.Parameters.AddWithValue("@PersonID", PersonID);
-
-            try
-            {
-                connection.Open();
-
-                SqlDataReader reader = command.ExecuteReader();
-
-                IsFound = reader.HasRows;
-
-                reader.Close();
-
-            }
-
-            catch (Exception ex)
-            {
-                Console.WriteLine(ex.Message);
-            }
-
-            finally
-            {
-                connection.Close();
-            }
-
-            return IsFound;
-        }
-
-        public static int GetDriverIDByPersonIDData(int PersonID)
-        {
-            int DriverID = -1;
-
-            SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString);
-
-            string query = @"SELECT DriverID
-                             FROM Drivers
-                             JOIN People
-                             ON Drivers.PersonID=People.PersonID
-                             WHERE Drivers.PersonID =@PersonID";
-
-            SqlCommand command = new SqlCommand(query, connection);
-
-            command.Parameters.AddWithValue("@PersonID", PersonID);
-
-            try
-            {
-                connection.Open();
-
-                object result = command.ExecuteScalar();
-
-                if (result != null)
-                {
-                    DriverID = Convert.ToInt32(result);
-                }
-            }
-
-            catch (Exception ex)
-            {
-                Console.WriteLine(ex.Message);
-            }
-
-            finally
-            {
-                connection.Close();
-            }
-
-            return DriverID;
         }
 
 

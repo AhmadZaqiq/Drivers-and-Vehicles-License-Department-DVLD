@@ -24,9 +24,9 @@ namespace Drivers_and_Vehicles_License_Department__DVLD_.International_Driving_A
 
         private void frmDriverInternationalLicenseInfo_Load(object sender, EventArgs e)
         {
-            ctrlInternationalLicenseCard1.InternationalLicenseID= _InternationalLicenseID;
+            ctrlInternationalLicenseCard1.LoadInternationalLicenseInfo(_InternationalLicenseID);
 
-            clsUtil.MakeRoundedCorners(this, 30); //to make the form rounded
+            clsUtil.MakeRoundedCorners(this, 30);
 
             clsUtil.OpenFormEffect(this);
         }

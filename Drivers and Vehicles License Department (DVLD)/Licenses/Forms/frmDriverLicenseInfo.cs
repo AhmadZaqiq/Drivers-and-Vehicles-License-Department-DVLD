@@ -24,9 +24,9 @@ namespace Drivers_and_Vehicles_License_Department__DVLD_.Licenses.Forms
 
         private void frmDriverLicenseInfo_Load(object sender, EventArgs e)
         {
-            ctrlLicenseCard1.LicenseID = _LicenseID;
+            ctrlLicenseCard1.LoadLicenseInfo(_LicenseID);
 
-            clsUtil.MakeRoundedCorners(this, 30); //to make the form rounded
+            clsUtil.MakeRoundedCorners(this, 30);
 
             clsUtil.OpenFormEffect(this);
         }

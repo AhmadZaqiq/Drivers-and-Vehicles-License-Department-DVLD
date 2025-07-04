@@ -55,6 +55,8 @@ namespace Drivers_and_Vehicles_License_Department__DVLD_
 
         private void _RefreshPeopleDataGrid()
         {
+            _PeopleTable = clsPerson.GetAllPeople();
+
             dgvPeople.DataSource = _PeopleTable;
 
             _UpdatePeopleCount();
@@ -62,8 +64,10 @@ namespace Drivers_and_Vehicles_License_Department__DVLD_
 
         private void btnAddNewPerson_Click(object sender, EventArgs e)
         {
-            frmAddAndUpdatePeople FormAddAndUpdatePeople=new frmAddAndUpdatePeople();
+            frmAddAndUpdatePeople FormAddAndUpdatePeople = new frmAddAndUpdatePeople();
             FormAddAndUpdatePeople.ShowDialog();
+
+            _RefreshPeopleDataGrid();
         }
 
         private void btnCloseForm_Click(object sender, EventArgs e)
@@ -77,12 +81,16 @@ namespace Drivers_and_Vehicles_License_Department__DVLD_
 
             frmShowPersonDetails FormPersonDetails = new frmShowPersonDetails(PersonID);
             FormPersonDetails.ShowDialog();
+
+            _RefreshPeopleDataGrid();
         }
 
         private void AddNewPersonToolStripMenuItem1_Click(object sender, EventArgs e)
         {
             frmAddAndUpdatePeople FormAddAndUpdatePerson = new frmAddAndUpdatePeople();
             FormAddAndUpdatePerson.ShowDialog();
+
+            _RefreshPeopleDataGrid();
         }
 
         private void EditToolStripMenuItem1_Click(object sender, EventArgs e)

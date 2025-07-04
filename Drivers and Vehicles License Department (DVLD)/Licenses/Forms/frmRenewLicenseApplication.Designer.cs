@@ -66,7 +66,7 @@
             this.lblTotalFees = new SiticoneNetFrameworkUI.SiticoneLabel();
             this.siticoneLabel3 = new SiticoneNetFrameworkUI.SiticoneLabel();
             this.lblLicenseFees = new SiticoneNetFrameworkUI.SiticoneLabel();
-            this.btnIssue = new SiticoneNetFrameworkUI.SiticoneButton();
+            this.btnRenew = new SiticoneNetFrameworkUI.SiticoneButton();
             this.btnCancel = new SiticoneNetFrameworkUI.SiticoneButton();
             siticonePictureBox8 = new SiticoneNetFrameworkUI.SiticonePictureBox();
             siticonePictureBox7 = new SiticoneNetFrameworkUI.SiticonePictureBox();
@@ -209,26 +209,26 @@
             siticonePictureBox9.TabIndex = 224;
             siticonePictureBox9.Text = "siticonePictureBox9";
             // 
-            // llblShowNewLicenseInfo
+            // lblShowNewLicenseInfo
             // 
             this.lblShowNewLicenseInfo.AutoSize = true;
             this.lblShowNewLicenseInfo.Enabled = false;
             this.lblShowNewLicenseInfo.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblShowNewLicenseInfo.Location = new System.Drawing.Point(189, 875);
-            this.lblShowNewLicenseInfo.Name = "llblShowNewLicenseInfo";
+            this.lblShowNewLicenseInfo.Name = "lblShowNewLicenseInfo";
             this.lblShowNewLicenseInfo.Size = new System.Drawing.Size(179, 21);
             this.lblShowNewLicenseInfo.TabIndex = 255;
             this.lblShowNewLicenseInfo.TabStop = true;
             this.lblShowNewLicenseInfo.Text = "Show New License Info";
             this.lblShowNewLicenseInfo.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.llblShowNewLicenseInfo_LinkClicked);
             // 
-            // llblShowLicensesHistory
+            // lblShowLicensesHistory
             // 
             this.lblShowLicensesHistory.AutoSize = true;
             this.lblShowLicensesHistory.Enabled = false;
             this.lblShowLicensesHistory.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblShowLicensesHistory.Location = new System.Drawing.Point(10, 875);
-            this.lblShowLicensesHistory.Name = "llblShowLicensesHistory";
+            this.lblShowLicensesHistory.Name = "lblShowLicensesHistory";
             this.lblShowLicensesHistory.Size = new System.Drawing.Size(173, 21);
             this.lblShowLicensesHistory.TabIndex = 254;
             this.lblShowLicensesHistory.TabStop = true;
@@ -934,84 +934,84 @@
             this.lblLicenseFees.TabIndex = 220;
             this.lblLicenseFees.Text = "N\\A";
             // 
-            // btnIssue
+            // btnRenew
             // 
-            this.btnIssue.AccessibleDescription = "The default button control that accept input though the mouse, touch and keyboard" +
+            this.btnRenew.AccessibleDescription = "The default button control that accept input though the mouse, touch and keyboard" +
     "";
-            this.btnIssue.AccessibleName = "Issue";
-            this.btnIssue.AutoSizeBasedOnText = false;
-            this.btnIssue.BackColor = System.Drawing.Color.Transparent;
-            this.btnIssue.BadgeBackColor = System.Drawing.Color.Red;
-            this.btnIssue.BadgeFont = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnIssue.BadgeValue = 0;
-            this.btnIssue.BadgeValueForeColor = System.Drawing.Color.White;
-            this.btnIssue.BorderColor = System.Drawing.Color.Transparent;
-            this.btnIssue.BorderWidth = 2;
-            this.btnIssue.ButtonBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(204)))), ((int)(((byte)(0)))));
-            this.btnIssue.ButtonImage = null;
-            this.btnIssue.CanBeep = true;
-            this.btnIssue.CanGlow = false;
-            this.btnIssue.CanShake = true;
-            this.btnIssue.ContextMenuStripEx = null;
-            this.btnIssue.CornerRadiusBottomLeft = 20;
-            this.btnIssue.CornerRadiusBottomRight = 20;
-            this.btnIssue.CornerRadiusTopLeft = 20;
-            this.btnIssue.CornerRadiusTopRight = 20;
-            this.btnIssue.CustomCursor = System.Windows.Forms.Cursors.Default;
-            this.btnIssue.DisabledTextColor = System.Drawing.Color.FromArgb(((int)(((byte)(150)))), ((int)(((byte)(150)))), ((int)(((byte)(150)))));
-            this.btnIssue.EnableLongPress = false;
-            this.btnIssue.EnablePressAnimation = true;
-            this.btnIssue.EnableRippleEffect = true;
-            this.btnIssue.EnableShadow = false;
-            this.btnIssue.EnableTextWrapping = false;
-            this.btnIssue.Font = new System.Drawing.Font("Segoe UI Semibold", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnIssue.ForeColor = System.Drawing.Color.Transparent;
-            this.btnIssue.GlowColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.btnIssue.GlowIntensity = 100;
-            this.btnIssue.GlowRadius = 20F;
-            this.btnIssue.GradientBackground = false;
-            this.btnIssue.GradientColor = System.Drawing.Color.FromArgb(((int)(((byte)(114)))), ((int)(((byte)(168)))), ((int)(((byte)(255)))));
-            this.btnIssue.GradientMode = System.Drawing.Drawing2D.LinearGradientMode.Vertical;
-            this.btnIssue.HintText = null;
-            this.btnIssue.HoverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(186)))), ((int)(((byte)(0)))));
-            this.btnIssue.HoverFontStyle = System.Drawing.FontStyle.Regular;
-            this.btnIssue.HoverTextColor = System.Drawing.Color.Black;
-            this.btnIssue.HoverTransitionDuration = 250;
-            this.btnIssue.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnIssue.ImagePadding = 5;
-            this.btnIssue.ImageSize = new System.Drawing.Size(16, 16);
-            this.btnIssue.IsRadial = false;
-            this.btnIssue.IsReadOnly = false;
-            this.btnIssue.IsToggleButton = false;
-            this.btnIssue.IsToggled = false;
-            this.btnIssue.Location = new System.Drawing.Point(726, 878);
-            this.btnIssue.LongPressDurationMS = 1000;
-            this.btnIssue.Name = "btnIssue";
-            this.btnIssue.NormalFontStyle = System.Drawing.FontStyle.Regular;
-            this.btnIssue.ParticleColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(200)))), ((int)(((byte)(200)))));
-            this.btnIssue.ParticleCount = 15;
-            this.btnIssue.PressAnimationScale = 0.97F;
-            this.btnIssue.PressedBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(162)))), ((int)(((byte)(0)))));
-            this.btnIssue.PressedFontStyle = System.Drawing.FontStyle.Regular;
-            this.btnIssue.PressTransitionDuration = 150;
-            this.btnIssue.ReadOnlyTextColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(100)))), ((int)(((byte)(100)))));
-            this.btnIssue.RippleColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.btnIssue.RippleOpacity = 0.3F;
-            this.btnIssue.RippleRadiusMultiplier = 0.6F;
-            this.btnIssue.ShadowBlur = 5;
-            this.btnIssue.ShadowColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.btnIssue.ShadowOffset = new System.Drawing.Point(2, 2);
-            this.btnIssue.ShakeDuration = 500;
-            this.btnIssue.ShakeIntensity = 5;
-            this.btnIssue.Size = new System.Drawing.Size(125, 39);
-            this.btnIssue.TabIndex = 252;
-            this.btnIssue.Text = "Issue";
-            this.btnIssue.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.btnIssue.TextColor = System.Drawing.Color.Black;
-            this.btnIssue.TooltipText = null;
-            this.btnIssue.UseAdvancedRendering = true;
-            this.btnIssue.UseParticles = false;
-            this.btnIssue.Click += new System.EventHandler(this.btnIssue_Click);
+            this.btnRenew.AccessibleName = "Renew";
+            this.btnRenew.AutoSizeBasedOnText = false;
+            this.btnRenew.BackColor = System.Drawing.Color.Transparent;
+            this.btnRenew.BadgeBackColor = System.Drawing.Color.Red;
+            this.btnRenew.BadgeFont = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnRenew.BadgeValue = 0;
+            this.btnRenew.BadgeValueForeColor = System.Drawing.Color.White;
+            this.btnRenew.BorderColor = System.Drawing.Color.Transparent;
+            this.btnRenew.BorderWidth = 2;
+            this.btnRenew.ButtonBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(204)))), ((int)(((byte)(0)))));
+            this.btnRenew.ButtonImage = null;
+            this.btnRenew.CanBeep = true;
+            this.btnRenew.CanGlow = false;
+            this.btnRenew.CanShake = true;
+            this.btnRenew.ContextMenuStripEx = null;
+            this.btnRenew.CornerRadiusBottomLeft = 20;
+            this.btnRenew.CornerRadiusBottomRight = 20;
+            this.btnRenew.CornerRadiusTopLeft = 20;
+            this.btnRenew.CornerRadiusTopRight = 20;
+            this.btnRenew.CustomCursor = System.Windows.Forms.Cursors.Default;
+            this.btnRenew.DisabledTextColor = System.Drawing.Color.FromArgb(((int)(((byte)(150)))), ((int)(((byte)(150)))), ((int)(((byte)(150)))));
+            this.btnRenew.EnableLongPress = false;
+            this.btnRenew.EnablePressAnimation = true;
+            this.btnRenew.EnableRippleEffect = true;
+            this.btnRenew.EnableShadow = false;
+            this.btnRenew.EnableTextWrapping = false;
+            this.btnRenew.Font = new System.Drawing.Font("Segoe UI Semibold", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnRenew.ForeColor = System.Drawing.Color.Transparent;
+            this.btnRenew.GlowColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.btnRenew.GlowIntensity = 100;
+            this.btnRenew.GlowRadius = 20F;
+            this.btnRenew.GradientBackground = false;
+            this.btnRenew.GradientColor = System.Drawing.Color.FromArgb(((int)(((byte)(114)))), ((int)(((byte)(168)))), ((int)(((byte)(255)))));
+            this.btnRenew.GradientMode = System.Drawing.Drawing2D.LinearGradientMode.Vertical;
+            this.btnRenew.HintText = null;
+            this.btnRenew.HoverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(186)))), ((int)(((byte)(0)))));
+            this.btnRenew.HoverFontStyle = System.Drawing.FontStyle.Regular;
+            this.btnRenew.HoverTextColor = System.Drawing.Color.Black;
+            this.btnRenew.HoverTransitionDuration = 250;
+            this.btnRenew.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnRenew.ImagePadding = 5;
+            this.btnRenew.ImageSize = new System.Drawing.Size(16, 16);
+            this.btnRenew.IsRadial = false;
+            this.btnRenew.IsReadOnly = false;
+            this.btnRenew.IsToggleButton = false;
+            this.btnRenew.IsToggled = false;
+            this.btnRenew.Location = new System.Drawing.Point(726, 878);
+            this.btnRenew.LongPressDurationMS = 1000;
+            this.btnRenew.Name = "btnRenew";
+            this.btnRenew.NormalFontStyle = System.Drawing.FontStyle.Regular;
+            this.btnRenew.ParticleColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(200)))), ((int)(((byte)(200)))));
+            this.btnRenew.ParticleCount = 15;
+            this.btnRenew.PressAnimationScale = 0.97F;
+            this.btnRenew.PressedBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(162)))), ((int)(((byte)(0)))));
+            this.btnRenew.PressedFontStyle = System.Drawing.FontStyle.Regular;
+            this.btnRenew.PressTransitionDuration = 150;
+            this.btnRenew.ReadOnlyTextColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(100)))), ((int)(((byte)(100)))));
+            this.btnRenew.RippleColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.btnRenew.RippleOpacity = 0.3F;
+            this.btnRenew.RippleRadiusMultiplier = 0.6F;
+            this.btnRenew.ShadowBlur = 5;
+            this.btnRenew.ShadowColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.btnRenew.ShadowOffset = new System.Drawing.Point(2, 2);
+            this.btnRenew.ShakeDuration = 500;
+            this.btnRenew.ShakeIntensity = 5;
+            this.btnRenew.Size = new System.Drawing.Size(125, 39);
+            this.btnRenew.TabIndex = 252;
+            this.btnRenew.Text = "Renew";
+            this.btnRenew.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.btnRenew.TextColor = System.Drawing.Color.Black;
+            this.btnRenew.TooltipText = null;
+            this.btnRenew.UseAdvancedRendering = true;
+            this.btnRenew.UseParticles = false;
+            this.btnRenew.Click += new System.EventHandler(this.btnIssue_Click);
             // 
             // btnCancel
             // 
@@ -1103,7 +1103,7 @@
             this.Controls.Add(this.ctrlLicenseCardWithFilter1);
             this.Controls.Add(this.lblTitle);
             this.Controls.Add(this.siticonePanel2);
-            this.Controls.Add(this.btnIssue);
+            this.Controls.Add(this.btnRenew);
             this.Controls.Add(this.btnCancel);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "frmRenewLicenseApplication";
@@ -1147,7 +1147,7 @@
         private SiticoneNetFrameworkUI.SiticoneLabel lblIssueDate;
         private SiticoneNetFrameworkUI.SiticoneLabel siticoneLabel1;
         private SiticoneNetFrameworkUI.SiticonePanel siticonePanel2;
-        private SiticoneNetFrameworkUI.SiticoneButton btnIssue;
+        private SiticoneNetFrameworkUI.SiticoneButton btnRenew;
         private SiticoneNetFrameworkUI.SiticoneButton btnCancel;
         private SiticoneNetFrameworkUI.SiticoneLabel siticoneLabel6;
         private SiticoneNetFrameworkUI.SiticoneLabel lblTotalFees;

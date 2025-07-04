@@ -30,7 +30,7 @@
         {
             SiticoneNetFrameworkUI.SiticonePictureBox siticonePictureBox8;
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmReplacementForDamagedLostLicense));
-            this.siticonePanel2 = new SiticoneNetFrameworkUI.SiticonePanel();
+            this.ss = new SiticoneNetFrameworkUI.SiticonePanel();
             this.siticonePictureBox6 = new SiticoneNetFrameworkUI.SiticonePictureBox();
             this.siticonePictureBox5 = new SiticoneNetFrameworkUI.SiticonePictureBox();
             this.siticonePictureBox3 = new SiticoneNetFrameworkUI.SiticonePictureBox();
@@ -52,16 +52,16 @@
             this.btnCancel = new SiticoneNetFrameworkUI.SiticoneButton();
             this.llblShowNewLicenseInfo = new System.Windows.Forms.LinkLabel();
             this.llblShowLicensesHistory = new System.Windows.Forms.LinkLabel();
-            this.ctrlLicenseCardWithFilter1 = new Drivers_and_Vehicles_License_Department__DVLD_.Licenses.Controls.ctrlLicenseCardWithFilter();
             this.lblTitle = new System.Windows.Forms.Label();
             this.btnIssue = new SiticoneNetFrameworkUI.SiticoneButton();
-            this.siticonePanel1 = new SiticoneNetFrameworkUI.SiticonePanel();
+            this.gbReplacementFor = new SiticoneNetFrameworkUI.SiticonePanel();
             this.rbDamagedLicense = new SiticoneNetFrameworkUI.SiticoneRadioButton();
             this.rbLostLicense = new SiticoneNetFrameworkUI.SiticoneRadioButton();
             this.label2 = new System.Windows.Forms.Label();
+            this.ctrlLicenseCardWithFilter1 = new Drivers_and_Vehicles_License_Department__DVLD_.Licenses.Controls.ctrlLicenseCardWithFilter();
             siticonePictureBox8 = new SiticoneNetFrameworkUI.SiticonePictureBox();
-            this.siticonePanel2.SuspendLayout();
-            this.siticonePanel1.SuspendLayout();
+            this.ss.SuspendLayout();
+            this.gbReplacementFor.SuspendLayout();
             this.SuspendLayout();
             // 
             // siticonePictureBox8
@@ -109,66 +109,66 @@
             siticonePictureBox8.TabIndex = 180;
             siticonePictureBox8.Text = "siticonePictureBox8";
             // 
-            // siticonePanel2
+            // ss
             // 
-            this.siticonePanel2.AcrylicTintColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.siticonePanel2.BackColor = System.Drawing.Color.Transparent;
-            this.siticonePanel2.BorderAlignment = System.Drawing.Drawing2D.PenAlignment.Center;
-            this.siticonePanel2.BorderDashPattern = null;
-            this.siticonePanel2.BorderGradientEndColor = System.Drawing.Color.Purple;
-            this.siticonePanel2.BorderGradientStartColor = System.Drawing.Color.Blue;
-            this.siticonePanel2.BorderThickness = 2F;
-            this.siticonePanel2.Controls.Add(this.siticonePictureBox6);
-            this.siticonePanel2.Controls.Add(this.siticonePictureBox5);
-            this.siticonePanel2.Controls.Add(this.siticonePictureBox3);
-            this.siticonePanel2.Controls.Add(this.siticoneLabel2);
-            this.siticonePanel2.Controls.Add(this.siticonePictureBox2);
-            this.siticonePanel2.Controls.Add(this.lblCreatedBy);
-            this.siticonePanel2.Controls.Add(this.siticoneLabel16);
-            this.siticonePanel2.Controls.Add(this.lblOldLicenseID);
-            this.siticonePanel2.Controls.Add(this.siticoneLabel20);
-            this.siticonePanel2.Controls.Add(this.lblReplacementLicenseID);
-            this.siticonePanel2.Controls.Add(this.siticoneLabel23);
-            this.siticonePanel2.Controls.Add(this.siticonePictureBox11);
-            this.siticonePanel2.Controls.Add(this.lblRLAppID);
-            this.siticonePanel2.Controls.Add(this.siticoneLabel21);
-            this.siticonePanel2.Controls.Add(this.lblApplicationDate);
-            this.siticonePanel2.Controls.Add(this.siticoneLabel17);
-            this.siticonePanel2.Controls.Add(siticonePictureBox8);
-            this.siticonePanel2.Controls.Add(this.lblAppFees);
-            this.siticonePanel2.Controls.Add(this.siticoneLabel1);
-            this.siticonePanel2.CornerRadiusBottomLeft = 10F;
-            this.siticonePanel2.CornerRadiusBottomRight = 10F;
-            this.siticonePanel2.CornerRadiusTopLeft = 10F;
-            this.siticonePanel2.CornerRadiusTopRight = 10F;
-            this.siticonePanel2.EnableAcrylicEffect = false;
-            this.siticonePanel2.EnableMicaEffect = false;
-            this.siticonePanel2.EnableRippleEffect = false;
-            this.siticonePanel2.FillColor = System.Drawing.Color.WhiteSmoke;
-            this.siticonePanel2.GradientColors = new System.Drawing.Color[] {
+            this.ss.AcrylicTintColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.ss.BackColor = System.Drawing.Color.Transparent;
+            this.ss.BorderAlignment = System.Drawing.Drawing2D.PenAlignment.Center;
+            this.ss.BorderDashPattern = null;
+            this.ss.BorderGradientEndColor = System.Drawing.Color.Purple;
+            this.ss.BorderGradientStartColor = System.Drawing.Color.Blue;
+            this.ss.BorderThickness = 2F;
+            this.ss.Controls.Add(this.siticonePictureBox6);
+            this.ss.Controls.Add(this.siticonePictureBox5);
+            this.ss.Controls.Add(this.siticonePictureBox3);
+            this.ss.Controls.Add(this.siticoneLabel2);
+            this.ss.Controls.Add(this.siticonePictureBox2);
+            this.ss.Controls.Add(this.lblCreatedBy);
+            this.ss.Controls.Add(this.siticoneLabel16);
+            this.ss.Controls.Add(this.lblOldLicenseID);
+            this.ss.Controls.Add(this.siticoneLabel20);
+            this.ss.Controls.Add(this.lblReplacementLicenseID);
+            this.ss.Controls.Add(this.siticoneLabel23);
+            this.ss.Controls.Add(this.siticonePictureBox11);
+            this.ss.Controls.Add(this.lblRLAppID);
+            this.ss.Controls.Add(this.siticoneLabel21);
+            this.ss.Controls.Add(this.lblApplicationDate);
+            this.ss.Controls.Add(this.siticoneLabel17);
+            this.ss.Controls.Add(siticonePictureBox8);
+            this.ss.Controls.Add(this.lblAppFees);
+            this.ss.Controls.Add(this.siticoneLabel1);
+            this.ss.CornerRadiusBottomLeft = 10F;
+            this.ss.CornerRadiusBottomRight = 10F;
+            this.ss.CornerRadiusTopLeft = 10F;
+            this.ss.CornerRadiusTopRight = 10F;
+            this.ss.EnableAcrylicEffect = false;
+            this.ss.EnableMicaEffect = false;
+            this.ss.EnableRippleEffect = false;
+            this.ss.FillColor = System.Drawing.Color.WhiteSmoke;
+            this.ss.GradientColors = new System.Drawing.Color[] {
         System.Drawing.Color.White,
         System.Drawing.Color.LightGray,
         System.Drawing.Color.Gray};
-            this.siticonePanel2.GradientPositions = new float[] {
+            this.ss.GradientPositions = new float[] {
         0F,
         0.5F,
         1F};
-            this.siticonePanel2.Location = new System.Drawing.Point(14, 588);
-            this.siticonePanel2.Name = "siticonePanel2";
-            this.siticonePanel2.PatternStyle = System.Drawing.Drawing2D.HatchStyle.LargeGrid;
-            this.siticonePanel2.RippleAlpha = 50;
-            this.siticonePanel2.RippleAlphaDecrement = 3;
-            this.siticonePanel2.RippleColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.siticonePanel2.RippleMaxSize = 600F;
-            this.siticonePanel2.RippleSpeed = 15F;
-            this.siticonePanel2.ShowBorder = true;
-            this.siticonePanel2.Size = new System.Drawing.Size(836, 136);
-            this.siticonePanel2.TabIndex = 260;
-            this.siticonePanel2.TabStop = true;
-            this.siticonePanel2.UseBorderGradient = false;
-            this.siticonePanel2.UseMultiGradient = false;
-            this.siticonePanel2.UsePatternTexture = false;
-            this.siticonePanel2.UseRadialGradient = false;
+            this.ss.Location = new System.Drawing.Point(14, 588);
+            this.ss.Name = "ss";
+            this.ss.PatternStyle = System.Drawing.Drawing2D.HatchStyle.LargeGrid;
+            this.ss.RippleAlpha = 50;
+            this.ss.RippleAlphaDecrement = 3;
+            this.ss.RippleColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.ss.RippleMaxSize = 600F;
+            this.ss.RippleSpeed = 15F;
+            this.ss.ShowBorder = true;
+            this.ss.Size = new System.Drawing.Size(836, 136);
+            this.ss.TabIndex = 260;
+            this.ss.TabStop = true;
+            this.ss.UseBorderGradient = false;
+            this.ss.UseMultiGradient = false;
+            this.ss.UsePatternTexture = false;
+            this.ss.UseRadialGradient = false;
             // 
             // siticonePictureBox6
             // 
@@ -642,14 +642,6 @@
             this.llblShowLicensesHistory.Text = "Show Licenses History";
             this.llblShowLicensesHistory.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.llblShowLicensesHistory_LinkClicked);
             // 
-            // ctrlLicenseCardWithFilter1
-            // 
-            this.ctrlLicenseCardWithFilter1.BackColor = System.Drawing.Color.White;
-            this.ctrlLicenseCardWithFilter1.Location = new System.Drawing.Point(14, 76);
-            this.ctrlLicenseCardWithFilter1.Name = "ctrlLicenseCardWithFilter1";
-            this.ctrlLicenseCardWithFilter1.Size = new System.Drawing.Size(836, 506);
-            this.ctrlLicenseCardWithFilter1.TabIndex = 257;
-            // 
             // lblTitle
             // 
             this.lblTitle.AutoSize = true;
@@ -740,50 +732,50 @@
             this.btnIssue.UseParticles = false;
             this.btnIssue.Click += new System.EventHandler(this.btnIssue_Click);
             // 
-            // siticonePanel1
+            // gbReplacementFor
             // 
-            this.siticonePanel1.AcrylicTintColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.siticonePanel1.BackColor = System.Drawing.Color.Transparent;
-            this.siticonePanel1.BorderAlignment = System.Drawing.Drawing2D.PenAlignment.Center;
-            this.siticonePanel1.BorderDashPattern = null;
-            this.siticonePanel1.BorderGradientEndColor = System.Drawing.Color.Purple;
-            this.siticonePanel1.BorderGradientStartColor = System.Drawing.Color.Blue;
-            this.siticonePanel1.BorderThickness = 2F;
-            this.siticonePanel1.Controls.Add(this.rbDamagedLicense);
-            this.siticonePanel1.Controls.Add(this.rbLostLicense);
-            this.siticonePanel1.Controls.Add(this.label2);
-            this.siticonePanel1.CornerRadiusBottomLeft = 10F;
-            this.siticonePanel1.CornerRadiusBottomRight = 10F;
-            this.siticonePanel1.CornerRadiusTopLeft = 10F;
-            this.siticonePanel1.CornerRadiusTopRight = 10F;
-            this.siticonePanel1.EnableAcrylicEffect = false;
-            this.siticonePanel1.EnableMicaEffect = false;
-            this.siticonePanel1.EnableRippleEffect = false;
-            this.siticonePanel1.FillColor = System.Drawing.Color.WhiteSmoke;
-            this.siticonePanel1.GradientColors = new System.Drawing.Color[] {
+            this.gbReplacementFor.AcrylicTintColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.gbReplacementFor.BackColor = System.Drawing.Color.Transparent;
+            this.gbReplacementFor.BorderAlignment = System.Drawing.Drawing2D.PenAlignment.Center;
+            this.gbReplacementFor.BorderDashPattern = null;
+            this.gbReplacementFor.BorderGradientEndColor = System.Drawing.Color.Purple;
+            this.gbReplacementFor.BorderGradientStartColor = System.Drawing.Color.Blue;
+            this.gbReplacementFor.BorderThickness = 2F;
+            this.gbReplacementFor.Controls.Add(this.rbDamagedLicense);
+            this.gbReplacementFor.Controls.Add(this.rbLostLicense);
+            this.gbReplacementFor.Controls.Add(this.label2);
+            this.gbReplacementFor.CornerRadiusBottomLeft = 10F;
+            this.gbReplacementFor.CornerRadiusBottomRight = 10F;
+            this.gbReplacementFor.CornerRadiusTopLeft = 10F;
+            this.gbReplacementFor.CornerRadiusTopRight = 10F;
+            this.gbReplacementFor.EnableAcrylicEffect = false;
+            this.gbReplacementFor.EnableMicaEffect = false;
+            this.gbReplacementFor.EnableRippleEffect = false;
+            this.gbReplacementFor.FillColor = System.Drawing.Color.WhiteSmoke;
+            this.gbReplacementFor.GradientColors = new System.Drawing.Color[] {
         System.Drawing.Color.White,
         System.Drawing.Color.LightGray,
         System.Drawing.Color.Gray};
-            this.siticonePanel1.GradientPositions = new float[] {
+            this.gbReplacementFor.GradientPositions = new float[] {
         0F,
         0.5F,
         1F};
-            this.siticonePanel1.Location = new System.Drawing.Point(695, 77);
-            this.siticonePanel1.Name = "siticonePanel1";
-            this.siticonePanel1.PatternStyle = System.Drawing.Drawing2D.HatchStyle.LargeGrid;
-            this.siticonePanel1.RippleAlpha = 50;
-            this.siticonePanel1.RippleAlphaDecrement = 3;
-            this.siticonePanel1.RippleColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.siticonePanel1.RippleMaxSize = 600F;
-            this.siticonePanel1.RippleSpeed = 15F;
-            this.siticonePanel1.ShowBorder = true;
-            this.siticonePanel1.Size = new System.Drawing.Size(154, 100);
-            this.siticonePanel1.TabIndex = 263;
-            this.siticonePanel1.TabStop = true;
-            this.siticonePanel1.UseBorderGradient = false;
-            this.siticonePanel1.UseMultiGradient = false;
-            this.siticonePanel1.UsePatternTexture = false;
-            this.siticonePanel1.UseRadialGradient = false;
+            this.gbReplacementFor.Location = new System.Drawing.Point(695, 77);
+            this.gbReplacementFor.Name = "gbReplacementFor";
+            this.gbReplacementFor.PatternStyle = System.Drawing.Drawing2D.HatchStyle.LargeGrid;
+            this.gbReplacementFor.RippleAlpha = 50;
+            this.gbReplacementFor.RippleAlphaDecrement = 3;
+            this.gbReplacementFor.RippleColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.gbReplacementFor.RippleMaxSize = 600F;
+            this.gbReplacementFor.RippleSpeed = 15F;
+            this.gbReplacementFor.ShowBorder = true;
+            this.gbReplacementFor.Size = new System.Drawing.Size(154, 100);
+            this.gbReplacementFor.TabIndex = 263;
+            this.gbReplacementFor.TabStop = true;
+            this.gbReplacementFor.UseBorderGradient = false;
+            this.gbReplacementFor.UseMultiGradient = false;
+            this.gbReplacementFor.UsePatternTexture = false;
+            this.gbReplacementFor.UseRadialGradient = false;
             // 
             // rbDamagedLicense
             // 
@@ -879,14 +871,24 @@
             this.label2.TabIndex = 48;
             this.label2.Text = "Replacement For:";
             // 
+            // ctrlLicenseCardWithFilter1
+            // 
+            this.ctrlLicenseCardWithFilter1.BackColor = System.Drawing.Color.White;
+            this.ctrlLicenseCardWithFilter1.FilterEnabled = true;
+            this.ctrlLicenseCardWithFilter1.Location = new System.Drawing.Point(14, 76);
+            this.ctrlLicenseCardWithFilter1.Name = "ctrlLicenseCardWithFilter1";
+            this.ctrlLicenseCardWithFilter1.Size = new System.Drawing.Size(836, 506);
+            this.ctrlLicenseCardWithFilter1.TabIndex = 257;
+            this.ctrlLicenseCardWithFilter1.OnLicenseSelected += new System.Action<int>(this.ctrlLicenseCardWithFilter1_OnLicenseSelected);
+            // 
             // frmReplacementForDamagedLostLicense
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(861, 786);
-            this.Controls.Add(this.siticonePanel1);
-            this.Controls.Add(this.siticonePanel2);
+            this.Controls.Add(this.gbReplacementFor);
+            this.Controls.Add(this.ss);
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.llblShowNewLicenseInfo);
             this.Controls.Add(this.llblShowLicensesHistory);
@@ -897,10 +899,11 @@
             this.Name = "frmReplacementForDamagedLostLicense";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "frmReplacementForDamagedLostLicense";
+            this.Activated += new System.EventHandler(this.frmReplacementForDamagedLostLicense_Activated);
             this.Load += new System.EventHandler(this.frmReplacementForDamagedLostLicense_Load);
-            this.siticonePanel2.ResumeLayout(false);
-            this.siticonePanel1.ResumeLayout(false);
-            this.siticonePanel1.PerformLayout();
+            this.ss.ResumeLayout(false);
+            this.gbReplacementFor.ResumeLayout(false);
+            this.gbReplacementFor.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -908,7 +911,7 @@
 
         #endregion
 
-        private SiticoneNetFrameworkUI.SiticonePanel siticonePanel2;
+        private SiticoneNetFrameworkUI.SiticonePanel ss;
         private SiticoneNetFrameworkUI.SiticonePictureBox siticonePictureBox6;
         private SiticoneNetFrameworkUI.SiticonePictureBox siticonePictureBox5;
         private SiticoneNetFrameworkUI.SiticonePictureBox siticonePictureBox3;
@@ -933,7 +936,7 @@
         private Controls.ctrlLicenseCardWithFilter ctrlLicenseCardWithFilter1;
         private System.Windows.Forms.Label lblTitle;
         private SiticoneNetFrameworkUI.SiticoneButton btnIssue;
-        private SiticoneNetFrameworkUI.SiticonePanel siticonePanel1;
+        private SiticoneNetFrameworkUI.SiticonePanel gbReplacementFor;
         private System.Windows.Forms.Label label2;
         private SiticoneNetFrameworkUI.SiticoneRadioButton rbDamagedLicense;
         private SiticoneNetFrameworkUI.SiticoneRadioButton rbLostLicense;

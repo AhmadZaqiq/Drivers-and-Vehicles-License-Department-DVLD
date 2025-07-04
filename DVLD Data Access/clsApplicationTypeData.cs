@@ -13,7 +13,7 @@ using System.Threading.Tasks;
 
 namespace DVLD_Data_Access
 {
-    public class clsApplicationTypesData
+    public class clsApplicationTypeData
     {
         public static DataTable GetAllApplicationTypesData()
         {

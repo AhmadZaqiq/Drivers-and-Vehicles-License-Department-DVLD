@@ -57,6 +57,8 @@ namespace Drivers_and_Vehicles_License_Department__DVLD_.Users.Forms
 
         private void _RefreshUsersDataGrid()
         {
+            _UsersTable = clsUser.GetAllUsers();
+
             dgvUsers.DataSource = _UsersTable;
 
             _UpdateUsersCount();
@@ -239,7 +241,7 @@ namespace Drivers_and_Vehicles_License_Department__DVLD_.Users.Forms
 
         private void CallToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("Coming Soon... (;", "Alert", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            clsMessageBoxManager.ShowMessageBox("Coming Soon... (;", "Alert", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
         private void dgvUsers_MouseEnter(object sender, EventArgs e)

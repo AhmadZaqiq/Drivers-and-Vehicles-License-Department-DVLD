@@ -1,5 +1,6 @@
 ﻿using Drivers_and_Vehicles_License_Department__DVLD_.Global;
 using Drivers_and_Vehicles_License_Department__DVLD_.International_Driving_Application.Forms;
+using Drivers_and_Vehicles_License_Department__DVLD_.People.Contorls;
 using DVLD_Business;
 using System;
 using System.Collections.Generic;
@@ -15,53 +16,40 @@ namespace Drivers_and_Vehicles_License_Department__DVLD_.Licenses.Forms
 {
     public partial class frmLicensesHistory : Form
     {
-        private int _DriverID;
+        private int _PersonID = -1;
 
-        private int _PersonID;
-        public frmLicensesHistory(int DriverID,int PersonID)
+        public frmLicensesHistory()
         {
             InitializeComponent();
+        }
 
-            _DriverID = DriverID;
+        public frmLicensesHistory(int PersonID)
+        {
+            InitializeComponent();
 
             _PersonID = PersonID;
         }
 
         private void frmLicensesHistory_Load(object sender, EventArgs e)
         {
-            ctrlPersonCard1.LoadPersonInfo(_PersonID);
-
-            _RefreshLocalDrivingApplicationsDataGrid();
-
-            _RefreshInternationalDrivingApplicationsDataGrid();
+            _LoadPersonDataIfExists();
 
             clsUtil.MakeRoundedCorners(this, 30);
 
             clsUtil.OpenFormEffect(this);
         }
 
-        private void _UpdateLocalLicensesCount()
+        private void _LoadPersonDataIfExists()
         {
-            lblLocalRecordsCount.Text = (dgvLocalLicenses.RowCount).ToString();
-        }
+            if (_PersonID == -1)
+            {
+                ctrlPersonCardWithFilter1.Enabled = true;
+                return;
+            }
 
-        private void _UpdateInternationalLicensesCount()
-        {
-            lblInternationalRecordsCount.Text = (dgvInternationalLicenses.RowCount).ToString();
-        }
-
-        private void _RefreshLocalDrivingApplicationsDataGrid()
-        {
-            dgvLocalLicenses.DataSource = clsLicense.GetAllLicensesForDriver(_DriverID);
-
-            _UpdateLocalLicensesCount();
-        }
-
-        private void _RefreshInternationalDrivingApplicationsDataGrid()
-        {
-            dgvInternationalLicenses.DataSource = clsInternationalLicense.GetAllInternationalLicensesForDriver(_DriverID);
-
-            _UpdateInternationalLicensesCount();
+            ctrlPersonCardWithFilter1.LoadPersonInfo(_PersonID);
+            ctrlPersonCardWithFilter1.FilterEnabled = false;
+            ctrlDriverLicenses1.LoadInfoByPersonID(_PersonID);
         }
 
         private void btnCloseForm_Click(object sender, EventArgs e)
@@ -69,24 +57,16 @@ namespace Drivers_and_Vehicles_License_Department__DVLD_.Licenses.Forms
             clsUtil.CloseFormEffect(this);
         }
 
-        private void ShowLicenseDetailsToolStripMenuItem1_Click(object sender, EventArgs e)
+        private void ctrlPersonCardWithFilter1_OnPersonSelected(int obj)
         {
-            DataGridViewRow SelectedRow = dgvLocalLicenses.SelectedRows[0];
+            _PersonID = obj;
 
-            int LicenseID = Convert.ToInt32(SelectedRow.Cells["LicenseID"].Value);
+            if (_PersonID == -1)
+            {
+                return;
+            }
 
-            frmDriverLicenseInfo FormDriverLicenseInfo = new frmDriverLicenseInfo(LicenseID);
-            FormDriverLicenseInfo.ShowDialog();
-        }
-
-        private void ShowInternationalLicenseInfo_Click(object sender, EventArgs e)
-        {
-            DataGridViewRow SelectedRow = dgvInternationalLicenses.SelectedRows[0];
-
-            int InternationalLicenseID = Convert.ToInt32(SelectedRow.Cells["InternationalLicenseID"].Value);
-
-            frmDriverInternationalLicenseInfo FormDriverInternationalLicenseInfo = new frmDriverInternationalLicenseInfo(InternationalLicenseID);
-            FormDriverInternationalLicenseInfo.ShowDialog();
+            ctrlDriverLicenses1.LoadInfoByPersonID(_PersonID);
         }
 
 

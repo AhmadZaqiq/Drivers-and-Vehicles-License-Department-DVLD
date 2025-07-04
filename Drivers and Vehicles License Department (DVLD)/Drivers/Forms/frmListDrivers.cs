@@ -15,6 +15,8 @@ namespace Drivers_and_Vehicles_License_Department__DVLD_.Drivers.Forms
 {
     public partial class frmListDrivers : Form
     {
+        private DataTable _dtAllDrivers;
+
         public frmListDrivers()
         {
             InitializeComponent();
@@ -24,14 +26,14 @@ namespace Drivers_and_Vehicles_License_Department__DVLD_.Drivers.Forms
         {
             _RefreshDriversDataGrid();
 
-            _FillLocalApplicationsComboBox();
+            _FillDriversFilterComboBox();
 
-            clsUtil.MakeRoundedCorners(this, 30); //to make the form rounded
+            clsUtil.MakeRoundedCorners(this, 30);
 
             clsUtil.OpenFormEffect(this);
         }
 
-        private void _FillLocalApplicationsComboBox()
+        private void _FillDriversFilterComboBox()
         {
             cbFilter.Items.Clear();
 
@@ -51,7 +53,9 @@ namespace Drivers_and_Vehicles_License_Department__DVLD_.Drivers.Forms
 
         private void _RefreshDriversDataGrid()
         {
-            dgvDrivers.DataSource = clsDriver.GetAllDrivers();
+            _dtAllDrivers = clsDriver.GetAllDrivers();
+
+            dgvDrivers.DataSource = _dtAllDrivers;
 
             _UpdateDriversCount();
         }
@@ -67,7 +71,7 @@ namespace Drivers_and_Vehicles_License_Department__DVLD_.Drivers.Forms
                 return;
             }
 
-            DataView dv = new DataView(clsDriver.GetAllDrivers());
+            DataView dv = new DataView(_dtAllDrivers);
             dv.RowFilter = $"CONVERT([{FilterColumn}], System.String) LIKE '{SearchText}%'";
             dgvDrivers.DataSource = dv;
 
@@ -97,13 +101,9 @@ namespace Drivers_and_Vehicles_License_Department__DVLD_.Drivers.Forms
 
         private void ShowPersonlicenseHistoryStripMenuItem1_Click(object sender, EventArgs e)
         {
-            DataGridViewRow SelectedRow = dgvDrivers.SelectedRows[0];
+            int PersonID = (int)dgvDrivers.CurrentRow.Cells[1].Value;
 
-            int DriverID = Convert.ToInt32(SelectedRow.Cells["DriverID"].Value);
-
-            int PersonID = Convert.ToInt32(SelectedRow.Cells["PersonID"].Value);
-
-            frmLicensesHistory FormLicensesHistory = new frmLicensesHistory(DriverID, PersonID);
+            frmLicensesHistory FormLicensesHistory = new frmLicensesHistory(PersonID);
             FormLicensesHistory.ShowDialog();
         }
 

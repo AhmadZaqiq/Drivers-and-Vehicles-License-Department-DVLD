@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ctrlInternationalLicenseCard));
-            this.pbPersonalImage = new SiticoneNetFrameworkUI.SiticonePictureBox();
             this.siticoneLabel13 = new SiticoneNetFrameworkUI.SiticoneLabel();
             this.siticonePictureBox6 = new SiticoneNetFrameworkUI.SiticonePictureBox();
             this.lblExpirationDate = new SiticoneNetFrameworkUI.SiticoneLabel();
@@ -65,51 +64,10 @@
             this.lblName = new SiticoneNetFrameworkUI.SiticoneLabel();
             this.siticoneLabel1 = new SiticoneNetFrameworkUI.SiticoneLabel();
             this.siticonePanel1 = new SiticoneNetFrameworkUI.SiticonePanel();
+            this.pbPersonalImage = new System.Windows.Forms.PictureBox();
             this.siticonePanel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pbPersonalImage)).BeginInit();
             this.SuspendLayout();
-            // 
-            // pbPersonalImage
-            // 
-            this.pbPersonalImage.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.pbPersonalImage.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.pbPersonalImage.BorderColor = System.Drawing.Color.Transparent;
-            this.pbPersonalImage.BorderWidth = 1;
-            this.pbPersonalImage.Brightness = 1F;
-            this.pbPersonalImage.Contrast = 1F;
-            this.pbPersonalImage.CornerRadius = 0;
-            this.pbPersonalImage.DraggingSpeed = 3.15F;
-            this.pbPersonalImage.EnableAsyncLoading = false;
-            this.pbPersonalImage.EnableCaching = false;
-            this.pbPersonalImage.EnableDragDrop = false;
-            this.pbPersonalImage.EnableExtendedImageSources = false;
-            this.pbPersonalImage.EnableFilters = false;
-            this.pbPersonalImage.EnableFlipping = false;
-            this.pbPersonalImage.EnableGlow = false;
-            this.pbPersonalImage.EnableHighDpiSupport = false;
-            this.pbPersonalImage.EnableMouseInteraction = false;
-            this.pbPersonalImage.EnablePlaceholder = false;
-            this.pbPersonalImage.EnableRotation = false;
-            this.pbPersonalImage.EnableShadow = false;
-            this.pbPersonalImage.EnableSlideshow = false;
-            this.pbPersonalImage.FlipHorizontal = false;
-            this.pbPersonalImage.FlipVertical = false;
-            this.pbPersonalImage.Grayscale = false;
-            this.pbPersonalImage.Image = null;
-            this.pbPersonalImage.ImageOpacity = 1F;
-            this.pbPersonalImage.Images = ((System.Collections.Generic.List<System.Drawing.Image>)(resources.GetObject("pbPersonalImage.Images")));
-            this.pbPersonalImage.InterpolationMode = System.Drawing.Drawing2D.InterpolationMode.HighQualityBicubic;
-            this.pbPersonalImage.IsCircular = false;
-            this.pbPersonalImage.Location = new System.Drawing.Point(599, 38);
-            this.pbPersonalImage.MaintainAspectRatio = true;
-            this.pbPersonalImage.Name = "pbPersonalImage";
-            this.pbPersonalImage.PlaceholderImage = null;
-            this.pbPersonalImage.RotationAngle = 0F;
-            this.pbPersonalImage.Saturation = 1F;
-            this.pbPersonalImage.ShowBorder = true;
-            this.pbPersonalImage.Size = new System.Drawing.Size(200, 200);
-            this.pbPersonalImage.SizeMode = SiticoneNetFrameworkUI.Helpers.Enum.SiticonePictureBoxSizeMode.Normal;
-            this.pbPersonalImage.TabIndex = 218;
-            this.pbPersonalImage.Text = "siticonePictureBox1";
             // 
             // siticoneLabel13
             // 
@@ -867,13 +825,13 @@
             this.siticonePanel1.BorderGradientEndColor = System.Drawing.Color.Purple;
             this.siticonePanel1.BorderGradientStartColor = System.Drawing.Color.Blue;
             this.siticonePanel1.BorderThickness = 2F;
+            this.siticonePanel1.Controls.Add(this.pbPersonalImage);
             this.siticonePanel1.Controls.Add(this.lblName);
             this.siticonePanel1.Controls.Add(this.siticoneLabel1);
             this.siticonePanel1.Controls.Add(this.siticoneLabel11);
             this.siticonePanel1.Controls.Add(this.siticonePictureBox1);
             this.siticonePanel1.Controls.Add(this.siticonePictureBox5);
             this.siticonePanel1.Controls.Add(this.lblNationalNO);
-            this.siticonePanel1.Controls.Add(this.pbPersonalImage);
             this.siticonePanel1.Controls.Add(this.siticonePictureBox7);
             this.siticonePanel1.Controls.Add(this.siticoneLabel13);
             this.siticonePanel1.Controls.Add(this.siticoneLabel15);
@@ -935,6 +893,14 @@
             this.siticonePanel1.UsePatternTexture = false;
             this.siticonePanel1.UseRadialGradient = false;
             // 
+            // pbPersonalImage
+            // 
+            this.pbPersonalImage.Location = new System.Drawing.Point(599, 38);
+            this.pbPersonalImage.Name = "pbPersonalImage";
+            this.pbPersonalImage.Size = new System.Drawing.Size(200, 200);
+            this.pbPersonalImage.TabIndex = 259;
+            this.pbPersonalImage.TabStop = false;
+            // 
             // ctrlInternationalLicenseCard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -944,13 +910,12 @@
             this.Name = "ctrlInternationalLicenseCard";
             this.Size = new System.Drawing.Size(830, 262);
             this.siticonePanel1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pbPersonalImage)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
-
-        private SiticoneNetFrameworkUI.SiticonePictureBox pbPersonalImage;
         private SiticoneNetFrameworkUI.SiticoneLabel siticoneLabel13;
         private SiticoneNetFrameworkUI.SiticonePictureBox siticonePictureBox6;
         private SiticoneNetFrameworkUI.SiticoneLabel lblExpirationDate;
@@ -986,5 +951,6 @@
         private SiticoneNetFrameworkUI.SiticoneLabel lblName;
         private SiticoneNetFrameworkUI.SiticoneLabel siticoneLabel1;
         private SiticoneNetFrameworkUI.SiticonePanel siticonePanel1;
+        private System.Windows.Forms.PictureBox pbPersonalImage;
     }
 }

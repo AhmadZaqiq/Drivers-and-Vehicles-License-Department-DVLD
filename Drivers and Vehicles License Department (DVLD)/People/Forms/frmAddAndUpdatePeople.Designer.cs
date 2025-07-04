@@ -1137,7 +1137,7 @@
             this.Name = "frmAddAndUpdatePeople";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "frmAddAndUpdatePeople2";
-            this.Load += new System.EventHandler(this.frmAddAndUpdatePeople2_Load);
+            this.Load += new System.EventHandler(this.frmAddAndUpdatePeople_Load);
             this.Panel.ResumeLayout(false);
             this.Panel.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbPersonImage)).EndInit();

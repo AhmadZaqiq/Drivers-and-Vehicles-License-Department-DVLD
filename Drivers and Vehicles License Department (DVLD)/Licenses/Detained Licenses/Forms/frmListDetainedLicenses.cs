@@ -15,18 +15,20 @@ namespace Drivers_and_Vehicles_License_Department__DVLD_.Detained_Licenses.Forms
 {
     public partial class frmListDetainedLicenses : Form
     {
+        private DataTable _dtDetainedLicenses;
+
         public frmListDetainedLicenses()
         {
             InitializeComponent();
         }
 
-        private void frm_ListDetainedLicenses_Load(object sender, EventArgs e)
+        private void frmListDetainedLicenses_Load(object sender, EventArgs e)
         {
             _FillDetainedLicensesComboBox();
 
             RefreshDetainedLicensesDataGrid();
 
-            clsUtil.MakeRoundedCorners(this, 30); //to make the form rounded
+            clsUtil.MakeRoundedCorners(this, 30);
 
             clsUtil.OpenFormEffect(this);
         }
@@ -56,7 +58,9 @@ namespace Drivers_and_Vehicles_License_Department__DVLD_.Detained_Licenses.Forms
 
         public void RefreshDetainedLicensesDataGrid()
         {
-            dgvDetainedLicenses.DataSource = clsDetainedLicense.GetAllDetainedLicenses();
+            _dtDetainedLicenses = clsDetainedLicense.GetAllDetainedLicenses();
+
+            dgvDetainedLicenses.DataSource = _dtDetainedLicenses;
 
             _UpdateDetainedLicensesCount();
         }
@@ -97,13 +101,13 @@ namespace Drivers_and_Vehicles_License_Department__DVLD_.Detained_Licenses.Forms
 
         private void btnReleaseLicense_Click(object sender, EventArgs e)
         {
-            frmReleaseLicense FormReleaseLicense = new frmReleaseLicense(this);
+            frmReleaseLicense FormReleaseLicense = new frmReleaseLicense();
             FormReleaseLicense.ShowDialog();
         }
 
         private void btnDetainLicense_Click(object sender, EventArgs e)
         {
-            frmDetainLicense FormDetainLicense = new frmDetainLicense(this);
+            frmDetainLicense FormDetainLicense = new frmDetainLicense();
             FormDetainLicense.ShowDialog();
         }
 
@@ -114,11 +118,9 @@ namespace Drivers_and_Vehicles_License_Department__DVLD_.Detained_Licenses.Forms
 
         private void ShowPersonlicenseHistoryStripMenuItem1_Click(object sender, EventArgs e)
         {
-            DataGridViewRow SelectedRow = dgvDetainedLicenses.SelectedRows[0];
+            int LicenseID = (int)dgvDetainedLicenses.CurrentRow.Cells[1].Value;
 
-            int LicenseID = Convert.ToInt32(SelectedRow.Cells["LicenseID"].Value);
-
-            int PersonID = clsLicense.GetPersonIDByLicenseID(LicenseID);
+            int PersonID = clsLicense.GetLicenseByID(LicenseID).DriverInfo.PersonID;
 
             frmShowPersonDetails FormShowPersonDetails = new frmShowPersonDetails(PersonID);
             FormShowPersonDetails.ShowDialog();
@@ -126,9 +128,9 @@ namespace Drivers_and_Vehicles_License_Department__DVLD_.Detained_Licenses.Forms
 
         private void LicenseDetailsToolStripMenuItem1_Click(object sender, EventArgs e)
         {
-            DataGridViewRow SelectedRow = dgvDetainedLicenses.SelectedRows[0];
+            int LicenseID = (int)dgvDetainedLicenses.CurrentRow.Cells[1].Value;
 
-            int LicenseID = Convert.ToInt32(SelectedRow.Cells["LicenseID"].Value);
+            int PersonID = clsLicense.GetLicenseByID(LicenseID).DriverInfo.PersonID;
 
             frmDriverLicenseInfo FormDriverLicenseInfo = new frmDriverLicenseInfo(LicenseID);
             FormDriverLicenseInfo.ShowDialog();
@@ -136,17 +138,13 @@ namespace Drivers_and_Vehicles_License_Department__DVLD_.Detained_Licenses.Forms
 
         private void LicenseHistryToolStripMenuItem1_Click(object sender, EventArgs e)
         {
-            DataGridViewRow SelectedRow = dgvDetainedLicenses.SelectedRows[0];
+            int LicenseID = (int)dgvDetainedLicenses.CurrentRow.Cells[1].Value;
+            int PersonID = clsLicense.GetLicenseByID(LicenseID).DriverInfo.PersonID;
 
-            int LicenseID = Convert.ToInt32(SelectedRow.Cells["LicenseID"].Value);
-
-            int DriverID = clsLicense.GetLicenseByID(LicenseID).DriverID;
-
-            int PersonID = clsLicense.GetPersonIDByLicenseID(LicenseID);
-
-            frmLicensesHistory FormLicensesHistory = new frmLicensesHistory(DriverID, PersonID);
+            frmLicensesHistory FormLicensesHistory = new frmLicensesHistory(PersonID);
             FormLicensesHistory.ShowDialog();
         }
+
 
 
     }

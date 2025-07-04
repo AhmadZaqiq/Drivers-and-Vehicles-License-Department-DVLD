@@ -25,7 +25,6 @@ namespace Drivers_and_Vehicles_License_Department__DVLD_.People.Forms
 
         public enum enGender { Male = 0, Female = 1 };
 
-
         private enMode _Mode = enMode.AddNew;
 
         private int _PersonID = -1;
@@ -45,13 +44,13 @@ namespace Drivers_and_Vehicles_License_Department__DVLD_.People.Forms
             _PersonID = PersonID;
         }
 
-        private void frmAddAndUpdatePeople2_Load(object sender, EventArgs e)
+        private void frmAddAndUpdatePeople_Load(object sender, EventArgs e)
         {
             _ResetDefaultValues();
 
             if (_Mode == enMode.Update)
             {
-                _FillPersonFieldsForUpdate();
+                _LoadPersonData();
             }
 
             clsUtil.MakeRoundedCorners(this, 30);
@@ -106,7 +105,7 @@ namespace Drivers_and_Vehicles_License_Department__DVLD_.People.Forms
             }
         }
 
-        private void _FillPersonFieldsForUpdate()
+        private void _LoadPersonData()
         {
             _Person = clsPerson.GetPersonByID(_PersonID);
 
@@ -179,7 +178,7 @@ namespace Drivers_and_Vehicles_License_Department__DVLD_.People.Forms
             return true;
         }
 
-        private void _CollectPersonInfoFromForm()
+        private void _FillPersonInfo()
         {
             _Person.NationalNo = txtNationalNO.Text.Trim();
             _Person.FirstName = txtFirstName.Text.Trim();
@@ -214,7 +213,7 @@ namespace Drivers_and_Vehicles_License_Department__DVLD_.People.Forms
                 return;
             }
 
-            _CollectPersonInfoFromForm();
+            _FillPersonInfo();
 
             if (!_Person.Save())
             {
@@ -229,7 +228,6 @@ namespace Drivers_and_Vehicles_License_Department__DVLD_.People.Forms
             DataBack?.Invoke(this, _Person.ID);
 
             clsMessageBoxManager.ShowMessageBox("Data Saved Successfully", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
         }
 
         private void btnSetNewPicture_Click(object sender, EventArgs e)
@@ -274,7 +272,7 @@ namespace Drivers_and_Vehicles_License_Department__DVLD_.People.Forms
                 return;
             }
 
-            if (!clsValidatoin.ValidateEmail(txtEmail.Text))
+            if (!clsValidation.ValidateEmail(txtEmail.Text))
             {
                 e.Cancel = true;
                 errorProvider1.SetError(txtEmail, "Invalid Email Address Format!");

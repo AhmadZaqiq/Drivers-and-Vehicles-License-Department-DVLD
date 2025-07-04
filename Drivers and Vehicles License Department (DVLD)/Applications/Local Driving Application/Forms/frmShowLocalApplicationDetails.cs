@@ -13,7 +13,7 @@ namespace Drivers_and_Vehicles_License_Department__DVLD_.Local_Driving_Applicati
 {
     public partial class frmShowLocalApplicationDetails : Form
     {
-        private int _LocalDrivingLicenseApplicationID = -1;
+        private int _LocalDrivingLicenseApplicationID;
 
         public frmShowLocalApplicationDetails(int LocalDrivingApplicationID)
         {
@@ -24,12 +24,11 @@ namespace Drivers_and_Vehicles_License_Department__DVLD_.Local_Driving_Applicati
 
         private void ShowLocalApplicationDetails_Load(object sender, EventArgs e)
         {
-            clsUtil.MakeRoundedCorners(this, 30); //to make the form rounded
+            ctrlLocalDrivingApplicationCard1.LoadApplicationInfoByApplicationID(_LocalDrivingLicenseApplicationID);
+
+            clsUtil.MakeRoundedCorners(this, 30);
 
             clsUtil.OpenFormEffect(this);
-
-            ctrlLocalDrivingApplicationCard1.LocalDrivingApplicationID = _LocalDrivingLicenseApplicationID;
-
         }
 
         private void btnClose_Click(object sender, EventArgs e)

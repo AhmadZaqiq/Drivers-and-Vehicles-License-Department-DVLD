@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmUpdateTestType));
             this.label5 = new System.Windows.Forms.Label();
             this.lblID = new System.Windows.Forms.Label();
@@ -42,6 +43,8 @@
             this.btnCancel = new SiticoneNetFrameworkUI.SiticoneButton();
             this.txtTestTypeFees = new SiticoneNetFrameworkUI.SiticoneTextBox();
             this.label4 = new System.Windows.Forms.Label();
+            this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             this.SuspendLayout();
             // 
             // label5
@@ -297,6 +300,7 @@
             this.txtTestTypeTitle.TextPadding = new System.Windows.Forms.Padding(13, 1, 13, 1);
             this.txtTestTypeTitle.ValidationErrorMessage = "Invalid input.";
             this.txtTestTypeTitle.ValidationFunction = null;
+            this.txtTestTypeTitle.Validating += new System.ComponentModel.CancelEventHandler(this.txtTestTypeTitle_Validating);
             // 
             // label1
             // 
@@ -527,6 +531,7 @@
             this.txtTestTypeFees.TextPadding = new System.Windows.Forms.Padding(13, 1, 13, 1);
             this.txtTestTypeFees.ValidationErrorMessage = "Invalid input.";
             this.txtTestTypeFees.ValidationFunction = null;
+            this.txtTestTypeFees.Validating += new System.ComponentModel.CancelEventHandler(this.txtTestTypeFees_Validating);
             // 
             // label4
             // 
@@ -537,6 +542,10 @@
             this.label4.Size = new System.Drawing.Size(119, 25);
             this.label4.TabIndex = 94;
             this.label4.Text = "Description:";
+            // 
+            // errorProvider1
+            // 
+            this.errorProvider1.ContainerControl = this;
             // 
             // frmUpdateTestType
             // 
@@ -563,6 +572,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "frmUpdateTestType";
             this.Load += new System.EventHandler(this.frmUpdateTestType_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -583,5 +593,6 @@
         private SiticoneNetFrameworkUI.SiticoneButton btnCancel;
         private SiticoneNetFrameworkUI.SiticoneTextBox txtTestTypeFees;
         private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.ErrorProvider errorProvider1;
     }
 }

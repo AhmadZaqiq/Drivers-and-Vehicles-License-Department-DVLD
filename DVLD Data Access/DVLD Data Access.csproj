@@ -41,8 +41,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="clsApplicationsData.cs" />
-    <Compile Include="clsApplicationTypesData.cs" />
+    <Compile Include="clsApplicationData.cs" />
+    <Compile Include="clsApplicationTypeData.cs" />
     <Compile Include="clsCountriesData.cs" />
     <Compile Include="clsDataAccessSettings.cs" />
     <Compile Include="clsDetainedLicensesData.cs" />
@@ -53,7 +53,7 @@
     <Compile Include="clsPeopleData.cs" />
     <Compile Include="clsTestData.cs" />
     <Compile Include="clsTestAppointmentsData.cs" />
-    <Compile Include="clsTestTypesData.cs" />
+    <Compile Include="clsTestTypeData.cs" />
     <Compile Include="clsUsersData.cs" />
     <Compile Include="clsInternationalLicensesData.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

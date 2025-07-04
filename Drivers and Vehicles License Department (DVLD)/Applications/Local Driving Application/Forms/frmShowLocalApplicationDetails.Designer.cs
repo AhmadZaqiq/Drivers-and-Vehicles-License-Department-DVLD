@@ -48,7 +48,6 @@
             // 
             // ctrlLocalDrivingApplicationCard1
             // 
-            this.ctrlLocalDrivingApplicationCard1.LocalDrivingApplicationID = -1;
             this.ctrlLocalDrivingApplicationCard1.Location = new System.Drawing.Point(12, 307);
             this.ctrlLocalDrivingApplicationCard1.Name = "ctrlLocalDrivingApplicationCard1";
             this.ctrlLocalDrivingApplicationCard1.Size = new System.Drawing.Size(576, 328);

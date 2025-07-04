@@ -76,7 +76,7 @@ namespace Drivers_and_Vehicles_License_Department__DVLD_
 
         private void LocalLicemseToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            frmAddAndUpdateLocalDrivingApplication FormAddAndUpdateLocalDrivingApplication = new frmAddAndUpdateLocalDrivingApplication(null);
+            frmAddAndUpdateLocalDrivingApplication FormAddAndUpdateLocalDrivingApplication = new frmAddAndUpdateLocalDrivingApplication();
             FormAddAndUpdateLocalDrivingApplication.ShowDialog();
         }
 

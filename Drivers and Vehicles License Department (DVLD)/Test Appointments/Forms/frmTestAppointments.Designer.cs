@@ -280,7 +280,7 @@
             this.btnAddNewAppointment.AccessibleName = "";
             this.btnAddNewAppointment.AutoSizeBasedOnText = false;
             this.btnAddNewAppointment.BackColor = System.Drawing.Color.Transparent;
-            this.btnAddNewAppointment.BackgroundImage = global::Drivers_and_Vehicles_License_Department__DVLD_.Properties.Resources.ic_fluent_people_add_24_filled;
+            this.btnAddNewAppointment.BackgroundImage = global::Drivers_and_Vehicles_License_Department__DVLD_.Properties.Resources.ic_fluent_clipboard_task_add_24_filled;
             this.btnAddNewAppointment.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.btnAddNewAppointment.BadgeBackColor = System.Drawing.Color.White;
             this.btnAddNewAppointment.BadgeFont = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Bold);
@@ -306,6 +306,7 @@
             this.btnAddNewAppointment.EnableShadow = false;
             this.btnAddNewAppointment.EnableTextWrapping = false;
             this.btnAddNewAppointment.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.btnAddNewAppointment.ForeColor = System.Drawing.SystemColors.ControlDark;
             this.btnAddNewAppointment.GlowColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.btnAddNewAppointment.GlowIntensity = 100;
             this.btnAddNewAppointment.GlowRadius = 20F;
@@ -354,7 +355,6 @@
             // 
             // ctrlLocalDrivingApplicationCard1
             // 
-            this.ctrlLocalDrivingApplicationCard1.LocalDrivingApplicationID = -1;
             this.ctrlLocalDrivingApplicationCard1.Location = new System.Drawing.Point(12, 274);
             this.ctrlLocalDrivingApplicationCard1.Name = "ctrlLocalDrivingApplicationCard1";
             this.ctrlLocalDrivingApplicationCard1.Size = new System.Drawing.Size(576, 328);

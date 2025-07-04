@@ -84,7 +84,7 @@
             this.toolStripSeparator2,
             this.ShowPersonlicenseHistoryStripMenuItem1});
             this.cmLicenseApplicationSettings.Name = "cmPersonSettings";
-            this.cmLicenseApplicationSettings.Size = new System.Drawing.Size(273, 344);
+            this.cmLicenseApplicationSettings.Size = new System.Drawing.Size(273, 366);
             this.cmLicenseApplicationSettings.Opening += new System.ComponentModel.CancelEventHandler(this.cmLicenseApplicationSettings_Opening);
             // 
             // ShowDetailsToolStripMenuItem1
@@ -106,6 +106,7 @@
             this.EditToolStripMenuItem1.Name = "EditToolStripMenuItem1";
             this.EditToolStripMenuItem1.Size = new System.Drawing.Size(272, 38);
             this.EditToolStripMenuItem1.Text = "Edit Application";
+            this.EditToolStripMenuItem1.Click += new System.EventHandler(this.EditToolStripMenuItem1_Click);
             // 
             // DeleteToolStripMenuItem1
             // 

@@ -11,6 +11,7 @@ namespace DVLD_Business
 
         public int ID { get; set; }
         public int PersonID { get; set; }
+        public clsPerson PersonInfo { get; set; }
         public int CreatedByUserID { get; set; }
         public DateTime CreatedDate { get; set; }
 
@@ -30,6 +31,7 @@ namespace DVLD_Business
             this.PersonID = PersonID;
             this.CreatedByUserID = CreatedByUserID;
             this.CreatedDate = CreatedDate;
+            this.PersonInfo = clsPerson.GetPersonByID(PersonID);
 
             this.Mode = enMode.Update;
         }
@@ -52,6 +54,21 @@ namespace DVLD_Business
 
             return new clsDriver(DriverID, PersonID, CreatedByUserID, CreatedDate);
         }
+
+        public static clsDriver GetDriverByPersonID(int PersonID)
+        {
+            int DriverID = -1;
+            int CreatedByUserID = -1;
+            DateTime CreatedDate = DateTime.Now;
+
+            if (!clsDriversData.GetDriverByPersonIDData(PersonID, ref DriverID, ref CreatedByUserID, ref CreatedDate))
+            {
+                return null;
+            }
+
+            return new clsDriver(DriverID, PersonID, CreatedByUserID, CreatedDate);
+        }
+
 
         private bool _AddNewDriver()
         {
@@ -91,14 +108,14 @@ namespace DVLD_Business
             return clsDriversData.DeleteDriverData(DriverID);
         }
 
-        public static bool IsDriverExists(int PersonID)
+        public static DataTable GetLicenses(int DriverID)
         {
-            return clsDriversData.IsDriverExistsByPersonIDData(PersonID);
+            return clsLicense.GetDriverLicenses(DriverID);
         }
 
-        public static int GetDriverIDByPersonID(int PersonID)
+        public static DataTable GetInternationalLicenses(int DriverID)
         {
-            return clsDriversData.GetDriverIDByPersonIDData(PersonID);
+            return clsInternationalLicense.GetAllInternationalLicensesForDriver(DriverID);
         }
 
 

@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Drivers_and_Vehicles_License_Department__DVLD_.Global
 {
-    internal class clsValidatoin
+    internal class clsValidation
     {
         public static bool ValidateEmail(string EmailAddress)
         {

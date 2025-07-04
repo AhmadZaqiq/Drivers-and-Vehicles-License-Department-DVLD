@@ -40,13 +40,13 @@
             this.lblLicenseID = new SiticoneNetFrameworkUI.SiticoneLabel();
             this.siticoneLabel23 = new SiticoneNetFrameworkUI.SiticoneLabel();
             this.btnCancel = new SiticoneNetFrameworkUI.SiticoneButton();
-            this.lblShowLicenseInfo = new System.Windows.Forms.LinkLabel();
-            this.lblShowLicensesHistory = new System.Windows.Forms.LinkLabel();
+            this.llShowLicenseInfo = new System.Windows.Forms.LinkLabel();
+            this.llShowLicensesHistory = new System.Windows.Forms.LinkLabel();
             this.btnRelease = new SiticoneNetFrameworkUI.SiticoneButton();
             this.lblTitle = new System.Windows.Forms.Label();
             this.lblDetainID = new SiticoneNetFrameworkUI.SiticoneLabel();
             this.siticoneLabel21 = new SiticoneNetFrameworkUI.SiticoneLabel();
-            this.lblDetainedDate = new SiticoneNetFrameworkUI.SiticoneLabel();
+            this.lblDetainDate = new SiticoneNetFrameworkUI.SiticoneLabel();
             this.siticonePanel2 = new SiticoneNetFrameworkUI.SiticonePanel();
             this.lblAppFees = new SiticoneNetFrameworkUI.SiticoneLabel();
             this.lblTotalFees = new SiticoneNetFrameworkUI.SiticoneLabel();
@@ -393,31 +393,31 @@
             this.btnCancel.UseParticles = false;
             this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 
-            // lblShowLicenseInfo
+            // llShowLicenseInfo
             // 
-            this.lblShowLicenseInfo.AutoSize = true;
-            this.lblShowLicenseInfo.Enabled = false;
-            this.lblShowLicenseInfo.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblShowLicenseInfo.Location = new System.Drawing.Point(189, 773);
-            this.lblShowLicenseInfo.Name = "lblShowLicenseInfo";
-            this.lblShowLicenseInfo.Size = new System.Drawing.Size(142, 21);
-            this.lblShowLicenseInfo.TabIndex = 269;
-            this.lblShowLicenseInfo.TabStop = true;
-            this.lblShowLicenseInfo.Text = "Show License Info";
-            this.lblShowLicenseInfo.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.lblShowLicenseInfo_LinkClicked);
+            this.llShowLicenseInfo.AutoSize = true;
+            this.llShowLicenseInfo.Enabled = false;
+            this.llShowLicenseInfo.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.llShowLicenseInfo.Location = new System.Drawing.Point(189, 773);
+            this.llShowLicenseInfo.Name = "llShowLicenseInfo";
+            this.llShowLicenseInfo.Size = new System.Drawing.Size(142, 21);
+            this.llShowLicenseInfo.TabIndex = 269;
+            this.llShowLicenseInfo.TabStop = true;
+            this.llShowLicenseInfo.Text = "Show License Info";
+            this.llShowLicenseInfo.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.lblShowLicenseInfo_LinkClicked);
             // 
-            // lblShowLicensesHistory
+            // llShowLicensesHistory
             // 
-            this.lblShowLicensesHistory.AutoSize = true;
-            this.lblShowLicensesHistory.Enabled = false;
-            this.lblShowLicensesHistory.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblShowLicensesHistory.Location = new System.Drawing.Point(10, 773);
-            this.lblShowLicensesHistory.Name = "lblShowLicensesHistory";
-            this.lblShowLicensesHistory.Size = new System.Drawing.Size(173, 21);
-            this.lblShowLicensesHistory.TabIndex = 268;
-            this.lblShowLicensesHistory.TabStop = true;
-            this.lblShowLicensesHistory.Text = "Show Licenses History";
-            this.lblShowLicensesHistory.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.lblShowLicensesHistory_LinkClicked);
+            this.llShowLicensesHistory.AutoSize = true;
+            this.llShowLicensesHistory.Enabled = false;
+            this.llShowLicensesHistory.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.llShowLicensesHistory.Location = new System.Drawing.Point(10, 773);
+            this.llShowLicensesHistory.Name = "llShowLicensesHistory";
+            this.llShowLicensesHistory.Size = new System.Drawing.Size(173, 21);
+            this.llShowLicensesHistory.TabIndex = 268;
+            this.llShowLicensesHistory.TabStop = true;
+            this.llShowLicensesHistory.Text = "Show Licenses History";
+            this.llShowLicensesHistory.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.lblShowLicensesHistory_LinkClicked);
             // 
             // btnRelease
             // 
@@ -531,16 +531,16 @@
             this.siticoneLabel21.TabIndex = 187;
             this.siticoneLabel21.Text = "Detain ID:";
             // 
-            // lblDetainedDate
+            // lblDetainDate
             // 
-            this.lblDetainedDate.BackColor = System.Drawing.Color.Transparent;
-            this.lblDetainedDate.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblDetainedDate.ForeColor = System.Drawing.Color.Black;
-            this.lblDetainedDate.Location = new System.Drawing.Point(159, 68);
-            this.lblDetainedDate.Name = "lblDetainedDate";
-            this.lblDetainedDate.Size = new System.Drawing.Size(109, 23);
-            this.lblDetainedDate.TabIndex = 185;
-            this.lblDetainedDate.Text = "N\\A";
+            this.lblDetainDate.BackColor = System.Drawing.Color.Transparent;
+            this.lblDetainDate.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblDetainDate.ForeColor = System.Drawing.Color.Black;
+            this.lblDetainDate.Location = new System.Drawing.Point(159, 68);
+            this.lblDetainDate.Name = "lblDetainDate";
+            this.lblDetainDate.Size = new System.Drawing.Size(109, 23);
+            this.lblDetainDate.TabIndex = 185;
+            this.lblDetainDate.Text = "N\\A";
             // 
             // siticonePanel2
             // 
@@ -573,7 +573,7 @@
             this.siticonePanel2.Controls.Add(this.siticonePictureBox11);
             this.siticonePanel2.Controls.Add(this.lblDetainID);
             this.siticonePanel2.Controls.Add(this.siticoneLabel21);
-            this.siticonePanel2.Controls.Add(this.lblDetainedDate);
+            this.siticonePanel2.Controls.Add(this.lblDetainDate);
             this.siticonePanel2.Controls.Add(siticonePictureBox8);
             this.siticonePanel2.Controls.Add(this.siticoneLabel1);
             this.siticonePanel2.CornerRadiusBottomLeft = 10F;
@@ -879,10 +879,12 @@
             // ctrlLicenseCardWithFilter1
             // 
             this.ctrlLicenseCardWithFilter1.BackColor = System.Drawing.Color.White;
+            this.ctrlLicenseCardWithFilter1.FilterEnabled = true;
             this.ctrlLicenseCardWithFilter1.Location = new System.Drawing.Point(14, 77);
             this.ctrlLicenseCardWithFilter1.Name = "ctrlLicenseCardWithFilter1";
             this.ctrlLicenseCardWithFilter1.Size = new System.Drawing.Size(836, 506);
             this.ctrlLicenseCardWithFilter1.TabIndex = 264;
+            this.ctrlLicenseCardWithFilter1.OnLicenseSelected += new System.Action<int>(this.ctrlLicenseCardWithFilter1_OnLicenseSelected);
             // 
             // frmReleaseLicense
             // 
@@ -891,8 +893,8 @@
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(861, 828);
             this.Controls.Add(this.btnCancel);
-            this.Controls.Add(this.lblShowLicenseInfo);
-            this.Controls.Add(this.lblShowLicensesHistory);
+            this.Controls.Add(this.llShowLicenseInfo);
+            this.Controls.Add(this.llShowLicensesHistory);
             this.Controls.Add(this.btnRelease);
             this.Controls.Add(this.lblTitle);
             this.Controls.Add(this.siticonePanel2);
@@ -901,6 +903,7 @@
             this.Name = "frmReleaseLicense";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "frmReleaseLicense";
+            this.Activated += new System.EventHandler(this.frmReleaseLicense_Activated);
             this.Load += new System.EventHandler(this.frmReleaseLicense_Load);
             this.siticonePanel2.ResumeLayout(false);
             this.ResumeLayout(false);
@@ -912,8 +915,8 @@
 
         private SiticoneNetFrameworkUI.SiticoneLabel siticoneLabel3;
         private SiticoneNetFrameworkUI.SiticoneButton btnCancel;
-        private System.Windows.Forms.LinkLabel lblShowLicenseInfo;
-        private System.Windows.Forms.LinkLabel lblShowLicensesHistory;
+        private System.Windows.Forms.LinkLabel llShowLicenseInfo;
+        private System.Windows.Forms.LinkLabel llShowLicensesHistory;
         private SiticoneNetFrameworkUI.SiticoneButton btnRelease;
         private System.Windows.Forms.Label lblTitle;
         private SiticoneNetFrameworkUI.SiticonePanel siticonePanel2;
@@ -928,7 +931,7 @@
         private SiticoneNetFrameworkUI.SiticonePictureBox siticonePictureBox11;
         private SiticoneNetFrameworkUI.SiticoneLabel lblDetainID;
         private SiticoneNetFrameworkUI.SiticoneLabel siticoneLabel21;
-        private SiticoneNetFrameworkUI.SiticoneLabel lblDetainedDate;
+        private SiticoneNetFrameworkUI.SiticoneLabel lblDetainDate;
         private SiticoneNetFrameworkUI.SiticoneLabel siticoneLabel1;
         private Licenses.Controls.ctrlLicenseCardWithFilter ctrlLicenseCardWithFilter1;
         private SiticoneNetFrameworkUI.SiticoneLabel lblAppFees;

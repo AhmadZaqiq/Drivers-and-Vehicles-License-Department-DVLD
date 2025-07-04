@@ -37,7 +37,7 @@
             this.lblCreatedBy = new SiticoneNetFrameworkUI.SiticoneLabel();
             this.siticonePictureBox4 = new SiticoneNetFrameworkUI.SiticonePictureBox();
             this.siticonePictureBox3 = new SiticoneNetFrameworkUI.SiticonePictureBox();
-            this.DLApplicationID = new SiticoneNetFrameworkUI.SiticoneLabel();
+            this.lblLocalDrivingLicenseApplicationID = new SiticoneNetFrameworkUI.SiticoneLabel();
             this.siticonePictureBox1 = new SiticoneNetFrameworkUI.SiticonePictureBox();
             this.lblApplicationFees = new SiticoneNetFrameworkUI.SiticoneLabel();
             this.siticonePictureBox2 = new SiticoneNetFrameworkUI.SiticonePictureBox();
@@ -233,7 +233,7 @@
             this.tabApplicationInfo.Controls.Add(this.lblCreatedBy);
             this.tabApplicationInfo.Controls.Add(this.siticonePictureBox4);
             this.tabApplicationInfo.Controls.Add(this.siticonePictureBox3);
-            this.tabApplicationInfo.Controls.Add(this.DLApplicationID);
+            this.tabApplicationInfo.Controls.Add(this.lblLocalDrivingLicenseApplicationID);
             this.tabApplicationInfo.Controls.Add(this.siticonePictureBox1);
             this.tabApplicationInfo.Controls.Add(this.lblApplicationFees);
             this.tabApplicationInfo.Controls.Add(this.siticonePictureBox2);
@@ -399,16 +399,16 @@
             this.siticonePictureBox3.TabIndex = 162;
             this.siticonePictureBox3.Text = "siticonePictureBox3";
             // 
-            // DLApplicationID
+            // lblLocalDrivingLicenseApplicationID
             // 
-            this.DLApplicationID.BackColor = System.Drawing.Color.Transparent;
-            this.DLApplicationID.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.DLApplicationID.ForeColor = System.Drawing.Color.Black;
-            this.DLApplicationID.Location = new System.Drawing.Point(527, 229);
-            this.DLApplicationID.Name = "DLApplicationID";
-            this.DLApplicationID.Size = new System.Drawing.Size(79, 23);
-            this.DLApplicationID.TabIndex = 161;
-            this.DLApplicationID.Text = "N\\A";
+            this.lblLocalDrivingLicenseApplicationID.BackColor = System.Drawing.Color.Transparent;
+            this.lblLocalDrivingLicenseApplicationID.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblLocalDrivingLicenseApplicationID.ForeColor = System.Drawing.Color.Black;
+            this.lblLocalDrivingLicenseApplicationID.Location = new System.Drawing.Point(527, 229);
+            this.lblLocalDrivingLicenseApplicationID.Name = "lblLocalDrivingLicenseApplicationID";
+            this.lblLocalDrivingLicenseApplicationID.Size = new System.Drawing.Size(79, 23);
+            this.lblLocalDrivingLicenseApplicationID.TabIndex = 161;
+            this.lblLocalDrivingLicenseApplicationID.Text = "N\\A";
             // 
             // siticonePictureBox1
             // 
@@ -642,10 +642,13 @@
             // 
             this.ctrlPersonCardWithFilter1.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.ctrlPersonCardWithFilter1.BackColor = System.Drawing.Color.White;
+            this.ctrlPersonCardWithFilter1.FilterEnabled = true;
             this.ctrlPersonCardWithFilter1.Location = new System.Drawing.Point(172, 8);
             this.ctrlPersonCardWithFilter1.Name = "ctrlPersonCardWithFilter1";
+            this.ctrlPersonCardWithFilter1.ShowAddPerson = true;
             this.ctrlPersonCardWithFilter1.Size = new System.Drawing.Size(1163, 769);
             this.ctrlPersonCardWithFilter1.TabIndex = 54;
+            this.ctrlPersonCardWithFilter1.OnPersonSelected += new System.Action<int>(this.ctrlPersonCardWithFilter1_OnPersonSelected);
             // 
             // btnNext
             // 
@@ -814,7 +817,7 @@
         private SiticoneNetFrameworkUI.SiticoneLabel lblCreatedBy;
         private SiticoneNetFrameworkUI.SiticonePictureBox siticonePictureBox4;
         private SiticoneNetFrameworkUI.SiticonePictureBox siticonePictureBox3;
-        private SiticoneNetFrameworkUI.SiticoneLabel DLApplicationID;
+        private SiticoneNetFrameworkUI.SiticoneLabel lblLocalDrivingLicenseApplicationID;
         private SiticoneNetFrameworkUI.SiticonePictureBox siticonePictureBox1;
         private SiticoneNetFrameworkUI.SiticoneLabel lblApplicationFees;
         private SiticoneNetFrameworkUI.SiticonePictureBox siticonePictureBox2;

@@ -1,6 +1,7 @@
 ﻿using Drivers_and_Vehicles_License_Department__DVLD_.Global;
 using Drivers_and_Vehicles_License_Department__DVLD_.Properties;
 using Drivers_and_Vehicles_License_Department__DVLD_.Test_Appointments.Forms;
+using Drivers_and_Vehicles_License_Department__DVLD_.Tests.Controls;
 using DVLD_Business;
 using System;
 using System.Collections.Generic;
@@ -16,169 +17,79 @@ namespace Drivers_and_Vehicles_License_Department__DVLD_.Tests.Forms
 {
     public partial class frmTakeTest : Form
     {
-        public event Action DataAdded;
-
-        private enum enTestType { Vision = 1, Written = 2, Street = 3 };
-
-        private enTestType _TestType;
-
-        private clsLocalDrivingLicenseApplication _LocalDrivingLicenseApplication;
-
-        private clsApplication _Application;
-
-        private clsTestAppointment _TestAppointment;
+        private clsTestType.enTestType _TestType;
 
         private clsTest _Test;
 
+        private int _TestID = -1;
+
         private int _TestAppointmentID = -1;
 
-        private int _LocalDrivingApplicationID;
-
-        private decimal _Fees;
-
-        public frmTakeTest(int TestAppointmentID, int LocalDrivingLicenseApplication, int TestTypeNumber, frmTestAppointments FormTestAppointments)
+        public frmTakeTest(int TestAppointmentID, clsTestType.enTestType TestType)
         {
             InitializeComponent();
 
-            _LocalDrivingLicenseApplication = clsLocalDrivingLicenseApplication.GetLocalDrivingApplicationByID(LocalDrivingLicenseApplication);
-
-            _LocalDrivingApplicationID = _LocalDrivingLicenseApplication.ID;
-
-            _Application = clsApplication.GetApplicationByID(_LocalDrivingLicenseApplication.ApplicationID);
-
             _TestAppointmentID = TestAppointmentID;
-
-            _TestAppointment = clsTestAppointment.GetTestAppointmentByID(_TestAppointmentID);
-
-            _TestType = (enTestType)TestTypeNumber;
-
-            if (FormTestAppointments != null)
-            {
-                this.DataAdded += FormTestAppointments.FillLocalDrivingApplicationCard;
-                this.DataAdded += FormTestAppointments._RefreshTestAppointmentsDataGrid;
-            }
-
-            _Fees = clsTestType.GetTestTypeByID((int)_TestType).Fees;
+            _TestType = TestType;
         }
 
         public void frmTakeTest_Load(object sender, EventArgs e)
         {
-            _PopulateTestAppointmentInfo();
+            ctrlScheduledTest1.TestTypeID = _TestType;
+            ctrlScheduledTest1.LoadScheduledTestInfo(_TestAppointmentID);
 
-            _UpdateTestTypeUI();
+            btnSave.Enabled = ctrlScheduledTest1.TestAppointmentID != -1;
 
-            rbPass.Checked = true;
+            int TestID = ctrlScheduledTest1.TestID;
 
-            clsUtil.MakeRoundedCorners(this, 30); //to make the form rounded
+            _Test = (TestID != -1) ? clsTest.GetTestByID(TestID) : new clsTest();
+
+            if (TestID != -1 && _Test != null)
+            {
+                rbPass.Checked = _Test.Result;
+                rbFail.Checked = !_Test.Result;
+                txtNotes.Text = _Test.Notes;
+
+                rbPass.Enabled = false;
+                rbFail.Enabled = false;
+            }
+
+            else
+            {
+                rbPass.Checked = true;
+            }
+
+            clsUtil.MakeRoundedCorners(this, 30);
 
             clsUtil.OpenFormEffect(this);
-        }
-
-        private void _UpdateTestTypeUI()
-        {
-            switch (_TestType)
-            {
-                case enTestType.Vision:
-
-                    pbTestType.BackgroundImage = Resources.Eye_Test_Pic;
-
-                    break;
-
-                case enTestType.Written:
-
-                    pbTestType.BackgroundImage = Resources.Writen_Test_pic;
-
-                    break;
-
-                case enTestType.Street:
-
-                    pbTestType.BackgroundImage = Resources.Street_Test_Pic;
-
-                    break;
-            }
-        }
-
-        private void _PopulateTestAppointmentInfo()
-        {
-            lblDLAppID.Text = _LocalDrivingApplicationID.ToString();
-            lblDClass.Text = clsLicenseClass.GetLicenseClassByID(_LocalDrivingLicenseApplication.LicenseClassID).Name.ToString();
-            lblName.Text = clsPerson.GetPersonByID(_Application.ApplicantPersonID).FullName;
-            lblTrial.Text = clsLocalDrivingLicenseApplication.GetTestsCountForLocalApplication(_LocalDrivingApplicationID, _LocalDrivingLicenseApplication.LicenseClassID, false).ToString();
-            lblDate.Text = _TestAppointment.Date.ToString();
-            lblFees.Text = _Fees.ToString();
         }
 
         private void _LoadTestData()
         {
             _Test.TestAppointmentID = _TestAppointmentID;
             _Test.Result = rbPass.Checked;
-            _Test.Notes = txtNotes.Text;
+            _Test.Notes = txtNotes.Text.Trim();
             _Test.CreatedByUserID = clsCurrentUser.CurrentUser.ID;
-        }
-
-        private void _LoadRetakeApplicationData(clsApplication RetakeApplication)
-        {
-            int RetakeDrivingTestApplicationTypeID = 7;
-
-            RetakeApplication.ApplicantPersonID = _Application.ApplicantPersonID;
-            RetakeApplication.Date = DateTime.Now;
-            RetakeApplication.TypeID = _Application.TypeID;
-            RetakeApplication.Status = _Application.Status;
-            RetakeApplication.LastStatusDate = DateTime.Now;
-            RetakeApplication.PaidFees = clsApplicationType.GetApplicationTypeByID(RetakeDrivingTestApplicationTypeID).ApplicationTypeFees;
-            RetakeApplication.CreatedByUserID = clsCurrentUser.CurrentUser.ID;
-        }
-
-        private void _CheckIfPassOrFailTest()
-        {
-            if (_Test.Result)
-            {
-                return;
-            }
-
-            clsApplication RetakeApplication = new clsApplication();
-
-            _LoadRetakeApplicationData(RetakeApplication);
-
-            if (!RetakeApplication.Save())
-            {
-                clsMessageBoxManager.ShowMessageBox("An error occurred while saving the data. Please try again.", "Save Failed", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                return;
-            }
-
-            _TestAppointment.RetakeTestApplicationID = RetakeApplication.ID;
         }
 
         private void btnSave_Click(object sender, EventArgs e)
         {
-            _Test = new clsTest();
-
-            _LoadTestData();
-
-            if (!clsMessageBoxManager.ShowConfirmActionBox("Are you sure you want to save? After that you cannot change the Pass/Fail results after you save ?",
+            if (!clsMessageBoxManager.ShowConfirmActionBox("Are you sure you want to save? You will not be able to change the result afterward",
                                                            "Confirm", MessageBoxButtons.YesNo, MessageBoxIcon.Warning))
             {
                 return;
             }
 
-            if (!_Test.AddNewTest())
+            _LoadTestData();
+
+            if (!_Test.Save())
             {
                 clsMessageBoxManager.ShowMessageBox("An error occurred while saving the data. Please try again.", "Save Failed", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                return;
-            }
-
-            _TestAppointment.IsLocked = true;
-
-            _CheckIfPassOrFailTest();
-
-            if (!_TestAppointment.Save())
-            {
-                clsMessageBoxManager.ShowMessageBox("An error occurred while saving the data. Please try again.", "Save Failed", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                btnSave.Enabled = false;
                 return;
             }
 
             clsMessageBoxManager.ShowMessageBox("Data Saved Successfully", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            DataAdded?.Invoke();
 
             this.Close();
         }

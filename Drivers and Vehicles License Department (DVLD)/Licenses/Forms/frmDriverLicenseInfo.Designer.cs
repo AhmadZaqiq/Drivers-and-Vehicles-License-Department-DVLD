@@ -59,7 +59,6 @@
             // ctrlLicenseCard1
             // 
             this.ctrlLicenseCard1.BackColor = System.Drawing.Color.White;
-            this.ctrlLicenseCard1.LicenseID = -1;
             this.ctrlLicenseCard1.Location = new System.Drawing.Point(22, 262);
             this.ctrlLicenseCard1.Name = "ctrlLicenseCard1";
             this.ctrlLicenseCard1.Size = new System.Drawing.Size(837, 396);

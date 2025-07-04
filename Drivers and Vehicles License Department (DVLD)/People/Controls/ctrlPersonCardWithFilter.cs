@@ -107,8 +107,16 @@ namespace Drivers_and_Vehicles_License_Department__DVLD_.People.Contorls
             switch (cbFilter.Text)
             {
                 case "PersonID":
-                    ctrlPersonCard1.LoadPersonInfo(int.Parse(FilterValue));
-                    break;
+                    {
+                        if (!int.TryParse(FilterValue, out int personID))
+                        {
+                            clsMessageBoxManager.ShowMessageBox("Please enter a valid numeric PersonID.", "Invalid Input", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                            return;
+                        }
+
+                        ctrlPersonCard1.LoadPersonInfo(personID);
+                        break;
+                    }
 
                 case "NationalNO.":
                     ctrlPersonCard1.LoadPersonInfo(FilterValue);
@@ -126,7 +134,7 @@ namespace Drivers_and_Vehicles_License_Department__DVLD_.People.Contorls
 
         public void LoadPersonInfo(int PersonID)
         {
-            cbFilter.SelectedIndex = 1;
+            cbFilter.SelectedIndex = 2;
             txtFilter.Text = PersonID.ToString();
             _FindNow();
         }
@@ -135,7 +143,7 @@ namespace Drivers_and_Vehicles_License_Department__DVLD_.People.Contorls
         {
             // Handle the data received
 
-            cbFilter.SelectedIndex = 1;
+            cbFilter.SelectedIndex = 2;
             txtFilter.Text = PersonID.ToString();
             ctrlPersonCard1.LoadPersonInfo(PersonID);
         }

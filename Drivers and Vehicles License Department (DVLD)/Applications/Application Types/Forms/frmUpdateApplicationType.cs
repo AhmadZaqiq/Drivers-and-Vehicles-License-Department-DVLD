@@ -31,14 +31,14 @@ namespace Drivers_and_Vehicles_License_Department__DVLD_.Application_Types
         {
             _ApplicationType = clsApplicationType.GetApplicationTypeByID(_ApplicationTypeID);
 
-            _FillApplicationTypeFields();
+            _FillApplicationTypeInfo();
 
             clsUtil.MakeRoundedCorners(this, 30);
 
             clsUtil.OpenFormEffect(this);
         }
 
-        private void _FillApplicationTypeFields()
+        private void _FillApplicationTypeInfo()
         {
             if (_ApplicationType == null)
             {
@@ -46,8 +46,8 @@ namespace Drivers_and_Vehicles_License_Department__DVLD_.Application_Types
             }
 
             lblApplicationTypeID.Text = _ApplicationTypeID.ToString();
-            txtApplicationTypeTitle.Text = _ApplicationType.ApplicationTypeTitle.ToString();
-            txtApplicationTypeFees.Text = _ApplicationType.ApplicationTypeFees.ToString();
+            txtApplicationTypeTitle.Text = _ApplicationType.Title.ToString();
+            txtApplicationTypeFees.Text = _ApplicationType.Fees.ToString();
         }
 
         private void btnSave_Click(object sender, EventArgs e)
@@ -60,8 +60,8 @@ namespace Drivers_and_Vehicles_License_Department__DVLD_.Application_Types
             }
 
 
-            _ApplicationType.ApplicationTypeTitle = txtApplicationTypeTitle.Text.Trim();
-            _ApplicationType.ApplicationTypeFees = decimal.Parse(txtApplicationTypeFees.Text.Trim());
+            _ApplicationType.Title = txtApplicationTypeTitle.Text.Trim();
+            _ApplicationType.Fees = decimal.Parse(txtApplicationTypeFees.Text.Trim());
 
             if (!_ApplicationType.Save())
             {

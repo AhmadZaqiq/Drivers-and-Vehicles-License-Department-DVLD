@@ -19,31 +19,31 @@ namespace DVLD_Business
         public enum enMode { AddNew = 0, Update = 1 };
         public enMode Mode = enMode.AddNew;
 
-        public int ApplicationTypeID { get; set; }
-        public string ApplicationTypeTitle { get; set; }
-        public decimal ApplicationTypeFees { get; set; }
+        public int ID { get; set; }
+        public string Title { get; set; }
+        public decimal Fees { get; set; }
 
         public clsApplicationType()
         {
-            ApplicationTypeID = -1;
-            ApplicationTypeTitle = "";
-            ApplicationTypeFees = -1;
+            ID = -1;
+            Title = "";
+            Fees = -1;
 
             Mode = enMode.AddNew;
         }
 
         private clsApplicationType(int ApplicationTypeID, string ApplicationTypeTitle, decimal ApplicationFees)
         {
-            this.ApplicationTypeID = ApplicationTypeID;
-            this.ApplicationTypeTitle = ApplicationTypeTitle;
-            this.ApplicationTypeFees = ApplicationFees;
+            this.ID = ApplicationTypeID;
+            this.Title = ApplicationTypeTitle;
+            this.Fees = ApplicationFees;
 
             Mode = enMode.Update;
         }
 
         public static DataTable GetAllApplicationTypes()
         {
-            return clsApplicationTypesData.GetAllApplicationTypesData();
+            return clsApplicationTypeData.GetAllApplicationTypesData();
         }
 
         public static clsApplicationType GetApplicationTypeByID(int ApplicationTypeID)
@@ -51,7 +51,7 @@ namespace DVLD_Business
             string ApplicationTypeTitle = "";
             decimal ApplicationFees = 0;
 
-            if (!clsApplicationTypesData.GetApplicationTypeInfoByIDData(ApplicationTypeID, ref ApplicationTypeTitle, ref ApplicationFees))
+            if (!clsApplicationTypeData.GetApplicationTypeInfoByIDData(ApplicationTypeID, ref ApplicationTypeTitle, ref ApplicationFees))
             {
                 return null;
             }
@@ -61,14 +61,14 @@ namespace DVLD_Business
 
         private bool _AddNewApplicationType()
         {
-            this.ApplicationTypeID = clsApplicationTypesData.AddApplicationTypeData(this.ApplicationTypeTitle, this.ApplicationTypeFees);
+            this.ID = clsApplicationTypeData.AddApplicationTypeData(this.Title, this.Fees);
 
-            return (this.ApplicationTypeID != -1);
+            return (this.ID != -1);
         }
 
         public bool _UpdateApplicationType()
         {
-            return clsApplicationTypesData.UpdateApplicationTypeData(this.ApplicationTypeID, this.ApplicationTypeTitle, this.ApplicationTypeFees);
+            return clsApplicationTypeData.UpdateApplicationTypeData(this.ID, this.Title, this.Fees);
         }
 
         public bool Save()

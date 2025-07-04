@@ -4,7 +4,7 @@ using DVLD_Data_Access;
 
 namespace DVLD_Business
 {
-    public class clsInternationalLicense
+    public class clsInternationalLicense : clsApplication
     {
         public enum enMode { AddNew = 0, Update = 1 };
         public enMode Mode = enMode.AddNew;
@@ -12,6 +12,7 @@ namespace DVLD_Business
         public int ID { get; set; }
         public int ApplicationID { get; set; }
         public int DriverID { get; set; }
+        public clsDriver DriverInfo { get; set; }
         public int IssuedUsingLocalLicenseID { get; set; }
         public DateTime IssueDate { get; set; }
         public DateTime ExpirationDate { get; set; }
@@ -30,13 +31,23 @@ namespace DVLD_Business
             this.CreatedByUserID = -1;
         }
 
-        private clsInternationalLicense(int ID, int ApplicationID, int DriverID,
-                                        int IssuedUsingLocalLicenseID, DateTime IssueDate, DateTime ExpirationDate,
-                                        bool IsActive, int CreatedByUserID)
+        private clsInternationalLicense(int InternationalLicenseID, int ApplicationID, int DriverID,
+                         int IssuedUsingLocalLicenseID, DateTime IssueDate, DateTime ExpirationDate,
+                    bool IsActive, int CreatedByUserID, int ApplicantPersonID, DateTime ApplicationDate, enApplicationStatus ApplicationStatus,
+               DateTime LastStatusDate, decimal PaidFees)
         {
-            this.ID = ID;
+            base.ApplicationID = ApplicationID;
+            base.ApplicantPersonID = ApplicantPersonID;
+            base.Date = ApplicationDate;
+            base.TypeID = (int)clsApplication.enApplicationType.NewInternationalLicense;
+            base.Status = ApplicationStatus;
+            base.LastStatusDate = LastStatusDate;
+            base.PaidFees = PaidFees;
+
+            this.ID = InternationalLicenseID;
             this.ApplicationID = ApplicationID;
             this.DriverID = DriverID;
+            this.DriverInfo = clsDriver.GetDriverByID(this.DriverID);
             this.IssuedUsingLocalLicenseID = IssuedUsingLocalLicenseID;
             this.IssueDate = IssueDate;
             this.ExpirationDate = ExpirationDate;
@@ -66,15 +77,23 @@ namespace DVLD_Business
             bool IsActive = true;
             int CreatedByUserID = -1;
 
-            if (!clsInternationalLicensesData.GetInternationalLicenseByIDData(InternationalLicenseID, ref ApplicationID, ref DriverID,
-                ref IssuedUsingLocalLicenseID, ref IssueDate, ref ExpirationDate, ref IsActive, ref CreatedByUserID))
+
+            if (!clsInternationalLicensesData.GetInternationalLicenseByIDData(
+                InternationalLicenseID, ref ApplicationID, ref DriverID,
+                ref IssuedUsingLocalLicenseID, ref IssueDate,
+                ref ExpirationDate, ref IsActive, ref CreatedByUserID))
             {
                 return null;
             }
 
+            clsApplication Application = clsApplication.GetApplicationByID(ApplicationID);
+
             return new clsInternationalLicense(InternationalLicenseID, ApplicationID, DriverID,
-                IssuedUsingLocalLicenseID, IssueDate, ExpirationDate, IsActive, CreatedByUserID);
+                IssuedUsingLocalLicenseID, IssueDate, ExpirationDate, IsActive, CreatedByUserID,
+                Application.ApplicantPersonID, Application.Date, Application.Status,
+                Application.LastStatusDate, Application.PaidFees);
         }
+
 
         private bool _AddNewInternationalLicense()
         {
@@ -92,6 +111,13 @@ namespace DVLD_Business
 
         public bool Save()
         {
+            base.Mode = (clsApplication.enMode)Mode;
+
+            if (!base.Save())
+            {
+                return false;
+            }
+
             switch (Mode)
             {
                 case enMode.AddNew:
@@ -112,34 +138,11 @@ namespace DVLD_Business
             }
         }
 
-        public static bool IsInternationalLicenseExists(int InternationalLicenseID)
+        public static int GetActiveInternationalLicenseIDByDriverID(int DriverID)
         {
-            return clsInternationalLicensesData.IsInternationalLicenseExistsData(InternationalLicenseID);
-        }
 
-        public static bool IsDriverHaveInternationalLicens(int DriverID)
-        {
-            return clsInternationalLicensesData.IsDriverHaveInternationalLicensData(DriverID);
-        }
+            return clsInternationalLicensesData.GetActiveInternationalLicenseIDByDriverIDData(DriverID);
 
-        public static clsInternationalLicense GetInternationalLicenseByDriverID(int DriverID)
-        {
-            int ID = -1;
-            int ApplicationID = -1;
-            int IssuedUsingLocalLicenseID = -1;
-            DateTime IssueDate = DateTime.Now;
-            DateTime ExpirationDate = DateTime.Now;
-            bool IsActive = true;
-            int CreatedByUserID = -1;
-
-            if (clsInternationalLicensesData.GetInternationalLicenseByDriverIDData(DriverID, ref ApplicationID, ref ID,
-                ref IssuedUsingLocalLicenseID, ref IssueDate, ref ExpirationDate, ref IsActive, ref CreatedByUserID))
-            {
-                return new clsInternationalLicense(ID, ApplicationID, DriverID,
-                    IssuedUsingLocalLicenseID, IssueDate, ExpirationDate, IsActive, CreatedByUserID);
-            }
-
-            return null;
         }
 
 

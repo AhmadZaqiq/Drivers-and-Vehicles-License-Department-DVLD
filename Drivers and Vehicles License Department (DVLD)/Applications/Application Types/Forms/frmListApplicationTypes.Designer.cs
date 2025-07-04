@@ -261,7 +261,7 @@
             this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "frmManageApplicationTypes";
-            this.Load += new System.EventHandler(this.frmManageApplicationTypes_Load);
+            this.Load += new System.EventHandler(this.frmListApplicationTypes_Load);
             this.siticonePanel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvApplicationTypes)).EndInit();
             this.cmApplicationTypeSettings.ResumeLayout(false);

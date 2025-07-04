@@ -15,6 +15,8 @@ namespace Drivers_and_Vehicles_License_Department__DVLD_.International_Driving_A
 {
     public partial class frmListInternationalDrivingLicenses : Form
     {
+        private DataTable _dtInternationalLicenses;
+
         public frmListInternationalDrivingLicenses()
         {
             InitializeComponent();
@@ -26,7 +28,7 @@ namespace Drivers_and_Vehicles_License_Department__DVLD_.International_Driving_A
 
             RefreshInternationalDrivingLicensesDataGrid();
 
-            clsUtil.MakeRoundedCorners(this, 30); //to make the form rounded
+            clsUtil.MakeRoundedCorners(this, 30);
 
             clsUtil.OpenFormEffect(this);
         }
@@ -50,7 +52,9 @@ namespace Drivers_and_Vehicles_License_Department__DVLD_.International_Driving_A
 
         public void RefreshInternationalDrivingLicensesDataGrid()
         {
-            dgvInternationalLicense.DataSource = clsInternationalLicense.GetAllInternationalLicenses();
+            _dtInternationalLicenses = clsInternationalLicense.GetAllInternationalLicenses();
+
+            dgvInternationalLicense.DataSource = _dtInternationalLicenses;
 
             _UpdateInternationalDrivingLicensesCount();
         }
@@ -102,13 +106,8 @@ namespace Drivers_and_Vehicles_License_Department__DVLD_.International_Driving_A
 
         private void ShowPersonDetailsToolStripMenuItem1_Click(object sender, EventArgs e)
         {
-            DataGridViewRow SelectedRow = dgvInternationalLicense.SelectedRows[0];
-
-            int InternationalLicenseID = Convert.ToInt32(SelectedRow.Cells["InternationalLicenseID"].Value);
-
-            int LicenseID = clsInternationalLicense.GetInternationalLicenseByID(InternationalLicenseID).IssuedUsingLocalLicenseID;
-
-            int PersonID = clsLicense.GetPersonIDByLicenseID(LicenseID);
+            int DriverID = (int)dgvInternationalLicense.CurrentRow.Cells[2].Value;
+            int PersonID = clsDriver.GetDriverByID(DriverID).PersonID;
 
             frmShowPersonDetails frmShowPersonDetails = new frmShowPersonDetails(PersonID);
             frmShowPersonDetails.ShowDialog();
@@ -116,27 +115,18 @@ namespace Drivers_and_Vehicles_License_Department__DVLD_.International_Driving_A
 
         private void ShowLicenseDetailsToolStripMenuItem1_Click(object sender, EventArgs e)
         {
-            DataGridViewRow SelectedRow = dgvInternationalLicense.SelectedRows[0];
-
-            int InternationalLicenseID = Convert.ToInt32(SelectedRow.Cells["InternationalLicenseID"].Value);
+            int InternationalLicenseID = (int)dgvInternationalLicense.CurrentRow.Cells[0].Value;
 
             frmDriverInternationalLicenseInfo FormDriverInternationalLicenseInfo = new frmDriverInternationalLicenseInfo(InternationalLicenseID);
             FormDriverInternationalLicenseInfo.ShowDialog();
         }
 
-        private void ShowPersonlicenseHistoryStripMenuItem1_Click(object sender, EventArgs e)
+        private void ShowPersonLicenseHistoryStripMenuItem1_Click(object sender, EventArgs e)
         {
-            DataGridViewRow SelectedRow = dgvInternationalLicense.SelectedRows[0];
+            int DriverID = (int)dgvInternationalLicense.CurrentRow.Cells[2].Value;
+            int PersonID = clsDriver.GetDriverByID(DriverID).PersonID;
 
-            int DriverID = Convert.ToInt32(SelectedRow.Cells["DriverID"].Value);
-
-            int InternationalLicenseID = Convert.ToInt32(SelectedRow.Cells["InternationalLicenseID"].Value);
-
-            int LicenseID = clsInternationalLicense.GetInternationalLicenseByID(InternationalLicenseID).IssuedUsingLocalLicenseID;
-
-            int PersonID = clsLicense.GetPersonIDByLicenseID(LicenseID);
-
-            frmLicensesHistory FormLicensesHistory = new frmLicensesHistory(DriverID, PersonID);
+            frmLicensesHistory FormLicensesHistory = new frmLicensesHistory(PersonID);
             FormLicensesHistory.ShowDialog();
         }
 

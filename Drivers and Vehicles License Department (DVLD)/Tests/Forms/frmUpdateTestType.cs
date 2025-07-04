@@ -16,28 +16,24 @@ namespace Drivers_and_Vehicles_License_Department__DVLD_.Test_Types
 {
     public partial class frmUpdateTestType : Form
     {
-        public event Action DataAdded;
-
-        private int _TestTypeID = -1;
+        private clsTestType.enTestType _TestTypeID = clsTestType.enTestType.VisionTest;
 
         private clsTestType _TestType;
 
-        public frmUpdateTestType(int TestTypeID, frmListTestTypes FormManageTestTypes)
+        public frmUpdateTestType(clsTestType.enTestType TestTypeID)
         {
             InitializeComponent();
 
             _TestTypeID = TestTypeID;
-
-            _TestType = clsTestType.GetTestTypeByID(_TestTypeID);
-
-            this.DataAdded += FormManageTestTypes.RefreshTestTypesDataGrid;
         }
 
         private void frmUpdateTestType_Load(object sender, EventArgs e)
         {
+            _TestType = clsTestType.GetTestTypeByID(_TestTypeID);
+
             _PopulateTestTypeFields();
 
-            clsUtil.MakeRoundedCorners(this, 30); //to make the form rounded
+            clsUtil.MakeRoundedCorners(this, 30);
 
             clsUtil.OpenFormEffect(this);
         }
@@ -55,49 +51,55 @@ namespace Drivers_and_Vehicles_License_Department__DVLD_.Test_Types
             txtTestTypeFees.Text = _TestType.Fees.ToString();
         }
 
-        private bool _ValidateAndSetTestTypeData()
-        {
-            string TestTypeTitle = txtTestTypeTitle.Text.Trim();
-            string TestTypeDescription = txtTestTypeDescription.Text.Trim();
-
-
-            if (string.IsNullOrWhiteSpace(TestTypeTitle) || string.IsNullOrWhiteSpace(TestTypeDescription))
-            {
-                return false;
-            }
-
-            if (!decimal.TryParse(txtTestTypeFees.Text.Trim(), out decimal TestTypeFees) || TestTypeFees < 0)
-            {
-                return false;
-            }
-
-            _TestType.Title = TestTypeTitle;
-            _TestType.Description = TestTypeDescription;
-            _TestType.Fees = TestTypeFees;
-            return true;
-        }
-
         private void btnSave_Click(object sender, EventArgs e)
         {
-            if (!_ValidateAndSetTestTypeData())
+            // Calls validation on all child controls to ensure user input is valid before proceeding.
+            if (!this.ValidateChildren())
             {
-                clsMessageBoxManager.ShowMessageBox("Please make sure the entered values ​​are valid.", "Failed",MessageBoxButtons.OK,MessageBoxIcon.Error);
+                clsMessageBoxManager.ShowMessageBox("Please make sure the entered values ​​are valid.", "Failed", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
 
-            if (!_TestType.UpdateTestType())
+            _TestType.Title = txtTestTypeTitle.Text.Trim();
+            _TestType.Description = txtTestTypeDescription.Text.Trim();
+            _TestType.Fees = decimal.Parse(txtTestTypeFees.Text.Trim());
+
+            if (!_TestType.Save())
             {
                 clsMessageBoxManager.ShowMessageBox("Data Not Saved.", "Failed", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
 
             clsMessageBoxManager.ShowMessageBox("Test type updated successfully", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            DataAdded?.Invoke();
         }
 
         private void btnCancel_Click(object sender, EventArgs e)
         {
             clsUtil.CloseFormEffect(this);
+        }
+
+        private void txtTestTypeTitle_Validating(object sender, CancelEventArgs e)
+        {
+            if (string.IsNullOrWhiteSpace(txtTestTypeTitle.Text.Trim()))
+            {
+                e.Cancel = true;
+                errorProvider1.SetError(txtTestTypeTitle, "Title is required.");
+                return;
+            }
+
+            errorProvider1.SetError(txtTestTypeTitle, null);
+        }
+
+        private void txtTestTypeFees_Validating(object sender, CancelEventArgs e)
+        {
+            if (!decimal.TryParse(txtTestTypeFees.Text.Trim(), out decimal fees) || fees < 0)
+            {
+                e.Cancel = true;
+                errorProvider1.SetError(txtTestTypeFees, "Please enter a valid non-negative number for the fees.");
+                return;
+            }
+
+            errorProvider1.SetError(txtTestTypeFees, null);
         }
 
 

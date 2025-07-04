@@ -850,10 +850,12 @@
             // ctrlLicenseCardWithFilter1
             // 
             this.ctrlLicenseCardWithFilter1.BackColor = System.Drawing.Color.White;
+            this.ctrlLicenseCardWithFilter1.FilterEnabled = true;
             this.ctrlLicenseCardWithFilter1.Location = new System.Drawing.Point(12, 77);
             this.ctrlLicenseCardWithFilter1.Name = "ctrlLicenseCardWithFilter1";
             this.ctrlLicenseCardWithFilter1.Size = new System.Drawing.Size(836, 506);
             this.ctrlLicenseCardWithFilter1.TabIndex = 55;
+            this.ctrlLicenseCardWithFilter1.OnLicenseSelected += new System.Action<int>(this.ctrlLicenseCardWithFilter1_OnLicenseSelected);
             // 
             // llblShowLicensesHistory
             // 
@@ -898,7 +900,7 @@
             this.Name = "frmIssueInternationalDrivingLicense";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "frmAddNewInternationalDrivingLicenseApplicaiton";
-            this.Load += new System.EventHandler(this.frmAddNewInternationalDrivingLicenseApplicaiton_Load);
+            this.Load += new System.EventHandler(this.frmAddNewInternationalDrivingLicense_Load);
             this.siticonePanel2.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();

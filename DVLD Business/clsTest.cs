@@ -10,20 +10,15 @@ namespace DVLD_Business
 {
     public class clsTest
     {
+        public enum enMode { AddNew = 0, Update = 1 };
+        public enMode Mode = enMode.AddNew;
+
         public int ID { get; set; }
         public int TestAppointmentID { get; set; }
+        public clsTestAppointment TestAppointmentInfo { set; get; }
         public bool Result { get; set; }
         public string Notes { get; set; }
         public int CreatedByUserID { get; set; }
-
-        private clsTest(int ID, int TestAppointmentID, bool Result, string Notes, int CreatedByUserID)
-        {
-            this.ID = ID;
-            this.TestAppointmentID = TestAppointmentID;
-            this.Result = Result;
-            this.Notes = Notes;
-            this.CreatedByUserID = CreatedByUserID;
-        }
 
         public clsTest()
         {
@@ -32,6 +27,20 @@ namespace DVLD_Business
             this.Result = false;
             this.Notes = string.Empty;
             this.CreatedByUserID = -1;
+
+            Mode = enMode.AddNew;
+        }
+
+        private clsTest(int ID, int TestAppointmentID, bool Result, string Notes, int CreatedByUserID)
+        {
+            this.ID = ID;
+            this.TestAppointmentID = TestAppointmentID;
+            this.TestAppointmentInfo = clsTestAppointment.GetTestAppointmentByID(TestAppointmentID);
+            this.Result = Result;
+            this.Notes = Notes;
+            this.CreatedByUserID = CreatedByUserID;
+
+            Mode = enMode.Update;
         }
 
         public static DataTable GetAllTests()
@@ -54,7 +63,23 @@ namespace DVLD_Business
             return new clsTest(TestID, TestAppointmentID, TestResult, Notes, CreatedByUserID);
         }
 
-        public bool AddNewTest()
+        public static clsTest FindLastTestPerPersonAndLicenseClass(int PersonID, int LicenseClassID, clsTestType.enTestType TestTypeID)
+        {
+            int TestID = -1;
+            int TestAppointmentID = -1;
+            bool TestResult = false; string Notes = ""; int CreatedByUserID = -1;
+
+            if (!clsTestData.GetLastTestByPersonAndTestTypeAndLicenseClassData(PersonID, LicenseClassID, (int)TestTypeID, ref TestID,
+                                                                               ref TestAppointmentID, ref TestResult,
+                                                                               ref Notes, ref CreatedByUserID))
+            {
+                return null;
+            }
+
+            return new clsTest(TestID, TestAppointmentID, TestResult, Notes, CreatedByUserID);
+        }
+
+        private bool _AddNewTest()
         {
             this.ID = clsTestData.AddNewTestData(this.TestAppointmentID,
                 this.Result, this.Notes, this.CreatedByUserID);
@@ -62,9 +87,42 @@ namespace DVLD_Business
             return (this.ID != -1);
         }
 
-        public static int GetTestAttemptsCountByTestType(int LocalDrivingLicenseApplicationID, int LicenseClassID, int TestTypeID, bool IsPassed)
+        private bool _UpdateTest()
         {
-            return clsTestData.GetTestAttemptsCountByTestTypeData(LocalDrivingLicenseApplicationID, LicenseClassID, TestTypeID, IsPassed);
+            return clsTestData.UpdateTestData(this.ID, this.TestAppointmentID,
+                this.Result, this.Notes, this.CreatedByUserID);
+        }
+
+        public bool Save()
+        {
+            switch (Mode)
+            {
+                case enMode.AddNew:
+
+                    if (_AddNewTest())
+                    {
+                        Mode = enMode.Update;
+                        return true;
+                    }
+
+                    return false;
+
+                case enMode.Update:
+
+                    return _UpdateTest();
+
+                default: return false;
+            }
+        }
+
+        public static byte GetPassedTestCount(int LocalDrivingLicenseApplicationID)
+        {
+            return clsTestData.GetPassedTestCountData(LocalDrivingLicenseApplicationID);
+        }
+
+        public static bool PassedAllTests(int LocalDrivingLicenseApplicationID)
+        {
+            return GetPassedTestCount(LocalDrivingLicenseApplicationID) == 3;
         }
 
 

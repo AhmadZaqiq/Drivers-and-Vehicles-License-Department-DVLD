@@ -16,6 +16,8 @@ namespace Drivers_and_Vehicles_License_Department__DVLD_.Test_Types
 {
     public partial class frmListTestTypes : Form
     {
+        private DataTable _dtAllTestTypes = clsTestType.GetAllTestTypes();
+
         public frmListTestTypes()
         {
             InitializeComponent();
@@ -23,23 +25,25 @@ namespace Drivers_and_Vehicles_License_Department__DVLD_.Test_Types
 
         private void frmManageTestType_Load(object sender, EventArgs e)
         {
-            RefreshTestTypesDataGrid();
+            _RefreshTestTypesDataGrid();
 
             clsUtil.MakeRoundedCorners(this, 30);
 
             clsUtil.OpenFormEffect(this);
         }
 
-        public void RefreshTestTypesDataGrid()
-        {
-            dgvTestTypes.DataSource = clsTestType.GetAllTestTypes();
-
-            _UpdateTestTypesCount();
-        }
-
         private void _UpdateTestTypesCount()
         {
             lblRecordsCount.Text = (dgvTestTypes.RowCount).ToString();
+        }
+
+        private void _RefreshTestTypesDataGrid()
+        {
+            _dtAllTestTypes = clsTestType.GetAllTestTypes();
+
+            dgvTestTypes.DataSource = _dtAllTestTypes;
+
+            _UpdateTestTypesCount();
         }
 
         private void btnCloseForm_Click(object sender, EventArgs e)
@@ -49,14 +53,12 @@ namespace Drivers_and_Vehicles_License_Department__DVLD_.Test_Types
 
         private void EditTestTypeToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            DataGridViewRow selectedRow = dgvTestTypes.SelectedRows[0];
+            clsTestType.enTestType TestTypeID = ((clsTestType.enTestType)dgvTestTypes.CurrentRow.Cells[0].Value);
 
-            int TestTypeID = Convert.ToInt32(selectedRow.Cells["TestTypeID"].Value);
-
-            frmUpdateTestType FormUpdateTestType = new frmUpdateTestType(TestTypeID, this);
+            frmUpdateTestType FormUpdateTestType = new frmUpdateTestType(TestTypeID);
             FormUpdateTestType.ShowDialog();
 
-            RefreshTestTypesDataGrid();
+            _RefreshTestTypesDataGrid();
         }
 
 

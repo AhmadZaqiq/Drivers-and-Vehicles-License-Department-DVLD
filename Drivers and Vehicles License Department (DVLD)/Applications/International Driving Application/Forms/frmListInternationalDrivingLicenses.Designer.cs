@@ -154,7 +154,7 @@
             this.ShowPersonlicenseHistoryStripMenuItem1.Name = "ShowPersonlicenseHistoryStripMenuItem1";
             this.ShowPersonlicenseHistoryStripMenuItem1.Size = new System.Drawing.Size(251, 38);
             this.ShowPersonlicenseHistoryStripMenuItem1.Text = "Show Person licenses History";
-            this.ShowPersonlicenseHistoryStripMenuItem1.Click += new System.EventHandler(this.ShowPersonlicenseHistoryStripMenuItem1_Click);
+            this.ShowPersonlicenseHistoryStripMenuItem1.Click += new System.EventHandler(this.ShowPersonLicenseHistoryStripMenuItem1_Click);
             // 
             // txtFilter
             // 

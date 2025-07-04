@@ -48,7 +48,7 @@ namespace DVLD_Data_Access
             return dt;
         }
 
-        public static bool GetLicenseClassDataByIDData(int LicenseClassID, ref string ClassName, ref string ClassDescription,
+        public static bool GetLicenseClassByIDData(int LicenseClassID, ref string ClassName, ref string ClassDescription,
                                                ref byte MinimumAllowedAge, ref byte DefaultValidityLength, ref decimal ClassFees)
         {
             SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString);
@@ -86,6 +86,54 @@ namespace DVLD_Data_Access
             catch (Exception ex)
             {
                 Console.WriteLine(ex.Message);
+            }
+
+            finally
+            {
+                connection.Close();
+            }
+
+            return IsFound;
+        }
+
+        public static bool GetLicenseClassInfoByClassName(string ClassName, ref int LicenseClassID,
+                                               ref string ClassDescription, ref byte MinimumAllowedAge,
+                                               ref byte DefaultValidityLength, ref decimal ClassFees)
+        {
+            bool IsFound = false;
+
+            SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString);
+
+            string query = @"SELECT *
+                             FROM LicenseClasses
+                             WHERE ClassName = @ClassName";
+
+            SqlCommand command = new SqlCommand(query, connection);
+
+            command.Parameters.AddWithValue("@ClassName", ClassName);
+
+            try
+            {
+                connection.Open();
+                SqlDataReader reader = command.ExecuteReader();
+
+                if (reader.Read())
+                {
+                    IsFound = true;
+                    LicenseClassID = (int)reader["LicenseClassID"];
+                    ClassDescription = (string)reader["ClassDescription"];
+                    MinimumAllowedAge = (byte)reader["MinimumAllowedAge"];
+                    DefaultValidityLength = (byte)reader["DefaultValidityLength"];
+                    ClassFees = (decimal)reader["ClassFees"];
+                }
+
+                reader.Close();
+
+            }
+
+            catch (Exception ex)
+            {
+                Console.WriteLine("Error: " + ex.Message);
             }
 
             finally

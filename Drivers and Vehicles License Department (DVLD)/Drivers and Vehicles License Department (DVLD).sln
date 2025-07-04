@@ -7,7 +7,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Drivers and Vehicles Licens
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DVLD Data Access", "..\DVLD Data Access\DVLD Data Access.csproj", "{B3AB15B1-6BB3-4F61-894D-1478421ED99F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DVLD Business", "..\DVLD Business\DVLD Business.csproj", "{C7C193C0-4FDF-428F-87D9-42989B29B2F9}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DVLD Buisness", "..\DVLD Business\DVLD Buisness.csproj", "{C7C193C0-4FDF-428F-87D9-42989B29B2F9}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

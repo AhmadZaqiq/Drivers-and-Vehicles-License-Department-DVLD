@@ -22,25 +22,27 @@ namespace Drivers_and_Vehicles_License_Department__DVLD_.Application_Types
             InitializeComponent();
         }
 
-        private void frmManageApplicationTypes_Load(object sender, EventArgs e)
+        private void frmListApplicationTypes_Load(object sender, EventArgs e)
         {
-            RefreshApplicationTypesDataGrid();
+            _RefreshApplicationTypesDataGrid();
 
             clsUtil.MakeRoundedCorners(this, 30);
 
             clsUtil.OpenFormEffect(this);
         }
 
-        public void RefreshApplicationTypesDataGrid()
-        {
-            dgvApplicationTypes.DataSource = _dtAllApplicationTypes;
-
-            _UpdateApplicationTypesCount();
-        }
-
         private void _UpdateApplicationTypesCount()
         {
             lblRecordsCount.Text = (dgvApplicationTypes.RowCount).ToString();
+        }
+
+        private void _RefreshApplicationTypesDataGrid()
+        {
+            _dtAllApplicationTypes = clsApplicationType.GetAllApplicationTypes();
+
+            dgvApplicationTypes.DataSource = _dtAllApplicationTypes;
+
+            _UpdateApplicationTypesCount();
         }
 
         private void btnCloseForm_Click(object sender, EventArgs e)
@@ -55,7 +57,7 @@ namespace Drivers_and_Vehicles_License_Department__DVLD_.Application_Types
             frmUpdateApplicationType FormUpdateApplicationType = new frmUpdateApplicationType(ApplicationTypeID);
             FormUpdateApplicationType.ShowDialog();
 
-            RefreshApplicationTypesDataGrid();
+            _RefreshApplicationTypesDataGrid();
         }
 
 

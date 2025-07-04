@@ -7,6 +7,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Drivers_and_Vehicles_License_Department__DVLD_.Global;
+using Drivers_and_Vehicles_License_Department__DVLD_.Licenses.Forms;
 using DVLD_Business;
 
 
@@ -17,102 +19,79 @@ namespace Drivers_and_Vehicles_License_Department__DVLD_.Applications.Controls
     {
         private clsLocalDrivingLicenseApplication _LocalDrivingLicenseApplication;
 
-        private clsApplication _Application;
+        private int _LocalDrivingLicenseApplicationID = -1;
 
-        private clsPerson _ApplicantPerson;
-
-        private clsUser _CreatedByUser;
-
-        private int _LocalDrivingApplicationID;
-
-        private int _ApplicationID;
-
-        private enum enStatus { New = 1, Cancelled = 2, Completed = 3 };
+        private int _LicenseID;
 
         public ctrlLocalDrivingApplicationCard()
         {
             InitializeComponent();
         }
 
-        public int LocalDrivingApplicationID
+        public int LocalDrivingLicenseApplicationID
         {
-            set
-            {
-                _LocalDrivingApplicationID = value;
-
-                if (_LocalDrivingApplicationID == -1)
-                {
-                    return; // Exits only from get
-                }
-
-                _DisplayAllApplicationDetails();
-            }
-
             get
             {
-                return _LocalDrivingApplicationID;
+                return _LocalDrivingLicenseApplicationID;
             }
         }
 
-        private void _LoadBasicAndLocalApplicationData()
+        public void LoadApplicationInfoByLocalDrivingAppID(int LocalDrivingLicenseApplicationID)
         {
-            _LocalDrivingLicenseApplication = clsLocalDrivingLicenseApplication.GetLocalDrivingApplicationByID(_LocalDrivingApplicationID);
-
-            _ApplicationID = _LocalDrivingLicenseApplication.ApplicationID;
-
-            _Application = clsApplication.GetApplicationByID(_ApplicationID);
-
-            _ApplicantPerson = clsPerson.GetPersonByID(_Application.ApplicantPersonID);
-
-            _CreatedByUser = clsUser.GetUserByID(_Application.CreatedByUserID);
-        }
-
-        private enStatus _SetStatus(int StatusNumber)
-        {
-            return (enStatus)StatusNumber;
-        }
-
-        private void _PopulateLocalApplicationDetails()
-        {
-            lblLocalApplicationID.Text = _LocalDrivingApplicationID.ToString();
-            lblPassedTests.Text = clsLocalDrivingLicenseApplication.GetTestsCountForLocalApplication(_LocalDrivingApplicationID, _LocalDrivingLicenseApplication.LicenseClassID,true).ToString() + "/3";
-            lblAppliedForLicence.Text = clsLicenseClass.GetLicenseClassByID(_LocalDrivingLicenseApplication.LicenseClassID).Name.ToString();
-        }
-
-        private void _PopulateApplicationBasicDetails()
-        {
-            lblApplicationID.Text = _ApplicationID.ToString();
-            lblStatus.Text = _SetStatus(_Application.Status).ToString();
-            lblFees.Text = _Application.PaidFees.ToString();
-            lblType.Text = clsApplicationType.GetApplicationTypeByID(_Application.TypeID).ApplicationTypeTitle.ToString();
-            lblApplicant.Text = _ApplicantPerson.FullName.ToString();
-            lblDate.Text = _Application.Date.ToString();
-            lblStatusDate.Text = _Application.LastStatusDate.ToString();
-            lblCreatedBy.Text = _CreatedByUser.Username.ToString();
-        }
-
-        private void _DisplayAllApplicationDetails()
-        {
-            _LoadBasicAndLocalApplicationData();
+            _LocalDrivingLicenseApplication = clsLocalDrivingLicenseApplication.GetLocalDrivingApplicationByID(LocalDrivingLicenseApplicationID);
 
             if (_LocalDrivingLicenseApplication == null)
             {
+                _ResetLocalDrivingLicenseApplicationInfo();
+
+                clsMessageBoxManager.ShowMessageBox("No Application with ApplicationID = " + LocalDrivingLicenseApplicationID.ToString(), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
 
-            _PopulateLocalApplicationDetails();
-            _PopulateApplicationBasicDetails();
+            _FillLocalDrivingLicenseApplicationInfo();
         }
 
-        private void btnViewPersonInfo_Click(object sender, EventArgs e)
+        public void LoadApplicationInfoByApplicationID(int ApplicationID)
         {
-            frmShowPersonDetails FormPersonDetails = new frmShowPersonDetails(_ApplicantPerson.ID);
-            FormPersonDetails.ShowDialog();
+            _LocalDrivingLicenseApplication = clsLocalDrivingLicenseApplication.GetLocalDrivingApplicationByID(ApplicationID);
+
+            if (_LocalDrivingLicenseApplication == null)
+            {
+                _ResetLocalDrivingLicenseApplicationInfo();
+
+                clsMessageBoxManager.ShowMessageBox("No Application with ApplicationID = " + LocalDrivingLicenseApplicationID.ToString(), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            _FillLocalDrivingLicenseApplicationInfo();
+        }
+
+        private void _ResetLocalDrivingLicenseApplicationInfo()
+        {
+            _LocalDrivingLicenseApplicationID = -1;
+            ctrlApplicationBasicInfo1.ResetApplicationInfo();
+            lblLocalDrivingLicenseApplicationID.Text = "N/A";
+            lblAppliedForLicense.Text = "N/A";
+        }
+
+        private void _FillLocalDrivingLicenseApplicationInfo()
+        {
+            _LicenseID = _LocalDrivingLicenseApplication.GetActiveLicenseID();
+
+            btnShowLicenseInfo.Enabled = (_LicenseID != -1);
+
+            lblLocalDrivingLicenseApplicationID.Text = _LocalDrivingLicenseApplication.ID.ToString();
+            lblAppliedForLicense.Text = clsLicenseClass.GetLicenseClass(_LocalDrivingLicenseApplication.LicenseClassID).Name;
+             lblPassedTests.Text = _LocalDrivingLicenseApplication.GetPassedTestCount().ToString() + "/3";
+            ctrlApplicationBasicInfo1.LoadApplicationInfo(_LocalDrivingLicenseApplication.ApplicationID);
         }
 
         private void btnShowLicenceInfo_Click(object sender, EventArgs e)
         {
-
+            frmDriverLicenseInfo FormDriverLicenseInfo = new frmDriverLicenseInfo(_LocalDrivingLicenseApplication.GetActiveLicenseID());
+            FormDriverLicenseInfo.ShowDialog();
         }
+
+
     }
 }

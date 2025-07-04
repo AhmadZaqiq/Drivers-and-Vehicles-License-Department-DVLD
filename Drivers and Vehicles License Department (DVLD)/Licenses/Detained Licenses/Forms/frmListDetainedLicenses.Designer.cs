@@ -495,7 +495,7 @@
             this.Name = "frmListDetainedLicenses";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "frm_ListDetainedLicenses";
-            this.Load += new System.EventHandler(this.frm_ListDetainedLicenses_Load);
+            this.Load += new System.EventHandler(this.frmListDetainedLicenses_Load);
             this.siticonePanel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvDetainedLicenses)).EndInit();
             this.cmDetainLicensesSettings.ResumeLayout(false);
