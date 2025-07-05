@@ -65,8 +65,12 @@ namespace Drivers_and_Vehicles_License_Department__DVLD_.Detained_Licenses.Forms
                 return;
             }
 
-            _DetainID = ctrlLicenseCardWithFilter1.SelectedLicenseInfo.Detain(Convert.ToSingle(txtFineFees.Text), clsCurrentUser.CurrentUser.ID);
-
+            if (!float.TryParse(txtFineFees.Text, out float fineFees))
+            {
+                clsMessageBoxManager.ShowMessageBox("Please enter a valid fine amount.", "Invalid Input", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                txtFineFees.Focus();
+                return;
+            }
             if (_DetainID == -1)
             {
                 clsMessageBoxManager.ShowMessageBox("Failed to Detain License", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);

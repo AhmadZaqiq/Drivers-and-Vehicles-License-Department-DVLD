@@ -103,22 +103,22 @@
     <Compile Include="Applications\Controls\ctrlApplicationBasicInfo.Designer.cs">
       <DependentUpon>ctrlApplicationBasicInfo.cs</DependentUpon>
     </Compile>
-    <Compile Include="Licenses\Detained Licenses\Forms\frmListDetainedLicenses.cs">
+    <Compile Include="Applications\Detained Licenses\Forms\frmListDetainedLicenses.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Licenses\Detained Licenses\Forms\frmListDetainedLicenses.Designer.cs">
+    <Compile Include="Applications\Detained Licenses\Forms\frmListDetainedLicenses.Designer.cs">
       <DependentUpon>frmListDetainedLicenses.cs</DependentUpon>
     </Compile>
-    <Compile Include="Licenses\Detained Licenses\Forms\frmDetainLicense.cs">
+    <Compile Include="Applications\Detained Licenses\Forms\frmDetainLicense.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Licenses\Detained Licenses\Forms\frmDetainLicense.Designer.cs">
+    <Compile Include="Applications\Detained Licenses\Forms\frmDetainLicense.Designer.cs">
       <DependentUpon>frmDetainLicense.cs</DependentUpon>
     </Compile>
-    <Compile Include="Licenses\Detained Licenses\Forms\frmReleaseLicense.cs">
+    <Compile Include="Applications\Detained Licenses\Forms\frmReleaseLicense.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Licenses\Detained Licenses\Forms\frmReleaseLicense.Designer.cs">
+    <Compile Include="Applications\Detained Licenses\Forms\frmReleaseLicense.Designer.cs">
       <DependentUpon>frmReleaseLicense.cs</DependentUpon>
     </Compile>
     <Compile Include="Drivers\Forms\frmListDrivers.cs">
@@ -359,13 +359,13 @@
     <EmbeddedResource Include="Applications\Controls\ctrlApplicationBasicInfo.resx">
       <DependentUpon>ctrlApplicationBasicInfo.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Licenses\Detained Licenses\Forms\frmListDetainedLicenses.resx">
+    <EmbeddedResource Include="Applications\Detained Licenses\Forms\frmListDetainedLicenses.resx">
       <DependentUpon>frmListDetainedLicenses.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Licenses\Detained Licenses\Forms\frmDetainLicense.resx">
+    <EmbeddedResource Include="Applications\Detained Licenses\Forms\frmDetainLicense.resx">
       <DependentUpon>frmDetainLicense.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Licenses\Detained Licenses\Forms\frmReleaseLicense.resx">
+    <EmbeddedResource Include="Applications\Detained Licenses\Forms\frmReleaseLicense.resx">
       <DependentUpon>frmReleaseLicense.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Drivers\Forms\frmListDrivers.resx">
@@ -914,8 +914,8 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Applications\Application Types\Controls\" />
+    <Folder Include="Applications\Detained Licenses\Controls\" />
     <Folder Include="Drivers\Controls\" />
-    <Folder Include="Licenses\Detained Licenses\Controls\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\Questions-cuate.png" />

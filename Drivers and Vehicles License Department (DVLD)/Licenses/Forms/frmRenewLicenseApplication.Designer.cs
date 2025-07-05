@@ -238,6 +238,7 @@
             // ctrlLicenseCardWithFilter1
             // 
             this.ctrlLicenseCardWithFilter1.BackColor = System.Drawing.Color.White;
+            this.ctrlLicenseCardWithFilter1.FilterEnabled = true;
             this.ctrlLicenseCardWithFilter1.Location = new System.Drawing.Point(14, 78);
             this.ctrlLicenseCardWithFilter1.Name = "ctrlLicenseCardWithFilter1";
             this.ctrlLicenseCardWithFilter1.Size = new System.Drawing.Size(836, 506);
@@ -959,6 +960,7 @@
             this.btnRenew.CornerRadiusTopRight = 20;
             this.btnRenew.CustomCursor = System.Windows.Forms.Cursors.Default;
             this.btnRenew.DisabledTextColor = System.Drawing.Color.FromArgb(((int)(((byte)(150)))), ((int)(((byte)(150)))), ((int)(((byte)(150)))));
+            this.btnRenew.Enabled = false;
             this.btnRenew.EnableLongPress = false;
             this.btnRenew.EnablePressAnimation = true;
             this.btnRenew.EnableRippleEffect = true;

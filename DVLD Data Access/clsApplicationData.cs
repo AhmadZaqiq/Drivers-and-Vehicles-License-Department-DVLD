@@ -126,7 +126,6 @@ namespace DVLD_Data_Access
 
                 object Result = command.ExecuteScalar();
 
-
                 if (Result != null && int.TryParse(Result.ToString(), out int insertedID))
                 {
                     ApplicationID = insertedID;

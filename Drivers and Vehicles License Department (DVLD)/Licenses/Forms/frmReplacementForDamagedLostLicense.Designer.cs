@@ -678,6 +678,7 @@
             this.btnIssue.CornerRadiusTopRight = 20;
             this.btnIssue.CustomCursor = System.Windows.Forms.Cursors.Default;
             this.btnIssue.DisabledTextColor = System.Drawing.Color.FromArgb(((int)(((byte)(150)))), ((int)(((byte)(150)))), ((int)(((byte)(150)))));
+            this.btnIssue.Enabled = false;
             this.btnIssue.EnableLongPress = false;
             this.btnIssue.EnablePressAnimation = true;
             this.btnIssue.EnableRippleEffect = true;

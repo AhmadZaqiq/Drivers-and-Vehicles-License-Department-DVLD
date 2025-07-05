@@ -62,7 +62,7 @@ namespace DVLD_Data_Access
             return dt;
         }
 
-        public static bool GetDetainedLicenseByIDData(int DetainID, ref int LicenseID, ref DateTime DetainDate,
+        public static bool GetDetainedLicenseByLicenseIDData(int LicenseID, ref int DetainID, ref DateTime DetainDate,
             ref decimal FineFees, ref int CreatedByUserID, ref bool IsReleased, ref DateTime ReleaseDate,
             ref int ReleasedByUserID, ref int ReleaseApplicationID)
         {
@@ -70,17 +70,17 @@ namespace DVLD_Data_Access
 
             SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString);
 
-            string query = @"SELECT 
-                             LicenseID, DetainDate, FineFees, CreatedByUserID, IsReleased, 
+            string query = @"SELECT top 1
+                             LicenseID, DetainID, DetainDate, FineFees, CreatedByUserID, IsReleased, 
                              ReleaseDate, ReleasedByUserID, ReleaseApplicationID
                              FROM 
                              DetainedLicenses 
                              WHERE 
-                             DetainID = @DetainID;";
+                             LicenseID = @LicenseID;";
 
             SqlCommand command = new SqlCommand(query, connection);
 
-            command.Parameters.AddWithValue("@DetainID", DetainID);
+            command.Parameters.AddWithValue("@LicenseID", LicenseID);
 
             try
             {
@@ -93,6 +93,7 @@ namespace DVLD_Data_Access
                     IsFound = true;
 
                     LicenseID = (int)reader["LicenseID"];
+                    DetainID = (int)reader["DetainID"];
                     DetainDate = (DateTime)reader["DetainDate"];
                     FineFees = (decimal)reader["FineFees"];
                     CreatedByUserID = (int)reader["CreatedByUserID"];

@@ -17,7 +17,6 @@ namespace Drivers_and_Vehicles_License_Department__DVLD_.Licenses.Forms
     {
         private int _NewLicenseID = -1;
 
-
         public frmReplacementForDamagedLostLicense()
         {
             InitializeComponent();

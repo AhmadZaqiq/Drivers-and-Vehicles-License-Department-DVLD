@@ -63,7 +63,7 @@ namespace DVLD_Business
             this.IsActive = IsActive;
             this.IssueReasonID = IssueReasonCode;
             this.CreatedByUserID = CreatedByUserID;
-            this.DetainedInfo = clsDetainedLicense.GetDetainedLicenseByID(this.ID);
+            this.DetainedInfo = clsDetainedLicense.GetDetainedLicenseByLicenseID(this.ID);
 
             this.Mode = enMode.Update;
         }
