@@ -1,19 +1,22 @@
-﻿using System;
+﻿using Microsoft.Win32;
+using System;
 using System.Collections.Generic;
-using System.Drawing.Drawing2D;
 using System.Drawing;
+using System.Drawing.Drawing2D;
+using System.IO;
 using System.Linq;
+using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.Security.Cryptography;
-using System.IO;
 
 namespace Drivers_and_Vehicles_License_Department__DVLD_.Global
 {
     public class clsUtil
     {
         public static string UserSessionFileName = "UserSession.txt";
+
+        public static string keyPath = @"HKEY_CURRENT_USER\SOFTWARE\DVLD";
 
         private clsUtil() { }
 
@@ -138,7 +141,7 @@ namespace Drivers_and_Vehicles_License_Department__DVLD_.Global
             return true;
         }
 
-        public static void SaveValuesOnFile(string Username, string Password,string Separator= "#%%#")
+        public static void SaveValuesOnFile(string Username, string Password, string Separator = "#%%#")
         {
             try
             {
@@ -169,6 +172,49 @@ namespace Drivers_and_Vehicles_License_Department__DVLD_.Global
 
             Username = Parts[0];
             Password = Parts[1];
+        }
+
+        public static void SaveValuesToRegistry(string Username, string Password, string Separator = "#%%#")
+        {
+            try
+            {
+                string Data = Username + Separator + Password;
+
+                Registry.SetValue(keyPath, "SessionData", Data, RegistryValueKind.String);
+            }
+
+            catch (Exception ex)
+            {
+                Console.WriteLine("Error saving session data to registry: " + ex.Message);
+            }
+        }
+
+        public static void LoadValuesFromRegistry(ref string Username, ref string Password, string Separator = "#%%#")
+        {
+            try
+            {
+                string Data = Registry.GetValue(keyPath, "SessionData", null) as string;
+
+                if (string.IsNullOrEmpty(Data))
+                {
+                    return;
+                }
+
+                string[] parts = Data.Split(new string[] { Separator }, StringSplitOptions.None);
+
+                if (parts.Length != 2)
+                {
+                    return;
+                }
+
+                Username = parts[0];
+                Password = parts[1];
+            }
+
+            catch (Exception ex)
+            {
+                Console.WriteLine("Error loading session data from registry: " + ex.Message);
+            }
         }
 
 

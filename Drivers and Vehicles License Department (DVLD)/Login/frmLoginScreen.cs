@@ -39,7 +39,7 @@ namespace Drivers_and_Vehicles_License_Department__DVLD_.Login
         {
             string Username = "", Password = "";
 
-            clsUtil.LoadValuesFromFile(ref Username, ref Password);
+            clsUtil.LoadValuesFromRegistry(ref Username, ref Password);
             txtUsername.Text = Username;
             txtPassword.Text = Password;
         }
@@ -74,11 +74,11 @@ namespace Drivers_and_Vehicles_License_Department__DVLD_.Login
 
             if (!chkRememberMe.Checked)
             {
-                clsUtil.SaveValuesOnFile("", "");
+                clsUtil.SaveValuesToRegistry("", "");
                 return;
             }
 
-            clsUtil.SaveValuesOnFile(txtUsername.Text, txtPassword.Text);
+            clsUtil.SaveValuesToRegistry(txtUsername.Text, txtPassword.Text);
         }
 
         private void btnFacebook_Click(object sender, EventArgs e)
