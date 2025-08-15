@@ -6,4 +6,6 @@ D:\C++ && C#\DVLD\DVLD Business\bin\Debug\DVLD Business.dll
 D:\C++ && C#\DVLD\DVLD Business\bin\Debug\DVLD Business.pdb
 D:\C++ && C#\DVLD\DVLD Business\bin\Debug\DVLD Data Access.dll
 D:\C++ && C#\DVLD\DVLD Business\bin\Debug\DVLD Data Access.pdb
-D:\C++ && C#\DVLD\DVLD Business\obj\Debug\DVLD Buisness.csproj.CopyComplete
+D:\C++ && C#\DVLD\DVLD Business\obj\Debug\DVLD Bui.E583E716.Up2Date
+D:\C++ && C#\DVLD\DVLD Business\bin\Debug\DVLD.Common.dll
+D:\C++ && C#\DVLD\DVLD Business\bin\Debug\DVLD.Common.pdb

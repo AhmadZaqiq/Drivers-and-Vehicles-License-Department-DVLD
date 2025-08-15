@@ -10,3 +10,6 @@ D:\C++ && C#\DVLD\DVLD Data Access\obj\Debug\DVLD Data Access.csproj.AssemblyRef
 D:\C++ && C#\DVLD\DVLD Data Access\obj\Debug\DVLD Data Access.csproj.CoreCompileInputs.cache
 D:\C++ && C#\DVLD\DVLD Data Access\obj\Debug\DVLD Data Access.dll
 D:\C++ && C#\DVLD\DVLD Data Access\obj\Debug\DVLD Data Access.pdb
+D:\C++ && C#\DVLD\DVLD Data Access\bin\Debug\DVLD.Common.dll
+D:\C++ && C#\DVLD\DVLD Data Access\bin\Debug\DVLD.Common.pdb
+D:\C++ && C#\DVLD\DVLD Data Access\obj\Debug\DVLD Dat.0B2DDEBF.Up2Date

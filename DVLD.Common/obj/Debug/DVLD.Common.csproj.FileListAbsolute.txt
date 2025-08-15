@@ -1,0 +1,6 @@
+D:\C++ && C#\DVLD\DVLD.Common\bin\Debug\DVLD.Common.dll
+D:\C++ && C#\DVLD\DVLD.Common\bin\Debug\DVLD.Common.pdb
+D:\C++ && C#\DVLD\DVLD.Common\obj\Debug\DVLD.Common.csproj.AssemblyReference.cache
+D:\C++ && C#\DVLD\DVLD.Common\obj\Debug\DVLD.Common.csproj.CoreCompileInputs.cache
+D:\C++ && C#\DVLD\DVLD.Common\obj\Debug\DVLD.Common.dll
+D:\C++ && C#\DVLD\DVLD.Common\obj\Debug\DVLD.Common.pdb

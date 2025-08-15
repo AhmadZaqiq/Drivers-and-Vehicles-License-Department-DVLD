@@ -58,5 +58,11 @@
     <Compile Include="clsInternationalLicensesData.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\DVLD.Common\DVLD.Common.csproj">
+      <Project>{9522b788-c910-4750-9786-cdd88b416932}</Project>
+      <Name>DVLD.Common</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

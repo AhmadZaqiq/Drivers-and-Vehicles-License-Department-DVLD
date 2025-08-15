@@ -532,6 +532,10 @@
       <Project>{c7c193c0-4fdf-428f-87d9-42989b29b2f9}</Project>
       <Name>DVLD Buisness</Name>
     </ProjectReference>
+    <ProjectReference Include="..\DVLD.Common\DVLD.Common.csproj">
+      <Project>{9522b788-c910-4750-9786-cdd88b416932}</Project>
+      <Name>DVLD.Common</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\cross.png" />

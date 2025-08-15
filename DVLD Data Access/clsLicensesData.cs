@@ -64,10 +64,7 @@ namespace DVLD_Data_Access
 
                 reader.Close();
             }
-            catch (Exception ex)
-            {
-                Console.WriteLine(ex.Message);
-            }
+            catch (Exception ex) { clsDVLDLogger.LogException(ex); }
             finally
             {
                 connection.Close();
@@ -113,10 +110,7 @@ namespace DVLD_Data_Access
 
             }
 
-            catch (Exception ex)
-            {
-                Console.WriteLine("Error: " + ex.Message);
-            }
+            catch (Exception ex) { clsDVLDLogger.LogException(ex); }
 
             finally
             {
@@ -170,10 +164,7 @@ namespace DVLD_Data_Access
                     LicenseID = insertedID;
                 }
             }
-            catch (Exception ex)
-            {
-                Console.WriteLine("Error while adding license: " + ex.Message);
-            }
+            catch (Exception ex) { clsDVLDLogger.LogException(ex); }
             finally
             {
                 connection.Close();
@@ -227,10 +218,7 @@ namespace DVLD_Data_Access
 
                 UpdatedSuccessfully = (rowsAffected > 0);
             }
-            catch (Exception ex)
-            {
-                Console.WriteLine("Error while updating license: " + ex.Message);
-            }
+            catch (Exception ex) { clsDVLDLogger.LogException(ex); }
             finally
             {
                 connection.Close();
@@ -269,10 +257,7 @@ namespace DVLD_Data_Access
                 }
             }
 
-            catch (Exception ex)
-            {
-                Console.WriteLine("Error: " + ex.Message);
-            }
+            catch (Exception ex) { clsDVLDLogger.LogException(ex); }
 
             finally
             {
@@ -303,10 +288,7 @@ namespace DVLD_Data_Access
                 RowsAffected = command.ExecuteNonQuery();
             }
 
-            catch (Exception ex)
-            {
-                Console.WriteLine("Error: " + ex.Message);
-            }
+            catch (Exception ex) { clsDVLDLogger.LogException(ex); }
 
             finally
             {

@@ -50,10 +50,7 @@ namespace Drivers_and_Vehicles_License_Department__DVLD_.International_Driving_A
                     pbPersonalImage.Load(imagePath);
                 }
 
-                catch (Exception ex)
-                {
-                    clsMessageBoxManager.ShowMessageBox("Error loading image: " + ex.Message, "Image Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
+                catch (Exception ex) { clsDVLDLogger.LogException(ex); }
 
                 return;
             }
@@ -69,10 +66,7 @@ namespace Drivers_and_Vehicles_License_Department__DVLD_.International_Driving_A
                     pbPersonalImage.Image = Image.FromFile(defaultImagePath);
                 }
 
-                catch (Exception ex)
-                {
-                    clsMessageBoxManager.ShowMessageBox("Error loading default image: " + ex.Message, "Image Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
+                catch (Exception ex) { clsDVLDLogger.LogException(ex); }
 
                 return;
             }

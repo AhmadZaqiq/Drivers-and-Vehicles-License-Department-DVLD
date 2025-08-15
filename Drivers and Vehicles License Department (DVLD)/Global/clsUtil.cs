@@ -96,10 +96,7 @@ namespace Drivers_and_Vehicles_License_Department__DVLD_.Global
                     return true;
                 }
 
-                catch (Exception ex)
-                {
-                    return false;
-                }
+                catch (Exception ex) { clsDVLDLogger.LogException(ex); }
             }
 
             return true;
@@ -149,10 +146,7 @@ namespace Drivers_and_Vehicles_License_Department__DVLD_.Global
                 File.WriteAllText(UserSessionFileName, Data);
             }
 
-            catch (Exception ex)
-            {
-                Console.WriteLine("Error saving session data: " + ex.Message);
-            }
+            catch (Exception ex) { clsDVLDLogger.LogException(ex); }
         }
 
         public static void LoadValuesFromFile(ref string Username, ref string Password, string Separator = "#%%#")
@@ -183,10 +177,7 @@ namespace Drivers_and_Vehicles_License_Department__DVLD_.Global
                 Registry.SetValue(keyPath, "SessionData", Data, RegistryValueKind.String);
             }
 
-            catch (Exception ex)
-            {
-                Console.WriteLine("Error saving session data to registry: " + ex.Message);
-            }
+            catch (Exception ex) { clsDVLDLogger.LogException(ex); }
         }
 
         public static void LoadValuesFromRegistry(ref string Username, ref string Password, string Separator = "#%%#")
@@ -211,10 +202,7 @@ namespace Drivers_and_Vehicles_License_Department__DVLD_.Global
                 Password = parts[1];
             }
 
-            catch (Exception ex)
-            {
-                Console.WriteLine("Error loading session data from registry: " + ex.Message);
-            }
+            catch (Exception ex) { clsDVLDLogger.LogException(ex); }
         }
 
 

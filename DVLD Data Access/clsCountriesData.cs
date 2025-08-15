@@ -35,10 +35,7 @@ namespace DVLD_Data_Access
                 reader.Close();
             }
 
-            catch (Exception ex)
-            {
-                Console.WriteLine(ex.Message);
-            }
+            catch (Exception ex) { clsDVLDLogger.LogException(ex); }
 
             finally
             {
@@ -76,10 +73,7 @@ namespace DVLD_Data_Access
 
             }
 
-            catch (Exception ex)
-            {
-                Console.WriteLine(ex.Message);
-            }
+            catch (Exception ex) { clsDVLDLogger.LogException(ex); }
 
             finally
             {
@@ -117,10 +111,7 @@ namespace DVLD_Data_Access
 
             }
 
-            catch (Exception ex)
-            {
-                Console.WriteLine(ex.Message);
-            }
+            catch (Exception ex) { clsDVLDLogger.LogException(ex); }
 
             finally
             {
